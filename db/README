@@ -1,0 +1,10 @@
+## OS X Environment Set up
+
+brew install postgresql
+pg_ctl -D /usr/local/var/postgres start && brew services start postgresql
+
+CREATE ROLE structnet WITH LOGIN PASSWORD 'structnet';
+ALTER ROLE structnet CREATEDB;
+
+# Sample Usage
+python db_utils.py /data/mengqu2/pubmed-cotype/data_cancer_filtertype.json entity2sent entity2article "select sentId from entity2sent where entity_name='san francisco'"
