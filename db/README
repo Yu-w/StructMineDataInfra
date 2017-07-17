@@ -6,8 +6,10 @@ pg_ctl -D /usr/local/var/postgres start && brew services start postgresql
 CREATE ROLE structnet WITH LOGIN PASSWORD 'structnet';
 ALTER ROLE structnet CREATEDB;
 
+psql structnet -U structnet
+
 create two tables in #TABLE_SCHEMA
-insert records in #INSERT_RECORDS
+insert records in #INSERT_RECORDS via python scripts
 
 #INSERT_RECORDS
 Insert entity_table, 
