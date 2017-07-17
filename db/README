@@ -6,9 +6,24 @@ pg_ctl -D /usr/local/var/postgres start && brew services start postgresql
 CREATE ROLE structnet WITH LOGIN PASSWORD 'structnet';
 ALTER ROLE structnet CREATEDB;
 
-# INSERT RECORDS
+create two tables in #TABLE_SCHEMA
+insert records in #INSERT_RECORDS
 
-#TABLE_SHEMA
+#INSERT_RECORDS
+Insert entity_table, 
+	import db_utils
+	tmp_utils = data_utils({'data_file': sys.argv[1], 'table_name': sys.argv[2], 'corpus_map': sys.argv[3]})
+	tmp_utils.load_pmids()
+	tmp_utils.insert_entity()
+python db/db_utils.py /data/mengqu2/pubmed-cotype-new/split_data/data_finalaa entity_table final_pmid_dict.m
+
+
+Insert relation_table,
+	tmp_utils = data_utils({'data_file': sys.argv[1], 'table_name': sys.argv[2], 'corpus_map': sys.argv[3]})
+	tmp_utils.insert_relation()
+python db/db_utils.py /data/mengqu2/pubmed-cotype-new/split_data/data_finalaa relation_table final_pmid_dict.m
+
+#TABLE_SCHEMA
 CREATE TABLE entity_table (
     article_id integer,
     sent_id integer,
@@ -17,7 +32,6 @@ CREATE TABLE entity_table (
     sent text,
     article_title text
 );
-
 
 CREATE TABLE relation_table (
     entity_a text,
