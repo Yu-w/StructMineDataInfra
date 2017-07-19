@@ -109,18 +109,39 @@ def worker(lines):
 
 #class db_utils(object)
 if __name__ == '__main__':
-	#tmp_utils = data_utils({'data_file': sys.argv[1], 'table_name': sys.argv[2], 'corpus_map': sys.argv[3]})
-	#tmp_utils.load_pmids()
-	#tmp_utils.insert_entity()
-	#tmp_utils.insert_relation()
+	# sys.argv[1] = "./data/sample_data.json"
+	# sys.argv[2] = "entity_table"
+	# sys.argv[2] = "relation_table"
+	# sys.argv[3] = "./data/final_pmid_dict.m"
+
+	print(sys.argv)
+	# tmp_utils = data_utils({'data_file': sys.argv[1], 'table_name': sys.argv[2], 'corpus_map': sys.argv[3]})
+	# tmp_utils.load_pmids()
+	# tmp_utils.insert_entity()
+	# tmp_utils.insert_relation()
+	
+	sys.argv[1] = "relation_table"
+	sys.argv[2] = "{'mesh':'1', 'name':'Chemicals_and_Drugs'}"
+	sys.argv[3] = "{'mesh':'1', 'name':'Chemicals_and_Drugs'}"
+	sys.argv[4] = "isa"
 	tmp_utils = data_utils({'table_name': sys.argv[1]})
 	tmp_utils.query_links(type_a=sys.argv[2], type_b=sys.argv[3], relation_type=sys.argv[4])
+	
+	# '''
+	# lines = open(sys.argv[1]).readlines()
+	# print "lines", len(lines)
+	# numthreads = 20
+	# numlines = 10000
+	# pool = multiprocessing.Pool(processes=numthreads)
+	# result_list = pool.map(worker, (lines[line:line+numlines] for line in xrange(0,len(lines),numlines) ))
+	# '''
+
 	'''
-	lines = open(sys.argv[1]).readlines()
-	print "lines", len(lines)
-	numthreads = 20
-	numlines = 10000
-	pool = multiprocessing.Pool(processes=numthreads)
-	result_list = pool.map(worker, (lines[line:line+numlines] for line in xrange(0,len(lines),numlines) ))
+	[{}, {}, {}]
+	in each dict:
+		a_id: the articleID of document that contains the entity a
+		b_id: the articleID of document that contains the entity b
+		entity_a: entity name
+		entity_b: entity name 
 	'''
 
