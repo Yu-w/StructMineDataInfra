@@ -1,0 +1,70 @@
+<div class="hbox hbox-auto-xs hbox-auto-sm">
+  <!-- main -->
+    <!-- main header -->
+    <div class="bg-light lter b-b wrapper-md">
+      <div class="row">
+        <div class="col-sm-12">
+          <h1 class="m-n font-thin h3 text-black">Network Exploration</h1>
+          <small class="text-muted">Some description</small>
+        </div>
+      </div>
+    </div>
+    <!-- / main header -->
+  <div class="wrapper-md">
+    <form name="form" class="form-validation" ng-submit="submitForm()">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="form-group pull-in clearfix">
+          <div class="col-sm-4">
+            <label>Argument 1</label>
+            <input type="text" class="form-control" placeholder="Cardiomyopathies" ng-model="request.argument1" required>
+          </div>
+          <div class="col-sm-4">
+            <label>Argument 2</label>
+            <input type="text" class="form-control" placeholder="Gene" ng-model="request.argument2" required>
+          </div>
+          <div class="col-sm-4">
+            <label>Relation</label>
+            <input type="text" class="form-control" placeholder="GeneDiseaseAssociation" ng-model="request.relation" required>
+          </div>
+        </div>
+        <button class="btn btn-success" ng-disabled="form.$invalid">Show Relationships</button>
+        <button class="btn btn-success" ng-disabled="form.$invalid">Show predicted relationships</button>
+      </div>
+    </div>
+    </form>
+  </div>
+    <div class="wrapper-md">
+      <div class="bg-white">
+        <div class="wrapper bg-white">
+          <div class="nav-tabs-alt">
+            <ul class="nav nav-tabs" role="tablist">
+              <li class="active">
+                <a ng-click="resetLayout('circle')" data-target="#tab-1" role="tab" data-toggle="tab">
+                  <span class="text text-muted">Circle</span>
+                </a>
+              </li>
+              <li class="">
+                <a ng-click="resetLayout('cose')" data-target="#tab-2" role="tab" data-toggle="tab">
+                  <span class="text text-muted">Compound Spring Embedder</span>
+                </a>
+              </li>
+              <li class="">
+                <a ng-click="resetLayout('breadthfirst')" data-target="#tab-3" role="tab" data-toggle="tab">
+                  <span class="text text-muted">Breadth First</span>
+                </a>
+              </li>
+              <li class="pull-right">
+                <a ng-click="center()" class="pull-right"><i class="fa fa-align-center text-muted m-r-xs"></i><span class="text text-muted">Center</span></a>
+              </li>
+            </ul>
+
+          </div>
+
+        </div>
+        <cytoscape graph-options="options" graph-elements="elements" graph-layout="layout" graph-style="style" graph-ready="cy_graph_ready"></cytoscape>
+      </div>
+    </div>
+  <!-- / main -->
+
+</div>
