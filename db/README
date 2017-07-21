@@ -38,6 +38,7 @@ CREATE TABLE relation_table (
 
 
 pip install PyGreSQL
+pip install ast
 
 
 #INSERT_RECORDS

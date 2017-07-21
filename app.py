@@ -1,6 +1,7 @@
 from flask import Flask, render_template, url_for, request, json, redirect, jsonify
 import json
 import datetime
+from db.db_utils import data_utils
 
 sample_data = [
   {
@@ -89,7 +90,15 @@ def network_exploration():
     arg1 = request.args.get('argument1')
     arg2 = request.args.get('argument2')
     relation = request.args.get('relation')
-    print(arg1, arg2, relation)
+    print("Parameters in http requestion: ", arg1, arg2, relation)
+
+    tmp_utils = data_utils({'table_name': "relation_table"})
+    type_a = str({'mesh':'1', 'name':arg1})
+    type_b = str({'mesh':'1', 'name':arg2})
+    relation_type = relation
+    print("Type a, type b:", type_a, type_b, relation_type)
+    res = tmp_utils.query_links(type_a=type_a, type_b=type_b, relation_type=relation_type)
+    print("Result catched by apps:", res)
 
 
     response = app.response_class(

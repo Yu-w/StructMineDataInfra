@@ -95,6 +95,7 @@ class data_utils(object):
 		print query_string
 		q = self.db.query(query_string)
 		print q.dictresult()
+		return q.dictresult()
 
 def worker(lines):
 	for line in lines:
