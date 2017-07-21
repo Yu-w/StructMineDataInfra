@@ -1,2 +1,5 @@
 # data
 data/*
+angularJS-front/node_modules
+agularJS-front/node_modules/*
+angularJS-front/package-lock.json
