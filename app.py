@@ -92,7 +92,6 @@ def network_exploration():
     "{'name':'mesh', 'type':'{Anatomy}'}" 
     is_associated_anatomy_of_gene_product
     '''
-
     if FLAGS_DEBUG:
         print("[INFO] Start querying DB")
     tmp_utils = data_utils({'entity_table': 'entity_table', 'relation_table': 'relation_table'})
@@ -103,6 +102,107 @@ def network_exploration():
     if FLAGS_DEBUG:
         print("[INFO] Complete querying DB")
 
+    if FLAGS_DEBUG:
+        print("[INFO] Start formatting DB output results into JSON")
+    json_data = []
+    ## Add Type A nodes
+    for k,v in res["node_a"].items():
+        # k is the entity name
+        # v is a list of triplets (article_title, sentence, pmid)
+        data_label = k
+        data_id = ''.join(k.split()) # front-end id should not contain space
+        data_docs = []
+        for doc_info in v:
+            if len(doc_info) != 3:
+                print("[ERROR] wrongly formated document", doc_info)
+                data_docs_title = "NONE"
+                data_docs_pmid = "0"
+                data_docs_sents = ["NONE-SENT"]
+            else:
+                data_docs_title = doc_info[0]
+                data_docs_pmid = doc_info[2]
+                data_docs_sents = [doc_info[1]] # front-end requires sentences send as a list
+            data_docs.append({
+                "title": data_docs_title,
+                "pmid": data_docs_pmid,
+                "sentences": data_docs_sents
+            })
+        ## Add type-a nodes
+        data = {
+            "id": data_id,
+            "label": data_label,
+            "docs": data_docs
+        }
+        json_data.append({
+            "group": "nodes",
+            "data": data,
+            "selectable": True,
+            "grabbable": True
+        })
+
+    ## Add Type B nodes
+    for k,v in res["node_b"].items():
+        # k is the entity name
+        # v is a list of triplets (article_title, sentence, pmid)
+        data_label = k
+        data_id = ''.join(k.split()) # front-end id should not contain space
+        data_docs = []
+        for doc_info in v:
+            if len(doc_info) != 3:
+                print("[ERROR] wrongly formated document", doc_info)
+                data_docs_title = "NONE"
+                data_docs_pmid = "0"
+                data_docs_sents = ["NONE-SENT"]
+            else:
+                data_docs_title = doc_info[0]
+                data_docs_pmid = doc_info[2]
+                data_docs_sents = [doc_info[1]] # front-end requires sentences send as a list
+            data_docs.append({
+                "title": data_docs_title,
+                "pmid": data_docs_pmid,
+                "sentences": data_docs_sents
+            })
+        data = {
+            "id": data_id,
+            "label": data_label,
+            "docs": data_docs
+        }
+        json_data.append({
+            "group": "nodes",
+            "data": data,
+            "selectable": True,
+            "grabbable": True,
+            "classes": "type2"
+        })
+
+    ## Add edges, notice that each edge has only one attached document
+    for edge in res["edge"]:
+        # edge is a dict {'article_title':xxx, 'sent':xxx, 'pmid':xxx, 'source':xxx, 'target':xxx}
+        data_source = "".join(edge["source"].split())
+        data_target = "".join(edge["target"].split())
+        data_doc_title = edge["article_title"]
+        data_doc_sentences = [edge["sent"]]
+        data_doc_pmid = edge["pmid"]
+        data_doc = [{
+            "title": data_doc_title,
+            "pmid": data_doc_pmid,
+            "sentences": data_doc_sentences
+        }]
+        data = {
+            "source": data_source,
+            "target": data_target,
+            "docs": data_doc
+        }
+        json_data.append({
+            "group": "edges",
+            "data": data
+        })
+
+
+
+    if FLAGS_DEBUG:
+        print("[INFO] Complete formatting DB output results into JSON")
+
     # for k,v in res.items():
     #     print("Key = ", k)
     #     print("Value = ", v)
@@ -111,7 +211,7 @@ def network_exploration():
 
 
     response = app.response_class(
-        response=json.dumps(sample_data_2),
+        response=json.dumps(json_data),
         status=200,
         mimetype='application/json'
     )
