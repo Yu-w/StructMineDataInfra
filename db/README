@@ -33,7 +33,9 @@ CREATE TABLE relation_table (
     type_a_umls text[],
     type_b_umls text[],
     type_a_mesh text[],
-    type_b_mesh text[]
+    type_b_mesh text[],
+    article_id integer,
+    sent_id integer
 );
 
 
@@ -42,29 +44,28 @@ pip install ast
 
 
 #INSERT_RECORDS
-Insert entity_table, 
-	import db_utils
-	tmp_utils = data_utils({'data_file': sys.argv[1], 'table_name': sys.argv[2], 'corpus_map': sys.argv[3]})
-	tmp_utils.load_pmids()
-	tmp_utils.insert_entity()
-python db/db_utils.py /data/mengqu2/pubmed-cotype-new/split_data/data_finalaa entity_table final_pmid_dict.m
+python db/db_utils.py /data/mengqu2/pubmed-cotype-new/split_data/data_finalaa entity_table relation_table /shared/data/qiz3/StructMineDataInfra/final_pmid_dict.m &
 
-
-
-
-Insert relation_table,
-	tmp_utils = data_utils({'data_file': sys.argv[1], 'table_name': sys.argv[2], 'corpus_map': sys.argv[3]})
-	tmp_utils.insert_relation()
-python db/db_utils.py /data/mengqu2/pubmed-cotype-new/split_data/data_finalaa relation_table final_pmid_dict.m
+#INDEXS
+ENTITY TABLE:
+Indexes:
+    "entity_table_entity_name_idx" btree (entity_name)
+    "entity_table_sent_id_idx" btree (sent_id)
+RELATION TABLE:
+Indexes:
+    "relation_table_relation_type_idx" btree (relation_type)
+    "relation_table_type_a_mesh_idx" gin (type_a_mesh)
+    "relation_table_type_b_mesh_idx" gin (type_b_mesh)
 
 
 ##Example Usage on dmserv4
 source /shared/data/qiz3/qiz3/bin/activate
-python db/db_utils.py relation_table type_a type_b relation_type
-type_a "{'mesh':'1', 'name':'Chemicals_and_Drugs'}"
-	1 stands for position in mesh type array, 'Chemicals_and_Drugs' in top hierarchy
-	'Chemicals_and_Drugs' stands for specific type
-python db/db_utils.py relation_table "{'mesh':'1', 'name':'Chemicals_and_Drugs'}" "{'mesh':'1', 'name':'Chemicals_and_Drugs'}" isa
+Params: db_utils.py entity_table relation_table type_a type_b relation_type
+Current settings:
+Return 5 node_a, 5 node_b, each edge return one (article,sent), each node return two (article,sent)
+type_a/type_b format: {'name':mesh/umls, 'type':sub_type}
+python db/db_utils.py entity_table relation_table "{'name':'mesh', 'type':'{Chemicals_and_Drugs}'}" "{'name':'mesh', 'type':'{Anatomy}'}" is_associated_anatomy_of_gene_product
 
-return:
-[{'b_id': [114, 801, 874], 'entity_a': 'antifungal agents', 'entity_b': 'amb', 'a_id': [801, 822, 874]}, {'b_id': [451, 466, 470], 'entity_a': 'antioxidants', 'entity_b': 'quercetin', 'a_id': [313, 430, 451]}, {'b_id': [2825, 3159, 5055], 'entity_a': 'carcinogens', 'entity_b': 'bpde', 'a_id': [348, 493, 514]}, {'b_id': [1433, 2470, 3237], 'entity_a': 'cxc chemokine', 'entity_b': 'stromal cell-derived factor 1', 'a_id': [1979, 2470, 3054]}, {'b_id': [128, 1766, 1872], 'entity_a': 'enzyme', 'entity_b': 'hydrolases', 'a_id': [12, 14, 35]}, {'b_id': [1155, 5809], 'entity_a': 'ion channel', 'entity_b': 'sodium channels', 'a_id': [1047, 1989, 2819]}, {'b_id': [517, 5624], 'entity_a': 'mmps', 'entity_b': 'collagenase 3', 'a_id': [50, 95, 105]}, {'b_id': [35, 278, 973], 'entity_a': 'src-family kinases', 'entity_b': 'fyn', 'a_id': [2829, 3875, 5019]}, {'b_id': [4899], 'entity_a': 'transcription factor', 'entity_b': 'transcription factor 21', 'a_id': [1, 77, 94]}, {'b_id': [160, 309, 638], 'entity_a': 'transforming growth factor', 'entity_b': 'tgf-beta', 'a_id': [86, 105, 316]}]
+Outputs: dict with 'node_a','node_b','edge'
+key:'node_a'/'node_b' value:list of triplet (article_title,sentence,pmid)
+key:'edge' value: list of dict {'article_title':xxx, 'sent':xxx, 'pmid':xxx, 'source':xxx, 'target':xxx}
