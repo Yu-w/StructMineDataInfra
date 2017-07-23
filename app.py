@@ -1,3 +1,7 @@
+'''
+__author__: Jiaming Shen
+__description__: the middleaware to connect DB and front-end system
+'''
 from flask import Flask, render_template, url_for, request, json, redirect, jsonify
 import json
 import datetime
