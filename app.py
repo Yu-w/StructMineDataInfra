@@ -2,6 +2,7 @@ from flask import Flask, render_template, url_for, request, json, redirect, json
 import json
 import datetime
 from db.db_utils import data_utils
+from config import *
 
 sample_data = [
   {
@@ -113,5 +114,5 @@ def network_exploration():
 
 if __name__ == '__main__':
     # app.run(debug=True) # for local testing
-    app.run(host='0.0.0.0', port = 3000, debug=True) # for server
+    app.run(host=FLAGS_HOST_ADDR, port = FLAGS_PORT, debug=FLAGS_DEBUG) # for server
 
