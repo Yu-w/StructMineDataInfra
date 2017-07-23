@@ -25,4 +25,9 @@ Open browser and go to **http://localhost:8080/index.html**
 
 #### Backend Database
 
-Please follow the README in ./db directory. 
+Please follow the README in ./db directory.
+
+#### Note:
+
+On the server version, the js controller in angularJS send request to 192.XXX address and
+the Flask should start on 192.XXX address.

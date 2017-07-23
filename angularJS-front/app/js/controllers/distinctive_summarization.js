@@ -148,7 +148,7 @@ app.controller('DistinctiveSummarizationCtrl', ['$scope','$uibModal', '$http', f
 
                 $ctrl.ok = function () {
 
-                    $http.get("http://localhost:3000/distinctive_summarization", {params: request}).then(function(response) {
+                    $http.get("http://192.17.58.208:3000/distinctive_summarization", {params: request}).then(function(response) {
                         $scope.diseases = response.data;
                     });
                     $uibModalInstance.close();

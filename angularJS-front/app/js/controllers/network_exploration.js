@@ -20,8 +20,9 @@ app.controller('NetworkExplorationCtrl', ['$scope','cytoData','$uibModal', '$htt
                 $ctrl.request = request;
 
                 $ctrl.ok = function () {
-                    $http.get("http://localhost:3000/network_exploration", {params: request}).then(function(response) {
+                    $http.get("http://192.17.58.208:3000/network_exploration", {params: request}).then(function(response) {
                         $scope.elements = response.data;
+                        $scope.graph.load();
                     });
                     $uibModalInstance.close();
                 };
@@ -119,7 +120,19 @@ app.controller('NetworkExplorationCtrl', ['$scope','cytoData','$uibModal', '$htt
             group: 'nodes',
             data: {
                 id: 'Dmd-RelatedDilatedCardiomyopathy',
-                label:'Dmd-Related Dilated Cardiomyopathy'
+                label:'Dmd-Related Dilated Cardiomyopathy',
+                docs: [
+                    {
+                        "title": "title1",
+                        "pmid": "pmid1",
+                        "sentences": ["sentence1-1", "sentence1-2", "sentence1-3"]
+                    },
+                    {
+                        "title": "title2",
+                        "pmid": "pmid2",
+                        "sentences": ["sentence2-1", "sentence2-2", "sentence3-3"]
+                    }
+                ]
             },
             selectable: true,
             grabbable: true
@@ -207,7 +220,19 @@ app.controller('NetworkExplorationCtrl', ['$scope','cytoData','$uibModal', '$htt
             group: 'edges',
             data: {
                 source: 'ACTC1',
-                target: 'FamilialDilatedCardiomyopathy'
+                target: 'FamilialDilatedCardiomyopathy',
+                docs: [
+                    {
+                        "title": "title1",
+                        "pmid": "pmid1",
+                        "sentences": ["sentence1-1", "sentence1-2", "sentence1-3"]
+                    },
+                    {
+                        "title": "title2",
+                        "pmid": "pmid2",
+                        "sentences": ["sentence2-1", "sentence2-2", "sentence3-3"]
+                    }
+                ]
             }
         },{
             group: 'edges',
@@ -323,4 +348,62 @@ app.controller('NetworkExplorationCtrl', ['$scope','cytoData','$uibModal', '$htt
     //
     // console.log(cy)
 
+    $scope.$on('cy:node:click', function(ng,cy){
+        var node = cy.cyTarget;
+        console.log(node.data())
+        $uibModal.open({
+            animation: true,
+            ariaLabelledBy: 'modal-title-top',
+            ariaDescribedBy: 'modal-body-top',
+            templateUrl: 'tpl/distinctive_summarization_node_detail_modal.html',
+            resolve: {
+                request: function () {
+                    return $scope.request;
+                }
+            },
+            controller: function ($uibModalInstance, request, $http) {
+                var $ctrl = this;
+                $ctrl.request = request;
+
+                $ctrl.ok = function () {
+                    $uibModalInstance.close();
+                };
+
+                $ctrl.cancel = function () {
+                    $uibModalInstance.dismiss('cancel');
+                };
+            },
+            controllerAs: '$ctrl'
+        });
+    });
+
+    $scope.$on('cy:edge:click', function(ng,cy){
+        var node = cy.cyTarget;
+        console.log(node.data())
+        $uibModal.open({
+            animation: true,
+            ariaLabelledBy: 'modal-title-top',
+            ariaDescribedBy: 'modal-body-top',
+            templateUrl: 'tpl/distinctive_summarization_node_detail_modal.html',
+            resolve: {
+                request: function () {
+                    return $scope.request;
+                }
+            },
+            controller: function ($uibModalInstance, request, $http) {
+                var $ctrl = this;
+                $ctrl.request = request;
+
+                $ctrl.ok = function () {
+                    $uibModalInstance.close();
+                    $scope.graph.load();
+                };
+
+                $ctrl.cancel = function () {
+                    $uibModalInstance.dismiss('cancel');
+                };
+            },
+            controllerAs: '$ctrl'
+        });
+    });
 }]);

@@ -71,6 +71,55 @@ sample_data_2 = [
 
 app = Flask(__name__)
 
+@app.route('/network_exploration', methods=['GET','POST'])
+def network_exploration():
+    '''
+    arg1: corresponds to type a (node_a)
+    arg2: corresponds to type b (node_b)
+
+    :return:
+    '''
+    arg1 = request.args.get('argument1')
+    arg2 = request.args.get('argument2')
+    relation = request.args.get('relation')
+    print("Parameters in http requestion: ", arg1, arg2, relation)
+
+    '''
+    Following the query format from @bran
+    Example:
+    python db/db_utils.py entity_table relation_table 
+    "{'name':'mesh', 'type':'{Chemicals_and_Drugs}'}" 
+    "{'name':'mesh', 'type':'{Anatomy}'}" 
+    is_associated_anatomy_of_gene_product
+    '''
+
+    if FLAGS_DEBUG:
+        print("[INFO] Start querying DB")
+    tmp_utils = data_utils({'entity_table': 'entity_table', 'relation_table': 'relation_table'})
+    type_a = str({'name':'mesh', 'type':("{"+arg1+"}") })
+    type_b = str({'name':'mesh', 'type':("{"+arg2+"}") })
+    relation_type = relation
+    res = tmp_utils.query_links(type_a=type_a, type_b=type_b, relation_type=relation_type)
+    if FLAGS_DEBUG:
+        print("[INFO] Complete querying DB")
+
+    # for k,v in res.items():
+    #     print("Key = ", k)
+    #     print("Value = ", v)
+    #     print("="*40)
+
+
+
+    response = app.response_class(
+        response=json.dumps(sample_data_2),
+        status=200,
+        mimetype='application/json'
+    )
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
+
+
+
 @app.route('/distinctive_summarization', methods=['GET','POST'])
 def distinctive_summarization():
 
@@ -89,31 +138,6 @@ def distinctive_summarization():
     return response
     # return "Hello World!!"
     # return render_template('data/sample.json')
-
-@app.route('/network_exploration', methods=['GET','POST'])
-def network_exploration():
-    arg1 = request.args.get('argument1')
-    arg2 = request.args.get('argument2')
-    relation = request.args.get('relation')
-    print("Parameters in http requestion: ", arg1, arg2, relation)
-
-    tmp_utils = data_utils({'table_name': "relation_table"})
-    type_a = str({'mesh':'1', 'name':arg1})
-    type_b = str({'mesh':'1', 'name':arg2})
-    relation_type = relation
-    print("Type a, type b:", type_a, type_b, relation_type)
-    res = tmp_utils.query_links(type_a=type_a, type_b=type_b, relation_type=relation_type)
-    print("Result catched by apps:", res)
-
-
-    response = app.response_class(
-        response=json.dumps(sample_data_2),
-        status=200,
-        mimetype='application/json'
-    )
-    response.headers.add('Access-Control-Allow-Origin', '*')
-    return response
-
 
 
 if __name__ == '__main__':
