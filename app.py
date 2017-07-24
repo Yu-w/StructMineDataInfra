@@ -129,7 +129,7 @@ def network_exploration():
     type_a = str({'name':'mesh', 'type':("{"+arg1+"}") })
     type_b = str({'name':'mesh', 'type':("{"+arg2+"}") })
     relation_type = relation
-    res = tmp_utils.query_links(type_a=type_a, type_b=type_b, relation_type=relation_type)
+    res = tmp_utils.query_links(type_a=type_a, type_b=type_b, relation_type=relation_type, num_nodes=5)
     if FLAGS_DEBUG:
         print("[INFO] Complete querying DB")
 
