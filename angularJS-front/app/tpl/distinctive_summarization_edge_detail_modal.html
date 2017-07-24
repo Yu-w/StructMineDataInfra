@@ -1,12 +1,12 @@
 <div class="modal-header">
-    <h3 class="modal-title">{{node.label}}</h3>
+    <h2 class="modal-title">{{edge.source}} - {{edge.target}}</h2>
 </div>
 <div class="modal-body">
     <div class="wrapper-sm">
-        <div class="panel-body" ng-if="node.docs == null || node.docs.length==0">
-            No document available
+        <div class="panel-body" ng-if="edge.docs == null || edge.docs.length == 0">
+            <p>No document available</p>
         </div>
-        <div class="panel panel-default" ng-repeat="doc in node.docs">
+        <div class="panel panel-default" ng-repeat="doc in edge.docs">
             <div class="panel-heading"><a ng-href="https://www.ncbi.nlm.nih.gov/pubmed/{{doc.pmid}}" target="_blank">{{doc.title}}</a></div>
             <ul class="list-group">
                 <li class="list-group-item" ng-repeat="sent in doc.sentences">{{sent}}</li>

@@ -357,20 +357,16 @@ app.controller('NetworkExplorationCtrl', ['$scope','cytoData','$uibModal', '$htt
             ariaDescribedBy: 'modal-body-top',
             templateUrl: 'tpl/distinctive_summarization_node_detail_modal.html',
             resolve: {
-                request: function () {
-                    return $scope.request;
+                node: function () {
+                    return node.data();
                 }
             },
-            controller: function ($uibModalInstance, request, $http) {
+            controller: function ($uibModalInstance, node, $http,$scope) {
                 var $ctrl = this;
-                $ctrl.request = request;
-
+                $scope.node = node;
+                console.log($scope.node);
                 $ctrl.ok = function () {
                     $uibModalInstance.close();
-                };
-
-                $ctrl.cancel = function () {
-                    $uibModalInstance.dismiss('cancel');
                 };
             },
             controllerAs: '$ctrl'
@@ -378,29 +374,23 @@ app.controller('NetworkExplorationCtrl', ['$scope','cytoData','$uibModal', '$htt
     });
 
     $scope.$on('cy:edge:click', function(ng,cy){
-        var node = cy.cyTarget;
-        console.log(node.data())
+        var edge = cy.cyTarget;
+        console.log(edge.data())
         $uibModal.open({
             animation: true,
             ariaLabelledBy: 'modal-title-top',
             ariaDescribedBy: 'modal-body-top',
-            templateUrl: 'tpl/distinctive_summarization_node_detail_modal.html',
+            templateUrl: 'tpl/distinctive_summarization_edge_detail_modal.html',
             resolve: {
-                request: function () {
-                    return $scope.request;
+                edge: function () {
+                    return edge.data();
                 }
             },
-            controller: function ($uibModalInstance, request, $http) {
+            controller: function ($uibModalInstance, edge, $http,$scope) {
                 var $ctrl = this;
-                $ctrl.request = request;
-
+                $scope.edge = edge;
                 $ctrl.ok = function () {
                     $uibModalInstance.close();
-                    $scope.graph.load();
-                };
-
-                $ctrl.cancel = function () {
-                    $uibModalInstance.dismiss('cancel');
                 };
             },
             controllerAs: '$ctrl'
