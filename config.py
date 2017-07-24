@@ -8,4 +8,4 @@ FLAGS_HOST_ADDR = '192.17.58.208' # dmserv4 address
 FLAGS_DB_ADDR = '192.17.58.208' # dmserv4 DB address
 FLAGS_PORT = 3000
 FLAGS_DEBUG = True
-FLAGS_SAVE_DATA = True # use to save data for debug
+FLAGS_SAVE_DATA = False # use to save data for debug
