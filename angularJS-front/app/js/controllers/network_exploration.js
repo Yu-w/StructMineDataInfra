@@ -83,226 +83,227 @@ app.controller('NetworkExplorationCtrl', ['$scope','cytoData','$uibModal', '$htt
     $scope.cy_graph_ready = function(evt){
         $scope.log('graph ready to be interacted with: ', evt);
     }
-    $scope.elements = [
-        {
-            group: 'nodes',
-            data: {
-                id: 'EndocardialFibroelastosis',
-                label:'Endocardial Fibroelastosis'
-            },
-            selectable: true,
-            grabbable: true
-        },{
-            group: 'nodes',
-            data: {
-                id: 'FamilialDilatedCardiomyopathy',
-                label:'Familial Dilated Cardiomyopathy'
-            },
-            selectable: true,
-            grabbable: true
-        },{
-            group: 'nodes',
-            data: {
-                id: 'familialRestrictiveCardiomyopathy',
-                label:'familial Restrictive Cardiomyopathy'
-            },
-            selectable: true,
-            grabbable: true
-        },{
-            group: 'nodes',
-            data: {
-                id: 'CarvajalSyndrome',
-                label:'Carvajal Syndrome'
-            },
-            selectable: true,
-            grabbable: true
-        },{
-            group: 'nodes',
-            data: {
-                id: 'Dmd-RelatedDilatedCardiomyopathy',
-                label:'Dmd-Related Dilated Cardiomyopathy',
-                docs: [
-                    {
-                        "title": "title1",
-                        "pmid": "pmid1",
-                        "sentences": ["sentence1-1", "sentence1-2", "sentence1-3"]
-                    },
-                    {
-                        "title": "title2",
-                        "pmid": "pmid2",
-                        "sentences": ["sentence2-1", "sentence2-2", "sentence3-3"]
-                    }
-                ]
-            },
-            selectable: true,
-            grabbable: true
-        },{
-            group: 'nodes',
-            data: {
-                id: 'CentronuclearMyopathy',
-                label:'Centronuclear Myopathy'
-            },
-            selectable: true,
-            grabbable: true
-        },{
-            group: 'nodes',
-            data: {
-                id: 'ACTC1',
-                label:'ACTC1'
-            },
-            selectable: true,
-            grabbable: true,
-            classes: 'type2'
-        },{
-            group: 'nodes',
-            data: {
-                id: 'TAZ',
-                label:'TAZ'
-            },
-            selectable: true,
-            grabbable: true,
-            classes: 'type2'
-        },{
-            group: 'nodes',
-            data: {
-                id: 'ABCC9',
-                label:'ABCC9'
-            },
-            selectable: true,
-            grabbable: true,
-            classes: 'type2'
-        },{
-            group: 'nodes',
-            data: {
-                id: 'TTN',
-                label:'TTN'
-            },
-            selectable: true,
-            grabbable: true,
-            classes: 'type2'
-        },{
-            group: 'nodes',
-            data: {
-                id: 'TNNI3',
-                label:'TNNI3'
-            },
-            selectable: true,
-            grabbable: true,
-            classes: 'type2'
-        },{
-            group: 'nodes',
-            data: {
-                id: 'DSC2',
-                label:'DSC2'
-            },
-            selectable: true,
-            grabbable: true,
-            classes: 'type2'
-        },{
-            group: 'nodes',
-            data: {
-                id: 'DMD',
-                label:'DMD'
-            },
-            selectable: true,
-            grabbable: true,
-            classes: 'type2'
-        },{
-            group: 'nodes',
-            data: {
-                id: 'BIN1',
-                label:'BIN1'
-            },
-            selectable: true,
-            grabbable: true,
-            classes: 'type2'
-        },{
-            group: 'edges',
-            data: {
-                source: 'ACTC1',
-                target: 'FamilialDilatedCardiomyopathy',
-                docs: [
-                    {
-                        "title": "title1",
-                        "pmid": "pmid1",
-                        "sentences": ["sentence1-1", "sentence1-2", "sentence1-3"]
-                    },
-                    {
-                        "title": "title2",
-                        "pmid": "pmid2",
-                        "sentences": ["sentence2-1", "sentence2-2", "sentence3-3"]
-                    }
-                ]
-            }
-        },{
-            group: 'edges',
-            data: {
-                source: 'ACTC1',
-                target: 'familialRestrictiveCardiomyopathy'
-            }
-        },{
-            group: 'edges',
-            data: {
-                source: 'TAZ',
-                target: 'EndocardialFibroelastosis'
-            }
-        },{
-            group: 'edges',
-            data: {
-                source: 'TAZ',
-                target: 'FamilialDilatedCardiomyopathy'
-            }
-        },{
-            group: 'edges',
-            data: {
-                source: 'ABCC9',
-                target: 'familialRestrictiveCardiomyopathy'
-            }
-        },{
-            group: 'edges',
-            data: {
-                source: 'TTN',
-                target: 'CentronuclearMyopathy'
-            }
-        },{
-            group: 'edges',
-            data: {
-                source: 'TTN',
-                target: 'FamilialDilatedCardiomyopathy'
-            }
-        },{
-            group: 'edges',
-            data: {
-                source: 'TNNI3',
-                target: 'FamilialDilatedCardiomyopathy'
-            }
-        },{
-            group: 'edges',
-            data: {
-                source: 'DSC2',
-                target: 'CarvajalSyndrome'
-            }
-        },{
-            group: 'edges',
-            data: {
-                source: 'DMD',
-                target: 'FamilialDilatedCardiomyopathy'
-            }
-        },{
-            group: 'edges',
-            data: {
-                source: 'DMD',
-                target: 'Dmd-RelatedDilatedCardiomyopathy'
-            }
-        },{
-            group: 'edges',
-            data: {
-                source: 'BIN1',
-                target: 'CentronuclearMyopathy'
-            }
-        }
-    ];
+    // $scope.elements = [
+    //     {
+    //         group: 'nodes',
+    //         data: {
+    //             id: 'EndocardialFibroelastosis',
+    //             label:'Endocardial Fibroelastosis'
+    //         },
+    //         selectable: true,
+    //         grabbable: true
+    //     },{
+    //         group: 'nodes',
+    //         data: {
+    //             id: 'FamilialDilatedCardiomyopathy',
+    //             label:'Familial Dilated Cardiomyopathy'
+    //         },
+    //         selectable: true,
+    //         grabbable: true
+    //     },{
+    //         group: 'nodes',
+    //         data: {
+    //             id: 'familialRestrictiveCardiomyopathy',
+    //             label:'familial Restrictive Cardiomyopathy'
+    //         },
+    //         selectable: true,
+    //         grabbable: true
+    //     },{
+    //         group: 'nodes',
+    //         data: {
+    //             id: 'CarvajalSyndrome',
+    //             label:'Carvajal Syndrome'
+    //         },
+    //         selectable: true,
+    //         grabbable: true
+    //     },{
+    //         group: 'nodes',
+    //         data: {
+    //             id: 'Dmd-RelatedDilatedCardiomyopathy',
+    //             label:'Dmd-Related Dilated Cardiomyopathy',
+    //             docs: [
+    //                 {
+    //                     "title": "title1",
+    //                     "pmid": "pmid1",
+    //                     "sentences": ["sentence1-1", "sentence1-2", "sentence1-3"]
+    //                 },
+    //                 {
+    //                     "title": "title2",
+    //                     "pmid": "pmid2",
+    //                     "sentences": ["sentence2-1", "sentence2-2", "sentence3-3"]
+    //                 }
+    //             ]
+    //         },
+    //         selectable: true,
+    //         grabbable: true
+    //     },{
+    //         group: 'nodes',
+    //         data: {
+    //             id: 'CentronuclearMyopathy',
+    //             label:'Centronuclear Myopathy'
+    //         },
+    //         selectable: true,
+    //         grabbable: true
+    //     },{
+    //         group: 'nodes',
+    //         data: {
+    //             id: 'ACTC1',
+    //             label:'ACTC1'
+    //         },
+    //         selectable: true,
+    //         grabbable: true,
+    //         classes: 'type2'
+    //     },{
+    //         group: 'nodes',
+    //         data: {
+    //             id: 'TAZ',
+    //             label:'TAZ'
+    //         },
+    //         selectable: true,
+    //         grabbable: true,
+    //         classes: 'type2'
+    //     },{
+    //         group: 'nodes',
+    //         data: {
+    //             id: 'ABCC9',
+    //             label:'ABCC9'
+    //         },
+    //         selectable: true,
+    //         grabbable: true,
+    //         classes: 'type2'
+    //     },{
+    //         group: 'nodes',
+    //         data: {
+    //             id: 'TTN',
+    //             label:'TTN'
+    //         },
+    //         selectable: true,
+    //         grabbable: true,
+    //         classes: 'type2'
+    //     },{
+    //         group: 'nodes',
+    //         data: {
+    //             id: 'TNNI3',
+    //             label:'TNNI3'
+    //         },
+    //         selectable: true,
+    //         grabbable: true,
+    //         classes: 'type2'
+    //     },{
+    //         group: 'nodes',
+    //         data: {
+    //             id: 'DSC2',
+    //             label:'DSC2'
+    //         },
+    //         selectable: true,
+    //         grabbable: true,
+    //         classes: 'type2'
+    //     },{
+    //         group: 'nodes',
+    //         data: {
+    //             id: 'DMD',
+    //             label:'DMD'
+    //         },
+    //         selectable: true,
+    //         grabbable: true,
+    //         classes: 'type2'
+    //     },{
+    //         group: 'nodes',
+    //         data: {
+    //             id: 'BIN1',
+    //             label:'BIN1'
+    //         },
+    //         selectable: true,
+    //         grabbable: true,
+    //         classes: 'type2'
+    //     },{
+    //         group: 'edges',
+    //         data: {
+    //             source: 'ACTC1',
+    //             target: 'FamilialDilatedCardiomyopathy',
+    //             docs: [
+    //                 {
+    //                     "title": "title1",
+    //                     "pmid": "pmid1",
+    //                     "sentences": ["sentence1-1", "sentence1-2", "sentence1-3"]
+    //                 },
+    //                 {
+    //                     "title": "title2",
+    //                     "pmid": "pmid2",
+    //                     "sentences": ["sentence2-1", "sentence2-2", "sentence3-3"]
+    //                 }
+    //             ]
+    //         }
+    //     },{
+    //         group: 'edges',
+    //         data: {
+    //             source: 'ACTC1',
+    //             target: 'familialRestrictiveCardiomyopathy'
+    //         }
+    //     },{
+    //         group: 'edges',
+    //         data: {
+    //             source: 'TAZ',
+    //             target: 'EndocardialFibroelastosis'
+    //         }
+    //     },{
+    //         group: 'edges',
+    //         data: {
+    //             source: 'TAZ',
+    //             target: 'FamilialDilatedCardiomyopathy'
+    //         }
+    //     },{
+    //         group: 'edges',
+    //         data: {
+    //             source: 'ABCC9',
+    //             target: 'familialRestrictiveCardiomyopathy'
+    //         }
+    //     },{
+    //         group: 'edges',
+    //         data: {
+    //             source: 'TTN',
+    //             target: 'CentronuclearMyopathy'
+    //         }
+    //     },{
+    //         group: 'edges',
+    //         data: {
+    //             source: 'TTN',
+    //             target: 'FamilialDilatedCardiomyopathy'
+    //         }
+    //     },{
+    //         group: 'edges',
+    //         data: {
+    //             source: 'TNNI3',
+    //             target: 'FamilialDilatedCardiomyopathy'
+    //         }
+    //     },{
+    //         group: 'edges',
+    //         data: {
+    //             source: 'DSC2',
+    //             target: 'CarvajalSyndrome'
+    //         }
+    //     },{
+    //         group: 'edges',
+    //         data: {
+    //             source: 'DMD',
+    //             target: 'FamilialDilatedCardiomyopathy'
+    //         }
+    //     },{
+    //         group: 'edges',
+    //         data: {
+    //             source: 'DMD',
+    //             target: 'Dmd-RelatedDilatedCardiomyopathy'
+    //         }
+    //     },{
+    //         group: 'edges',
+    //         data: {
+    //             source: 'BIN1',
+    //             target: 'CentronuclearMyopathy'
+    //         }
+    //     }
+    // ];
 
+    $scope.elements = null;
     $scope.style = [ // See http://js.cytoscape.org/#style for style formatting and options.
         {
             selector: 'node',

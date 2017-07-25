@@ -127,6 +127,7 @@ app.controller('DistinctiveSummarizationCtrl', ['$scope','$uibModal', '$http', f
         }
     ];
 
+    $scope.diseases = null; // set default data to be null
     $scope.submitForm = function() {
         $uibModal.open({
             animation: true,
