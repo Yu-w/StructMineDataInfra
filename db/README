@@ -38,6 +38,19 @@ CREATE TABLE relation_table (
     sent_id integer
 );
 
+CREATE TABLE prediction_table (
+    entity_a text,
+    entity_b text,
+    relation_type text,
+    score real
+);
+
+CREATE TABLE caseolap_table (
+    doc_id integer,
+    sub_type text,
+    entity text,
+    score real
+);
 
 pip install PyGreSQL
 pip install ast
@@ -64,7 +77,19 @@ Params: db_utils.py entity_table relation_table type_a type_b relation_type
 Current settings:
 Return 5 node_a, 5 node_b, each edge return one (article,sent), each node return two (article,sent)
 type_a/type_b format: {'name':mesh/umls, 'type':sub_type}
-python db/db_utils.py entity_table relation_table "{'name':'mesh', 'type':'{Chemicals_and_Drugs}'}" "{'name':'mesh', 'type':'{Anatomy}'}" is_associated_anatomy_of_gene_product
+
+##Query Network
+python db/db_utils.py query network entity_table relation_table "{'name':'mesh', 'type':'{Chemicals_and_Drugs}'}" "{'name':'mesh', 'type':'{Anatomy}'}" is_associated_anatomy_of_gene_product
+
+##Query predictions
+##return True or False, represents if there is a edge or not
+python db/db_utils.py query predict prediction_table 'telomere maintenance' 'transcriptional regulation' is_location_of_biological_process
+
+##Query caseolap, need further warp up
+##return list of list of dict, order by score and trucated by param [[(sub_type_1){'entity':xxxx},{},{}],[(sub_type_2)]]
+##e.g.[[{'entity': 'yp'}, {'entity': 'chromosome 11 short arm'}, {'entity': 'chromosome 6 long arm'}, {'entity': 'chromosome 3 short arm'}, {'entity': 'chromosome 2 short arm'}, {'entity': 'chromosome 8 short arm'}, {'entity': 'chromosome x short arm'}, {'entity': 'chromosome 1 long arm'}], [{'entity': 'chromosome 7 short arm'}, {'entity': 'chromosome 7 long arm'}, {'entity': 'chromosome 7q'}, {'entity': '7q'}]]
+python db/db_utils.py query caseolap caseolap_table 0  "['Chromosomes,_Archaeal','Chromosomes,_Mammalian::Chromosomes,_Human::Chromosomes,_Human,_6-12_and_X::Chromosomes,_Human,_Pair_7']"
+
 
 Outputs: dict with 'node_a','node_b','edge'
 key:'node_a'/'node_b' value:list of triplet (article_title,sentence,pmid)
