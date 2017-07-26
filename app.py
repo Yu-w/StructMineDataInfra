@@ -100,7 +100,9 @@ sample_data_2 = [
 
 ## This variable cache the previous network in near-json format
 ## Useful when we want to show the predicted relationships
-cached_previous_json_network = None
+# cached_previous_json_network = []
+# cached_relation = ""
+cached_json_and_relation = []
 
 app = Flask(__name__)
 
@@ -112,6 +114,9 @@ def network_exploration():
 
     :return:
     '''
+    # global cached_previous_json_network, cached_relation
+    global cached_json_and_relation
+
     arg1 = request.args.get('argument1')
     arg2 = request.args.get('argument2')
     relation = request.args.get('relation')
@@ -264,6 +269,11 @@ def network_exploration():
             fout.write(str(json_data))
         print("[DATA] test json data:", json_data)
 
+    ## store the cache json_data for later relation prediction
+    # cached_json_and_relation.clear() ## not applicable on python 2.7
+    while (len(cached_json_and_relation) != 0):
+        cached_json_and_relation.pop()
+    cached_json_and_relation.append([json_data, relation])
 
     response = app.response_class(
         response=json.dumps(json_data),
@@ -335,11 +345,63 @@ def distinctive_summarization():
 
 @app.route('/network_exploration_prediction', methods=['GET','POST'])
 def network_exploration_prediction():
+    global cached_json_and_relation
     print(request.args)
+    if len(cached_json_and_relation) == 0:
+        print("[ERROR] Wrong usage of predict relationship"
+              "should provide previous networks and relation")
+        json_data = []
+    else:
+        ## use a shallow list copy to avoid override the cached list
+        ## json_data will be of the same format as the sample_data_2
+        json_data = cached_json_and_relation[0][0][:]
+        cached_relation = cached_json_and_relation[0][1]
+
+        if FLAGS_DEBUG:
+            print("json_data = ", json_data)
+            print("cached_relation = ", cached_relation)
+            print("[INFO] Start quering prediction DB table for relation prediction")
+
+        ### First extract all candidate nodes from cached network
+        node_a_list = []
+        node_b_list = []
+
+        for ele in json_data:
+            if ele["group"] == "nodes":
+                entity_name = ele["data"]["label"]
+                if "classes" in ele.keys(): # type_b_node
+                    node_b_list.append(entity_name)
+                else:
+                    node_a_list.append(entity_name)
+
+        ### Second for all possible candidate pair (node_a, node_b), query DB for relation prediction
+        tmp_utils = data_utils({'prediction_table': "prediction_table"})
+        relation_type = cached_relation
+        for i in range(len(node_a_list)):
+            for j in range(len(node_b_list)):
+                name_a = node_a_list[i]
+                name_b = node_b_list[j]
+                res = tmp_utils.query_prediction(name_a=name_a, name_b=name_b, relation_type=relation_type)
+                if res: # one predicted relation, add a new edge
+                    source_label = "".join(name_a.split())
+                    target_label = "".join(name_b.split())
+                    json_data.append({
+                        ## TODO: When adding the new edge, somehow find a way to distinguish it from the existing edges.
+                        "group": "edge",
+                        "data": {
+                            "source": source_label,
+                            "target": target_label,
+                            "docs": [] ### predicted edges has no attached document
+                        }
+                    })
+
+        if FLAGS_DEBUG:
+            print("[INFO] Complete quering prediction DB table for relation prediction")
+
 
     response = app.response_class(
-        response=json.dumps(sample_data_2),
-        # response=json.dumps(json_data),
+        # response=json.dumps(sample_data_2),
+        response=json.dumps(json_data),
         status=200,
         mimetype='application/json'
     )
