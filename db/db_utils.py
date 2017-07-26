@@ -5,6 +5,7 @@ import marshal
 import multiprocessing
 from collections import defaultdict
 import ast
+import random,string
 
 tmp_utils = None
 
@@ -14,6 +15,8 @@ class data_utils(object):
 		#super(db_utils, self).__init__()
 		self.arg = arg
 		self.db = DB(dbname='structnet', user='structnet', passwd='structnet', host='localhost')
+		self.identity = ''.join(random.choice(string.ascii_lowercase) for _ in range(8))
+		print self.identity
 		print "Conncted!"
 
 	def load_pmids(self):
@@ -138,10 +141,9 @@ class data_utils(object):
 		#print type_b
 		#print relation_type
 		#print query_string
-		q = self.db.query("select exists(select relname from pg_class where relname = 'temp_network' and relkind='r')")
-		if q.dictresult()[0]['exists']:
-			self.db.query("drop table temp_network")
-		query_string = "SELECT * INTO temp_network FROM (SELECT DISTINCT ON(entity_a,entity_b) entity_a,entity_b,sent_id  "+"FROM "+self.arg['relation_table']+" WHERE type_a_"+type_a['name']+"@>'"\
+		#q = self.db.query("select exists(select relname from pg_class where relname = 'temp_network' and relkind='r')")
+		#if q.dictresult()[0]['exists']:
+		query_string = "SELECT * INTO " +self.identity+ " FROM (SELECT DISTINCT ON(entity_a,entity_b) entity_a,entity_b,sent_id  "+"FROM "+self.arg['relation_table']+" WHERE type_a_"+type_a['name']+"@>'"\
 		+type_a['type']+"' AND type_b_"+type_b['name']+"@>'"+ type_b['type']+"' AND relation_type='"+relation_type + "') x ORDER BY RANDOM() LIMIT " +str(num_edges)
 		
 		#print query_string
@@ -155,7 +157,7 @@ class data_utils(object):
 		'''
 		
 		self.db.query(query_string)
-		query_a=self.db.query("select entity_a from temp_network")
+		query_a=self.db.query("select entity_a from "+self.identity)
 		#print ttt.dictresult()
 		red_node = dict()
 		for v in query_a.dictresult():
@@ -164,7 +166,7 @@ class data_utils(object):
 			tmp=self.db.query("select article_title, pmid, sent from entity_table where entity_name= '" + v['entity_a'] + "' LIMIT 10")
 			#tmp=self.db.query("select distinct on (article_id) article_title, pmid, sent from entity_table where entity_name= '" + v['entity_a'] + "' LIMIT "+str(num_pps))
 			red_node[v['entity_a']] = map(lambda x:(x['article_title'],x['sent'],x['pmid']),tmp.dictresult())
-		query_b=self.db.query("select entity_b from temp_network")
+		query_b=self.db.query("select entity_b from "+self.identity)
 		blue_node = dict()
 		for v in query_b.dictresult():
 			#pass
@@ -173,8 +175,10 @@ class data_utils(object):
 			#tmp=self.db.query("select distinct on (article_id) article_title, pmid, sent from entity_table where entity_name= '" + v['entity_b'] + "' LIMIT "+str(num_pps))
 			blue_node[v['entity_b']] = map(lambda x:(x['article_title'],x['sent'],x['pmid']),tmp.dictresult())
 		#print red_node,blue_node
-		query_edge = "SELECT DISTINCT T.entity_a as source, T.entity_b as target, E.pmid, E.article_title,E.sent FROM " + self.arg['entity_table'] + " AS E INNER JOIN temp_network T ON E.sent_id = T.sent_id";
+		query_edge = "SELECT DISTINCT T.entity_a as source, T.entity_b as target, E.pmid, E.article_title,E.sent FROM " + self.arg['entity_table'] + " AS E INNER JOIN "+\
+		self.identity+" T ON E.sent_id = T.sent_id";
 		q = self.db.query(query_edge)
+		self.db.query("drop table "+self.identity)
 		return {'node_a':red_node,'node_b':blue_node,'edge':q.dictresult()}
 		#print query_red_node.dictresult()
 		#q = self.db.query(query_red_node)
