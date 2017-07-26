@@ -35,6 +35,13 @@ the Flask should start on 192.XXX address.
 
 ## Usage
 
+### Network Visualization
+
+Argument1: Chemicals_and_Drugs
+Argument2: Anatomy
+Relation: is_associated_anatomy_of_gene_product
+
+
 ### CaseOLAP
 
 Target Entity Type:

@@ -4,7 +4,6 @@ __description__: the middleaware to connect DB and front-end system
 '''
 from flask import Flask, render_template, url_for, request, json, redirect, jsonify
 import json
-import datetime
 from db.db_utils import data_utils
 from config import *
 
@@ -156,6 +155,7 @@ def network_exploration():
         data_label = k
         data_id = ''.join(k.split()) # front-end id should not contain space
         data_docs = []
+        existed_doc = set()
         for doc_info in v:
             if len(doc_info) != 3:
                 print("[ERROR] wrongly formated document", doc_info)
@@ -166,11 +166,16 @@ def network_exploration():
                 data_docs_title = doc_info[0]
                 data_docs_pmid = doc_info[2]
                 data_docs_sents = [doc_info[1]] # front-end requires sentences send as a list
-            data_docs.append({
-                "title": data_docs_title,
-                "pmid": data_docs_pmid,
-                "sentences": data_docs_sents
-            })
+
+            if data_docs_pmid in existed_doc: # skip and doc it occurred before
+                continue
+            else:
+                existed_doc.add(data_docs_pmid)
+                data_docs.append({
+                    "title": data_docs_title,
+                    "pmid": data_docs_pmid,
+                    "sentences": data_docs_sents
+                })
         ## Add type-a nodes
         data = {
             "id": data_id,
@@ -191,6 +196,7 @@ def network_exploration():
         data_label = k
         data_id = ''.join(k.split()) # front-end id should not contain space
         data_docs = []
+        existed_doc = set()
         for doc_info in v:
             if len(doc_info) != 3:
                 print("[ERROR] wrongly formated document", doc_info)
@@ -201,11 +207,16 @@ def network_exploration():
                 data_docs_title = doc_info[0]
                 data_docs_pmid = doc_info[2]
                 data_docs_sents = [doc_info[1]] # front-end requires sentences send as a list
-            data_docs.append({
-                "title": data_docs_title,
-                "pmid": data_docs_pmid,
-                "sentences": data_docs_sents
-            })
+
+            if data_docs_pmid in existed_doc:
+                continue
+            else:
+                existed_doc.add(data_docs_pmid)
+                data_docs.append({
+                    "title": data_docs_title,
+                    "pmid": data_docs_pmid,
+                    "sentences": data_docs_sents
+                })
         data = {
             "id": data_id,
             "label": data_label,
@@ -318,11 +329,8 @@ def distinctive_summarization():
     )
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
-    # return "Hello World!!"
-    # return render_template('data/sample.json')
 
 
 if __name__ == '__main__':
-    # app.run(debug=True) # for local testing
     app.run(host=FLAGS_HOST_ADDR, port = FLAGS_PORT, debug=FLAGS_DEBUG) # for server
 
