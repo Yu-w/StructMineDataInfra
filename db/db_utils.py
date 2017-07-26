@@ -35,6 +35,23 @@ class data_utils(object):
 				self.db.insert(self.arg['prediction_table'], entity_a=tmp['em1Text'], entity_b=tmp['em2Text'],
 				relation_type=tmp['label'], score=tmp['score'])
 
+	def insert_query(self):
+		with open(self.arg['data_file']) as IN:
+			line_num=0
+			for line in IN:
+				print line_num
+				tmp=line.split('\t')
+				target_type = ast.literal_eval(tmp[0])[0]
+				if '[' in tmp[3]:
+					output_types = ast.literal_eval(tmp[3])
+				else:
+					output_types = [tmp[3]]
+				relation_type = tmp[2]
+				self.db.insert(self.arg['query_table'], target_type=target_type, output_types=output_types,
+					index=line_num, relation_type=relation_type)
+				line_num += 1
+
+
 	def insert_caseolap(self,index_number):
 		with open(self.arg['data_file']+str(index_number)+'_c.txt') as IN:
 			for line in IN:
@@ -54,11 +71,14 @@ class data_utils(object):
 		return q.dictresult()[0]['count'] > 0
 		#print query_string
 
-	def query_distinctive(self,doc_id,sub_types,num_records=8):
+	def query_distinctive(self,target_type,output_types,relation_type, sub_types,num_records=8):
 		sub_types = ast.literal_eval(sub_types)
 		result=[]
+		query_string = "SELECT index FROM query_table WHERE target_type=\'" + target_type + "\' AND output_types@>\'" +\
+		output_types+"\' and relation_type=\'" + relation_type +"\'"
+		idx = self.db.query(query_string).dictresult()[0]['index']
 		for sub_type in sub_types:
-			query_string = "SELECT entity FROM " + self.arg['caseolap_table'] + " WHERE doc_id=" + str(doc_id) + \
+			query_string = "SELECT entity,score FROM " + self.arg['caseolap_table'] + " WHERE doc_id=" + str(idx) + \
 			" AND sub_type=\'" + sub_type + "\' ORDER BY score LIMIT " + str(num_records)
 			q = self.db.query(query_string)
 			result.append(q.dictresult())
@@ -110,7 +130,7 @@ class data_utils(object):
 				#except:
 					#print cnt
 
-	def query_links(self, type_a, type_b, relation_type, num_nodes=5):
+	def query_links(self, type_a, type_b, relation_type, num_edges=5, num_pps=1):
 		#type_a={'mesh':0, 'name':"Chemicals_and_Drugs"}
 		type_a = ast.literal_eval(type_a)
 		type_b = ast.literal_eval(type_b)
@@ -118,8 +138,11 @@ class data_utils(object):
 		#print type_b
 		#print relation_type
 		#print query_string
+		q = self.db.query("select exists(select relname from pg_class where relname = 'temp_network' and relkind='r')")
+		if q.dictresult()[0]['exists']:
+			self.db.query("drop table temp_network")
 		query_string = "SELECT * INTO temp_network FROM (SELECT DISTINCT ON(entity_a,entity_b) entity_a,entity_b,sent_id  "+"FROM "+self.arg['relation_table']+" WHERE type_a_"+type_a['name']+"@>'"\
-		+type_a['type']+"' AND type_b_"+type_b['name']+"@>'"+ type_b['type']+"' AND relation_type='"+relation_type + "' ORDER BY entity_a,entity_b,RANDOM()) x ORDER BY RANDOM() LIMIT " +str(num_nodes)
+		+type_a['type']+"' AND type_b_"+type_b['name']+"@>'"+ type_b['type']+"' AND relation_type='"+relation_type + "') x ORDER BY RANDOM() LIMIT " +str(num_edges)
 		
 		#print query_string
 		'''
@@ -136,21 +159,22 @@ class data_utils(object):
 		#print ttt.dictresult()
 		red_node = dict()
 		for v in query_a.dictresult():
-			#print "select article_title, pmid, sent from entity_table where entity_name= '" + v['entity_a'] + "' LIMIT 1"
+			#print "select distinct on (article_id) article_title, pmid, sent from entity_table where entity_name= '" + v['entity_a'] + "' LIMIT "+str(num_pps)
 			#print "select distinct on (article_id) article_title, pmid, sent from entity_table where entity_name= '" + v['entity_a'] + "' LIMIT 2" 
 			tmp=self.db.query("select article_title, pmid, sent from entity_table where entity_name= '" + v['entity_a'] + "' LIMIT 1")
+			#tmp=self.db.query("select distinct on (article_id) article_title, pmid, sent from entity_table where entity_name= '" + v['entity_a'] + "' LIMIT "+str(num_pps))
 			red_node[v['entity_a']] = map(lambda x:(x['article_title'],x['sent'],x['pmid']),tmp.dictresult())
 		query_b=self.db.query("select entity_b from temp_network")
 		blue_node = dict()
 		for v in query_b.dictresult():
 			#pass
-			#print "select distinct on (article_id) article_title, pmid, sent from entity_table where entity_name= '" + v['entity_b'] + "' LIMIT 2"
+			#print "select distinct on (article_id) article_title, pmid, sent from entity_table where entity_name= '" + v['entity_b'] + "' LIMIT "+str(num_pps)
 			tmp=self.db.query("select article_title, pmid, sent from entity_table where entity_name= '" + v['entity_b'] + "' LIMIT 1")
+			#tmp=self.db.query("select distinct on (article_id) article_title, pmid, sent from entity_table where entity_name= '" + v['entity_b'] + "' LIMIT "+str(num_pps))
 			blue_node[v['entity_b']] = map(lambda x:(x['article_title'],x['sent'],x['pmid']),tmp.dictresult())
 		#print red_node,blue_node
 		query_edge = "SELECT DISTINCT T.entity_a as source, T.entity_b as target, E.pmid, E.article_title,E.sent FROM " + self.arg['entity_table'] + " AS E INNER JOIN temp_network T ON E.sent_id = T.sent_id";
 		q = self.db.query(query_edge)
-		self.db.query("drop table temp_network")
 		return {'node_a':red_node,'node_b':blue_node,'edge':q.dictresult()}
 		#print query_red_node.dictresult()
 		#q = self.db.query(query_red_node)
@@ -169,15 +193,15 @@ if __name__ == '__main__':
 	if sys.argv[1] == 'query':
 		if sys.argv[2] == 'network':
 			tmp_utils = data_utils({'entity_table': sys.argv[3], 'relation_table': sys.argv[4]})
-			result = tmp_utils.query_links(type_a=sys.argv[5], type_b=sys.argv[6], relation_type=sys.argv[7])
-			print result
+			result = tmp_utils.query_links(type_a=sys.argv[5], type_b=sys.argv[6], relation_type=sys.argv[7], num_edges=sys.argv[8], num_pps=sys.argv[9])
 		elif sys.argv[2] == 'predict':
 			tmp_utils = data_utils({'prediction_table': sys.argv[3]})
 			result = tmp_utils.query_prediction(name_a=sys.argv[4], name_b=sys.argv[5], relation_type=sys.argv[6])
 			print result
 		elif sys.argv[2] == 'caseolap':
 			tmp_utils = data_utils({'caseolap_table': sys.argv[3]})
-			result = tmp_utils.query_distinctive(doc_id=sys.argv[4],sub_types=sys.argv[5])
+			result = tmp_utils.query_distinctive(target_type=sys.argv[4],
+				output_types=sys.argv[5],relation_type=sys.argv[6],sub_types=sys.argv[7])
 			print result
 			
 	else:
@@ -186,8 +210,10 @@ if __name__ == '__main__':
 			tmp_utils.load_pmids()
 			tmp_utils.insert_record()
 		elif len(sys.argv) == 3:
-			tmp_utils = data_utils({'data_file': sys.argv[1], 'prediction_table': sys.argv[2]})
-			tmp_utils.insert_prediction()
+			tmp_utils = data_utils({'data_file': sys.argv[1], 'query_table': sys.argv[2]})
+			tmp_utils.insert_query()
+			#tmp_utils = data_utils({'data_file': sys.argv[1], 'prediction_table': sys.argv[2]})
+			#tmp_utils.insert_prediction()
 		elif len(sys.argv) == 4:
 			tmp_utils = data_utils({'data_file': sys.argv[1], 'caseolap_table': sys.argv[2]})
 			#52
