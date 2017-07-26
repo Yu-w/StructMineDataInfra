@@ -28,8 +28,10 @@
             <input type="text" class="form-control" placeholder="GeneDiseaseAssociation" ng-model="request.relation" required>
           </div>
         </div>
-        <button class="btn btn-success" ng-disabled="form.$invalid">Show Relationships</button>
-        <button class="btn btn-success" ng-disabled="form.$invalid">Show predicted relationships</button>
+        <!-- <button class="btn btn-success" type="submit" ng-disabled="form.$invalid">Show Relationships</button> -->
+        <!-- <button class="btn btn-success" type="submit" ng-click="predictLink()" ng-disabled="form.$invalid">Show predicted relationships</button> -->
+          <input class="btn btn-success" type = "submit" value="Show Relationships" />
+          <input class="btn btn-success" type = "button" ng-click="predictLink()" value="Show predicted relationships" />
       </div>
     </div>
     </form>
