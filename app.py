@@ -365,6 +365,7 @@ def network_exploration_prediction():
         ### First extract all candidate nodes from cached network
         node_a_list = []
         node_b_list = []
+        existed_edges = set()
 
         for ele in json_data:
             if ele["group"] == "nodes":
@@ -373,6 +374,10 @@ def network_exploration_prediction():
                     node_b_list.append(entity_name)
                 else:
                     node_a_list.append(entity_name)
+            if ele["group"] == "edges":
+                source_name = "".join(ele["data"]["source"].split())
+                target_name = "".join(ele["data"]["target"].split())
+                existed_edges.add((source_name, target_name))
 
         ### Second for all possible candidate pair (node_a, node_b), query DB for relation prediction
         tmp_utils = data_utils({'prediction_table': "prediction_table"})
@@ -385,6 +390,9 @@ def network_exploration_prediction():
                 if res: # one predicted relation, add a new edge
                     source_label = "".join(name_a.split())
                     target_label = "".join(name_b.split())
+                    ## do not add existed edges
+                    if (source_label, target_label) in existed_edges:
+                        continue
                     json_data.append({
                         ## TODO: When adding the new edge, somehow find a way to distinguish it from the existing edges.
                         "group": "edge",
