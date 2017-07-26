@@ -126,10 +126,15 @@ def network_exploration():
     if FLAGS_DEBUG:
         print("[INFO] Start querying DB")
     tmp_utils = data_utils({'entity_table': 'entity_table', 'relation_table': 'relation_table'})
+    ## TODO: the umls is also applicable, extend it later
     type_a = str({'name':'mesh', 'type':("{"+arg1+"}") })
     type_b = str({'name':'mesh', 'type':("{"+arg2+"}") })
     relation_type = relation
-    res = tmp_utils.query_links(type_a=type_a, type_b=type_b, relation_type=relation_type, num_nodes=5)
+
+    num_edges = 5
+    num_pps = 1
+    res = tmp_utils.query_links(type_a=type_a, type_b=type_b, relation_type=relation_type,
+                                num_edges=num_edges, num_pps=num_pps)
     if FLAGS_DEBUG:
         print("[INFO] Complete querying DB")
 
@@ -256,18 +261,58 @@ def network_exploration():
     return response
 
 
-
 @app.route('/distinctive_summarization', methods=['GET','POST'])
 def distinctive_summarization():
 
     targetEntType = request.args.get('targetEntityType')
     outputEntType = request.args.get('outputEntityType')
     relation = request.args.get('relation')
-    targetEntSubtypes = request.args.get('targetEntitySubtypes')
-    print(targetEntType, outputEntType, relation, targetEntSubtypes)
+    targetEntSubtypes = request.args.getlist('targetEntitySubtypes')
+    if FLAGS_DEBUG:
+        print(targetEntType, outputEntType, relation, targetEntSubtypes)
+
+    if FLAGS_DEBUG:
+        print("[INFO] Start querying DB")
+    target_type = targetEntType
+    output_types = str("{"+outputEntType+"}")
+    relation_type = relation
+    sub_types = str(targetEntSubtypes)
+    tmp_utils = data_utils({'caseolap_table': "caseolap_table"})
+    res = tmp_utils.query_distinctive(target_type=target_type,
+                                      output_types=output_types,
+                                      relation_type=relation_type,
+                                      sub_types=sub_types,
+                                      num_records=8)
+    if FLAGS_DEBUG:
+        print("[INFO] Complete querying DB")
+        print(res)
+
+    if FLAGS_DEBUG:
+        print("[INFO] Start formatting DB output result into JSON")
+
+    json_data = []
+    for i in range(len(targetEntSubtypes)):
+        sub_type_name = targetEntSubtypes[i]
+        sub_type_keyWords = []
+        ## reverse the list to obtain a score descending order
+        for entity in reversed(res[i]):
+            entity_score = entity['score']
+            entity_name = entity['entity']
+            sub_type_keyWords.append({
+                "name": entity_name,
+                "number": entity_score
+            })
+        json_data.append({
+            "name": sub_type_name,
+            "keyWords": sub_type_keyWords
+        })
+
+    if FLAGS_DEBUG:
+        print("[INFO] Complete formatting DB output result into JSON")
 
     response = app.response_class(
-        response=json.dumps(sample_data),
+        # response=json.dumps(sample_data),
+        response=json.dumps(json_data),
         status=200,
         mimetype='application/json'
     )
