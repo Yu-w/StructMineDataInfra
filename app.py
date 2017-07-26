@@ -98,6 +98,9 @@ sample_data_2 = [
     }
 ];
 
+## This variable cache the previous network in near-json format
+## Useful when we want to show the predicted relationships
+cached_previous_json_network = None
 
 app = Flask(__name__)
 
@@ -324,6 +327,19 @@ def distinctive_summarization():
     response = app.response_class(
         # response=json.dumps(sample_data),
         response=json.dumps(json_data),
+        status=200,
+        mimetype='application/json'
+    )
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
+
+@app.route('/network_exploration_prediction', methods=['GET','POST'])
+def network_exploration_prediction():
+    print(request.args)
+
+    response = app.response_class(
+        response=json.dumps(sample_data_2),
+        # response=json.dumps(json_data),
         status=200,
         mimetype='application/json'
     )

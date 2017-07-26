@@ -42,6 +42,7 @@ Argument2: Anatomy
 Relation: is_associated_anatomy_of_gene_product
 
 
+
 ### CaseOLAP
 
 Target Entity Type:

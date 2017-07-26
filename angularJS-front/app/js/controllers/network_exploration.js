@@ -35,6 +35,37 @@ app.controller('NetworkExplorationCtrl', ['$scope','cytoData','$uibModal', '$htt
         });
     }
 
+    $scope.predictLink = function() {
+        $uibModal.open({
+            animation: true,
+            ariaLabelledBy: 'modal-title-top',
+            ariaDescribedBy: 'modal-body-top',
+            templateUrl: 'tpl/network_visualization_prediction_submission.html',
+            resolve: {
+                request: function () {
+                    return $scope.request;
+                }
+            },
+            controller: function ($uibModalInstance, request, $http) {
+                var $ctrl = this;
+                $ctrl.request = request;
+
+                $ctrl.ok = function () {
+                    $http.get("http://192.17.58.208:3000/network_exploration_prediction", {params: request}).then(function(response) {
+                        $scope.elements = response.data;
+                        $scope.graph.load();
+                    });
+                    $uibModalInstance.close();
+                };
+
+                $ctrl.cancel = function () {
+                    $uibModalInstance.dismiss('cancel');
+                };
+            },
+            controllerAs: '$ctrl'
+        });
+    }
+
     cytoData.getGraph('core').then(function(graph){
         $scope.graph = graph;
         // $scope.graph.center()
