@@ -123,9 +123,6 @@ def seg_long_sent(sent, entity):
 
 
 
-
-
-
 ## This variable cache the previous network in near-json format
 ## Useful when we want to show the predicted relationships
 # cached_previous_json_network = []
@@ -148,7 +145,14 @@ def network_exploration():
     arg1 = request.args.get('argument1')
     arg2 = request.args.get('argument2')
     relation = request.args.get('relation')
-    print("Parameters in http requestion: ", arg1, arg2, relation)
+    number_of_edges = request.args.get('number_of_edges')
+    number_of_papers = request.args.get('number_of_papers')
+    if not number_of_edges:
+        number_of_edges = 5
+    if not number_of_papers:
+        number_of_papers = 5
+
+    print("Parameters in http requestion: ", arg1, arg2, relation, number_of_edges, number_of_papers)
 
     '''
     Following the query format from @bran
@@ -166,10 +170,8 @@ def network_exploration():
     type_b = str({'name':'mesh', 'type':("{"+arg2+"}") })
     relation_type = relation
 
-    num_edges = 5
-    num_pps = 1
     res = tmp_utils.query_links(type_a=type_a, type_b=type_b, relation_type=relation_type,
-                                num_edges=num_edges, num_pps=num_pps)
+                                num_edges=number_of_edges, num_pps=number_of_papers)
     if FLAGS_DEBUG:
         print("[INFO] Complete querying DB")
 
