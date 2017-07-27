@@ -4,8 +4,10 @@ __description__: the middleaware to connect DB and front-end system
 '''
 from flask import Flask, render_template, url_for, request, json, redirect, jsonify
 import json
+import random
 from db.db_utils import data_utils
 from config import *
+from caseOLAP_sample_query import *
 
 sample_data = [
   {
@@ -287,7 +289,8 @@ def network_exploration():
 
 @app.route('/distinctive_summarization', methods=['GET','POST'])
 def distinctive_summarization():
-
+    if FLAGS_DEBUG:
+        print(request.args)
     targetEntType = request.args.get('targetEntityType')
     outputEntType = request.args.get('outputEntityType')
     relation = request.args.get('relation')
@@ -415,6 +418,30 @@ def network_exploration_prediction():
     )
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
+
+@app.route('/distinctive_summarization/get_sample', methods=['GET','POST'])
+def distinctive_summarization_get_sample():
+    print("Hello World!!")
+    # query_data = {
+    #     "targetEntityType": "MeSH:::Phenomena_and_Processes::Genetic_Phenomena::Genetic_Structures::Chromosomes",
+    #     "outputEntityType": "Nucleotide_Sequence", "relation": "anatomic_structure_is_physical_part_of",
+    #     "targetEntitySubtypes": ["Chromosomes,_Archaeal",
+    #                              "Chromosomes,_Mammalian::Chromosomes,_Human::Chromosomes,_Human,_6-12_and_X::Chromosomes,_Human,_Pair_7"]
+    # }
+
+    ## select a random query from QUERY_DB (defined in caseOLAP_sample_query.py)
+    query_data = random.choice(QUERY_DB)
+    if FLAGS_DEBUG:
+        print("[INFO] query_data = ", query_data)
+    response = app.response_class(
+        # response=json.dumps(sample_data),
+        response=json.dumps(query_data),
+        status=200,
+        mimetype='application/json'
+    )
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
+
 
 
 if __name__ == '__main__':

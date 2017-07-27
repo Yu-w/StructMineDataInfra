@@ -11,7 +11,7 @@
   </div>
   <!-- / main header -->
   <div class="wrapper-md">
-    <form name="form" class="form-validation" ng-submit="submitForm()">
+    <form name="form" class="form-validation">
       <div class="panel panel-default">
         <div class="panel-body">
           <div class="form-group pull-in clearfix form-validation">
@@ -38,7 +38,8 @@
 
         </div>
         <footer class="panel-footer text-right bg-light lter">
-          <button type="submit" class="btn btn-success" ng-disabled="form.$invalid || targetEntitySubtypes == null || targetEntitySubtypes.length == 0">Run CaseOLAP</button>
+          <button type="button" ng-click="submitForm()" class="btn btn-success" ng-disabled="form.$invalid || targetEntitySubtypes == null || targetEntitySubtypes.length == 0">Run CaseOLAP</button>
+          <button type="button" ng-click="getSampleQuery()" class="btn btn-success">Get Sample Query</button>
         </footer>
       </div>
     </form>
