@@ -1,13 +1,13 @@
 <div class="modal-header">
-    <h3 class="modal-title">{{node.label}}</h3>
+    <h3 class="modal-title">Entity: {{node.label}}</h3>
 </div>
 <div class="modal-body">
     <div class="wrapper-sm">
         <div class="panel-body" ng-if="node.docs == null || node.docs.length==0">
-            No document available
+            <p> No document available </p>
         </div>
         <div class="panel panel-default" ng-repeat="doc in node.docs">
-            <div class="panel-heading"><a ng-href="https://www.ncbi.nlm.nih.gov/pubmed/{{doc.pmid}}" target="_blank">{{doc.title}}</a></div>
+            <div class="panel-heading"><a ng-href="https://www.ncbi.nlm.nih.gov/pubmed/{{doc.pmid}}" target="_blank"><b>{{doc.title}}</b></a></div>
             <ul class="list-group">
                 <li class="list-group-item" ng-repeat="sent in doc.sentences">{{sent}}</li>
             </ul>
