@@ -87,10 +87,10 @@ type_a/type_b format: {'name':mesh/umls, 'type':sub_type}
 
 ##Query Network
 *BOTTLE NECK:select distict article for each node, for some queries like "bone marrow", it can be really slow, more than 63642 records
-python db/db_utils.py query network entity_table relation_table "{'name':'mesh', 'type':'{Chemicals_and_Drugs}'}" "{'name':'mesh', 'type':'{Anatomy}'}" is_associated_anatomy_of_gene_product 5 2
+python db/db_utils.py query network entity_table relation_table "{'name':'mesh', 'type':'{Nervous_System}'}" "{'name':'mesh', 'type':'{Anatomy}'}" has_nerve_supply 5 2
 
 ##Query predictions
-##return True or False, represents if there is a edge or not
+##return positive float or 0, represents if there is a edge or not with score
 python db/db_utils.py query predict prediction_table 'telomere maintenance' 'transcriptional regulation' is_location_of_biological_process
 
 ##Query caseolap
