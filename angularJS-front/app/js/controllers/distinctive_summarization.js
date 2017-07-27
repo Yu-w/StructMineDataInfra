@@ -193,5 +193,4 @@ app.controller('DistinctiveSummarizationCtrl', ['$scope','$uibModal', '$http', f
         });
     }
 
-
 }]);

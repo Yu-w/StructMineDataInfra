@@ -96,7 +96,8 @@ sample_data_2 = [
                 "title": "tese sent",
                 "sentences": ["test-edge-sentences"]
             }]
-        }
+        },
+        "classes": 'edge1'
     }
 ];
 
@@ -390,20 +391,26 @@ def network_exploration_prediction():
                 name_a = node_a_list[i]
                 name_b = node_b_list[j]
                 res = tmp_utils.query_prediction(name_a=name_a, name_b=name_b, relation_type=relation_type)
-                if res: # one predicted relation, add a new edge
+                if res != 0: # one predicted relation, add a new edge
                     source_label = "".join(name_a.split())
                     target_label = "".join(name_b.split())
+                    score = res
                     ## do not add existed edges
                     if (source_label, target_label) in existed_edges:
                         continue
                     json_data.append({
-                        ## TODO: When adding the new edge, somehow find a way to distinguish it from the existing edges.
                         "group": "edge",
                         "data": {
                             "source": source_label,
                             "target": target_label,
-                            "docs": [] ### predicted edges has no attached document
-                        }
+                            "docs": [{
+                                ## Show the prediction confidence score as the paper title
+                                "title": "Confidence Score = " + str(score),
+                                "pmid": "#",
+                                "sentences": [""]
+                            }]
+                        },
+                        "classes": "edge1"
                     })
 
         if FLAGS_DEBUG:
@@ -421,14 +428,6 @@ def network_exploration_prediction():
 
 @app.route('/distinctive_summarization/get_sample', methods=['GET','POST'])
 def distinctive_summarization_get_sample():
-    print("Hello World!!")
-    # query_data = {
-    #     "targetEntityType": "MeSH:::Phenomena_and_Processes::Genetic_Phenomena::Genetic_Structures::Chromosomes",
-    #     "outputEntityType": "Nucleotide_Sequence", "relation": "anatomic_structure_is_physical_part_of",
-    #     "targetEntitySubtypes": ["Chromosomes,_Archaeal",
-    #                              "Chromosomes,_Mammalian::Chromosomes,_Human::Chromosomes,_Human,_6-12_and_X::Chromosomes,_Human,_Pair_7"]
-    # }
-
     ## select a random query from QUERY_DB (defined in caseOLAP_sample_query.py)
     query_data = random.choice(QUERY_DB)
     if FLAGS_DEBUG:
@@ -441,7 +440,6 @@ def distinctive_summarization_get_sample():
     )
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
-
 
 
 if __name__ == '__main__':

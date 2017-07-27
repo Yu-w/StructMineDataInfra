@@ -37,11 +37,15 @@ the Flask should start on 192.XXX address.
 
 ### Network Visualization
 
+Query-1
 Argument1: Chemicals_and_Drugs
 Argument2: Anatomy
 Relation: is_associated_anatomy_of_gene_product
 
-
+Query-2
+Argument1: Nervous_System
+Argument2: Anatomy
+Relation: has_nerve_supply
 
 ### CaseOLAP
 
