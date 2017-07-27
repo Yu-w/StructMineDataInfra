@@ -209,7 +209,7 @@ class data_utils(object):
 		for v in query_a.dictresult():
 			#print "select distinct on (article_id) article_title, pmid, sent from entity_table where entity_name= '" + v['entity_a'] + "' LIMIT "+str(num_pps)
 			#print "select distinct on (article_id) article_title, pmid, sent from entity_table where entity_name= '" + v['entity_a'] + "' LIMIT 2" 
-			tmp=self.db.query("select article_title, pmid, sent from entity_table where entity_name= '" + v['entity_a'] + "' LIMIT 10")
+			tmp=self.db.query("select article_title, pmid, sent from entity_table where entity_name= '" + v['entity_a'] + "' LIMIT "+str(num_pps))
 			#tmp=self.db.query("select distinct on (article_id) article_title, pmid, sent from entity_table where entity_name= '" + v['entity_a'] + "' LIMIT "+str(num_pps))
 			red_node[v['entity_a']] = map(lambda x:(x['article_title'],x['sent'],x['pmid']),tmp.dictresult())
 		query_b=self.db.query("select entity_b from "+self.identity)
@@ -217,7 +217,7 @@ class data_utils(object):
 		for v in query_b.dictresult():
 			#pass
 			#print "select distinct on (article_id) article_title, pmid, sent from entity_table where entity_name= '" + v['entity_b'] + "' LIMIT "+str(num_pps)
-			tmp=self.db.query("select article_title, pmid, sent from entity_table where entity_name= '" + v['entity_b'] + "' LIMIT 10")
+			tmp=self.db.query("select article_title, pmid, sent from entity_table where entity_name= '" + v['entity_b'] + "' LIMIT "+str(num_pps))
 			#tmp=self.db.query("select distinct on (article_id) article_title, pmid, sent from entity_table where entity_name= '" + v['entity_b'] + "' LIMIT "+str(num_pps))
 			blue_node[v['entity_b']] = map(lambda x:(x['article_title'],x['sent'],x['pmid']),tmp.dictresult())
 		#print red_node,blue_node
