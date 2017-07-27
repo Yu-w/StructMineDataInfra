@@ -7,9 +7,9 @@
             <p> No document available </p>
         </div>
         <div class="panel panel-default" ng-repeat="doc in node.docs">
-            <div class="panel-heading"><a ng-href="https://www.ncbi.nlm.nih.gov/pubmed/{{doc.pmid}}" target="_blank"><b>{{doc.title}}</b></a></div>
+            <div class="panel-heading"><a ng-href="https://www.ncbi.nlm.nih.gov/pubmed/{{doc.pmid}}" target="_blank"><b>Title: {{doc.title}}</b></a></div>
             <ul class="list-group">
-                <li class="list-group-item" ng-repeat="sent in doc.sentences">{{sent}}</li>
+                <li class="list-group-item" ng-repeat="sent in doc.sentences">Sentence: {{sent}}</li>
             </ul>
         </div>
     </div>

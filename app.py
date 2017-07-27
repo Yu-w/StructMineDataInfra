@@ -5,6 +5,7 @@ __description__: the middleaware to connect DB and front-end system
 from flask import Flask, render_template, url_for, request, json, redirect, jsonify
 import json
 import random
+import re
 from db.db_utils import data_utils
 from config import *
 from caseOLAP_sample_query import *
@@ -101,6 +102,30 @@ sample_data_2 = [
     }
 ];
 
+def seg_long_sent(sent, entity):
+    '''
+
+    :param sent: a string
+    :param entity: a string
+    :return:
+        a list of seged sents
+    '''
+    res = []
+    window_char_size = 80
+    if len(sent) <= 300:
+        res.append(sent)
+    else:
+        for pair in [(m.start(), m.end()) for m in re.finditer(entity, sent)]:
+            start = max(0, pair[0] - window_char_size)
+            end = min(len(sent)-1, pair[1] + window_char_size)
+            res.append("... " + sent[start:end] + " ...")
+    return res
+
+
+
+
+
+
 ## This variable cache the previous network in near-json format
 ## Useful when we want to show the predicted relationships
 # cached_previous_json_network = []
@@ -176,7 +201,7 @@ def network_exploration():
             else:
                 data_docs_title = doc_info[0]
                 data_docs_pmid = doc_info[2]
-                data_docs_sents = [doc_info[1]] # front-end requires sentences send as a list
+                data_docs_sents = seg_long_sent(doc_info[1], data_label) # front-end requires sentences send as a list
 
             if data_docs_pmid in existed_doc: # skip and doc it occurred before
                 continue
@@ -217,7 +242,7 @@ def network_exploration():
             else:
                 data_docs_title = doc_info[0]
                 data_docs_pmid = doc_info[2]
-                data_docs_sents = [doc_info[1]] # front-end requires sentences send as a list
+                data_docs_sents = seg_long_sent(doc_info[1], data_label) # front-end requires sentences send as a list
 
             if data_docs_pmid in existed_doc:
                 continue
