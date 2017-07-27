@@ -128,6 +128,36 @@ app.controller('DistinctiveSummarizationCtrl', ['$scope','$uibModal', '$http', f
     ];
 
     $scope.diseases = null; // set default data to be null
+
+    $scope.getSampleQuery = function () {
+        $uibModal.open({
+            animation: true,
+            ariaLabelledBy: 'modal-title-top',
+            ariaDescribedBy: 'modal-body-top',
+            templateUrl: 'tpl/distinctive_summarization_sample_submission_modal.html',
+            controller: function ($uibModalInstance, $http) {
+                var $ctrl = this;
+
+                $http.get("http://192.17.58.208:3000/distinctive_summarization/get_sample").then(function(response) {
+                    $ctrl.request = response.data;
+                });
+
+                $ctrl.ok = function () {
+
+                    $http.get("http://192.17.58.208:3000/distinctive_summarization", {params: $ctrl.request}).then(function(response) {
+                        $scope.diseases = response.data;
+                    });
+                    $uibModalInstance.close();
+                };
+
+                $ctrl.cancel = function () {
+                    $uibModalInstance.dismiss('cancel');
+                };
+            },
+            controllerAs: '$ctrl'
+        });
+    }
+
     $scope.submitForm = function() {
         $uibModal.open({
             animation: true,
@@ -162,4 +192,5 @@ app.controller('DistinctiveSummarizationCtrl', ['$scope','$uibModal', '$http', f
             controllerAs: '$ctrl'
         });
     }
+
 }]);

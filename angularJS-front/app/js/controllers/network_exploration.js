@@ -373,6 +373,11 @@ app.controller('NetworkExplorationCtrl', ['$scope','cytoData','$uibModal', '$htt
             style: {
                 'background-color': '#27c24c'
             }
+        },{
+            selector: '.edge1',
+            style: {
+                'line-color': '#27c24c'
+            }
         }
     ]
 

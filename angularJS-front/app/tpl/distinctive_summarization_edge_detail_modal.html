@@ -1,5 +1,5 @@
 <div class="modal-header">
-    <h2 class="modal-title">{{edge.source}} - {{edge.target}}</h2>
+    <h2 class="modal-title">Relation: {{edge.source}} - {{edge.target}}</h2>
 </div>
 <div class="modal-body">
     <div class="wrapper-sm">
@@ -7,9 +7,10 @@
             <p>No document available</p>
         </div>
         <div class="panel panel-default" ng-repeat="doc in edge.docs">
-            <div class="panel-heading"><a ng-href="https://www.ncbi.nlm.nih.gov/pubmed/{{doc.pmid}}" target="_blank">{{doc.title}}</a></div>
+            <div class="panel-heading"><a ng-href="https://www.ncbi.nlm.nih.gov/pubmed/{{doc.pmid}}" target="_blank"><b>Title: {{doc.title}}</b></a></div>
             <ul class="list-group">
-                <li class="list-group-item" ng-repeat="sent in doc.sentences">{{sent}}</li>
+                <!--TODO: add html escape: https://stackoverflow.com/questions/24275488/can-i-prevent-ng-repeat-from-html-encoding-escaping-my-content-in-angularjs-1 -->
+                <li class="list-group-item" ng-repeat="sent in doc.sentences">Sentence: {{sent}}</li>
             </ul>
         </div>
     </div>

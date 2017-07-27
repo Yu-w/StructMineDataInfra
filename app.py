@@ -4,8 +4,11 @@ __description__: the middleaware to connect DB and front-end system
 '''
 from flask import Flask, render_template, url_for, request, json, redirect, jsonify
 import json
+import random
+import re
 from db.db_utils import data_utils
 from config import *
+from caseOLAP_sample_query import *
 
 sample_data = [
   {
@@ -94,9 +97,31 @@ sample_data_2 = [
                 "title": "tese sent",
                 "sentences": ["test-edge-sentences"]
             }]
-        }
+        },
+        "classes": 'edge1'
     }
 ];
+
+def seg_long_sent(sent, entity):
+    '''
+
+    :param sent: a string
+    :param entity: a string
+    :return:
+        a list of seged sents
+    '''
+    res = []
+    window_char_size = 80
+    if len(sent) <= 300:
+        res.append(sent)
+    else:
+        for pair in [(m.start(), m.end()) for m in re.finditer(entity, sent)]:
+            start = max(0, pair[0] - window_char_size)
+            end = min(len(sent)-1, pair[1] + window_char_size)
+            res.append("... " + sent[start:end] + " ...")
+    return res
+
+
 
 ## This variable cache the previous network in near-json format
 ## Useful when we want to show the predicted relationships
@@ -120,7 +145,14 @@ def network_exploration():
     arg1 = request.args.get('argument1')
     arg2 = request.args.get('argument2')
     relation = request.args.get('relation')
-    print("Parameters in http requestion: ", arg1, arg2, relation)
+    number_of_edges = request.args.get('number_of_edges')
+    number_of_papers = request.args.get('number_of_papers')
+    if not number_of_edges:
+        number_of_edges = 5
+    if not number_of_papers:
+        number_of_papers = 5
+
+    print("Parameters in http requestion: ", arg1, arg2, relation, number_of_edges, number_of_papers)
 
     '''
     Following the query format from @bran
@@ -138,10 +170,8 @@ def network_exploration():
     type_b = str({'name':'mesh', 'type':("{"+arg2+"}") })
     relation_type = relation
 
-    num_edges = 5
-    num_pps = 1
     res = tmp_utils.query_links(type_a=type_a, type_b=type_b, relation_type=relation_type,
-                                num_edges=num_edges, num_pps=num_pps)
+                                num_edges=number_of_edges, num_pps=number_of_papers)
     if FLAGS_DEBUG:
         print("[INFO] Complete querying DB")
 
@@ -173,7 +203,7 @@ def network_exploration():
             else:
                 data_docs_title = doc_info[0]
                 data_docs_pmid = doc_info[2]
-                data_docs_sents = [doc_info[1]] # front-end requires sentences send as a list
+                data_docs_sents = seg_long_sent(doc_info[1], data_label) # front-end requires sentences send as a list
 
             if data_docs_pmid in existed_doc: # skip and doc it occurred before
                 continue
@@ -214,7 +244,7 @@ def network_exploration():
             else:
                 data_docs_title = doc_info[0]
                 data_docs_pmid = doc_info[2]
-                data_docs_sents = [doc_info[1]] # front-end requires sentences send as a list
+                data_docs_sents = seg_long_sent(doc_info[1], data_label) # front-end requires sentences send as a list
 
             if data_docs_pmid in existed_doc:
                 continue
@@ -287,7 +317,8 @@ def network_exploration():
 
 @app.route('/distinctive_summarization', methods=['GET','POST'])
 def distinctive_summarization():
-
+    if FLAGS_DEBUG:
+        print(request.args)
     targetEntType = request.args.get('targetEntityType')
     outputEntType = request.args.get('outputEntityType')
     relation = request.args.get('relation')
@@ -387,20 +418,26 @@ def network_exploration_prediction():
                 name_a = node_a_list[i]
                 name_b = node_b_list[j]
                 res = tmp_utils.query_prediction(name_a=name_a, name_b=name_b, relation_type=relation_type)
-                if res: # one predicted relation, add a new edge
+                if res != 0: # one predicted relation, add a new edge
                     source_label = "".join(name_a.split())
                     target_label = "".join(name_b.split())
+                    score = res
                     ## do not add existed edges
                     if (source_label, target_label) in existed_edges:
                         continue
                     json_data.append({
-                        ## TODO: When adding the new edge, somehow find a way to distinguish it from the existing edges.
                         "group": "edge",
                         "data": {
                             "source": source_label,
                             "target": target_label,
-                            "docs": [] ### predicted edges has no attached document
-                        }
+                            "docs": [{
+                                ## Show the prediction confidence score as the paper title
+                                "title": "Confidence Score = " + str(score),
+                                "pmid": "#",
+                                "sentences": [""]
+                            }]
+                        },
+                        "classes": "edge1"
                     })
 
         if FLAGS_DEBUG:
@@ -410,6 +447,21 @@ def network_exploration_prediction():
     response = app.response_class(
         # response=json.dumps(sample_data_2),
         response=json.dumps(json_data),
+        status=200,
+        mimetype='application/json'
+    )
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
+
+@app.route('/distinctive_summarization/get_sample', methods=['GET','POST'])
+def distinctive_summarization_get_sample():
+    ## select a random query from QUERY_DB (defined in caseOLAP_sample_query.py)
+    query_data = random.choice(QUERY_DB)
+    if FLAGS_DEBUG:
+        print("[INFO] query_data = ", query_data)
+    response = app.response_class(
+        # response=json.dumps(sample_data),
+        response=json.dumps(query_data),
         status=200,
         mimetype='application/json'
     )
