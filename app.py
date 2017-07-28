@@ -6,6 +6,7 @@ from flask import Flask, render_template, url_for, request, json, redirect, json
 import json
 import random
 import re
+import marshal
 from db.db_utils import data_utils
 from config import *
 from caseOLAP_sample_query import *
@@ -102,6 +103,26 @@ sample_data_2 = [
     }
 ];
 
+all_types = marshal.load(open("./data/all_types.m","rb"))
+for k in all_types.keys():
+    # convert list to set for faster check
+    all_types[k] = set(all_types[k])
+if FLAGS_DEBUG:
+    print("[INFO] Complete loading marshal !!!")
+
+def check_types(element):
+    """
+    :param element: a string
+    :return: one of "umls", "mesh", "relation", "none"
+    """
+    global all_types
+    element_type = "none"
+    for k in all_types.keys():
+        if element in all_types[k]:
+            element_type = k
+            break
+    return element_type
+
 def seg_long_sent(sent, entity):
     '''
 
@@ -165,9 +186,20 @@ def network_exploration():
     if FLAGS_DEBUG:
         print("[INFO] Start querying DB")
     tmp_utils = data_utils({'entity_table': 'entity_table', 'relation_table': 'relation_table'})
-    ## TODO: the umls is also applicable, extend it later
-    type_a = str({'name':'mesh', 'type':("{"+arg1+"}") })
-    type_b = str({'name':'mesh', 'type':("{"+arg2+"}") })
+
+    arg1_type = check_types(arg1)
+    arg2_type = check_types(arg2)
+    relation_type = check_types(relation)
+    if FLAGS_DEBUG:
+        print("[INFO] marshal returned types = ", (arg1_type, arg2_type, relation_type))
+    if (arg1_type == "none" or arg2_type == "none" or relation_type == "none"):
+        print("[ERROR] Bad query!!!")
+
+    # type_a = str({'name':'mesh', 'type':("{"+arg1+"}") })
+    # type_b = str({'name':'mesh', 'type':("{"+arg2+"}") })
+    type_a = str({'name':arg1_type, 'type':("{"+arg1+"}") })
+    type_b = str({'name':arg2_type, 'type':("{"+arg2+"}") })
+
     relation_type = relation
 
     res = tmp_utils.query_links(type_a=type_a, type_b=type_b, relation_type=relation_type,

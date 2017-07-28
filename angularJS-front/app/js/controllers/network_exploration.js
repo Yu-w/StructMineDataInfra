@@ -20,8 +20,8 @@ app.controller('NetworkExplorationCtrl', ['$scope','cytoData','$uibModal', '$htt
                 $ctrl.request = request;
 
                 $ctrl.ok = function () {
-                    $http.get("http://localhost:3000/network_exploration", {params: request}).then(function(response) {
-                    // $http.get("http://192.17.58.208:3000/network_exploration", {params: request}).then(function(response) {
+                    // $http.get("http://localhost:3000/network_exploration", {params: request}).then(function(response) {
+                    $http.get("http://192.17.58.208:3000/network_exploration", {params: request}).then(function(response) {
                         $scope.elements = response.data;
                         $scope.graph.load();
                     });
@@ -52,8 +52,8 @@ app.controller('NetworkExplorationCtrl', ['$scope','cytoData','$uibModal', '$htt
                 $ctrl.request = request;
 
                 $ctrl.ok = function () {
-                    $http.get("http://localhost:3000/network_exploration_prediction", {params: request}).then(function(response) {
-                    // $http.get("http://192.17.58.208:3000/network_exploration_prediction", {params: request}).then(function(response) {
+                    // $http.get("http://localhost:3000/network_exploration_prediction", {params: request}).then(function(response) {
+                    $http.get("http://192.17.58.208:3000/network_exploration_prediction", {params: request}).then(function(response) {
                         $scope.elements = response.data;
                         $scope.graph.load();
                     });
