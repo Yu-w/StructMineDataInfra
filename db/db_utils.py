@@ -82,7 +82,7 @@ class data_utils(object):
 		result=[]
 		query_string = "SELECT index FROM query_table WHERE target_type @@ \'" + target_type + "\' AND output_types@>\'" +\
 		output_types+"\' and relation_type=\'" + relation_type +"\'"
-		print query_string
+		#print query_string
 		idx = self.db.query(query_string).dictresult()[0]['index']
 		for sub_type in sub_types:
 			query_string = "SELECT entity,score FROM " + self.arg['caseolap_table'] + " WHERE doc_id=" + str(idx) + \
@@ -192,7 +192,13 @@ class data_utils(object):
 		#query_string = "SELECT * FROM (SELECT entity_a,entity_b,(array_agg('[' || article_id || ',' || sent_id || ']'))[1:" + str(num_pps) + "]  "+"FROM "+self.arg['relation_table']+" WHERE type_a_"+type_a['name']+"@>'"\
 		#+type_a['type']+"' AND type_b_"+type_b['name']+"@>'"+ type_b['type']+"' AND relation_type='"+relation_type + "' GROUP BY entity_a,entity_b) x ORDER BY RANDOM() LIMIT " +str(num_edges)
 		q = self.db.query(query_string)
-		return list(self.generate_random_walks(q.dictresult()))
+		result={'node_a': {}, 'node_b': {}, 'edges': []}
+		for p in list(self.generate_random_walks(q.dictresult())):
+			result['node_a'][p[0]]=[]
+			result['node_b'][p[1]]=[]
+			result['edges'].append({'source':p[0], 'target':p[1]})
+		#print result
+		return result
 
 	def query_links(self, type_a, type_b, relation_type, num_edges=5, num_pps=1):
 		#type_a={'mesh':0, 'name':"Chemicals_and_Drugs"}
