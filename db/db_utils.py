@@ -80,12 +80,13 @@ class data_utils(object):
 	def query_distinctive(self,target_type,output_types,relation_type, sub_types,num_records=8):
 		sub_types = ast.literal_eval(sub_types)
 		result=[]
-		query_string = "SELECT index FROM query_table WHERE target_type=\'" + target_type + "\' AND output_types@>\'" +\
+		query_string = "SELECT index FROM query_table WHERE target_type @@ \'" + target_type + "\' AND output_types@>\'" +\
 		output_types+"\' and relation_type=\'" + relation_type +"\'"
+		print query_string
 		idx = self.db.query(query_string).dictresult()[0]['index']
 		for sub_type in sub_types:
 			query_string = "SELECT entity,score FROM " + self.arg['caseolap_table'] + " WHERE doc_id=" + str(idx) + \
-			" AND sub_type=\'" + sub_type + "\' ORDER BY score LIMIT " + str(num_records)
+			" AND sub_type @@ \'" + sub_type + "\' ORDER BY score LIMIT " + str(num_records)
 			q = self.db.query(query_string)
 			result.append(q.dictresult())
 		return result
