@@ -1,5 +1,18 @@
 This is the repo for LifeNet system. 
 
+## Notice
+
+1. Under Network Visualization page, you must first run the "Show Relationships" and then run the "Show predicted relationship" buttom
+2. If you want to issue multiple queries in Network Visualization page, please either refresh the page or switch to Distinctive Summarization page and then switch back. This can make sure the AngularJS will reload the data
+
+
+
+### How to run locally
+
+1. Change the server address in ./angularJS-front/app/js/controllers/<XXX>.js
+2. Change the FLAGS_HOST_ADDR in ./config.py
+
+
 ### How to run
 
 #### Front-end part
@@ -47,6 +60,12 @@ Argument1: Nervous_System
 Argument2: Anatomy
 Relation: has_nerve_supply
 
+More queries
+Genes Diseases process_involve
+Proteins Phenomena_and_Processes is_associated_anatomy_of_gene_product
+Chromosomes Diseases cytogenetic_abnormality_involves_chromosome
+Proteins Diseases biological_process_involves_gene_product
+
 ### CaseOLAP
 
 Target Entity Type:
@@ -61,5 +80,3 @@ anatomic_structure_is_physical_part_of
 Target Entity Subtypes:
 Chromosomes,_Archaeal
 Chromosomes,_Mammalian::Chromosomes,_Human::Chromosomes,_Human,_6-12_and_X::Chromosomes,_Human,_Pair_7
-
-
