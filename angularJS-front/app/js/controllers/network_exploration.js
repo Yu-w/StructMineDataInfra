@@ -9,7 +9,7 @@ app.controller('NetworkExplorationCtrl', ['$scope','cytoData','$uibModal', '$htt
             animation: true,
             ariaLabelledBy: 'modal-title-top',
             ariaDescribedBy: 'modal-body-top',
-            templateUrl: 'tpl/distinctive_summarization_submission_modal.html',
+            templateUrl: 'tpl/network_visualization_submission_modal.html',
             resolve: {
                 request: function () {
                     return $scope.request;
