@@ -137,14 +137,14 @@ app.controller('DistinctiveSummarizationCtrl', ['$scope','$uibModal', '$http', f
             templateUrl: 'tpl/distinctive_summarization_sample_submission_modal.html',
             controller: function ($uibModalInstance, $http) {
                 var $ctrl = this;
-
-                $http.get("http://192.17.58.208:3000/distinctive_summarization/get_sample").then(function(response) {
+                // $http.get("http://192.17.58.208:3000/distinctive_summarization/get_sample").then(function(response) {
+                $http.get("http://localhost:3000/distinctive_summarization/get_sample").then(function(response) {
                     $ctrl.request = response.data;
                 });
 
                 $ctrl.ok = function () {
-
-                    $http.get("http://192.17.58.208:3000/distinctive_summarization", {params: $ctrl.request}).then(function(response) {
+                    $http.get("http://localhost:3000/distinctive_summarization", {params: $ctrl.request}).then(function(response) {
+                    // $http.get("http://192.17.58.208:3000/distinctive_summarization", {params: $ctrl.request}).then(function(response) {
                         $scope.diseases = response.data;
                     });
                     $uibModalInstance.close();
@@ -178,8 +178,8 @@ app.controller('DistinctiveSummarizationCtrl', ['$scope','$uibModal', '$http', f
                 $ctrl.request = request;
 
                 $ctrl.ok = function () {
-
-                    $http.get("http://192.17.58.208:3000/distinctive_summarization", {params: request}).then(function(response) {
+                    // $http.get("http://192.17.58.208:3000/distinctive_summarization", {params: request}).then(function(response) {
+                    $http.get("http://localhost:3000/distinctive_summarization", {params: request}).then(function(response) {
                         $scope.diseases = response.data;
                     });
                     $uibModalInstance.close();
