@@ -136,38 +136,50 @@ class data_utils(object):
 				#except:
 					#print cnt
 
-	def generate_random_walks(self, edge_pairs, num_walks=3, num_steps=2):
+	def generate_random_walks(self, edge_pairs, num_walks=3, num_steps=3):
+		print len(edge_pairs)
 		outgoing_edges = defaultdict(list)
-		if len(edge_pairs) > 10:
-			map(lambda x:outgoing_edges[x['entity_a']].append(x['entity_b']), edge_pairs)
-			for k,v in outgoing_edges.iteritems():
-				if len(v) > 0:
-					v.append(k)
-			#print outgoing_edges
-			temp = max(outgoing_edges.values(), key=len)
-			origin = temp[-1]
-			walk_nodes = [origin]
-			total_nodes = set([origin])
-			edges = []
-			for i in xrange(num_steps):
-				next_step = []
-				while len(walk_nodes) > 0:
-					node = walk_nodes.pop()
-					print node
-					if len(outgoing_edges[node]) <= num_walks + 1:
-						next_step.extend(outgoing_edges[node][:-1])
-						edges.extend(list(map(lambda x: (node,x),outgoing_edges[node][:-1])))
-					else:
-						print "random_sample",outgoing_edges[node][:-1]
-						random_nodes = random.sample(outgoing_edges[node][:-1], num_walks)
-						next_step.extend(random_nodes)
-						edges.extend(list(map(lambda x: (node,x),random_nodes)))
-				assert(len(walk_nodes)==0)
-				walk_nodes = next_step
-				print 'walk_nodes:',walk_nodes
-				total_nodes.union(set(next_step))
-			print total_nodes
-			print edges
+		ingoing_edges = defaultdict(list)
+		map(lambda x:outgoing_edges[x['entity_a']].append(x['entity_b']), edge_pairs)
+		map(lambda x:ingoing_edges[x['entity_b']].append(x['entity_a']), edge_pairs)
+		for k,v in outgoing_edges.iteritems():
+			if len(v) > 0:
+				v.append(k)
+		#print outgoing_edges
+		#print ingoing_edges
+		#print outgoing_edges
+		temp = max(outgoing_edges.values(), key=len)
+		origin = temp[-1]
+		walk_nodes = [origin]
+		total_nodes = set([origin])
+		edges = set()
+		for i in xrange(num_steps):
+			#print "++++++++++++++++++++",i
+			next_step = []
+			while len(walk_nodes) > 0:
+				node = walk_nodes.pop()
+				if i % 2 == 0:
+					node_list = outgoing_edges[node][:-1]
+					assert(len(node_list) > 0)
+				else:
+					node_list = ingoing_edges[node]
+					assert(len(node_list) > 0)
+				#print node
+				if len(node_list) <= num_walks:
+					next_step.extend(node_list)
+					edges = edges.union(list(map(lambda x: (node,x),node_list)))
+				else:
+					#print "random_sample",node_list
+					random_nodes = random.sample(node_list, num_walks)
+					next_step.extend(random_nodes)
+					edges = edges.union(list(map(lambda x: (node,x),random_nodes)))
+			assert(len(walk_nodes)==0)
+			walk_nodes = list(set(next_step))
+			total_nodes = total_nodes.union(set(next_step))
+		#print total_nodes
+		print len(edges)
+		return edges
+		#print edges
 
 
 	def query_links_with_walk(self, type_a, type_b, relation_type, num_edges=5, num_pps=1):
@@ -175,9 +187,11 @@ class data_utils(object):
 		type_b = ast.literal_eval(type_b)
 		#print num_edges
 		query_string = "SELECT * FROM (SELECT DISTINCT ON(entity_a,entity_b) entity_a,entity_b,sent_id  "+"FROM "+self.arg['relation_table']+" WHERE type_a_"+type_a['name']+"@>'"\
-		+type_a['type']+"' AND type_b_"+type_b['name']+"@>'"+ type_b['type']+"' AND relation_type='"+relation_type + "') x ORDER BY RANDOM() LIMIT " +str(num_edges)
+		+type_a['type']+"' AND type_b_"+type_b['name']+"@>'"+ type_b['type']+"' AND relation_type='"+relation_type + "') x ORDER BY RANDOM() LIMIT 500"
+		#query_string = "SELECT * FROM (SELECT entity_a,entity_b,(array_agg('[' || article_id || ',' || sent_id || ']'))[1:" + str(num_pps) + "]  "+"FROM "+self.arg['relation_table']+" WHERE type_a_"+type_a['name']+"@>'"\
+		#+type_a['type']+"' AND type_b_"+type_b['name']+"@>'"+ type_b['type']+"' AND relation_type='"+relation_type + "' GROUP BY entity_a,entity_b) x ORDER BY RANDOM() LIMIT " +str(num_edges)
 		q = self.db.query(query_string)
-		self.generate_random_walks(q.dictresult())
+		return list(self.generate_random_walks(q.dictresult()))
 
 	def query_links(self, type_a, type_b, relation_type, num_edges=5, num_pps=1):
 		#type_a={'mesh':0, 'name':"Chemicals_and_Drugs"}
@@ -223,6 +237,9 @@ class data_utils(object):
 		#print red_node,blue_node
 		query_edge = "SELECT DISTINCT T.entity_a as source, T.entity_b as target, E.pmid, E.article_title,E.sent FROM " + self.arg['entity_table'] + " AS E INNER JOIN "+\
 		self.identity+" T ON E.sent_id = T.sent_id";
+		#query_edge = "SELECT distinct on (R.article_id) R.article_id, R.sent_id from " + self.arg['relation_table']+ " AS R inner join " + self.identity+  \
+		#" T on R.entity_a = T.entity_a and R.entity_b = T.entity_b and R.relation_type = \'" + relation_type +"' LIMIT " +str(num_pps)
+		#"distinct on (article_id) inner join on entity_a, entity_b, relation_type"
 		q = self.db.query(query_edge)
 		self.db.query("drop table "+self.identity)
 		return {'node_a':red_node,'node_b':blue_node,'edge':q.dictresult()}
@@ -244,7 +261,9 @@ if __name__ == '__main__':
 		if sys.argv[2] == 'network':
 			tmp_utils = data_utils({'entity_table': sys.argv[3], 'relation_table': sys.argv[4]})
 			result = tmp_utils.query_links(type_a=sys.argv[5], type_b=sys.argv[6], relation_type=sys.argv[7], num_edges=sys.argv[8], num_pps=sys.argv[9])
-			#result = tmp_utils.query_links_with_walk(type_a=sys.argv[5], type_b=sys.argv[6], relation_type=sys.argv[7], num_edges=sys.argv[8], num_pps=sys.argv[9])
+		elif sys.argv[2] == 'connected_network':
+			tmp_utils = data_utils({'entity_table': sys.argv[3], 'relation_table': sys.argv[4]})
+			result = tmp_utils.query_links_with_walk(type_a=sys.argv[5], type_b=sys.argv[6], relation_type=sys.argv[7], num_edges=sys.argv[8], num_pps=sys.argv[9])
 		elif sys.argv[2] == 'predict':
 			tmp_utils = data_utils({'prediction_table': sys.argv[3]})
 			result = tmp_utils.query_prediction(name_a=sys.argv[4], name_b=sys.argv[5], relation_type=sys.argv[6])
