@@ -204,6 +204,8 @@ def network_exploration():
 
     res = tmp_utils.query_links(type_a=type_a, type_b=type_b, relation_type=relation_type,
                                 num_edges=number_of_edges, num_pps=number_of_papers)
+    # res = tmp_utils.query_links_with_walk(type_a=type_a, type_b=type_b, relation_type=relation_type,
+    #                             num_edges=number_of_edges, num_pps=number_of_papers)
     if FLAGS_DEBUG:
         print("[INFO] Complete querying DB")
 

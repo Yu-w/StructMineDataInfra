@@ -192,11 +192,11 @@ class data_utils(object):
 		#query_string = "SELECT * FROM (SELECT entity_a,entity_b,(array_agg('[' || article_id || ',' || sent_id || ']'))[1:" + str(num_pps) + "]  "+"FROM "+self.arg['relation_table']+" WHERE type_a_"+type_a['name']+"@>'"\
 		#+type_a['type']+"' AND type_b_"+type_b['name']+"@>'"+ type_b['type']+"' AND relation_type='"+relation_type + "' GROUP BY entity_a,entity_b) x ORDER BY RANDOM() LIMIT " +str(num_edges)
 		q = self.db.query(query_string)
-		result={'node_a': {}, 'node_b': {}, 'edges': []}
+		result={'node_a': {}, 'node_b': {}, 'edge': []}
 		for p in list(self.generate_random_walks(q.dictresult())):
 			result['node_a'][p[0]]=[]
 			result['node_b'][p[1]]=[]
-			result['edges'].append({'source':p[0], 'target':p[1]})
+			result['edge'].append({'source':p[0], 'target':p[1], "article_title": []})
 		#print result
 		return result
 
