@@ -491,6 +491,7 @@ def network_exploration_prediction():
         ### Second for all possible candidate pair (node_a, node_b), query DB for relation prediction
         tmp_utils = data_utils({'prediction_table': "prediction_table"})
         relation_type = cached_relation
+        new_edge_cnt = 0
         for i in range(len(node_a_list)):
             for j in range(len(node_b_list)):
                 name_a = node_a_list[i]
@@ -517,9 +518,11 @@ def network_exploration_prediction():
                         },
                         "classes": "edge1"
                     })
+                    new_edge_cnt += 1
 
         if FLAGS_DEBUG:
             print("[INFO] Complete quering prediction DB table for relation prediction")
+            print("[INFO] Add %s new edges" % new_edge_cnt)
 
 
     response = app.response_class(

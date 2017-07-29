@@ -378,7 +378,7 @@ app.controller('NetworkExplorationCtrl', ['$scope','cytoData','$uibModal', '$htt
         },{
             selector: '.edge1',
             style: {
-                'line-color': '#27c24c'
+                'line-color': '#f49d41'
             }
         }
     ]
