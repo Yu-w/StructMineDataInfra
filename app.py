@@ -58,6 +58,32 @@ sample_data = [
   }
 ];
 
+### The following example is a placeholder for "bad" query with invalid entity/relation types.
+invalid_query_data = [
+    {
+        "group": 'nodes',
+        "data": {
+            "id": "Invalidentity/relationtypes",
+            "label": "Invalid entity/relation types."
+        },
+        "selectable": True,
+        "grabbable": True
+    }
+]
+
+### The following example is a placeholder for "bad" query without any returned network relation.
+empty_result_query_data = [
+    {
+        "group": 'nodes',
+        "data": {
+            "id": "Noreturnednetwork",
+            "label": "No returned network."
+        },
+        "selectable": True,
+        "grabbable": True
+    }
+]
+
 ### The following example is workable for network visualization page
 sample_data_2 = [
     {
@@ -192,10 +218,15 @@ def network_exploration():
     if FLAGS_DEBUG:
         print("[INFO] marshal returned types = ", (arg1_type, arg2_type, relation_type))
     if (arg1_type == "none" or arg2_type == "none" or relation_type == "none"):
-        print("[ERROR] Bad query!!!")
+        ## Return a placeholder response showing invalid query
+        response = app.response_class(
+            response=json.dumps(invalid_query_data),
+            status=200,
+            mimetype='application/json'
+        )
+        response.headers.add('Access-Control-Allow-Origin', '*')
+        return response
 
-    # type_a = str({'name':'mesh', 'type':("{"+arg1+"}") })
-    # type_b = str({'name':'mesh', 'type':("{"+arg2+"}") })
     type_a = str({'name':arg1_type, 'type':("{"+arg1+"}") })
     type_b = str({'name':arg2_type, 'type':("{"+arg2+"}") })
 
@@ -207,6 +238,17 @@ def network_exploration():
     #                             num_edges=number_of_edges, num_pps=number_of_papers)
     if FLAGS_DEBUG:
         print("[INFO] Complete querying DB")
+
+    if (len(res['node_a']) == 0 and len(res['node_b']) == 0 and len(res['edge']) == 0):
+        ## SQL returns empty, return the corresponding placeholder
+        response = app.response_class(
+            response=json.dumps(empty_result_query_data),
+            status=200,
+            mimetype='application/json'
+        )
+        response.headers.add('Access-Control-Allow-Origin', '*')
+        return response
+
 
     if FLAGS_SAVE_DATA:
         with open("./db_res.txt", "w") as fout:

@@ -45,7 +45,6 @@ Please follow the README in ./db directory.
 On the server version, the js controller in angularJS send request to 192.XXX address and
 the Flask should start on 192.XXX address.
 
-
 ## Usage
 
 ### Network Visualization
@@ -60,11 +59,26 @@ Argument1: Nervous_System
 Argument2: Anatomy
 Relation: has_nerve_supply
 
-More queries
-Genes Diseases process_involve
-Proteins Phenomena_and_Processes is_associated_anatomy_of_gene_product
-Chromosomes Diseases cytogenetic_abnormality_involves_chromosome
-Proteins Diseases biological_process_involves_gene_product
+Query-3
+Argument1: Genes
+Argument2: Diseases
+Relation: process_involve
+
+Query-4
+Argument1: Proteins
+Argument2: Phenomena_and_Processes
+Relation: is_associated_anatomy_of_gene_product
+
+Query-5
+Argument1: Chromosomes
+Argument2: Diseases
+Relation: cytogenetic_abnormality_involves_chromosome
+
+Query-6
+Argument1: Proteins
+Argument2: Diseases
+Relation: biological_process_involves_gene_product
+
 
 ### CaseOLAP
 
