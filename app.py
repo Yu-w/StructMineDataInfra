@@ -131,15 +131,14 @@ def seg_long_sent(sent, entity):
     :return:
         a list of seged sents
     '''
+    window_char_size = 50
     res = []
-    window_char_size = 80
-    if len(sent) <= 300:
-        res.append(sent)
-    else:
-        for pair in [(m.start(), m.end()) for m in re.finditer(entity, sent)]:
-            start = max(0, pair[0] - window_char_size)
-            end = min(len(sent)-1, pair[1] + window_char_size)
-            res.append("... " + sent[start:end] + " ...")
+    entity = " " + entity + " "
+    for pair in [(m.start(), m.end()) for m in re.finditer(entity, sent)]:
+        start = max(0, pair[0] - window_char_size)
+        end = min(len(sent) - 1, pair[1] + window_char_size)
+        seg = "... " + sent[start:m.start()] + "<font color=\"red\">" + entity + "</font>" + sent[m.end()+1:end] + " ..."
+        res.append(seg)
     return res
 
 
@@ -235,7 +234,7 @@ def network_exploration():
                 data_docs_pmid = "0"
                 data_docs_sents = ["NONE-SENT"]
             else:
-                data_docs_title = doc_info[0]
+                data_docs_title = "Title:" + doc_info[0]
                 data_docs_pmid = doc_info[2]
                 data_docs_sents = seg_long_sent(doc_info[1], data_label) # front-end requires sentences send as a list
 
@@ -276,7 +275,7 @@ def network_exploration():
                 data_docs_pmid = "0"
                 data_docs_sents = ["NONE-SENT"]
             else:
-                data_docs_title = doc_info[0]
+                data_docs_title = "Title:" + doc_info[0]
                 data_docs_pmid = doc_info[2]
                 data_docs_sents = seg_long_sent(doc_info[1], data_label) # front-end requires sentences send as a list
 
@@ -307,8 +306,12 @@ def network_exploration():
         # edge is a dict {'article_title':xxx, 'sent':xxx, 'pmid':xxx, 'source':xxx, 'target':xxx}
         data_source = "".join(edge["source"].split())
         data_target = "".join(edge["target"].split())
-        data_doc_title = edge["article_title"]
-        data_doc_sentences = [edge["sent"]]
+        data_doc_title = "Title:" + edge["article_title"]
+        ## split long sentences
+        data_doc_sentences = []
+        data_doc_sentences.extend(seg_long_sent(edge["sent"], edge["source"]))
+        data_doc_sentences.extend(seg_long_sent(edge["sent"], edge["target"]))
+        # data_doc_sentences = [edge["sent"]]
         data_doc_pmid = edge["pmid"]
         data_doc = [{
             "title": data_doc_title,
@@ -347,7 +350,6 @@ def network_exploration():
     )
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
-
 
 @app.route('/distinctive_summarization', methods=['GET','POST'])
 def distinctive_summarization():
