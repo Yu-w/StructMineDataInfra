@@ -45,8 +45,10 @@ Please follow the README in ./db directory.
 On the server version, the js controller in angularJS send request to 192.XXX address and
 the Flask should start on 192.XXX address.
 
-
 ## Usage
+
+### Sample queries
+Link: https://docs.google.com/document/d/1X4Xl9W2rg6wsCeEQZl_36_7gbY86wxQMkjE6zKHIfCk/edit
 
 ### Network Visualization
 
@@ -60,23 +62,35 @@ Argument1: Nervous_System
 Argument2: Anatomy
 Relation: has_nerve_supply
 
-More queries
-Genes Diseases process_involve
-Proteins Phenomena_and_Processes is_associated_anatomy_of_gene_product
-Chromosomes Diseases cytogenetic_abnormality_involves_chromosome
-Proteins Diseases biological_process_involves_gene_product
+Query-3
+Argument1: Genes
+Argument2: Diseases
+Relation: process_involve
+
+Query-4
+Argument1: Proteins
+Argument2: Phenomena_and_Processes
+Relation: is_associated_anatomy_of_gene_product
+
+Query-5
+Argument1: Chromosomes
+Argument2: Diseases
+Relation: cytogenetic_abnormality_involves_chromosome
+
+Query-6
+Argument1: Proteins
+Argument2: Diseases
+Relation: biological_process_involves_gene_product
+
 
 ### CaseOLAP
 
-Target Entity Type:
-MeSH:::Phenomena_and_Processes::Genetic_Phenomena::Genetic_Structures::Chromosomes
+Target Entity Type: Chromosomes
 
-Output Entity Type:
-Nucleotide_Sequence
+Output Entity Type: Nucleotide_Sequence
 
-Relation:
-anatomic_structure_is_physical_part_of
+Relation: anatomic_structure_is_physical_part_of
 
 Target Entity Subtypes:
 Chromosomes,_Archaeal
-Chromosomes,_Mammalian::Chromosomes,_Human::Chromosomes,_Human,_6-12_and_X::Chromosomes,_Human,_Pair_7
+Chromosomes,_Human,_Pair_7

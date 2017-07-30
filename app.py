@@ -6,6 +6,7 @@ from flask import Flask, render_template, url_for, request, json, redirect, json
 import json
 import random
 import re
+import marshal
 from db.db_utils import data_utils
 from config import *
 from caseOLAP_sample_query import *
@@ -57,6 +58,32 @@ sample_data = [
   }
 ];
 
+### The following example is a placeholder for "bad" query with invalid entity/relation types.
+invalid_query_data = [
+    {
+        "group": 'nodes',
+        "data": {
+            "id": "Invalidentity/relationtypes",
+            "label": "Invalid entity/relation types."
+        },
+        "selectable": True,
+        "grabbable": True
+    }
+]
+
+### The following example is a placeholder for "bad" query without any returned network relation.
+empty_result_query_data = [
+    {
+        "group": 'nodes',
+        "data": {
+            "id": "Noreturnednetwork",
+            "label": "No returned network."
+        },
+        "selectable": True,
+        "grabbable": True
+    }
+]
+
 ### The following example is workable for network visualization page
 sample_data_2 = [
     {
@@ -102,6 +129,26 @@ sample_data_2 = [
     }
 ];
 
+all_types = marshal.load(open("./data/all_types.m","rb"))
+for k in all_types.keys():
+    # convert list to set for faster check
+    all_types[k] = set(all_types[k])
+if FLAGS_DEBUG:
+    print("[INFO] Complete loading marshal !!!")
+
+def check_types(element):
+    """
+    :param element: a string
+    :return: one of "umls", "mesh", "relation", "none"
+    """
+    global all_types
+    element_type = "none"
+    for k in all_types.keys():
+        if element in all_types[k]:
+            element_type = k
+            break
+    return element_type
+
 def seg_long_sent(sent, entity):
     '''
 
@@ -110,15 +157,14 @@ def seg_long_sent(sent, entity):
     :return:
         a list of seged sents
     '''
+    window_char_size = 50
     res = []
-    window_char_size = 80
-    if len(sent) <= 300:
-        res.append(sent)
-    else:
-        for pair in [(m.start(), m.end()) for m in re.finditer(entity, sent)]:
-            start = max(0, pair[0] - window_char_size)
-            end = min(len(sent)-1, pair[1] + window_char_size)
-            res.append("... " + sent[start:end] + " ...")
+    entity = " " + entity + " "
+    for pair in [(m.start(), m.end()) for m in re.finditer(entity, sent)]:
+        start = max(0, pair[0] - window_char_size)
+        end = min(len(sent) - 1, pair[1] + window_char_size)
+        seg = "... " + sent[start:m.start()] + "<font color=\"red\">" + entity + "</font>" + sent[m.end()+1:end] + " ..."
+        res.append(seg)
     return res
 
 
@@ -165,15 +211,44 @@ def network_exploration():
     if FLAGS_DEBUG:
         print("[INFO] Start querying DB")
     tmp_utils = data_utils({'entity_table': 'entity_table', 'relation_table': 'relation_table'})
-    ## TODO: the umls is also applicable, extend it later
-    type_a = str({'name':'mesh', 'type':("{"+arg1+"}") })
-    type_b = str({'name':'mesh', 'type':("{"+arg2+"}") })
+
+    arg1_type = check_types(arg1)
+    arg2_type = check_types(arg2)
+    relation_type = check_types(relation)
+    if FLAGS_DEBUG:
+        print("[INFO] marshal returned types = ", (arg1_type, arg2_type, relation_type))
+    if (arg1_type == "none" or arg2_type == "none" or relation_type == "none"):
+        ## Return a placeholder response showing invalid query
+        response = app.response_class(
+            response=json.dumps(invalid_query_data),
+            status=200,
+            mimetype='application/json'
+        )
+        response.headers.add('Access-Control-Allow-Origin', '*')
+        return response
+
+    type_a = str({'name':arg1_type, 'type':("{"+arg1+"}") })
+    type_b = str({'name':arg2_type, 'type':("{"+arg2+"}") })
+
     relation_type = relation
 
     res = tmp_utils.query_links(type_a=type_a, type_b=type_b, relation_type=relation_type,
                                 num_edges=number_of_edges, num_pps=number_of_papers)
+    # res = tmp_utils.query_links_with_walk(type_a=type_a, type_b=type_b, relation_type=relation_type,
+    #                             num_edges=number_of_edges, num_pps=number_of_papers)
     if FLAGS_DEBUG:
         print("[INFO] Complete querying DB")
+
+    if (len(res['node_a']) == 0 and len(res['node_b']) == 0 and len(res['edge']) == 0):
+        ## SQL returns empty, return the corresponding placeholder
+        response = app.response_class(
+            response=json.dumps(empty_result_query_data),
+            status=200,
+            mimetype='application/json'
+        )
+        response.headers.add('Access-Control-Allow-Origin', '*')
+        return response
+
 
     if FLAGS_SAVE_DATA:
         with open("./db_res.txt", "w") as fout:
@@ -201,7 +276,7 @@ def network_exploration():
                 data_docs_pmid = "0"
                 data_docs_sents = ["NONE-SENT"]
             else:
-                data_docs_title = doc_info[0]
+                data_docs_title = "Title:" + doc_info[0]
                 data_docs_pmid = doc_info[2]
                 data_docs_sents = seg_long_sent(doc_info[1], data_label) # front-end requires sentences send as a list
 
@@ -242,7 +317,7 @@ def network_exploration():
                 data_docs_pmid = "0"
                 data_docs_sents = ["NONE-SENT"]
             else:
-                data_docs_title = doc_info[0]
+                data_docs_title = "Title:" + doc_info[0]
                 data_docs_pmid = doc_info[2]
                 data_docs_sents = seg_long_sent(doc_info[1], data_label) # front-end requires sentences send as a list
 
@@ -273,8 +348,12 @@ def network_exploration():
         # edge is a dict {'article_title':xxx, 'sent':xxx, 'pmid':xxx, 'source':xxx, 'target':xxx}
         data_source = "".join(edge["source"].split())
         data_target = "".join(edge["target"].split())
-        data_doc_title = edge["article_title"]
-        data_doc_sentences = [edge["sent"]]
+        data_doc_title = "Title:" + edge["article_title"]
+        ## split long sentences
+        data_doc_sentences = []
+        data_doc_sentences.extend(seg_long_sent(edge["sent"], edge["source"]))
+        data_doc_sentences.extend(seg_long_sent(edge["sent"], edge["target"]))
+        # data_doc_sentences = [edge["sent"]]
         data_doc_pmid = edge["pmid"]
         data_doc = [{
             "title": data_doc_title,
@@ -313,7 +392,6 @@ def network_exploration():
     )
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
-
 
 @app.route('/distinctive_summarization', methods=['GET','POST'])
 def distinctive_summarization():
@@ -413,6 +491,7 @@ def network_exploration_prediction():
         ### Second for all possible candidate pair (node_a, node_b), query DB for relation prediction
         tmp_utils = data_utils({'prediction_table': "prediction_table"})
         relation_type = cached_relation
+        new_edge_cnt = 0
         for i in range(len(node_a_list)):
             for j in range(len(node_b_list)):
                 name_a = node_a_list[i]
@@ -439,9 +518,11 @@ def network_exploration_prediction():
                         },
                         "classes": "edge1"
                     })
+                    new_edge_cnt += 1
 
         if FLAGS_DEBUG:
             print("[INFO] Complete quering prediction DB table for relation prediction")
+            print("[INFO] Add %s new edges" % new_edge_cnt)
 
 
     response = app.response_class(

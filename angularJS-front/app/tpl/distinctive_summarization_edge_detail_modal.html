@@ -7,10 +7,14 @@
             <p>No document available</p>
         </div>
         <div class="panel panel-default" ng-repeat="doc in edge.docs">
-            <div class="panel-heading"><a ng-href="https://www.ncbi.nlm.nih.gov/pubmed/{{doc.pmid}}" target="_blank"><b>Title: {{doc.title}}</b></a></div>
+            <div class="panel-heading"><a ng-href="https://www.ncbi.nlm.nih.gov/pubmed/{{doc.pmid}}" target="_blank"><b>{{doc.title}}</b></a></div>
             <ul class="list-group">
                 <!--TODO: add html escape: https://stackoverflow.com/questions/24275488/can-i-prevent-ng-repeat-from-html-encoding-escaping-my-content-in-angularjs-1 -->
-                <li class="list-group-item" ng-repeat="sent in doc.sentences">Sentence: {{sent}}</li>
+                <!-- <li class="list-group-item" ng-repeat="sent in doc.sentences">Sentence: {{sent}}</li> -->
+                <li class="list-group-item" ng-repeat="sent in doc.sentences">
+                    <p ng-bind-html="sent"></p>
+                </li>
+
             </ul>
         </div>
     </div>
