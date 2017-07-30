@@ -40,5 +40,15 @@ QUERY_DB = [
             "Chromosomes,_Human,_Pair_16",
             "Chromosomes,_Human,_Pair_17"
         ]
+    },
+    {
+        "targetEntityType": "Pharmacologic_Actions",
+        "outputEntityType": "Pharmacologic_Substance",
+        "relation": "has_mechanism_of_action",
+        "targetEntitySubtypes": [
+            "Serotonin_Uptake_Inhibitors",
+            "HIV_Protease_Inhibitors",
+            "Adrenergic_alpha-1_Receptor_Antagonists"
+        ]
     }
 ]
