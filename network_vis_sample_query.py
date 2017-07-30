@@ -10,23 +10,18 @@ QUERY_NET = [
         "relation": "is_associated_anatomy_of_gene_product"
     },
     {
-        "argument1": "Nervous_System",
+        "argument1": "Genetic_Phenomena",
+        "argument2": "Diseases",
+        "relation": "disease_may_have_cytogenetic_abnormality"
+    },
+    {
+        "argument1": "Peripheral_Nerves",
         "argument2": "Anatomy",
         "relation": "has_nerve_supply"
     },
     {
-        "argument1": "Nervous_System",
-        "argument2": "Anatomy",
-        "relation": "has_nerve_supply"
-    },
-    {
-        "argument1": "Nervous_System",
-        "argument2": "Anatomy",
-        "relation": "has_nerve_supply"
-    },
-    {
-        "argument1": "Nervous_System",
-        "argument2": "Anatomy",
-        "relation": "has_nerve_supply"
+        "argument1": "Chromosomes",
+        "argument2": "Diseases",
+        "relation": "cytogenetic_abnormality_involves_chromosome"
     }
 ]
