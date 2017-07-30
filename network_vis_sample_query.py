@@ -13,5 +13,20 @@ QUERY_NET = [
         "argument1": "Nervous_System",
         "argument2": "Anatomy",
         "relation": "has_nerve_supply"
+    },
+    {
+        "argument1": "Nervous_System",
+        "argument2": "Anatomy",
+        "relation": "has_nerve_supply"
+    },
+    {
+        "argument1": "Nervous_System",
+        "argument2": "Anatomy",
+        "relation": "has_nerve_supply"
+    },
+    {
+        "argument1": "Nervous_System",
+        "argument2": "Anatomy",
+        "relation": "has_nerve_supply"
     }
 ]
