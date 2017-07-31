@@ -116,6 +116,7 @@ class data_utils(object):
 	def query_distinctive_v2(self,target_type,output_types,relation_type, sub_types,num_records=8):
 		sub_types = ast.literal_eval(sub_types)
 		result=[]
+		pmid_result = []
 		query_string = "SELECT index FROM query_table WHERE target_type @@ \'" + target_type + "\' AND output_types@>\'" +\
 		output_types+"\' and relation_type=\'" + relation_type +"\'"
 		#print query_string
@@ -134,14 +135,21 @@ class data_utils(object):
 			" AND sub_type @@ \'" + sub_type + "\' ORDER BY score LIMIT " + str(num_records)
 			q = self.db.query(query_string)
 			
-			type_target = sub_type.split('::')[-1]
+			type_target = sub_type.split('::')[0]
 			#print type_target
 			#entity_list = q.dictresult()
+			pmids=[]
 			for em in q.dictresult():
-				qq = "select sent_id FROM relation_table WHERE entity_a=\'" +em['entity'] +\
-				"\' AND "+type_a_name+"@>'"+output_types+"' AND relation_type = '"+relation_type+"' AND "+type_b_name+"@>'{"+type_target+"}' LIMIT 1"
+				qq = "select pmid from entity_table where sent_id = (select sent_id FROM relation_table WHERE entity_a=\'" +em['entity'] +\
+				"\' AND relation_type = '"+relation_type+"' LIMIT 1) LIMIT 1"
+				#"\' AND relation_type = '"+relation_type+"' AND "+type_b_name+"@>'{"+type_target+"}' LIMIT 1"
+				em_result  = self.db.query(qq).dictresult()
+				if len(em_result) > 0:
+					em_result[0]['entity'] = em['entity']
+					pmids.append(em_result[0])
 			result.append(q.dictresult())
-		return result
+			pmid_result.append(pmids)
+		return result,pmid_result
 
 	def insert_record(self):
 		cnt = 0

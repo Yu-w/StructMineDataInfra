@@ -518,6 +518,8 @@ def network_exploration_prediction():
                     source_label = "".join(name_a.split())
                     target_label = "".join(name_b.split())
                     score = res
+                    if (score < 0.79):
+                        continue
                     ## do not add existed edges
                     if (source_label, target_label) in existed_edges:
                         continue

@@ -47,9 +47,19 @@ QUERY_NET = [
         'relation': 'is_not_cytogenetic_abnormality_of_disease'
     },
     {
-        'argument1': 'Anti-Arrhythmia_Agents',
-        'argument2': 'Chemicals_and_Drugs',
-        'relation': 'has_therapeutic_class'
+        "argument1": "Anti-Arrhythmia_Agents",
+        "argument2": "Chemicals_and_Drugs",
+        "relation": "has_therapeutic_class"
+    },
+    {
+        "argument1": "Genetic_Variation",
+        "argument2": "Diseases",
+        "relation": "disease_may_have_cytogenetic_abnormality"
+    },
+    {
+        "argument1": "Lymphoproliferative_Disorders",
+        "argument2": "Anatomy",
+        "relation": "is_not_abnormal_cell_of_disease"
     }
 ]
 if __name__ == '__main__':
@@ -64,7 +74,7 @@ if __name__ == '__main__':
         if query['argument2'] in types['mesh']:
             arg2['name']='mesh'
         
-        result = tmp_utils.query_links(type_a=arg1, type_b=arg2, relation_type=query['relation'], num_edges=15, num_pps=4)
+        result = tmp_utils.query_links(type_a=arg1, type_b=arg2, relation_type=query['relation'], num_edges=15, num_pps=6)
         marshal.dump(result, open(out_dir+str(i)+'.m','wb'))
         print "processing",i
 
