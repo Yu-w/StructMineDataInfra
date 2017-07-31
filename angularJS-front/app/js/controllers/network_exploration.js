@@ -4,6 +4,37 @@
 
   // Form controller
 app.controller('NetworkExplorationCtrl', ['$scope','cytoData','$uibModal', '$http', function($scope,cytoData,$uibModal,$http) {
+    $scope.getSampleQuery = function () {
+        $uibModal.open({
+            animation: true,
+            ariaLabelledBy: 'modal-title-top',
+            ariaDescribedBy: 'modal-body-top',
+            templateUrl: 'tpl/network_visualization_sample_submission_modal.html',
+            controller: function ($uibModalInstance, $http) {
+                var $ctrl = this;
+                $http.get("http://192.17.58.208:3000/network_exploration/get_sample").then(function(response) {
+                // $http.get("http://localhost:3000/network_exploration/get_sample").then(function(response) {
+                    $ctrl.request = response.data;
+                });
+
+                $ctrl.ok = function () {
+                    $http.get("http://192.17.58.208:3000/network_exploration", {params: $ctrl.request}).then(function(response) {
+                    // $http.get("http://192.17.58.208:3000/network_exploration", {params: request}).then(function(response) {
+                        $scope.elements = response.data;
+                        $scope.graph.load();
+                    });
+                    $uibModalInstance.close();
+                };
+
+                $ctrl.cancel = function () {
+                    $uibModalInstance.dismiss('cancel');
+                };
+            },
+            controllerAs: '$ctrl'
+        });
+    }
+
+
     $scope.submitForm = function() {
         $uibModal.open({
             animation: true,

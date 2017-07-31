@@ -1,0 +1,16 @@
+<div class="modal-header">
+  <h3 class="modal-title">Sampled Network Visualization Request</h3>
+</div>
+<div class="modal-body">
+  <div class="wrapper-sm">
+    <p>Argument1: {{$ctrl.request.argument1}}</p>
+    <p>Argument2: {{$ctrl.request.argument2}}</p>
+    <p>Relation: {{$ctrl.request.relation}}</p>
+    <p>Number of edges: {{$ctrl.request.number_of_edges}}</p>
+    <p>Number of papers: {{$ctrl.request.number_of_papers}}</p>
+  </div>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-info" type="button" ng-click="$ctrl.ok()">OK</button>
+  <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Cancel</button>
+</div>

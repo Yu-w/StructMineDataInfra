@@ -568,7 +568,11 @@ def distinctive_summarization_get_sample():
 
 @app.route('/network_exploration/get_sample', methods=['GET','POST'])
 def network_exploration_get_sample():
+    if FLAGS_DEBUG:
+        print("[INFO] Generate sample network exploration query")
     query_data = random.choice(QUERY_NET)
+    query_data["number_of_edges"] = 15
+    query_data["number_of_papers"] = 6
     if FLAGS_DEBUG:
         print("[INFO] network visualization query_data = ", query_data)
     response = app.response_class(
