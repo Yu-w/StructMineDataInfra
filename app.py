@@ -10,6 +10,7 @@ import marshal
 from db.db_utils import data_utils
 from config import *
 from caseOLAP_sample_query import *
+from network_vis_sample_query import *
 
 sample_data = [
   {
@@ -234,6 +235,7 @@ def network_exploration():
 
     res = tmp_utils.query_links(type_a=type_a, type_b=type_b, relation_type=relation_type,
                                 num_edges=number_of_edges, num_pps=number_of_papers)
+    # res = tmp_utils.query_links(type_a=type_a, type_b=type_b, relation_type=relation_type, num_edges=number_of_edges)
     # res = tmp_utils.query_links_with_walk(type_a=type_a, type_b=type_b, relation_type=relation_type,
     #                             num_edges=number_of_edges, num_pps=number_of_papers)
     if FLAGS_DEBUG:
@@ -348,18 +350,31 @@ def network_exploration():
         # edge is a dict {'article_title':xxx, 'sent':xxx, 'pmid':xxx, 'source':xxx, 'target':xxx}
         data_source = "".join(edge["source"].split())
         data_target = "".join(edge["target"].split())
-        data_doc_title = "Title:" + edge["article_title"]
-        ## split long sentences
-        data_doc_sentences = []
-        data_doc_sentences.extend(seg_long_sent(edge["sent"], edge["source"]))
-        data_doc_sentences.extend(seg_long_sent(edge["sent"], edge["target"]))
-        # data_doc_sentences = [edge["sent"]]
-        data_doc_pmid = edge["pmid"]
-        data_doc = [{
-            "title": data_doc_title,
-            "pmid": data_doc_pmid,
-            "sentences": data_doc_sentences
-        }]
+        data_doc = []
+        for document in edge['sents']:
+            data_doc_title = "Title:" + document['article_title']
+            data_doc_pmid = document['pmid']
+            data_doc_sentences = []
+            data_doc_sentences.extend(seg_long_sent(document["sent"], edge["source"]))
+            data_doc_sentences.extend(seg_long_sent(document["sent"], edge["target"]))
+            data_doc.append({
+                "title": data_doc_title,
+                "pmid": data_doc_pmid,
+                "sentences": data_doc_sentences
+            })
+
+        # data_doc_title = "Title:" + edge["article_title"]
+        # ## split long sentences
+        # data_doc_sentences = []
+        # data_doc_sentences.extend(seg_long_sent(edge["sent"], edge["source"]))
+        # data_doc_sentences.extend(seg_long_sent(edge["sent"], edge["target"]))
+        # # data_doc_sentences = [edge["sent"]]
+        # data_doc_pmid = edge["pmid"]
+        # data_doc = [{
+        #     "title": data_doc_title,
+        #     "pmid": data_doc_pmid,
+        #     "sentences": data_doc_sentences
+        # }]
         data = {
             "source": data_source,
             "target": data_target,
@@ -540,6 +555,20 @@ def distinctive_summarization_get_sample():
     query_data = random.choice(QUERY_DB)
     if FLAGS_DEBUG:
         print("[INFO] query_data = ", query_data)
+    response = app.response_class(
+        # response=json.dumps(sample_data),
+        response=json.dumps(query_data),
+        status=200,
+        mimetype='application/json'
+    )
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
+
+@app.route('/network_exploration/get_sample', methods=['GET','POST'])
+def network_exploration_get_sample():
+    query_data = random.choice(QUERY_NET)
+    if FLAGS_DEBUG:
+        print("[INFO] network visualization query_data = ", query_data)
     response = app.response_class(
         # response=json.dumps(sample_data),
         response=json.dumps(query_data),
