@@ -48,5 +48,15 @@ QUERY_NET = [
         "argument1": "Anti-Arrhythmia_Agents",
         "argument2": "Chemicals_and_Drugs",
         "relation": "has_therapeutic_class"
+    },
+    {
+        "argument1": "Genetic_Variation",
+        "argument2": "Diseases",
+        "relation": "disease_may_have_cytogenetic_abnormality"
+    },
+    {
+        "argument1": "Lymphoproliferative_Disorders",
+        "argument2": "Anatomy",
+        "relation": "is_not_abnormal_cell_of_disease"
     }
 ]
