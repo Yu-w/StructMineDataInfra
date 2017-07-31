@@ -76,6 +76,27 @@ class data_utils(object):
 			return 0
 		else:
 			return q.dictresult()[0]['score']
+
+	def query_prediction_v2(self, name_a, name_b,relation_type):
+		query_string = "SELECT score FROM "+self.arg['prediction_table']+" WHERE entity_a=\'" + name_a +"\' AND entity_b=\'" + \
+		name_b + "\' AND relation_type=\'" + relation_type + "\'"
+		
+		query_ems = "SELECT L.article_title, L.pmid, L.sent FROM entity_table as L INNER JOIN (select sent_id FROM entity_table where entity_name=\'"+name_a+\
+			"\') AS R ON L.sent_id=R.sent_id where entity_name=\'"+name_b+"\' LIMIT 1"
+		#set_a = set(map(lambda x:x['sent_id'], self.db.query(query_em_a).dictresult()))
+		##query_em_b = "SELECT distinct sent_id FROM entity_table WHERE entity_name=\'"+name_b+"\'"
+		#set_b = set(map(lambda x:x['sent_id'], self.db.query(query_em_b).dictresult()))
+		#print set_a.intersection(set_b)
+		try:
+			result = self.db.query(query_ems).dictresult()[0]
+		except:
+			result = {}
+		q = self.db.query(query_string)
+		if len(q.dictresult()) == 0:
+			result['score'] = 0
+		else:
+			result['score'] = q.dictresult()[0]['score']
+		return result
 		#print query_string
 
 	def query_distinctive(self,target_type,output_types,relation_type, sub_types,num_records=8):
@@ -308,7 +329,7 @@ if __name__ == '__main__':
 			result = tmp_utils.query_links_with_walk(type_a=sys.argv[5], type_b=sys.argv[6], relation_type=sys.argv[7], num_edges=sys.argv[8], num_pps=int(sys.argv[9]))
 		elif sys.argv[2] == 'predict':
 			tmp_utils = data_utils({'prediction_table': sys.argv[3]})
-			result = tmp_utils.query_prediction(name_a=sys.argv[4], name_b=sys.argv[5], relation_type=sys.argv[6])
+			result = tmp_utils.query_prediction_v2(name_a=sys.argv[4], name_b=sys.argv[5], relation_type=sys.argv[6])
 			print result
 		elif sys.argv[2] == 'caseolap':
 			tmp_utils = data_utils({'caseolap_table': sys.argv[3]})

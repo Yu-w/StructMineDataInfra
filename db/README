@@ -87,11 +87,16 @@ type_a/type_b format: {'name':mesh/umls, 'type':sub_type}
 
 ##Query Network
 *BOTTLE NECK:select distict article for each node, for some queries like "bone marrow", it can be really slow, more than 63642 records
-python db/db_utils.py query network entity_table relation_table "{'name':'mesh', 'type':'{Nervous_System}'}" "{'name':'mesh', 'type':'{Anatomy}'}" has_nerve_supply 5 2
+python db/db_utils.py query network entity_table relation_table "{'name':'mesh', 'type':'{Chemicals_and_Drugs}'}" "{'name':'mesh', 'type':'{Anatomy}'}" is_associated_anatomy_of_gene_product 5 2
+##query with walk
+python db/db_utils.py query connected_network entity_table relation_table "{'name':'mesh', 'type':'{Chemicals_and_Drugs}'}" "{'name':'mesh', 'type':'{Anatomy}'}" is_associated_anatomy_of_gene_product 5 2
 
 ##Query predictions
 ##return positive float or 0, represents if there is a edge or not with score
 python db/db_utils.py query predict prediction_table 'telomere maintenance' 'transcriptional regulation' is_location_of_biological_process
+
+#version 2 query_prediction_v2
+##return a dictionary {'score':xxx} if xxx!=0, it will be like {'score':0.78,'article_title':xxx,'pmid':xxx,'sent':xxxx}
 
 ##Query caseolap
 ##Run two queries
@@ -103,4 +108,4 @@ python db/db_utils.py query caseolap caseolap_table  MeSH:::Phenomena_and_Proces
 
 Outputs: dict with 'node_a','node_b','edge'
 key:'node_a'/'node_b' value:list of triplet (article_title,sentence,pmid)
-key:'edge' value: list of dict {'article_title':xxx, 'sent':xxx, 'pmid':xxx, 'source':xxx, 'target':xxx}
+key:'edge' value: list of dict {'sent':['article_title':xxx, 'sent':xxx, 'pmid':xxx] 'source':xxx, 'target':xxx}
