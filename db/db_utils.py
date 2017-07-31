@@ -84,6 +84,20 @@ class data_utils(object):
 		query_string = "SELECT index FROM query_table WHERE target_type @@ \'" + target_type + "\' AND output_types@>\'" +\
 		output_types+"\' and relation_type=\'" + relation_type +"\'"
 		#print query_string
+		idx = self.db.query(query_string).dictresult()[0]['index']
+		for sub_type in sub_types:
+			query_string = "SELECT entity,score FROM " + self.arg['caseolap_table'] + " WHERE doc_id=" + str(idx) + \
+			" AND sub_type @@ \'" + sub_type + "\' ORDER BY score LIMIT " + str(num_records)
+			q = self.db.query(query_string)
+			result.append(q.dictresult())
+		return result
+
+	def query_distinctive_v2(self,target_type,output_types,relation_type, sub_types,num_records=8):
+		sub_types = ast.literal_eval(sub_types)
+		result=[]
+		query_string = "SELECT index FROM query_table WHERE target_type @@ \'" + target_type + "\' AND output_types@>\'" +\
+		output_types+"\' and relation_type=\'" + relation_type +"\'"
+		#print query_string
 		if 'MeSH' in target_type:
 			type_b_name = 'type_b_mesh'
 		else:
@@ -99,13 +113,12 @@ class data_utils(object):
 			" AND sub_type @@ \'" + sub_type + "\' ORDER BY score LIMIT " + str(num_records)
 			q = self.db.query(query_string)
 			
-			type_target = sub_type.split('::')[0]
-			 
+			type_target = sub_type.split('::')[-1]
+			#print type_target
+			#entity_list = q.dictresult()
 			for em in q.dictresult():
 				qq = "select sent_id FROM relation_table WHERE entity_a=\'" +em['entity'] +\
-				"\' AND "+type_a_name+"@>'"+output_types+"' AND relation_type = '"+relation_type+"' LIMIT 1"#AND "+type_b_name+"@>'{"+type_target+"}' LIMIT 1"
-				print qq
-				print	self.db.query(qq)
+				"\' AND "+type_a_name+"@>'"+output_types+"' AND relation_type = '"+relation_type+"' AND "+type_b_name+"@>'{"+type_target+"}' LIMIT 1"
 			result.append(q.dictresult())
 		return result
 
@@ -202,8 +215,11 @@ class data_utils(object):
 
 
 	def query_links_with_walk(self, type_a, type_b, relation_type, num_edges=5, num_pps=1):
-		type_a = ast.literal_eval(type_a)
-		type_b = ast.literal_eval(type_b)
+		try:
+			type_a = ast.literal_eval(type_a)
+			type_b = ast.literal_eval(type_b)
+		except:
+			pass
 		#print num_edges
 		#query_string = "SELECT * FROM (SELECT DISTINCT ON(entity_a,entity_b) entity_a,entity_b,sent_id  "+"FROM "+self.arg['relation_table']+" WHERE type_a_"+type_a['name']+"@>'"\
 		#+type_a['type']+"' AND type_b_"+type_b['name']+"@>'"+ type_b['type']+"' AND relation_type='"+relation_type + "') x ORDER BY RANDOM() LIMIT 500"
@@ -220,8 +236,12 @@ class data_utils(object):
 
 	def query_links(self, type_a, type_b, relation_type, num_edges=5, num_pps=1):
 		#type_a={'mesh':0, 'name':"Chemicals_and_Drugs"}
-		type_a = ast.literal_eval(type_a)
-		type_b = ast.literal_eval(type_b)
+		try:
+			type_a = ast.literal_eval(type_a)
+			type_b = ast.literal_eval(type_b)
+		except:
+			pass
+
 		#query_string = "SELECT * INTO " +self.identity+ " FROM (SELECT DISTINCT ON(entity_a,entity_b) entity_a,entity_b,sent_id  "+"FROM "+self.arg['relation_table']+" WHERE type_a_"+type_a['name']+"@>'"\
 		#+type_a['type']+"' AND type_b_"+type_b['name']+"@>'"+ type_b['type']+"' AND relation_type='"+relation_type + "') x ORDER BY RANDOM() LIMIT " +str(num_edges)
 		query_string_v2 = "SELECT * FROM (SELECT entity_a,entity_b,(array_agg('[' || article_id || ',' || sent_id || ']'))[1:" + str(num_pps+2) + "] as sents  "+"FROM "+self.arg['relation_table']+" WHERE type_a_"+type_a['name']+"@>'"\
@@ -292,7 +312,7 @@ if __name__ == '__main__':
 			print result
 		elif sys.argv[2] == 'caseolap':
 			tmp_utils = data_utils({'caseolap_table': sys.argv[3]})
-			result = tmp_utils.query_distinctive(target_type=sys.argv[4],
+			result = tmp_utils.query_distinctive_v2(target_type=sys.argv[4],
 				output_types=sys.argv[5],relation_type=sys.argv[6],sub_types=sys.argv[7])
 			print result
 			
