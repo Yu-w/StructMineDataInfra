@@ -70,7 +70,7 @@ class data_utils(object):
 	def query_prediction(self, name_a, name_b,relation_type):
 		query_string = "SELECT score FROM "+self.arg['prediction_table']+" WHERE entity_a=\'" + name_a +"\' AND entity_b=\'" + \
 		name_b + "\' AND relation_type=\'" + relation_type + "\'"
-		query_em_a = "SELECT sent_id FROM"+self.arg['entity_table']+" WHERE entity_name=\'"+name_a+"\' GROUP BY article_id"
+		#query_em_a = "SELECT sent_id FROM"+self.arg['entity_table']+" WHERE entity_name=\'"+name_a+"\' GROUP BY article_id"
 		q = self.db.query(query_string)
 		if len(q.dictresult()) == 0:
 			return 0
