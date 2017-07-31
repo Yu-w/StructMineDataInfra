@@ -70,6 +70,7 @@ class data_utils(object):
 	def query_prediction(self, name_a, name_b,relation_type):
 		query_string = "SELECT score FROM "+self.arg['prediction_table']+" WHERE entity_a=\'" + name_a +"\' AND entity_b=\'" + \
 		name_b + "\' AND relation_type=\'" + relation_type + "\'"
+		query_em_a = "SELECT sent_id FROM"+self.arg['entity_table']+" WHERE entity_name=\'"+name_a+"\' GROUP BY article_id"
 		q = self.db.query(query_string)
 		if len(q.dictresult()) == 0:
 			return 0
@@ -83,11 +84,28 @@ class data_utils(object):
 		query_string = "SELECT index FROM query_table WHERE target_type @@ \'" + target_type + "\' AND output_types@>\'" +\
 		output_types+"\' and relation_type=\'" + relation_type +"\'"
 		#print query_string
+		if 'MeSH' in target_type:
+			type_b_name = 'type_b_mesh'
+		else:
+			type_b_name = 'type_b_umls'
+		
+		if 'MeSH' in output_types:
+			type_a_name = 'type_a_mesh'
+		else:
+			type_a_name = 'type_a_umls'
 		idx = self.db.query(query_string).dictresult()[0]['index']
 		for sub_type in sub_types:
 			query_string = "SELECT entity,score FROM " + self.arg['caseolap_table'] + " WHERE doc_id=" + str(idx) + \
 			" AND sub_type @@ \'" + sub_type + "\' ORDER BY score LIMIT " + str(num_records)
 			q = self.db.query(query_string)
+			
+			type_target = sub_type.split('::')[0]
+			 
+			for em in q.dictresult():
+				qq = "select sent_id FROM relation_table WHERE entity_a=\'" +em['entity'] +\
+				"\' AND "+type_a_name+"@>'"+output_types+"' AND relation_type = '"+relation_type+"' LIMIT 1"#AND "+type_b_name+"@>'{"+type_target+"}' LIMIT 1"
+				print qq
+				print	self.db.query(qq)
 			result.append(q.dictresult())
 		return result
 
@@ -192,11 +210,11 @@ class data_utils(object):
 		query_string = "SELECT * FROM (SELECT entity_a,entity_b,(array_agg('[' || article_id || ',' || sent_id || ']'))[1:" + str(num_pps) + "]  "+"FROM "+self.arg['relation_table']+" WHERE type_a_"+type_a['name']+"@>'"\
 		+type_a['type']+"' AND type_b_"+type_b['name']+"@>'"+ type_b['type']+"' AND relation_type='"+relation_type + "' GROUP BY entity_a,entity_b) x ORDER BY RANDOM() LIMIT " +str(num_edges)
 		q = self.db.query(query_string)
-		result={'node_a': {}, 'node_b': {}, 'edge': []}
+		result={'node_a': {}, 'node_b': {}, 'edges': []}
 		for p in list(self.generate_random_walks(q.dictresult())):
 			result['node_a'][p[0]]=[]
 			result['node_b'][p[1]]=[]
-			result['edge'].append({'source':p[0], 'target':p[1], "article_title": []})
+			result['edges'].append({'source':p[0], 'target':p[1]})
 		#print result
 		return result
 
