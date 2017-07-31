@@ -223,7 +223,7 @@ def network_exploration():
     if (arg1_type == "none" or arg2_type == "none" or relation_type == "none"):
         ## Return a placeholder response showing invalid query
         response = app.response_class(
-            response=json.dumps(invalid_query_data),
+            response=json.dumps(invalid_query_data, ensure_ascii = False),
             status=200,
             mimetype='application/json'
         )
@@ -246,7 +246,7 @@ def network_exploration():
     if (len(res['node_a']) == 0 and len(res['node_b']) == 0 and len(res['edge']) == 0):
         ## SQL returns empty, return the corresponding placeholder
         response = app.response_class(
-            response=json.dumps(empty_result_query_data),
+            response=json.dumps(empty_result_query_data, ensure_ascii = False),
             status=200,
             mimetype='application/json'
         )
@@ -402,8 +402,8 @@ def network_exploration():
     cached_json_and_relation.append([json_data, relation])
 
     response = app.response_class(
-        response=json.dumps(json_data),
-        # response=json.dumps(sample_data_2),
+        response=json.dumps(json_data, ensure_ascii = False),
+        # response=json.dumps(sample_data_2, ensure_ascii = False),
         status=200,
         mimetype='application/json'
     )
@@ -461,8 +461,8 @@ def distinctive_summarization():
         print("[INFO] Complete formatting DB output result into JSON")
 
     response = app.response_class(
-        # response=json.dumps(sample_data),
-        response=json.dumps(json_data),
+        # response=json.dumps(sample_data, ensure_ascii = False),
+        response=json.dumps(json_data, ensure_ascii = False),
         status=200,
         mimetype='application/json'
     )
@@ -543,8 +543,8 @@ def network_exploration_prediction():
 
 
     response = app.response_class(
-        # response=json.dumps(sample_data_2),
-        response=json.dumps(json_data),
+        # response=json.dumps(sample_data_2, ensure_ascii = False),
+        response=json.dumps(json_data, ensure_ascii = False),
         status=200,
         mimetype='application/json'
     )
@@ -558,8 +558,8 @@ def distinctive_summarization_get_sample():
     if FLAGS_DEBUG:
         print("[INFO] query_data = ", query_data)
     response = app.response_class(
-        # response=json.dumps(sample_data),
-        response=json.dumps(query_data),
+        # response=json.dumps(sample_data, ensure_ascii = False),
+        response=json.dumps(query_data, ensure_ascii = False),
         status=200,
         mimetype='application/json'
     )
@@ -576,8 +576,8 @@ def network_exploration_get_sample():
     if FLAGS_DEBUG:
         print("[INFO] network visualization query_data = ", query_data)
     response = app.response_class(
-        # response=json.dumps(sample_data),
-        response=json.dumps(query_data),
+        # response=json.dumps(sample_data, ensure_ascii = False),
+        response=json.dumps(query_data, ensure_ascii = False),
         status=200,
         mimetype='application/json'
     )
