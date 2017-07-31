@@ -160,12 +160,14 @@ def seg_long_sent(sent, entity):
     '''
     window_char_size = 50
     res = []
-    entity = " " + entity + " "
-    for pair in [(m.start(), m.end()) for m in re.finditer(entity, sent)]:
+    # entity = " " + entity + " "
+    for pair in [(m.start(), m.end()) for m in re.finditer(entity, sent, flags=re.IGNORECASE)]:
         start = max(0, pair[0] - window_char_size)
         end = min(len(sent) - 1, pair[1] + window_char_size)
         seg = "... " + sent[start:m.start()] + "<font color=\"red\">" + entity + "</font>" + sent[m.end()+1:end] + " ..."
         res.append(seg)
+    if len(res) == 0:
+        res.append(sent)
     return res
 
 
@@ -234,7 +236,7 @@ def network_exploration():
     relation_type = relation
 
     res = tmp_utils.query_links(type_a=type_a, type_b=type_b, relation_type=relation_type,
-                                num_edges=number_of_edges, num_pps=number_of_papers)
+                                num_edges=number_of_edges, num_pps=int(number_of_papers))
     # res = tmp_utils.query_links(type_a=type_a, type_b=type_b, relation_type=relation_type, num_edges=number_of_edges)
     # res = tmp_utils.query_links_with_walk(type_a=type_a, type_b=type_b, relation_type=relation_type,
     #                             num_edges=number_of_edges, num_pps=number_of_papers)
