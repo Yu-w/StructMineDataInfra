@@ -4,6 +4,9 @@
 
   // Form controller
 app.controller('NetworkExplorationCtrl', ['$scope','cytoData','$uibModal', '$http', function($scope,cytoData,$uibModal,$http) {
+    $scope.elements = null;
+    $scope.raw_query = null; // store the uesr input query
+
     $scope.getSampleQuery = function () {
         $uibModal.open({
             animation: true,
@@ -15,6 +18,7 @@ app.controller('NetworkExplorationCtrl', ['$scope','cytoData','$uibModal', '$htt
                 $http.get("http://192.17.58.208:3000/network_exploration/get_sample").then(function(response) {
                 // $http.get("http://localhost:3000/network_exploration/get_sample").then(function(response) {
                     $ctrl.request = response.data;
+                    $scope.raw_query = response.data; // save the query data
                 });
 
                 $ctrl.ok = function () {
@@ -34,7 +38,6 @@ app.controller('NetworkExplorationCtrl', ['$scope','cytoData','$uibModal', '$htt
         });
     }
 
-
     $scope.submitForm = function() {
         $uibModal.open({
             animation: true,
@@ -43,6 +46,7 @@ app.controller('NetworkExplorationCtrl', ['$scope','cytoData','$uibModal', '$htt
             templateUrl: 'tpl/network_visualization_submission_modal.html',
             resolve: {
                 request: function () {
+                    $scope.raw_query = $scope.request; //s save the query data
                     return $scope.request;
                 }
             },
@@ -367,7 +371,6 @@ app.controller('NetworkExplorationCtrl', ['$scope','cytoData','$uibModal', '$htt
     //     }
     // ];
 
-    $scope.elements = null;
     $scope.style = [ // See http://js.cytoscape.org/#style for style formatting and options.
         {
             selector: 'node',

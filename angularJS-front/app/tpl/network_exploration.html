@@ -17,7 +17,7 @@
       <div class="panel-body">
         <div class="form-group pull-in clearfix">
           <div class="col-sm-4">
-            <label>Argument 1</label>
+            <label>Type of left entity argument</label>
             <input type="text" class="form-control" placeholder="Gene" ng-model="request.argument2" required>
           </div>
           <div class="col-sm-4">
@@ -25,7 +25,7 @@
             <input type="text" class="form-control" placeholder="GeneDiseaseAssociation" ng-model="request.relation" required>
           </div>
           <div class="col-sm-4">
-            <label>Argument 2</label>
+            <label>Type of right entity argument</label>
             <input type="text" class="form-control" placeholder="Cardiomyopathies" ng-model="request.argument1" required>
           </div>
         </div>
@@ -58,6 +58,27 @@
     </div>
     </form>
   </div>
+
+        <!-- Show the user input query -->
+    <div class = "wrapper-md" ng-if = "raw_query != null">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="clearfix">
+                            <div class="clear">
+                                <div class="h4 m-t-xs m-b-xs">
+                                    <p> Subgraph for relation <b>{{ raw_query.relation }}</b> between <span style="color:#5BC156">{{ raw_query.argument1 }}</span> entities and <span style="color:#6493F8">{{ raw_query.argument2 }}</span> entities.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="wrapper-md">
       <div class="bg-white">
         <div class="wrapper bg-white">

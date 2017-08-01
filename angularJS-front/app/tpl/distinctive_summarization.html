@@ -45,6 +45,27 @@
     </form>
   </div>
 
+    <!-- Show the user input query -->
+    <div class = "wrapper-md" ng-if = "raw_query != null">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="clearfix">
+                            <div class="clear">
+                                <div class="h4 m-t-xs m-b-xs">
+                                    <p> <b>{{ raw_query.outputEntityType }}</b> entities that are most related to different subtypes of
+                                        <b>{{ raw_query.targetEntityType }}</b> under relation <b>{{ raw_query.relation }}</b>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
   <div class="wrapper-md">
     <div class="row">
       <div class="col-sm-4" ng-repeat="disease in diseases">
