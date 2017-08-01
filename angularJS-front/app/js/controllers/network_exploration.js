@@ -79,7 +79,8 @@ app.controller('NetworkExplorationCtrl', ['$scope','cytoData','$uibModal', '$htt
             templateUrl: 'tpl/network_visualization_prediction_submission.html',
             resolve: {
                 request: function () {
-                    return $scope.request;
+                    // return $scope.request;
+                    return $scope.raw_query;
                 }
             },
             controller: function ($uibModalInstance, request, $http) {

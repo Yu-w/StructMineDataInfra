@@ -347,9 +347,9 @@ def network_exploration():
             "classes": "type2"
         })
 
-    ## Add edges, notice that each edge has only one attached document
+    ## Add edges
     for edge in res["edge"]:
-        # edge is a dict {'article_title':xxx, 'sent':xxx, 'pmid':xxx, 'source':xxx, 'target':xxx}
+        # edge is a dict {'article_title':xxx, 'sents':[{'article_title':xxx, 'sent': xxx}], 'pmid':xxx, 'source':xxx, 'target':xxx}
         data_source = "".join(edge["source"].split())
         data_target = "".join(edge["target"].split())
         data_doc = []
@@ -365,21 +365,12 @@ def network_exploration():
                 "sentences": data_doc_sentences
             })
 
-        # data_doc_title = "Title:" + edge["article_title"]
-        # ## split long sentences
-        # data_doc_sentences = []
-        # data_doc_sentences.extend(seg_long_sent(edge["sent"], edge["source"]))
-        # data_doc_sentences.extend(seg_long_sent(edge["sent"], edge["target"]))
-        # # data_doc_sentences = [edge["sent"]]
-        # data_doc_pmid = edge["pmid"]
-        # data_doc = [{
-        #     "title": data_doc_title,
-        #     "pmid": data_doc_pmid,
-        #     "sentences": data_doc_sentences
-        # }]
+        ## Reverse the edge direction
         data = {
-            "source": data_source,
-            "target": data_target,
+            # "source": data_source,
+            # "target": data_target,
+            "source": data_target,
+            "target": data_source,
             "docs": data_doc
         }
         json_data.append({
@@ -526,8 +517,10 @@ def network_exploration_prediction():
                     json_data.append({
                         "group": "edge",
                         "data": {
-                            "source": source_label,
-                            "target": target_label,
+                            # "source": source_label,
+                            # "target": target_label,
+                            "source": target_label,
+                            "target": source_label,
                             "docs": [{
                                 ## Show the prediction confidence score as the paper title
                                 "title": "Confidence Score = " + str(score),
