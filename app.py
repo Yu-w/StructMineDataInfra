@@ -57,7 +57,7 @@ sample_data = [
 
     ]
   }
-];
+]
 
 ### The following example is a placeholder for "bad" query with invalid entity/relation types.
 invalid_query_data = [
@@ -128,7 +128,11 @@ sample_data_2 = [
         },
         "classes": 'edge1'
     }
-];
+]
+
+### sample_query_id
+sample_query_id = -1
+
 
 all_types = marshal.load(open("./data/all_types.m","rb"))
 for k in all_types.keys():
@@ -189,7 +193,7 @@ def network_exploration():
     :return:
     '''
     # global cached_previous_json_network, cached_relation
-    global cached_json_and_relation
+    global cached_json_and_relation, sample_query_id
 
     arg1 = request.args.get('argument1')
     arg2 = request.args.get('argument2')
@@ -235,8 +239,14 @@ def network_exploration():
 
     relation_type = relation
 
-    res = tmp_utils.query_links(type_a=type_a, type_b=type_b, relation_type=relation_type,
+    if sample_query_id == -1:
+        res = tmp_utils.query_links(type_a=type_a, type_b=type_b, relation_type=relation_type,
                                 num_edges=number_of_edges, num_pps=int(number_of_papers))
+    else:
+        print("[INFO] load from dump query: ", sample_query_id)
+        res = marshal.load(open("./data/dumped-query/"+str(sample_query_id)+".m","rb"))
+        sample_query_id = -1 # reset
+        print("[INFO] reset sample query_id")
     # res = tmp_utils.query_links(type_a=type_a, type_b=type_b, relation_type=relation_type, num_edges=number_of_edges)
     # res = tmp_utils.query_links_with_walk(type_a=type_a, type_b=type_b, relation_type=relation_type,
     #                             num_edges=number_of_edges, num_pps=number_of_papers)
@@ -508,55 +518,21 @@ def network_exploration_prediction():
             for j in range(len(node_b_list)):
                 name_a = node_a_list[i]
                 name_b = node_b_list[j]
-                # if FLAGS_DEBUG:
-                #     print("[INFO] testing edge", (name_a, name_b))
+                if FLAGS_DEBUG:
+                    print("[INFO] testing edge", (name_a, name_b))
 
-                # res = tmp_utils.query_prediction_v2(name_a=name_a, name_b=name_b, relation_type=relation_type)
-                # if res['score'] >= 0.79: # one predicted relation, add a new edge
-                #     print("Res = ", res)
-                #     source_label = "".join(name_a.split())
-                #     target_label = "".join(name_b.split())
-                #     ## do not add existed edges
-                #     if (source_label, target_label) in existed_edges:
-                #         continue
-                #     score = res['score']
-                #     data_doc_sentences = []
-                #     data_doc_sentences.extend(seg_long_sent(res.get("sent",""), name_a))
-                #     data_doc_sentences.extend(seg_long_sent(res.get("sent",""), name_b))
-                #     json_data.append({
-                #         "group": "edge",
-                #         "data": {
-                #             # "source": source_label,
-                #             # "target": target_label,
-                #             "source": target_label,
-                #             "target": source_label,
-                #             "docs": [{
-                #                 ## Show the prediction confidence score as the paper title
-                #                 "title": "Confidence Score = " + str(score),
-                #                 "pmid": "#",
-                #                 "sentences": [""]
-                #             }, {
-                #                 "title": "Title: " + res.get("article_title",""),
-                #                 "pmid": res.get("pmid",""),
-                #                 "sentences": data_doc_sentences
-                #             }]
-                #         },
-                #         "classes": "edge1"
-                #     })
-                #     new_edge_cnt += 1
-
-                res = tmp_utils.query_prediction(name_a=name_a, name_b=name_b, relation_type=relation_type)
-                if res != 0: # one predicted relation, add a new edge
+                res = tmp_utils.query_prediction_v2(name_a=name_a, name_b=name_b, relation_type=relation_type)
+                if (res['score'] >= 0.79 and len(res.keys()) > 1): # one predicted relation, add a new edge
+                    print("Res = ", res)
                     source_label = "".join(name_a.split())
                     target_label = "".join(name_b.split())
-                    score = res
-                    if (score < 0.79):
-                        continue
                     ## do not add existed edges
-                    # if (source_label, target_label) in existed_edges:
-                    #     continue
-                    if (target_label, source_label) in existed_edges:
+                    if (source_label, target_label) in existed_edges:
                         continue
+                    score = res['score']
+                    data_doc_sentences = []
+                    data_doc_sentences.extend(seg_long_sent(res.get("sent",""), name_a))
+                    data_doc_sentences.extend(seg_long_sent(res.get("sent",""), name_b))
                     json_data.append({
                         "group": "edge",
                         "data": {
@@ -569,11 +545,45 @@ def network_exploration_prediction():
                                 "title": "Confidence Score = " + str(score),
                                 "pmid": "#",
                                 "sentences": [""]
+                            }, {
+                                "title": "Title: " + res.get("article_title",""),
+                                "pmid": res.get("pmid",""),
+                                "sentences": data_doc_sentences
                             }]
                         },
                         "classes": "edge1"
                     })
                     new_edge_cnt += 1
+
+                # res = tmp_utils.query_prediction(name_a=name_a, name_b=name_b, relation_type=relation_type)
+                # if res != 0: # one predicted relation, add a new edge
+                #     source_label = "".join(name_a.split())
+                #     target_label = "".join(name_b.split())
+                #     score = res
+                #     if (score < 0.79):
+                #         continue
+                #     ## do not add existed edges
+                #     # if (source_label, target_label) in existed_edges:
+                #     #     continue
+                #     if (target_label, source_label) in existed_edges:
+                #         continue
+                #     json_data.append({
+                #         "group": "edge",
+                #         "data": {
+                #             # "source": source_label,
+                #             # "target": target_label,
+                #             "source": target_label,
+                #             "target": source_label,
+                #             "docs": [{
+                #                 ## Show the prediction confidence score as the paper title
+                #                 "title": "Confidence Score = " + str(score),
+                #                 "pmid": "#",
+                #                 "sentences": [""]
+                #             }]
+                #         },
+                #         "classes": "edge1"
+                #     })
+                #     new_edge_cnt += 1
 
         if FLAGS_DEBUG:
             print("[INFO] Complete quering prediction DB table for relation prediction")
@@ -606,8 +616,11 @@ def distinctive_summarization_get_sample():
 
 @app.route('/network_exploration/get_sample', methods=['GET','POST'])
 def network_exploration_get_sample():
+    global sample_query_id
     if FLAGS_DEBUG:
         print("[INFO] Generate sample network exploration query")
+    # sample_query_id = random.choice(range(len(QUERY_NET))) # save to sample query id
+    # query_data = QUERY_NET[sample_query_id]
     query_data = random.choice(QUERY_NET)
     query_data["number_of_edges"] = 15
     query_data["number_of_papers"] = 6
