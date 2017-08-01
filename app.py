@@ -553,7 +553,9 @@ def network_exploration_prediction():
                     if (score < 0.79):
                         continue
                     ## do not add existed edges
-                    if (source_label, target_label) in existed_edges:
+                    # if (source_label, target_label) in existed_edges:
+                    #     continue
+                    if (target_label, source_label) in existed_edges:
                         continue
                     json_data.append({
                         "group": "edge",
