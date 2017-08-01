@@ -68,6 +68,7 @@ class data_utils(object):
 				entity=temp[0], score=float(temp[1]))
 	
 	def query_prediction(self, name_a, name_b,relation_type):
+		self.db.query("set statement_timeout TO 0")
 		query_string = "SELECT score FROM "+self.arg['prediction_table']+" WHERE entity_a=\'" + name_a +"\' AND entity_b=\'" + \
 		name_b + "\' AND relation_type=\'" + relation_type + "\'"
 		#query_em_a = "SELECT sent_id FROM"+self.arg['entity_table']+" WHERE entity_name=\'"+name_a+"\' GROUP BY article_id"
@@ -97,11 +98,11 @@ class data_utils(object):
 			result['score'] = 0
 		else:
 			result['score'] = q.dictresult()[0]['score']
-		self.db.query("set statement_timeout TO 0")
 		return result
 		#print query_string
 
 	def query_distinctive(self,target_type,output_types,relation_type, sub_types,num_records=8):
+		self.db.query("set statement_timeout TO 0")
 		sub_types = ast.literal_eval(sub_types)
 		result=[]
 		query_string = "SELECT index FROM query_table WHERE target_type @@ \'" + target_type + "\' AND output_types@>\'" +\
@@ -116,6 +117,7 @@ class data_utils(object):
 		return result
 
 	def query_distinctive_v2(self,target_type,output_types,relation_type, sub_types,num_records=8):
+		self.db.query("set statement_timeout TO 0")
 		sub_types = ast.literal_eval(sub_types)
 		result=[]
 		pmid_result = []
@@ -273,6 +275,7 @@ class data_utils(object):
 		except:
 			pass
 
+		self.db.query("set statement_timeout TO 0")
 		#query_string = "SELECT * INTO " +self.identity+ " FROM (SELECT DISTINCT ON(entity_a,entity_b) entity_a,entity_b,sent_id  "+"FROM "+self.arg['relation_table']+" WHERE type_a_"+type_a['name']+"@>'"\
 		#+type_a['type']+"' AND type_b_"+type_b['name']+"@>'"+ type_b['type']+"' AND relation_type='"+relation_type + "') x ORDER BY RANDOM() LIMIT " +str(num_edges)
 		query_string_v2 = "SELECT * FROM (SELECT entity_a,entity_b,(array_agg('[' || article_id || ',' || sent_id || ']'))[1:" + str(num_pps+2) + "] as sents  "+"FROM "+self.arg['relation_table']+" WHERE type_a_"+type_a['name']+"@>'"\
