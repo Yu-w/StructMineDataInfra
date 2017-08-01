@@ -500,10 +500,51 @@ def network_exploration_prediction():
         tmp_utils = data_utils({'prediction_table': "prediction_table"})
         relation_type = cached_relation
         new_edge_cnt = 0
+        # if FLAGS_DEBUG:
+        #     print("[INFO] start testing each edge")
+        #     print("[INFO] node_a_list = ", node_a_list)
+        #     print("[INFO] node_b_list = ", node_b_list)
         for i in range(len(node_a_list)):
             for j in range(len(node_b_list)):
                 name_a = node_a_list[i]
                 name_b = node_b_list[j]
+                # if FLAGS_DEBUG:
+                #     print("[INFO] testing edge", (name_a, name_b))
+
+                # res = tmp_utils.query_prediction_v2(name_a=name_a, name_b=name_b, relation_type=relation_type)
+                # if res['score'] >= 0.79: # one predicted relation, add a new edge
+                #     print("Res = ", res)
+                #     source_label = "".join(name_a.split())
+                #     target_label = "".join(name_b.split())
+                #     ## do not add existed edges
+                #     if (source_label, target_label) in existed_edges:
+                #         continue
+                #     score = res['score']
+                #     data_doc_sentences = []
+                #     data_doc_sentences.extend(seg_long_sent(res.get("sent",""), name_a))
+                #     data_doc_sentences.extend(seg_long_sent(res.get("sent",""), name_b))
+                #     json_data.append({
+                #         "group": "edge",
+                #         "data": {
+                #             # "source": source_label,
+                #             # "target": target_label,
+                #             "source": target_label,
+                #             "target": source_label,
+                #             "docs": [{
+                #                 ## Show the prediction confidence score as the paper title
+                #                 "title": "Confidence Score = " + str(score),
+                #                 "pmid": "#",
+                #                 "sentences": [""]
+                #             }, {
+                #                 "title": "Title: " + res.get("article_title",""),
+                #                 "pmid": res.get("pmid",""),
+                #                 "sentences": data_doc_sentences
+                #             }]
+                #         },
+                #         "classes": "edge1"
+                #     })
+                #     new_edge_cnt += 1
+
                 res = tmp_utils.query_prediction(name_a=name_a, name_b=name_b, relation_type=relation_type)
                 if res != 0: # one predicted relation, add a new edge
                     source_label = "".join(name_a.split())
