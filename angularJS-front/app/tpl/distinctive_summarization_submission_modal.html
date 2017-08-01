@@ -3,10 +3,10 @@
 </div>
 <div class="modal-body">
   <div class="wrapper-sm">
-    <p>Target Entity Type: {{$ctrl.request.targetEntityType}}</p>
-    <p>Output Entity Type: {{$ctrl.request.outputEntityType}}</p>
-    <p>Relation: {{$ctrl.request.relation}}</p>
-    <p>Target Entity Subtypes:</p>
+    <p><b>Target Entity Type</b>: {{$ctrl.request.targetEntityType}}</p>
+    <p><b>Output Entity Type</b>: {{$ctrl.request.outputEntityType}}</p>
+    <p><b>Relation</b>: {{$ctrl.request.relation}}</p>
+    <p><b>Target Entity Subtypes</b>:</p>
     <p ng-repeat="subtype in $ctrl.request.targetEntitySubtypes">&nbsp;&nbsp;&nbsp;&nbsp;{{subtype}}</p>
   </div>
 </div>
