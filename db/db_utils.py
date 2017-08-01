@@ -87,7 +87,7 @@ class data_utils(object):
 		##query_em_b = "SELECT distinct sent_id FROM entity_table WHERE entity_name=\'"+name_b+"\'"
 		#set_b = set(map(lambda x:x['sent_id'], self.db.query(query_em_b).dictresult()))
 		#print set_a.intersection(set_b)
-		self.db.query("set statement_timeout TO 3000")
+		self.db.query("set statement_timeout TO 5000")
 		try:
 			result = self.db.query(query_ems).dictresult()[0]
 		except:
@@ -97,6 +97,7 @@ class data_utils(object):
 			result['score'] = 0
 		else:
 			result['score'] = q.dictresult()[0]['score']
+		self.db.query("set statement_timeout TO 0")
 		return result
 		#print query_string
 

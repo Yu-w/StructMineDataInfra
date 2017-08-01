@@ -65,7 +65,7 @@ QUERY_NET = [
 if __name__ == '__main__':
     out_dir='dumped-query/'
     types = marshal.load(open('all_types.m', 'rb'))
-    tmp_utils = data_utils({'entity_table': 'entity_table', 'relation_table': 'relation_table'})
+    tmp_utils = data_utils({'entity_table': 'entity_table', 'relation_table': 'relation_table', 'prediction_table':'prediction_table'})
     for i,query in enumerate(QUERY_NET):
         arg1={'name':'umls','type':'{'+query['argument1']+'}'}
         arg2={'name':'umls','type':'{'+query['argument2']+'}'}
@@ -76,5 +76,12 @@ if __name__ == '__main__':
         
         result = tmp_utils.query_links(type_a=arg1, type_b=arg2, relation_type=query['relation'], num_edges=15, num_pps=6)
         marshal.dump(result, open(out_dir+str(i)+'.m','wb'))
+        print "processing",i
+        predict_result = dict()
+        for a in result['node_a'].keys():
+            for b in result['node_b'].keys():
+                if tmp_utils.query_prediction(name_a=a, name_b=b, relation_type=query['relation']) > 0:
+                    predict_result[(a,b)] = tmp_utils.query_prediction_v2(name_a=a, name_b=b, relation_type=query['relation'])
+        marshal.dump(predict_result, open(out_dir+str(i)+'_prediction.m','wb'))
         print "processing",i
 
