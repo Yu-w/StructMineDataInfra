@@ -527,7 +527,7 @@ def network_exploration_prediction():
                     source_label = "".join(name_a.split())
                     target_label = "".join(name_b.split())
                     ## do not add existed edges
-                    if (source_label, target_label) in existed_edges:
+                    if (target_label, source_label) in existed_edges:
                         continue
                     score = res['score']
                     data_doc_sentences = []
