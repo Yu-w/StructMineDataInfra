@@ -522,7 +522,7 @@ def network_exploration_prediction():
                     print("[INFO] testing edge", (name_a, name_b))
 
                 res = tmp_utils.query_prediction_v2(name_a=name_a, name_b=name_b, relation_type=relation_type)
-                if (res['score'] >= 0.79 and len(res.keys()) > 1): # one predicted relation, add a new edge
+                if (res['score'] >= 0.77):
                     print("Res = ", res)
                     source_label = "".join(name_a.split())
                     target_label = "".join(name_b.split())
@@ -530,29 +530,44 @@ def network_exploration_prediction():
                     if (target_label, source_label) in existed_edges:
                         continue
                     score = res['score']
-                    data_doc_sentences = []
-                    data_doc_sentences.extend(seg_long_sent(res.get("sent",""), name_a))
-                    data_doc_sentences.extend(seg_long_sent(res.get("sent",""), name_b))
-                    json_data.append({
-                        "group": "edge",
-                        "data": {
-                            # "source": source_label,
-                            # "target": target_label,
-                            "source": target_label,
-                            "target": source_label,
-                            "docs": [{
-                                ## Show the prediction confidence score as the paper title
-                                "title": "Confidence Score = " + str(score),
-                                "pmid": "#",
-                                "sentences": [""]
-                            }, {
-                                "title": "Title: " + res.get("article_title",""),
-                                "pmid": res.get("pmid",""),
-                                "sentences": data_doc_sentences
-                            }]
-                        },
-                        "classes": "edge1"
-                    })
+                    if (len(res.keys()) == 1):
+                        json_data.append({
+                            "group": "edge",
+                            "data": {
+                                "source": target_label,
+                                "target": source_label,
+                                "docs": [{
+                                    "title": "Confidence Score = " + str(score),
+                                    "pmid": "#",
+                                    "sentences": [""]
+                                }]
+                            },
+                            "classes": "edge1"
+                        })
+                    else:
+                        data_doc_sentences = []
+                        data_doc_sentences.extend(seg_long_sent(res.get("sent",""), name_a))
+                        data_doc_sentences.extend(seg_long_sent(res.get("sent",""), name_b))
+                        json_data.append({
+                            "group": "edge",
+                            "data": {
+                                # "source": source_label,
+                                # "target": target_label,
+                                "source": target_label,
+                                "target": source_label,
+                                "docs": [{
+                                    ## Show the prediction confidence score as the paper title
+                                    "title": "Confidence Score = " + str(score),
+                                    "pmid": "#",
+                                    "sentences": [""]
+                                }, {
+                                    "title": "Title: " + res.get("article_title",""),
+                                    "pmid": res.get("pmid",""),
+                                    "sentences": data_doc_sentences
+                                }]
+                            },
+                            "classes": "edge1"
+                        })
                     new_edge_cnt += 1
 
                 # res = tmp_utils.query_prediction(name_a=name_a, name_b=name_b, relation_type=relation_type)
