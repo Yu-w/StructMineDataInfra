@@ -15,15 +15,15 @@ app.controller('NetworkExplorationCtrl', ['$scope','cytoData','$uibModal', '$htt
             templateUrl: 'tpl/network_visualization_sample_submission_modal.html',
             controller: function ($uibModalInstance, $http) {
                 var $ctrl = this;
-                $http.get("http://192.17.58.208:8081/network_exploration/get_sample").then(function(response) {
-                // $http.get("http://localhost:8081/network_exploration/get_sample").then(function(response) {
+                $http.get("http://192.17.58.208:8009/network_exploration/get_sample").then(function(response) {
+                // $http.get("http://localhost:8009/network_exploration/get_sample").then(function(response) {
                     $ctrl.request = response.data;
                     $scope.raw_query = response.data; // save the query data
                 });
 
                 $ctrl.ok = function () {
-                    $http.get("http://192.17.58.208:8081/network_exploration", {params: $ctrl.request}).then(function(response) {
-                    // $http.get("http://192.17.58.208:8081/network_exploration", {params: request}).then(function(response) {
+                    $http.get("http://192.17.58.208:8009/network_exploration", {params: $ctrl.request}).then(function(response) {
+                    // $http.get("http://192.17.58.208:8009/network_exploration", {params: request}).then(function(response) {
                         $scope.elements = response.data;
                         $scope.graph.load();
                     });
@@ -55,8 +55,8 @@ app.controller('NetworkExplorationCtrl', ['$scope','cytoData','$uibModal', '$htt
                 $ctrl.request = request;
 
                 $ctrl.ok = function () {
-                    // $http.get("http://localhost:8081/network_exploration", {params: request}).then(function(response) {
-                    $http.get("http://192.17.58.208:8081/network_exploration", {params: request}).then(function(response) {
+                    // $http.get("http://localhost:8009/network_exploration", {params: request}).then(function(response) {
+                    $http.get("http://192.17.58.208:8009/network_exploration", {params: request}).then(function(response) {
                         $scope.elements = response.data;
                         $scope.graph.load();
                     });
@@ -88,8 +88,8 @@ app.controller('NetworkExplorationCtrl', ['$scope','cytoData','$uibModal', '$htt
                 $ctrl.request = request;
 
                 $ctrl.ok = function () {
-                    // $http.get("http://localhost:8081/network_exploration_prediction", {params: request}).then(function(response) {
-                    $http.get("http://192.17.58.208:8081/network_exploration_prediction", {params: request}).then(function(response) {
+                    // $http.get("http://localhost:8009/network_exploration_prediction", {params: request}).then(function(response) {
+                    $http.get("http://192.17.58.208:8009/network_exploration_prediction", {params: request}).then(function(response) {
                         $scope.elements = response.data;
                         $scope.graph.load();
                     });
