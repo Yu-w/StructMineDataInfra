@@ -20,8 +20,8 @@ class Home extends React.Component {
         <div className={s.container}>
           <Link to="/exploration">
             <button className={s.goItemLeft}>
-              Distinctive <br></br>
-              Summarization
+              Network <br></br>
+              Exploration
             </button>
           </Link>
           <Link to="/summarization">
