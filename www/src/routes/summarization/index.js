@@ -1,15 +1,15 @@
 import React from 'react';
-import Exploration from './Exploration';
+import Summarization from './Summarization';
 import Layout from '../../components/Layout';
 
 async function action() {
-  const title = 'Network Exploration'
+  const title = 'Distinctive Summarization';
   return {
-    chunks: ['exploration'],
+    chunks: ['summarization'],
     title: title,
     component: (
       <Layout title={title}>
-        <Exploration />
+        <Summarization />
       </Layout>
     ),
   };

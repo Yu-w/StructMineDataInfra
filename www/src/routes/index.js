@@ -15,6 +15,10 @@ const routes = {
       load: () => import('./exploration'),
     },
     {
+      path: '/summarization',
+      load: () => import('./summarization'),
+    },
+    {
       path: '/contact',
       load: () => import(/* webpackChunkName: 'contact' */ './contact'),
     },

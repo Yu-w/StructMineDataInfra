@@ -8,6 +8,7 @@
  */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Header.css';
 import Link from '../Link';
@@ -16,12 +17,16 @@ import logoUrl from './logo-small.png';
 import logoUrl2x from './logo-small@2x.png';
 
 class Header extends React.Component {
+  static propTypes = {
+    title: PropTypes.string.isRequired,
+  };
+
   render() {
     return (
       <div className={s.root}>
         <div className={s.container}>
           <Navigation />
-          <Link className={s.brand} to="/">
+          <Link className={s.brand} to="/exploration">
             <img
               src={logoUrl}
               srcSet={`${logoUrl2x} 2x`}
@@ -32,7 +37,7 @@ class Header extends React.Component {
             <span className={s.brandTxt}>LifeNet</span>
           </Link>
           <div className={s.banner}>
-            <h1 className={s.bannerTitle}>Network Exploration</h1>
+            <h1 className={s.bannerTitle}>{this.props.title || 'LifeNet'}</h1>
             <p className={s.bannerDesc}>
               Making sense of massive life science litrature - A
               &quot;data-to-network-to-knowledge&quot; system
