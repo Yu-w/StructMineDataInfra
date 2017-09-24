@@ -43,14 +43,14 @@
 
 .bannerTitle {
   margin: 0;
-  padding: 10px;
+  padding: 44px 12px 12px;
   font-weight: normal;
   font-size: 4em;
   line-height: 1em;
 }
 
 .bannerDesc {
-  padding: 0;
+  padding-bottom: 20px;
   color: rgba(255, 255, 255, 0.5);
   font-size: 1.25em;
   margin: 0;
