@@ -21,35 +21,32 @@
   text-align: center;
 }
 
-.goItemLeft {
+.goItemCommon {
+  transition: all .1s ease-in-out;
   background-color: #000;
   margin: 40px 20px;
   height: 320px;
   width: 40%;
+  display: inline-block;
   vertical-align: middle;
   border: 0;
   color: #fff;
   font-size: 2.25rem;
-  display: inline-block;
   text-align: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.goItemCommon:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.goItemLeft {
   background-image: url('./bg1.png');
 }
 
 .goItemRight {
-  background-color: #000;
-  margin: 40px 20px;
-  height: 320px;
-  width: 40%;
-  display: inline-block;
-  vertical-align: middle;
-  border: 0;
-  color: #fff;
-  font-size: 2.25rem;
-  text-align: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   background-image: url('./bg2.png');
 }
 

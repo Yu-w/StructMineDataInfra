@@ -19,13 +19,13 @@ class Home extends React.Component {
       <div className={s.root}>
         <div className={s.container}>
           <Link to="/exploration">
-            <button className={s.goItemLeft}>
+            <button className={[s.goItemLeft, s.goItemCommon].join(' ')}>
               Network <br></br>
               Exploration
             </button>
           </Link>
           <Link to="/summarization">
-            <button className={s.goItemRight}>
+            <button className={[s.goItemRight, s.goItemCommon].join(' ')}>
               Distinctive <br></br>
               Summarization
             </button>

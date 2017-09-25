@@ -18,7 +18,7 @@ import logoUrl2x from './logo-small@2x.png';
 
 class Header extends React.Component {
   static propTypes = {
-    title: PropTypes.string.isRequired,
+    title: PropTypes.string,
   };
 
   render() {
