@@ -1,7 +1,6 @@
 import React from 'react';
 import IconMenu from 'material-ui/IconMenu';
 import IconButton from 'material-ui/IconButton';
-import FontIcon from 'material-ui/FontIcon';
 import NavigationMoreHorizIcon from 'material-ui/svg-icons/navigation/more-horiz';
 import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -13,12 +12,10 @@ export default class SearchBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      leftEntityLabel: 'Left Entity',
-      rightEntityLabel: 'Right Entity',
+      leftEntityLabel: null,
+      rightEntityLabel: null,
     };
   }
-
-  handleChange = (event, index, value) => this.setState({value});
 
   render() {
     return (
@@ -26,15 +23,15 @@ export default class SearchBar extends React.Component {
         <ToolbarGroup>
           <ToolbarTitle style={{fontSize: 17}} text={'Left Entity:'} />
           <TreeView
-            label={this.state.leftEntityLabel}
+            label={this.state.leftEntityLabel || 'Make a Selection'}
             onSelection={
               (label) => this.setState({leftEntityLabel: label})
             } />
         </ToolbarGroup>
         <ToolbarGroup>
-          <ToolbarTitle style={{fontSize: 17}} text={'Right Entity:'} />
+          <ToolbarTitle style={{fontSize: 17, marginLeft: 16}} text={'Right Entity:'} />
           <TreeView
-            label={this.state.rightEntityLabel}
+            label={this.state.rightEntityLabel || 'Make a Selection'}
             onSelection={
               (label) => this.setState({rightEntityLabel: label})
             } />

@@ -32,7 +32,6 @@ class Layout extends React.Component {
       <div>
         <Header title={this.props.title}/>
         {this.props.children}
-        {/* <Feedback /> */}
         {footerIfNecessary}
       </div>
     );

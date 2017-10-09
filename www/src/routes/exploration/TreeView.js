@@ -18,16 +18,11 @@ class TreeView extends Component {
       searchTerm: '',
       open: false,
     }
-    this.collapseAll = this.collapseAll.bind(this)
     this.handleSearch = this.handleSearch.bind(this)
     this.handleTouchTap = this.handleTouchTap.bind(this)
     this.handleTouchTapInSearchMode = this.handleTouchTapInSearchMode.bind(this)
     this.handleButtonClick = this.handleButtonClick.bind(this)
     this.handleRequestClose = this.handleRequestClose.bind(this)
-  }
-
-  collapseAll() {
-    this.setState({expandedListItems: []})
   }
 
   handleSearch(searchTerm) {
@@ -122,7 +117,6 @@ class TreeView extends Component {
       <div>
         <RaisedButton
           style={{minWidth: 210}}
-          fullWidth={true}
           onClick={this.handleButtonClick}
           label={this.props.label}
           labelPosition="before"

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import Subheader from 'material-ui/Subheader';
 import {TreeList} from 'react-treeview-mui'
 
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
@@ -12,7 +13,8 @@ class Exploration extends React.Component {
       <MuiThemeProvider>
         <div className={s.root}>
           <div className={s.container}>
-            <h1>Network Exploration</h1>
+            <div style={{height: 44}}/>
+            <Subheader>Network Exploration: Explanation comes here</Subheader>
             <SearchBar />
           </div>
         </div>
