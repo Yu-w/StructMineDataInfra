@@ -137,7 +137,7 @@ const config = {
               // CSS Modules https://github.com/css-modules/css-modules
               modules: true,
               localIdentName: isDebug
-                ? '[name]-[local]-[hash:base64:5]'
+                ? '[name]-[local]' //-[hash:base64:5]
                 : '[hash:base64:5]',
               // CSS Nano http://cssnano.co/options/
               minimize: !isDebug,
@@ -158,10 +158,10 @@ const config = {
           // Compile Less to CSS
           // https://github.com/webpack-contrib/less-loader
           // Install dependencies before uncommenting: yarn add --dev less-loader less
-          // {
-          //   test: /\.less$/,
-          //   loader: 'less-loader',
-          // },
+          {
+            test: /\.less$/,
+            loader: 'less-loader',
+          },
 
           // Compile Sass to CSS
           // https://github.com/webpack-contrib/sass-loader

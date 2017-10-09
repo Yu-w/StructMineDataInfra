@@ -12,6 +12,8 @@ import PropTypes from 'prop-types';
 import serialize from 'serialize-javascript';
 import config from '../config';
 
+import 'rc-tree/assets/index.css';
+
 /* eslint-disable react/no-danger */
 
 class Html extends React.Component {
@@ -57,6 +59,8 @@ class Html extends React.Component {
               dangerouslySetInnerHTML={{ __html: style.cssText }}
             />,
           )}
+          <link rel="stylesheet" href="/tree-view.css" />
+          <script src="https://use.fontawesome.com/723300f2ba.js"></script>
         </head>
         <body>
           <div id="app" dangerouslySetInnerHTML={{ __html: children }} />

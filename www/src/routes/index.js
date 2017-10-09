@@ -12,11 +12,11 @@ const routes = {
     },
     {
       path: '/exploration',
-      load: () => import('./exploration'),
+      load: () => import(/* webpackChunkName: 'exploration' */ './exploration'),
     },
     {
       path: '/summarization',
-      load: () => import('./summarization'),
+      load: () => import(/* webpackChunkName: 'summarization' */ './summarization'),
     },
     {
       path: '/contact',
