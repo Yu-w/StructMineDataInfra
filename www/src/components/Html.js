@@ -12,8 +12,6 @@ import PropTypes from 'prop-types';
 import serialize from 'serialize-javascript';
 import config from '../config';
 
-import 'rc-tree/assets/index.css';
-
 /* eslint-disable react/no-danger */
 
 class Html extends React.Component {
