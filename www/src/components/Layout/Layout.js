@@ -25,12 +25,15 @@ class Layout extends React.Component {
   };
 
   render() {
+    const footerIfNecessary = this.props.title !== 'Network Exploration'
+      ? <Footer />
+      : null;
     return (
       <div>
         <Header title={this.props.title}/>
         {this.props.children}
         {/* <Feedback /> */}
-        <Footer />
+        {footerIfNecessary}
       </div>
     );
   }

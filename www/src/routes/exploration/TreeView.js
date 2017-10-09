@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import {TreeList} from 'react-treeview-mui'
+import RaisedButton from 'material-ui/RaisedButton';
+import NavigationExpandMoreIcon from 'material-ui/svg-icons/navigation/expand-more';
+
+import Popover, {PopoverAnimationVertical} from 'material-ui/Popover';
 
 import listItems from './mockTreeItems'
 
-class App extends Component {
+class TreeView extends Component {
   constructor(props) {
     super(props)
 
@@ -13,11 +16,14 @@ class App extends Component {
       activeListItem: null,
       listItems,
       searchTerm: '',
+      open: false,
     }
     this.collapseAll = this.collapseAll.bind(this)
     this.handleSearch = this.handleSearch.bind(this)
     this.handleTouchTap = this.handleTouchTap.bind(this)
     this.handleTouchTapInSearchMode = this.handleTouchTapInSearchMode.bind(this)
+    this.handleButtonClick = this.handleButtonClick.bind(this)
+    this.handleRequestClose = this.handleRequestClose.bind(this)
   }
 
   collapseAll() {
@@ -45,19 +51,17 @@ class App extends Component {
     } else {
       this.setState({
         activeListItem: index
+      }, () => {
+        if (this.state.activeListItem !== null)
+          this.props.onSelection(listItems[index].title)
+        this.handleRequestClose();
       })
     }
   }
 
   handleTouchTapInSearchMode(listItem, index) {
     if (!listItem.children) {
-      const expandedListItems = getAllParents(listItem, listItems)
-
-      this.setState({
-        activeListItem: index,
-        expandedListItems,
-        searchTerm: ''
-      })
+      this.handleTouchTap(listItem, index);
     }
   }
 
@@ -71,6 +75,23 @@ class App extends Component {
     }
   }
 
+  handleButtonClick = (event) => {
+    // This prevents ghost click.
+    event.preventDefault();
+
+    this.setState({
+      open: true,
+      anchorEl: event.currentTarget,
+    });
+  };
+
+  handleRequestClose = () => {
+    this.setState({
+      open: false,
+      expandedListItems: [],
+    });
+  };
+
   render() {
     const {listItems, expandedListItems, activeListItem, searchTerm} = this.state
 
@@ -79,25 +100,50 @@ class App extends Component {
       leftIconExpanded: <i style={{height: 16, width: 16, color: '#CCCCCC'}} className="fa fa-caret-down" />
     }
 
+    const treeList = this.state.open
+      ? (
+        <TreeList
+          listItems={listItems}
+          contentKey={'title'}
+          useFolderIcons={true}
+          haveSearchbar={true}
+          expandedListItems={expandedListItems}
+          activeListItem={activeListItem}
+          handleTouchTap={this.handleTouchTap}
+          handleTouchTapInSearchMode={this.handleTouchTapInSearchMode}
+          handleSearch={this.handleSearch}
+          searchTerm={searchTerm}
+          icons={icons}>
+        </TreeList>
+      )
+      : null;
+
     return (
-      <TreeList
-        listItems={listItems}
-        contentKey={'title'}
-        useFolderIcons={true}
-        haveSearchbar={true}
-        expandedListItems={expandedListItems}
-        activeListItem={activeListItem}
-        handleTouchTap={this.handleTouchTap}
-        handleTouchTapInSearchMode={this.handleTouchTapInSearchMode}
-        handleSearch={this.handleSearch}
-        searchTerm={searchTerm}
-        icons={icons}>
-      </TreeList>
+      <div>
+        <RaisedButton
+          style={{minWidth: 210}}
+          fullWidth={true}
+          onClick={this.handleButtonClick}
+          label={this.props.label}
+          labelPosition="before"
+          icon={<NavigationExpandMoreIcon />}
+        />
+        <Popover
+          open={this.state.open}
+          anchorEl={this.state.anchorEl}
+          anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
+          targetOrigin={{horizontal: 'left', vertical: 'top'}}
+          onRequestClose={this.handleRequestClose}
+          animation={PopoverAnimationVertical}
+        >
+          {treeList}
+        </Popover>
+      </div>
     );
   }
 }
 
-export default App;
+export default TreeView;
 
 function getAllParents(listItem, listItems, parents=[]) {
   if (listItem.parentIndex) {
