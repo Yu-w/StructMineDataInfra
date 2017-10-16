@@ -1,0 +1,9393 @@
+[
+{
+"depth": 0,
+"children": [1,3066,7933,19183,40445,45300,46520,50241,50766,51453,52053,52256,52833,53106,55602,55803]
+},
+{
+"title": "Anatomy",
+"depth": 1,
+"parentIndex": 0,
+"children": [2,94,331,431,483,576,650,786,1420,1538,1687,2508,2570,2635,2719,2909,2977,2993,3041,3051,3062]
+},
+{
+"title": "Body Regions",
+"depth": 2,
+"parentIndex": 1,
+"children": [3,4,7,33,54,56,57,58,84,85,92,93]
+},
+{
+"title": "Anatomic Landmarks",
+"depth": 3,
+"parentIndex": 2
+},
+{
+"title": "Breast",
+"depth": 3,
+"parentIndex": 2
+},
+{
+"title": "Extremities",
+"depth": 3,
+"parentIndex": 2
+},
+{
+"title": "Head",
+"depth": 3,
+"parentIndex": 2
+},
+{
+"title": "Neck",
+"depth": 3,
+"parentIndex": 2
+},
+{
+"title": "Organs at Risk",
+"depth": 3,
+"parentIndex": 2
+},
+{
+"title": "Perineum",
+"depth": 3,
+"parentIndex": 2
+},
+{
+"title": "Torso",
+"depth": 3,
+"parentIndex": 2
+},
+{
+"title": "Transplant Donor Site",
+"depth": 3,
+"parentIndex": 2
+},
+{
+"title": "Transplants",
+"depth": 3,
+"parentIndex": 2
+},
+{
+"title": "Trigger Points",
+"depth": 3,
+"parentIndex": 2
+},
+{
+"title": "Viscera",
+"depth": 3,
+"parentIndex": 2
+},
+{
+"title": "Musculoskeletal System",
+"depth": 2,
+"parentIndex": 1,
+"children": [95,118,121,138,175,327]
+},
+{
+"title": "Cartilage",
+"depth": 3,
+"parentIndex": 94
+},
+{
+"title": "Fascia",
+"depth": 3,
+"parentIndex": 94
+},
+{
+"title": "Ligaments",
+"depth": 3,
+"parentIndex": 94
+},
+{
+"title": "Muscles",
+"depth": 3,
+"parentIndex": 94
+},
+{
+"title": "Skeleton",
+"depth": 3,
+"parentIndex": 94
+},
+{
+"title": "Tendons",
+"depth": 3,
+"parentIndex": 94
+},
+{
+"title": "Digestive System",
+"depth": 2,
+"parentIndex": 1,
+"children": [332,343,419,423]
+},
+{
+"title": "Biliary Tract",
+"depth": 3,
+"parentIndex": 331
+},
+{
+"title": "Gastrointestinal Tract",
+"depth": 3,
+"parentIndex": 331
+},
+{
+"title": "Liver",
+"depth": 3,
+"parentIndex": 331
+},
+{
+"title": "Pancreas",
+"depth": 3,
+"parentIndex": 331
+},
+{
+"title": "Respiratory System",
+"depth": 2,
+"parentIndex": 1,
+"children": [432,443,449,465,475,476,482]
+},
+{
+"title": "Larynx",
+"depth": 3,
+"parentIndex": 431
+},
+{
+"title": "Lung",
+"depth": 3,
+"parentIndex": 431
+},
+{
+"title": "Nose",
+"depth": 3,
+"parentIndex": 431
+},
+{
+"title": "Pharynx",
+"depth": 3,
+"parentIndex": 431
+},
+{
+"title": "Pleura",
+"depth": 3,
+"parentIndex": 431
+},
+{
+"title": "Respiratory Mucosa",
+"depth": 3,
+"parentIndex": 431
+},
+{
+"title": "Trachea",
+"depth": 3,
+"parentIndex": 431
+},
+{
+"title": "Urogenital System",
+"depth": 2,
+"parentIndex": 1,
+"children": [484,546]
+},
+{
+"title": "Genitalia",
+"depth": 3,
+"parentIndex": 483
+},
+{
+"title": "Urinary Tract",
+"depth": 3,
+"parentIndex": 483
+},
+{
+"title": "Endocrine System",
+"depth": 2,
+"parentIndex": 1,
+"children": [577,584,592,629]
+},
+{
+"title": "Chromaffin System",
+"depth": 3,
+"parentIndex": 576
+},
+{
+"title": "Enteroendocrine Cells",
+"depth": 3,
+"parentIndex": 576
+},
+{
+"title": "Endocrine Glands",
+"depth": 3,
+"parentIndex": 576
+},
+{
+"title": "Neurosecretory Systems",
+"depth": 3,
+"parentIndex": 576
+},
+{
+"title": "Cardiovascular System",
+"depth": 2,
+"parentIndex": 1,
+"children": [651,652,653,654,655,656,657,754,755]
+},
+{
+"title": "Blood-Air Barrier",
+"depth": 3,
+"parentIndex": 650
+},
+{
+"title": "Blood-Aqueous Barrier",
+"depth": 3,
+"parentIndex": 650
+},
+{
+"title": "Blood-Brain Barrier",
+"depth": 3,
+"parentIndex": 650
+},
+{
+"title": "Blood-Nerve Barrier",
+"depth": 3,
+"parentIndex": 650
+},
+{
+"title": "Blood-Retinal Barrier",
+"depth": 3,
+"parentIndex": 650
+},
+{
+"title": "Blood-Testis Barrier",
+"depth": 3,
+"parentIndex": 650
+},
+{
+"title": "Blood Vessels",
+"depth": 3,
+"parentIndex": 650
+},
+{
+"title": "Glomerular Filtration Barrier",
+"depth": 3,
+"parentIndex": 650
+},
+{
+"title": "Heart",
+"depth": 3,
+"parentIndex": 650
+},
+{
+"title": "Nervous System",
+"depth": 2,
+"parentIndex": 1,
+"children": [787,1079,1093,1095,1109,1122,1227,1249,1410]
+},
+{
+"title": "Central Nervous System",
+"depth": 3,
+"parentIndex": 786
+},
+{
+"title": "Ganglia",
+"depth": 3,
+"parentIndex": 786
+},
+{
+"title": "Nerve Net",
+"depth": 3,
+"parentIndex": 786
+},
+{
+"title": "Neural Pathways",
+"depth": 3,
+"parentIndex": 786
+},
+{
+"title": "Neuroglia",
+"depth": 3,
+"parentIndex": 786
+},
+{
+"title": "Neurons",
+"depth": 3,
+"parentIndex": 786
+},
+{
+"title": "Neurosecretory Systems",
+"depth": 3,
+"parentIndex": 786
+},
+{
+"title": "Peripheral Nervous System",
+"depth": 3,
+"parentIndex": 786
+},
+{
+"title": "Synapses",
+"depth": 3,
+"parentIndex": 786
+},
+{
+"title": "Sense Organs",
+"depth": 2,
+"parentIndex": 1,
+"children": [1421,1467,1533,1537]
+},
+{
+"title": "Ear",
+"depth": 3,
+"parentIndex": 1420
+},
+{
+"title": "Eye",
+"depth": 3,
+"parentIndex": 1420
+},
+{
+"title": "Nose",
+"depth": 3,
+"parentIndex": 1420
+},
+{
+"title": "Taste Buds",
+"depth": 3,
+"parentIndex": 1420
+},
+{
+"title": "Tissues",
+"depth": 2,
+"parentIndex": 1,
+"children": [1539,1542,1573,1587,1607,1617,1655,1671,1676,1677,1678]
+},
+{
+"title": "Body Fluid Compartments",
+"depth": 3,
+"parentIndex": 1538
+},
+{
+"title": "Connective Tissue",
+"depth": 3,
+"parentIndex": 1538
+},
+{
+"title": "Epithelium",
+"depth": 3,
+"parentIndex": 1538
+},
+{
+"title": "Exocrine Glands",
+"depth": 3,
+"parentIndex": 1538
+},
+{
+"title": "Lymphoid Tissue",
+"depth": 3,
+"parentIndex": 1538
+},
+{
+"title": "Membranes",
+"depth": 3,
+"parentIndex": 1538
+},
+{
+"title": "Muscles",
+"depth": 3,
+"parentIndex": 1538
+},
+{
+"title": "Nerve Tissue",
+"depth": 3,
+"parentIndex": 1538
+},
+{
+"title": "Organoids",
+"depth": 3,
+"parentIndex": 1538
+},
+{
+"title": "Peritoneal Stomata",
+"depth": 3,
+"parentIndex": 1538
+},
+{
+"title": "Surgically-Created Structures",
+"depth": 3,
+"parentIndex": 1538
+},
+{
+"title": "Cells",
+"depth": 2,
+"parentIndex": 1,
+"children": [1688,1689,1694,1698,1761,1783,1833,1834,2121,2123,2158,2181,2238,2249,2250,2267,2270,2271,2272,2284,2312,2313,2326,2437,2438,2439,2440,2454,2455,2456,2457,2458,2459,2468,2507]
+},
+{
+"title": "Acinar Cells",
+"depth": 3,
+"parentIndex": 1687
+},
+{
+"title": "Antibody-Producing Cells",
+"depth": 3,
+"parentIndex": 1687
+},
+{
+"title": "Antigen-Presenting Cells",
+"depth": 3,
+"parentIndex": 1687
+},
+{
+"title": "Blood Cells",
+"depth": 3,
+"parentIndex": 1687
+},
+{
+"title": "Bone Marrow Cells",
+"depth": 3,
+"parentIndex": 1687
+},
+{
+"title": "Cells, Cultured",
+"depth": 3,
+"parentIndex": 1687
+},
+{
+"title": "Cells, Immobilized",
+"depth": 3,
+"parentIndex": 1687
+},
+{
+"title": "Cellular Structures",
+"depth": 3,
+"parentIndex": 1687
+},
+{
+"title": "Chromaffin Cells",
+"depth": 3,
+"parentIndex": 1687
+},
+{
+"title": "Connective Tissue Cells",
+"depth": 3,
+"parentIndex": 1687
+},
+{
+"title": "Endocrine Cells",
+"depth": 3,
+"parentIndex": 1687
+},
+{
+"title": "Epithelial Cells",
+"depth": 3,
+"parentIndex": 1687
+},
+{
+"title": "Erythroid Cells",
+"depth": 3,
+"parentIndex": 1687
+},
+{
+"title": "Eukaryotic Cells",
+"depth": 3,
+"parentIndex": 1687
+},
+{
+"title": "Germ Cells",
+"depth": 3,
+"parentIndex": 1687
+},
+{
+"title": "Giant Cells",
+"depth": 3,
+"parentIndex": 1687
+},
+{
+"title": "Hepatic Stellate Cells",
+"depth": 3,
+"parentIndex": 1687
+},
+{
+"title": "Mesophyll Cells",
+"depth": 3,
+"parentIndex": 1687
+},
+{
+"title": "Muscle Cells",
+"depth": 3,
+"parentIndex": 1687
+},
+{
+"title": "Myeloid Cells",
+"depth": 3,
+"parentIndex": 1687
+},
+{
+"title": "Neoplastic Cells, Circulating",
+"depth": 3,
+"parentIndex": 1687
+},
+{
+"title": "Neuroglia",
+"depth": 3,
+"parentIndex": 1687
+},
+{
+"title": "Neurons",
+"depth": 3,
+"parentIndex": 1687
+},
+{
+"title": "Oxyphil Cells",
+"depth": 3,
+"parentIndex": 1687
+},
+{
+"title": "Pancreatic Stellate Cells",
+"depth": 3,
+"parentIndex": 1687
+},
+{
+"title": "Pericytes",
+"depth": 3,
+"parentIndex": 1687
+},
+{
+"title": "Phagocytes",
+"depth": 3,
+"parentIndex": 1687
+},
+{
+"title": "Plant Cells",
+"depth": 3,
+"parentIndex": 1687
+},
+{
+"title": "Prokaryotic Cells",
+"depth": 3,
+"parentIndex": 1687
+},
+{
+"title": "Protoplasts",
+"depth": 3,
+"parentIndex": 1687
+},
+{
+"title": "Reed-Sternberg Cells",
+"depth": 3,
+"parentIndex": 1687
+},
+{
+"title": "Spheroplasts",
+"depth": 3,
+"parentIndex": 1687
+},
+{
+"title": "Spores",
+"depth": 3,
+"parentIndex": 1687
+},
+{
+"title": "Stem Cells",
+"depth": 3,
+"parentIndex": 1687
+},
+{
+"title": "Thymocytes",
+"depth": 3,
+"parentIndex": 1687
+},
+{
+"title": "Fluids and Secretions",
+"depth": 2,
+"parentIndex": 1,
+"children": [2509,2510,2532,2560,2565,2568,2569]
+},
+{
+"title": "Amniotic Fluid",
+"depth": 3,
+"parentIndex": 2508
+},
+{
+"title": "Bodily Secretions",
+"depth": 3,
+"parentIndex": 2508
+},
+{
+"title": "Body Fluids",
+"depth": 3,
+"parentIndex": 2508
+},
+{
+"title": "Exudates and Transudates",
+"depth": 3,
+"parentIndex": 2508
+},
+{
+"title": "Feces",
+"depth": 3,
+"parentIndex": 2508
+},
+{
+"title": "Gastrointestinal Contents",
+"depth": 3,
+"parentIndex": 2508
+},
+{
+"title": "Hyalin",
+"depth": 3,
+"parentIndex": 2508
+},
+{
+"title": "Animal Structures",
+"depth": 2,
+"parentIndex": 1,
+"children": [2571,2572,2573,2574,2575,2576,2577,2578,2579,2580,2581,2582,2583,2584,2585,2588,2589,2590,2593,2594,2595,2596,2597,2598,2599,2600,2603,2604,2606,2607,2608,2609,2610,2611,2612,2613,2614,2615,2616,2618,2619,2620,2621,2622,2623,2626,2631,2632,2633,2634]
+},
+{
+"title": "Air Sacs",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Anal Sacs",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Animal Fins",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Animal Shells",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Arthropod Antennae",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Beak",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Bursa of Fabricius",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Cloaca",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Comb and Wattles",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Compound Eye, Arthropod",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Corpora Allata",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Crop, Avian",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Egg Shell",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Electric Organ",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Embryo, Nonmammalian",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Fat Body",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Feathers",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Forelimb",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Ganglia, Invertebrate",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Gills",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Harderian Gland",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Head Kidney",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Hemolymph",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Hepatopancreas",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "High Vocal Center",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Hindlimb",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Hoof and Claw",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Horns",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Imaginal Discs",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Interrenal Gland",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Lateral Line System",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Malpighian Tubules",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Mammary Glands, Animal",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Metrial Gland",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Mushroom Bodies",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Nematocyst",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Nictitating Membrane",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Optic Lobe, Nonmammalian",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Oviducts",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Perianal Glands",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Photoreceptor Cells, Invertebrate",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Salt Gland",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Scent Glands",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Sensilla",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Stomach, Avian",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Stomach, Ruminant",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Tail",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Ultimobranchial Body",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Vibrissae",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Wool",
+"depth": 3,
+"parentIndex": 2570
+},
+{
+"title": "Stomatognathic System",
+"depth": 2,
+"parentIndex": 1,
+"children": [2636,2637,2638,2648,2652,2708,2717]
+},
+{
+"title": "Cheek",
+"depth": 3,
+"parentIndex": 2635
+},
+{
+"title": "Facial Muscles",
+"depth": 3,
+"parentIndex": 2635
+},
+{
+"title": "Jaw",
+"depth": 3,
+"parentIndex": 2635
+},
+{
+"title": "Masticatory Muscles",
+"depth": 3,
+"parentIndex": 2635
+},
+{
+"title": "Mouth",
+"depth": 3,
+"parentIndex": 2635
+},
+{
+"title": "Pharynx",
+"depth": 3,
+"parentIndex": 2635
+},
+{
+"title": "Temporomandibular Joint",
+"depth": 3,
+"parentIndex": 2635
+},
+{
+"title": "Hemic and Immune Systems",
+"depth": 2,
+"parentIndex": 1,
+"children": [2720,2786,2804]
+},
+{
+"title": "Blood",
+"depth": 3,
+"parentIndex": 2719
+},
+{
+"title": "Hematopoietic System",
+"depth": 3,
+"parentIndex": 2719
+},
+{
+"title": "Immune System",
+"depth": 3,
+"parentIndex": 2719
+},
+{
+"title": "Embryonic Structures",
+"depth": 2,
+"parentIndex": 1,
+"children": [2910,2911,2912,2913,2914,2924,2931,2944,2945,2951,2952,2953,2954,2955,2956,2957,2958,2959,2960,2961,2965,2970,2971,2973,2974,2975,2976]
+},
+{
+"title": "Blastomeres",
+"depth": 3,
+"parentIndex": 2909
+},
+{
+"title": "Branchial Region",
+"depth": 3,
+"parentIndex": 2909
+},
+{
+"title": "Cleavage Stage, Ovum",
+"depth": 3,
+"parentIndex": 2909
+},
+{
+"title": "Cloaca",
+"depth": 3,
+"parentIndex": 2909
+},
+{
+"title": "Embryo, Mammalian",
+"depth": 3,
+"parentIndex": 2909
+},
+{
+"title": "Embryo, Nonmammalian",
+"depth": 3,
+"parentIndex": 2909
+},
+{
+"title": "Fetus",
+"depth": 3,
+"parentIndex": 2909
+},
+{
+"title": "Gastrula",
+"depth": 3,
+"parentIndex": 2909
+},
+{
+"title": "Germ Layers",
+"depth": 3,
+"parentIndex": 2909
+},
+{
+"title": "Gestational Sac",
+"depth": 3,
+"parentIndex": 2909
+},
+{
+"title": "Limb Buds",
+"depth": 3,
+"parentIndex": 2909
+},
+{
+"title": "Mesonephros",
+"depth": 3,
+"parentIndex": 2909
+},
+{
+"title": "Morula",
+"depth": 3,
+"parentIndex": 2909
+},
+{
+"title": "Mullerian Ducts",
+"depth": 3,
+"parentIndex": 2909
+},
+{
+"title": "Neural Crest",
+"depth": 3,
+"parentIndex": 2909
+},
+{
+"title": "Neural Plate",
+"depth": 3,
+"parentIndex": 2909
+},
+{
+"title": "Neural Tube",
+"depth": 3,
+"parentIndex": 2909
+},
+{
+"title": "Notochord",
+"depth": 3,
+"parentIndex": 2909
+},
+{
+"title": "Organizers, Embryonic",
+"depth": 3,
+"parentIndex": 2909
+},
+{
+"title": "Ovum",
+"depth": 3,
+"parentIndex": 2909
+},
+{
+"title": "Placenta",
+"depth": 3,
+"parentIndex": 2909
+},
+{
+"title": "Primitive Streak",
+"depth": 3,
+"parentIndex": 2909
+},
+{
+"title": "Pronephros",
+"depth": 3,
+"parentIndex": 2909
+},
+{
+"title": "Urachus",
+"depth": 3,
+"parentIndex": 2909
+},
+{
+"title": "Vitelline Duct",
+"depth": 3,
+"parentIndex": 2909
+},
+{
+"title": "Wolffian Ducts",
+"depth": 3,
+"parentIndex": 2909
+},
+{
+"title": "Zygote",
+"depth": 3,
+"parentIndex": 2909
+},
+{
+"title": "Integumentary System",
+"depth": 2,
+"parentIndex": 1,
+"children": [2978,2983,2984]
+},
+{
+"title": "Hair",
+"depth": 3,
+"parentIndex": 2977
+},
+{
+"title": "Nails",
+"depth": 3,
+"parentIndex": 2977
+},
+{
+"title": "Skin",
+"depth": 3,
+"parentIndex": 2977
+},
+{
+"title": "Plant Structures",
+"depth": 2,
+"parentIndex": 1,
+"children": [2994,2995,3026,3034,3038,3040]
+},
+{
+"title": "Chromosomes, Plant",
+"depth": 3,
+"parentIndex": 2993
+},
+{
+"title": "Plant Components, Aerial",
+"depth": 3,
+"parentIndex": 2993
+},
+{
+"title": "Plant Roots",
+"depth": 3,
+"parentIndex": 2993
+},
+{
+"title": "Plant Vascular Bundle",
+"depth": 3,
+"parentIndex": 2993
+},
+{
+"title": "Seedlings",
+"depth": 3,
+"parentIndex": 2993
+},
+{
+"title": "Sporangia",
+"depth": 3,
+"parentIndex": 2993
+},
+{
+"title": "Fungal Structures",
+"depth": 2,
+"parentIndex": 1,
+"children": [3042,3044,3046,3047,3049,3050]
+},
+{
+"title": "Chromosomes, Fungal",
+"depth": 3,
+"parentIndex": 3041
+},
+{
+"title": "Fruiting Bodies, Fungal",
+"depth": 3,
+"parentIndex": 3041
+},
+{
+"title": "Fungal Capsules",
+"depth": 3,
+"parentIndex": 3041
+},
+{
+"title": "Mycelium",
+"depth": 3,
+"parentIndex": 3041
+},
+{
+"title": "Mycorrhizae",
+"depth": 3,
+"parentIndex": 3041
+},
+{
+"title": "Sporangia",
+"depth": 3,
+"parentIndex": 3041
+},
+{
+"title": "Bacterial Structures",
+"depth": 2,
+"parentIndex": 1,
+"children": [3052,3053,3054,3056,3057,3058,3059,3060,3061]
+},
+{
+"title": "Bacterial Capsules",
+"depth": 3,
+"parentIndex": 3051
+},
+{
+"title": "Bacterial Chromatophores",
+"depth": 3,
+"parentIndex": 3051
+},
+{
+"title": "Chromosomes, Bacterial",
+"depth": 3,
+"parentIndex": 3051
+},
+{
+"title": "Fimbriae, Bacterial",
+"depth": 3,
+"parentIndex": 3051
+},
+{
+"title": "Magnetosomes",
+"depth": 3,
+"parentIndex": 3051
+},
+{
+"title": "Pili, Sex",
+"depth": 3,
+"parentIndex": 3051
+},
+{
+"title": "Purple Membrane",
+"depth": 3,
+"parentIndex": 3051
+},
+{
+"title": "Ribosome Subunits, Large, Bacterial",
+"depth": 3,
+"parentIndex": 3051
+},
+{
+"title": "Ribosome Subunits, Small, Bacterial",
+"depth": 3,
+"parentIndex": 3051
+},
+{
+"title": "Viral Structures",
+"depth": 2,
+"parentIndex": 1,
+"children": [3063]
+},
+{
+"title": "Virion",
+"depth": 3,
+"parentIndex": 3062
+},
+{
+"title": "Organisms",
+"depth": 1,
+"parentIndex": 0,
+"children": [3067,5463,5525,7089,7892]
+},
+{
+"title": "Eukaryota",
+"depth": 2,
+"parentIndex": 3066,
+"children": [3068,3128,3155,3977,3978,3979,3982,4009,4231,4232,4234,4235,4243,5436,5437,5442]
+},
+{
+"title": "Alveolata",
+"depth": 3,
+"parentIndex": 3067
+},
+{
+"title": "Amoebozoa",
+"depth": 3,
+"parentIndex": 3067
+},
+{
+"title": "Animals",
+"depth": 3,
+"parentIndex": 3067
+},
+{
+"title": "Choanoflagellata",
+"depth": 3,
+"parentIndex": 3067
+},
+{
+"title": "Cryptophyta",
+"depth": 3,
+"parentIndex": 3067
+},
+{
+"title": "Diplomonadida",
+"depth": 3,
+"parentIndex": 3067
+},
+{
+"title": "Euglenozoa",
+"depth": 3,
+"parentIndex": 3067
+},
+{
+"title": "Fungi",
+"depth": 3,
+"parentIndex": 3067
+},
+{
+"title": "Haptophyta",
+"depth": 3,
+"parentIndex": 3067
+},
+{
+"title": "Mesomycetozoea",
+"depth": 3,
+"parentIndex": 3067
+},
+{
+"title": "Oxymonadida",
+"depth": 3,
+"parentIndex": 3067
+},
+{
+"title": "Parabasalidea",
+"depth": 3,
+"parentIndex": 3067
+},
+{
+"title": "Plants",
+"depth": 3,
+"parentIndex": 3067
+},
+{
+"title": "Retortamonadidae",
+"depth": 3,
+"parentIndex": 3067
+},
+{
+"title": "Rhizaria",
+"depth": 3,
+"parentIndex": 3067
+},
+{
+"title": "Stramenopiles",
+"depth": 3,
+"parentIndex": 3067
+},
+{
+"title": "Archaea",
+"depth": 2,
+"parentIndex": 3066,
+"children": [5464,5465,5481,5523,5524]
+},
+{
+"title": "Blood-Borne Pathogens",
+"depth": 3,
+"parentIndex": 5463
+},
+{
+"title": "Crenarchaeota",
+"depth": 3,
+"parentIndex": 5463
+},
+{
+"title": "Euryarchaeota",
+"depth": 3,
+"parentIndex": 5463
+},
+{
+"title": "Korarchaeota",
+"depth": 3,
+"parentIndex": 5463
+},
+{
+"title": "Nanoarchaeota",
+"depth": 3,
+"parentIndex": 5463
+},
+{
+"title": "Bacteria",
+"depth": 2,
+"parentIndex": 3066,
+"children": [5526,5527,5528,5531,5532,5533,5558,5559,5561,5563,5581,5652,5782,5789,6312,6658,7062,7080]
+},
+{
+"title": "Acidobacteria",
+"depth": 3,
+"parentIndex": 5525
+},
+{
+"title": "Agricultural Inoculants",
+"depth": 3,
+"parentIndex": 5525
+},
+{
+"title": "Atypical Bacterial Forms",
+"depth": 3,
+"parentIndex": 5525
+},
+{
+"title": "Bacteria, Aerobic",
+"depth": 3,
+"parentIndex": 5525
+},
+{
+"title": "Bacteria, Anaerobic",
+"depth": 3,
+"parentIndex": 5525
+},
+{
+"title": "Bacteroidetes",
+"depth": 3,
+"parentIndex": 5525
+},
+{
+"title": "Blood-Borne Pathogens",
+"depth": 3,
+"parentIndex": 5525
+},
+{
+"title": "Chlorobi",
+"depth": 3,
+"parentIndex": 5525
+},
+{
+"title": "Chloroflexi",
+"depth": 3,
+"parentIndex": 5525
+},
+{
+"title": "Cyanobacteria",
+"depth": 3,
+"parentIndex": 5525
+},
+{
+"title": "Endospore-Forming Bacteria",
+"depth": 3,
+"parentIndex": 5525
+},
+{
+"title": "Firmicutes",
+"depth": 3,
+"parentIndex": 5525
+},
+{
+"title": "Fusobacteria",
+"depth": 3,
+"parentIndex": 5525
+},
+{
+"title": "Gram-Negative Bacteria",
+"depth": 3,
+"parentIndex": 5525
+},
+{
+"title": "Gram-Positive Bacteria",
+"depth": 3,
+"parentIndex": 5525
+},
+{
+"title": "Proteobacteria",
+"depth": 3,
+"parentIndex": 5525
+},
+{
+"title": "Spirochaetales",
+"depth": 3,
+"parentIndex": 5525
+},
+{
+"title": "Sulfur-Reducing Bacteria",
+"depth": 3,
+"parentIndex": 5525
+},
+{
+"title": "Viruses",
+"depth": 2,
+"parentIndex": 3066,
+"children": [7090,7091,7098,7158,7159,7170,7361,7362,7363,7381,7393,7481,7482,7538,7539,7540,7884,7887,7888]
+},
+{
+"title": "Arboviruses",
+"depth": 3,
+"parentIndex": 7089
+},
+{
+"title": "Archaeal Viruses",
+"depth": 3,
+"parentIndex": 7089
+},
+{
+"title": "Bacteriophages",
+"depth": 3,
+"parentIndex": 7089
+},
+{
+"title": "Blood-Borne Pathogens",
+"depth": 3,
+"parentIndex": 7089
+},
+{
+"title": "Defective Viruses",
+"depth": 3,
+"parentIndex": 7089
+},
+{
+"title": "DNA Viruses",
+"depth": 3,
+"parentIndex": 7089
+},
+{
+"title": "Fungal Viruses",
+"depth": 3,
+"parentIndex": 7089
+},
+{
+"title": "Helper Viruses",
+"depth": 3,
+"parentIndex": 7089
+},
+{
+"title": "Hepatitis Viruses",
+"depth": 3,
+"parentIndex": 7089
+},
+{
+"title": "Insect Viruses",
+"depth": 3,
+"parentIndex": 7089
+},
+{
+"title": "Oncogenic Viruses",
+"depth": 3,
+"parentIndex": 7089
+},
+{
+"title": "Oncolytic Viruses",
+"depth": 3,
+"parentIndex": 7089
+},
+{
+"title": "Plant Viruses",
+"depth": 3,
+"parentIndex": 7089
+},
+{
+"title": "Proviruses",
+"depth": 3,
+"parentIndex": 7089
+},
+{
+"title": "Reassortant Viruses",
+"depth": 3,
+"parentIndex": 7089
+},
+{
+"title": "RNA Viruses",
+"depth": 3,
+"parentIndex": 7089
+},
+{
+"title": "Virion",
+"depth": 3,
+"parentIndex": 7089
+},
+{
+"title": "Viroids",
+"depth": 3,
+"parentIndex": 7089
+},
+{
+"title": "Viruses, Unclassified",
+"depth": 3,
+"parentIndex": 7089
+},
+{
+"title": "Organism Forms",
+"depth": 2,
+"parentIndex": 3066,
+"children": [7893,7900,7903,7906,7907,7908,7909,7920,7921,7924]
+},
+{
+"title": "Aquatic Organisms",
+"depth": 3,
+"parentIndex": 7892
+},
+{
+"title": "Atypical Bacterial Forms",
+"depth": 3,
+"parentIndex": 7892
+},
+{
+"title": "Chimera",
+"depth": 3,
+"parentIndex": 7892
+},
+{
+"title": "Endophytes",
+"depth": 3,
+"parentIndex": 7892
+},
+{
+"title": "Hermaphroditic Organisms",
+"depth": 3,
+"parentIndex": 7892
+},
+{
+"title": "Lichens",
+"depth": 3,
+"parentIndex": 7892
+},
+{
+"title": "Life Cycle Stages",
+"depth": 3,
+"parentIndex": 7892
+},
+{
+"title": "Mycorrhizae",
+"depth": 3,
+"parentIndex": 7892
+},
+{
+"title": "Organisms, Genetically Modified",
+"depth": 3,
+"parentIndex": 7892
+},
+{
+"title": "Spores",
+"depth": 3,
+"parentIndex": 7892
+},
+{
+"title": "Diseases",
+"depth": 1,
+"parentIndex": 0,
+"children": [7934,8466,8828,9027,10027,10494,10958,11244,11612,11748,13172,13489,13752,14172,14758,15132,16225,16757,17348,17555,17789,17794,17935,18780,18803,18917]
+},
+{
+"title": "Bacterial Infections and Mycoses",
+"depth": 2,
+"parentIndex": 7933,
+"children": [7935,8235,8239,8407,8465]
+},
+{
+"title": "Bacterial Infections",
+"depth": 3,
+"parentIndex": 7934
+},
+{
+"title": "Central Nervous System Infections",
+"depth": 3,
+"parentIndex": 7934
+},
+{
+"title": "Infection",
+"depth": 3,
+"parentIndex": 7934
+},
+{
+"title": "Mycoses",
+"depth": 3,
+"parentIndex": 7934
+},
+{
+"title": "Zoonoses",
+"depth": 3,
+"parentIndex": 7934
+},
+{
+"title": "Virus Diseases",
+"depth": 2,
+"parentIndex": 7933,
+"children": [8467,8494,8495,8513,8514,8577,8592,8599,8600,8603,8612,8615,8616,8775,8790,8801,8812,8826,8827]
+},
+{
+"title": "Arbovirus Infections",
+"depth": 3,
+"parentIndex": 8466
+},
+{
+"title": "Bronchiolitis, Viral",
+"depth": 3,
+"parentIndex": 8466
+},
+{
+"title": "Central Nervous System Viral Diseases",
+"depth": 3,
+"parentIndex": 8466
+},
+{
+"title": "Coinfection",
+"depth": 3,
+"parentIndex": 8466
+},
+{
+"title": "DNA Virus Infections",
+"depth": 3,
+"parentIndex": 8466
+},
+{
+"title": "Encephalitis, Viral",
+"depth": 3,
+"parentIndex": 8466
+},
+{
+"title": "Eye Infections, Viral",
+"depth": 3,
+"parentIndex": 8466
+},
+{
+"title": "Fatigue Syndrome, Chronic",
+"depth": 3,
+"parentIndex": 8466
+},
+{
+"title": "Hepatitis, Viral, Animal",
+"depth": 3,
+"parentIndex": 8466
+},
+{
+"title": "Hepatitis, Viral, Human",
+"depth": 3,
+"parentIndex": 8466
+},
+{
+"title": "Opportunistic Infections",
+"depth": 3,
+"parentIndex": 8466
+},
+{
+"title": "Pneumonia, Viral",
+"depth": 3,
+"parentIndex": 8466
+},
+{
+"title": "RNA Virus Infections",
+"depth": 3,
+"parentIndex": 8466
+},
+{
+"title": "Sexually Transmitted Diseases",
+"depth": 3,
+"parentIndex": 8466
+},
+{
+"title": "Skin Diseases, Viral",
+"depth": 3,
+"parentIndex": 8466
+},
+{
+"title": "Slow Virus Diseases",
+"depth": 3,
+"parentIndex": 8466
+},
+{
+"title": "Tumor Virus Infections",
+"depth": 3,
+"parentIndex": 8466
+},
+{
+"title": "Viremia",
+"depth": 3,
+"parentIndex": 8466
+},
+{
+"title": "Zoonoses",
+"depth": 3,
+"parentIndex": 8466
+},
+{
+"title": "Parasitic Diseases",
+"depth": 2,
+"parentIndex": 7933,
+"children": [8829,8836,8837,8841,8918,8926,8930,8932,8934,8937,8938,8954,8955,9007,9025]
+},
+{
+"title": "Central Nervous System Parasitic Infections",
+"depth": 3,
+"parentIndex": 8828
+},
+{
+"title": "Coinfection",
+"depth": 3,
+"parentIndex": 8828
+},
+{
+"title": "Eye Infections, Parasitic",
+"depth": 3,
+"parentIndex": 8828
+},
+{
+"title": "Helminthiasis",
+"depth": 3,
+"parentIndex": 8828
+},
+{
+"title": "Intestinal Diseases, Parasitic",
+"depth": 3,
+"parentIndex": 8828
+},
+{
+"title": "Liver Diseases, Parasitic",
+"depth": 3,
+"parentIndex": 8828
+},
+{
+"title": "Lung Diseases, Parasitic",
+"depth": 3,
+"parentIndex": 8828
+},
+{
+"title": "Mesomycetozoea Infections",
+"depth": 3,
+"parentIndex": 8828
+},
+{
+"title": "Opportunistic Infections",
+"depth": 3,
+"parentIndex": 8828
+},
+{
+"title": "Parasitemia",
+"depth": 3,
+"parentIndex": 8828
+},
+{
+"title": "Parasitic Diseases, Animal",
+"depth": 3,
+"parentIndex": 8828
+},
+{
+"title": "Pregnancy Complications, Parasitic",
+"depth": 3,
+"parentIndex": 8828
+},
+{
+"title": "Protozoan Infections",
+"depth": 3,
+"parentIndex": 8828
+},
+{
+"title": "Skin Diseases, Parasitic",
+"depth": 3,
+"parentIndex": 8828
+},
+{
+"title": "Zoonoses",
+"depth": 3,
+"parentIndex": 8828
+},
+{
+"title": "Neoplasms",
+"depth": 2,
+"parentIndex": 7933,
+"children": [9028,9067,9072,9676,9918,9937,9938,9946,9947,9949,9950,9968,9993,10006,10019]
+},
+{
+"title": "Cysts",
+"depth": 3,
+"parentIndex": 9027
+},
+{
+"title": "Hamartoma",
+"depth": 3,
+"parentIndex": 9027
+},
+{
+"title": "Neoplasms by Histologic Type",
+"depth": 3,
+"parentIndex": 9027
+},
+{
+"title": "Neoplasms by Site",
+"depth": 3,
+"parentIndex": 9027
+},
+{
+"title": "Neoplasms, Experimental",
+"depth": 3,
+"parentIndex": 9027
+},
+{
+"title": "Neoplasms, Hormone-Dependent",
+"depth": 3,
+"parentIndex": 9027
+},
+{
+"title": "Neoplasms, Multiple Primary",
+"depth": 3,
+"parentIndex": 9027
+},
+{
+"title": "Neoplasms, Post-Traumatic",
+"depth": 3,
+"parentIndex": 9027
+},
+{
+"title": "Neoplasms, Radiation-Induced",
+"depth": 3,
+"parentIndex": 9027
+},
+{
+"title": "Neoplasms, Second Primary",
+"depth": 3,
+"parentIndex": 9027
+},
+{
+"title": "Neoplastic Processes",
+"depth": 3,
+"parentIndex": 9027
+},
+{
+"title": "Neoplastic Syndromes, Hereditary",
+"depth": 3,
+"parentIndex": 9027
+},
+{
+"title": "Paraneoplastic Syndromes",
+"depth": 3,
+"parentIndex": 9027
+},
+{
+"title": "Precancerous Conditions",
+"depth": 3,
+"parentIndex": 9027
+},
+{
+"title": "Pregnancy Complications, Neoplastic",
+"depth": 3,
+"parentIndex": 9027
+},
+{
+"title": "Musculoskeletal Diseases",
+"depth": 2,
+"parentIndex": 7933,
+"children": [10028,10209,10219,10222,10234,10239,10242,10274,10336,10405,10472,10493]
+},
+{
+"title": "Bone Diseases",
+"depth": 3,
+"parentIndex": 10027
+},
+{
+"title": "Cartilage Diseases",
+"depth": 3,
+"parentIndex": 10027
+},
+{
+"title": "Fasciitis",
+"depth": 3,
+"parentIndex": 10027
+},
+{
+"title": "Foot Deformities",
+"depth": 3,
+"parentIndex": 10027
+},
+{
+"title": "Foot Diseases",
+"depth": 3,
+"parentIndex": 10027
+},
+{
+"title": "Hand Deformities",
+"depth": 3,
+"parentIndex": 10027
+},
+{
+"title": "Jaw Diseases",
+"depth": 3,
+"parentIndex": 10027
+},
+{
+"title": "Joint Diseases",
+"depth": 3,
+"parentIndex": 10027
+},
+{
+"title": "Muscular Diseases",
+"depth": 3,
+"parentIndex": 10027
+},
+{
+"title": "Musculoskeletal Abnormalities",
+"depth": 3,
+"parentIndex": 10027
+},
+{
+"title": "Rheumatic Diseases",
+"depth": 3,
+"parentIndex": 10027
+},
+{
+"title": "Tennis Elbow",
+"depth": 3,
+"parentIndex": 10027
+},
+{
+"title": "Digestive System Diseases",
+"depth": 2,
+"parentIndex": 7933,
+"children": [10495,10533,10544,10553,10593,10846,10922,10944]
+},
+{
+"title": "Biliary Tract Diseases",
+"depth": 3,
+"parentIndex": 10494
+},
+{
+"title": "Digestive System Abnormalities",
+"depth": 3,
+"parentIndex": 10494
+},
+{
+"title": "Digestive System Fistula",
+"depth": 3,
+"parentIndex": 10494
+},
+{
+"title": "Digestive System Neoplasms",
+"depth": 3,
+"parentIndex": 10494
+},
+{
+"title": "Gastrointestinal Diseases",
+"depth": 3,
+"parentIndex": 10494
+},
+{
+"title": "Liver Diseases",
+"depth": 3,
+"parentIndex": 10494
+},
+{
+"title": "Pancreatic Diseases",
+"depth": 3,
+"parentIndex": 10494
+},
+{
+"title": "Peritoneal Diseases",
+"depth": 3,
+"parentIndex": 10494
+},
+{
+"title": "Stomatognathic Diseases",
+"depth": 2,
+"parentIndex": 7933,
+"children": [10959,10997,11138,11154,11181,11183]
+},
+{
+"title": "Jaw Diseases",
+"depth": 3,
+"parentIndex": 10958
+},
+{
+"title": "Mouth Diseases",
+"depth": 3,
+"parentIndex": 10958
+},
+{
+"title": "Pharyngeal Diseases",
+"depth": 3,
+"parentIndex": 10958
+},
+{
+"title": "Stomatognathic System Abnormalities",
+"depth": 3,
+"parentIndex": 10958
+},
+{
+"title": "Temporomandibular Joint Disorders",
+"depth": 3,
+"parentIndex": 10958
+},
+{
+"title": "Tooth Diseases",
+"depth": 3,
+"parentIndex": 10958
+},
+{
+"title": "Respiratory Tract Diseases",
+"depth": 2,
+"parentIndex": 7933,
+"children": [11245,11268,11270,11272,11293,11410,11436,11453,11493,11507,11516,11519,11582,11598,11604]
+},
+{
+"title": "Bronchial Diseases",
+"depth": 3,
+"parentIndex": 11244
+},
+{
+"title": "Ciliary Motility Disorders",
+"depth": 3,
+"parentIndex": 11244
+},
+{
+"title": "Granuloma, Respiratory Tract",
+"depth": 3,
+"parentIndex": 11244
+},
+{
+"title": "Laryngeal Diseases",
+"depth": 3,
+"parentIndex": 11244
+},
+{
+"title": "Lung Diseases",
+"depth": 3,
+"parentIndex": 11244
+},
+{
+"title": "Nose Diseases",
+"depth": 3,
+"parentIndex": 11244
+},
+{
+"title": "Pleural Diseases",
+"depth": 3,
+"parentIndex": 11244
+},
+{
+"title": "Respiration Disorders",
+"depth": 3,
+"parentIndex": 11244
+},
+{
+"title": "Respiratory Hypersensitivity",
+"depth": 3,
+"parentIndex": 11244
+},
+{
+"title": "Respiratory System Abnormalities",
+"depth": 3,
+"parentIndex": 11244
+},
+{
+"title": "Respiratory Tract Fistula",
+"depth": 3,
+"parentIndex": 11244
+},
+{
+"title": "Respiratory Tract Infections",
+"depth": 3,
+"parentIndex": 11244
+},
+{
+"title": "Respiratory Tract Neoplasms",
+"depth": 3,
+"parentIndex": 11244
+},
+{
+"title": "Thoracic Diseases",
+"depth": 3,
+"parentIndex": 11244
+},
+{
+"title": "Tracheal Diseases",
+"depth": 3,
+"parentIndex": 11244
+},
+{
+"title": "Otorhinolaryngologic Diseases",
+"depth": 2,
+"parentIndex": 7933,
+"children": [11613,11615,11672,11692,11718,11731]
+},
+{
+"title": "Ciliary Motility Disorders",
+"depth": 3,
+"parentIndex": 11612
+},
+{
+"title": "Ear Diseases",
+"depth": 3,
+"parentIndex": 11612
+},
+{
+"title": "Laryngeal Diseases",
+"depth": 3,
+"parentIndex": 11612
+},
+{
+"title": "Nose Diseases",
+"depth": 3,
+"parentIndex": 11612
+},
+{
+"title": "Otorhinolaryngologic Neoplasms",
+"depth": 3,
+"parentIndex": 11612
+},
+{
+"title": "Pharyngeal Diseases",
+"depth": 3,
+"parentIndex": 11612
+},
+{
+"title": "Nervous System Diseases",
+"depth": 2,
+"parentIndex": 7933,
+"children": [11749,11779,11799,12368,12372,12460,12489,12542,12576,12585,12665,12913,13045,13065,13066,13097]
+},
+{
+"title": "Autoimmune Diseases of the Nervous System",
+"depth": 3,
+"parentIndex": 11748
+},
+{
+"title": "Autonomic Nervous System Diseases",
+"depth": 3,
+"parentIndex": 11748
+},
+{
+"title": "Central Nervous System Diseases",
+"depth": 3,
+"parentIndex": 11748
+},
+{
+"title": "Chronobiology Disorders",
+"depth": 3,
+"parentIndex": 11748
+},
+{
+"title": "Cranial Nerve Diseases",
+"depth": 3,
+"parentIndex": 11748
+},
+{
+"title": "Demyelinating Diseases",
+"depth": 3,
+"parentIndex": 11748
+},
+{
+"title": "Nervous System Malformations",
+"depth": 3,
+"parentIndex": 11748
+},
+{
+"title": "Nervous System Neoplasms",
+"depth": 3,
+"parentIndex": 11748
+},
+{
+"title": "Neurocutaneous Syndromes",
+"depth": 3,
+"parentIndex": 11748
+},
+{
+"title": "Neurodegenerative Diseases",
+"depth": 3,
+"parentIndex": 11748
+},
+{
+"title": "Neurologic Manifestations",
+"depth": 3,
+"parentIndex": 11748
+},
+{
+"title": "Neuromuscular Diseases",
+"depth": 3,
+"parentIndex": 11748
+},
+{
+"title": "Neurotoxicity Syndromes",
+"depth": 3,
+"parentIndex": 11748
+},
+{
+"title": "Restless Legs Syndrome",
+"depth": 3,
+"parentIndex": 11748
+},
+{
+"title": "Sleep Wake Disorders",
+"depth": 3,
+"parentIndex": 11748
+},
+{
+"title": "Trauma, Nervous System",
+"depth": 3,
+"parentIndex": 11748
+},
+{
+"title": "Eye Diseases",
+"depth": 2,
+"parentIndex": 7933,
+"children": [13173,13174,13175,13192,13215,13227,13252,13257,13285,13290,13292,13302,13313,13321,13329,13335,13336,13354,13369,13380,13387,13396,13433,13435,13472,13488]
+},
+{
+"title": "Asthenopia",
+"depth": 3,
+"parentIndex": 13172
+},
+{
+"title": "Cogan Syndrome",
+"depth": 3,
+"parentIndex": 13172
+},
+{
+"title": "Conjunctival Diseases",
+"depth": 3,
+"parentIndex": 13172
+},
+{
+"title": "Corneal Diseases",
+"depth": 3,
+"parentIndex": 13172
+},
+{
+"title": "Eye Abnormalities",
+"depth": 3,
+"parentIndex": 13172
+},
+{
+"title": "Eye Diseases, Hereditary",
+"depth": 3,
+"parentIndex": 13172
+},
+{
+"title": "Eye Hemorrhage",
+"depth": 3,
+"parentIndex": 13172
+},
+{
+"title": "Eye Infections",
+"depth": 3,
+"parentIndex": 13172
+},
+{
+"title": "Eye Injuries",
+"depth": 3,
+"parentIndex": 13172
+},
+{
+"title": "Eye Manifestations",
+"depth": 3,
+"parentIndex": 13172
+},
+{
+"title": "Eye Neoplasms",
+"depth": 3,
+"parentIndex": 13172
+},
+{
+"title": "Eyelid Diseases",
+"depth": 3,
+"parentIndex": 13172
+},
+{
+"title": "Lacrimal Apparatus Diseases",
+"depth": 3,
+"parentIndex": 13172
+},
+{
+"title": "Lens Diseases",
+"depth": 3,
+"parentIndex": 13172
+},
+{
+"title": "Ocular Hypertension",
+"depth": 3,
+"parentIndex": 13172
+},
+{
+"title": "Ocular Hypotension",
+"depth": 3,
+"parentIndex": 13172
+},
+{
+"title": "Ocular Motility Disorders",
+"depth": 3,
+"parentIndex": 13172
+},
+{
+"title": "Optic Nerve Diseases",
+"depth": 3,
+"parentIndex": 13172
+},
+{
+"title": "Orbital Diseases",
+"depth": 3,
+"parentIndex": 13172
+},
+{
+"title": "Pupil Disorders",
+"depth": 3,
+"parentIndex": 13172
+},
+{
+"title": "Refractive Errors",
+"depth": 3,
+"parentIndex": 13172
+},
+{
+"title": "Retinal Diseases",
+"depth": 3,
+"parentIndex": 13172
+},
+{
+"title": "Scleral Diseases",
+"depth": 3,
+"parentIndex": 13172
+},
+{
+"title": "Uveal Diseases",
+"depth": 3,
+"parentIndex": 13172
+},
+{
+"title": "Vision Disorders",
+"depth": 3,
+"parentIndex": 13172
+},
+{
+"title": "Vitreous Detachment",
+"depth": 3,
+"parentIndex": 13172
+},
+{
+"title": "Male Urogenital Diseases",
+"depth": 2,
+"parentIndex": 7933,
+"children": [13490,13547,13548,13551,13591,13610]
+},
+{
+"title": "Genital Diseases, Male",
+"depth": 3,
+"parentIndex": 13489
+},
+{
+"title": "Pelvic Floor Disorders",
+"depth": 3,
+"parentIndex": 13489
+},
+{
+"title": "Tuberculosis, Urogenital",
+"depth": 3,
+"parentIndex": 13489
+},
+{
+"title": "Urogenital Abnormalities",
+"depth": 3,
+"parentIndex": 13489
+},
+{
+"title": "Urogenital Neoplasms",
+"depth": 3,
+"parentIndex": 13489
+},
+{
+"title": "Urologic Diseases",
+"depth": 3,
+"parentIndex": 13489
+},
+{
+"title": "Female Urogenital Diseases and Pregnancy Complications",
+"depth": 2,
+"parentIndex": 7933,
+"children": [13753,14068]
+},
+{
+"title": "Female Urogenital Diseases",
+"depth": 3,
+"parentIndex": 13752
+},
+{
+"title": "Pregnancy Complications",
+"depth": 3,
+"parentIndex": 13752
+},
+{
+"title": "Cardiovascular Diseases",
+"depth": 2,
+"parentIndex": 7933,
+"children": [14173,14234,14240,14428,14430]
+},
+{
+"title": "Cardiovascular Abnormalities",
+"depth": 3,
+"parentIndex": 14172
+},
+{
+"title": "Cardiovascular Infections",
+"depth": 3,
+"parentIndex": 14172
+},
+{
+"title": "Heart Diseases",
+"depth": 3,
+"parentIndex": 14172
+},
+{
+"title": "Pregnancy Complications, Cardiovascular",
+"depth": 3,
+"parentIndex": 14172
+},
+{
+"title": "Vascular Diseases",
+"depth": 3,
+"parentIndex": 14172
+},
+{
+"title": "Hemic and Lymphatic Diseases",
+"depth": 2,
+"parentIndex": 7933,
+"children": [14759,15020]
+},
+{
+"title": "Hematologic Diseases",
+"depth": 3,
+"parentIndex": 14758
+},
+{
+"title": "Lymphatic Diseases",
+"depth": 3,
+"parentIndex": 14758
+},
+{
+"title": "Congenital, Hereditary, and Neonatal Diseases and Abnormalities",
+"depth": 2,
+"parentIndex": 7933,
+"children": [15133,15563,15575,16173]
+},
+{
+"title": "Congenital Abnormalities",
+"depth": 3,
+"parentIndex": 15132
+},
+{
+"title": "Fetal Diseases",
+"depth": 3,
+"parentIndex": 15132
+},
+{
+"title": "Genetic Diseases, Inborn",
+"depth": 3,
+"parentIndex": 15132
+},
+{
+"title": "Infant, Newborn, Diseases",
+"depth": 3,
+"parentIndex": 15132
+},
+{
+"title": "Skin and Connective Tissue Diseases",
+"depth": 2,
+"parentIndex": 7933,
+"children": [16226,16305]
+},
+{
+"title": "Connective Tissue Diseases",
+"depth": 3,
+"parentIndex": 16225
+},
+{
+"title": "Skin Diseases",
+"depth": 3,
+"parentIndex": 16225
+},
+{
+"title": "Nutritional and Metabolic Diseases",
+"depth": 2,
+"parentIndex": 7933,
+"children": [16758,17294]
+},
+{
+"title": "Metabolic Diseases",
+"depth": 3,
+"parentIndex": 16757
+},
+{
+"title": "Nutrition Disorders",
+"depth": 3,
+"parentIndex": 16757
+},
+{
+"title": "Endocrine System Diseases",
+"depth": 2,
+"parentIndex": 7933,
+"children": [17349,17368,17369,17390,17394,17432,17493,17502,17522,17523,17554]
+},
+{
+"title": "Adrenal Gland Diseases",
+"depth": 3,
+"parentIndex": 17348
+},
+{
+"title": "Bone Diseases, Endocrine",
+"depth": 3,
+"parentIndex": 17348
+},
+{
+"title": "Diabetes Mellitus",
+"depth": 3,
+"parentIndex": 17348
+},
+{
+"title": "Dwarfism",
+"depth": 3,
+"parentIndex": 17348
+},
+{
+"title": "Endocrine Gland Neoplasms",
+"depth": 3,
+"parentIndex": 17348
+},
+{
+"title": "Gonadal Disorders",
+"depth": 3,
+"parentIndex": 17348
+},
+{
+"title": "Parathyroid Diseases",
+"depth": 3,
+"parentIndex": 17348
+},
+{
+"title": "Pituitary Diseases",
+"depth": 3,
+"parentIndex": 17348
+},
+{
+"title": "Polyendocrinopathies, Autoimmune",
+"depth": 3,
+"parentIndex": 17348
+},
+{
+"title": "Thyroid Diseases",
+"depth": 3,
+"parentIndex": 17348
+},
+{
+"title": "Tuberculosis, Endocrine",
+"depth": 3,
+"parentIndex": 17348
+},
+{
+"title": "Immune System Diseases",
+"depth": 2,
+"parentIndex": 7933,
+"children": [17556,17620,17623,17624,17625,17680,17681,17716,17786,17788]
+},
+{
+"title": "Autoimmune Diseases",
+"depth": 3,
+"parentIndex": 17555
+},
+{
+"title": "Erythroblastosis, Fetal",
+"depth": 3,
+"parentIndex": 17555
+},
+{
+"title": "Glomerulonephritis, Membranoproliferative",
+"depth": 3,
+"parentIndex": 17555
+},
+{
+"title": "Graft vs Host Disease",
+"depth": 3,
+"parentIndex": 17555
+},
+{
+"title": "Hypersensitivity",
+"depth": 3,
+"parentIndex": 17555
+},
+{
+"title": "Immune Reconstitution Inflammatory Syndrome",
+"depth": 3,
+"parentIndex": 17555
+},
+{
+"title": "Immunologic Deficiency Syndromes",
+"depth": 3,
+"parentIndex": 17555
+},
+{
+"title": "Immunoproliferative Disorders",
+"depth": 3,
+"parentIndex": 17555
+},
+{
+"title": "Purpura, Thrombocytopenic",
+"depth": 3,
+"parentIndex": 17555
+},
+{
+"title": "Transfusion Reaction",
+"depth": 3,
+"parentIndex": 17555
+},
+{
+"title": "Disorders of Environmental Origin",
+"depth": 2,
+"parentIndex": 7933,
+"children": [17790,17793]
+},
+{
+"title": "Environmental Illness",
+"depth": 3,
+"parentIndex": 17789
+},
+{
+"title": "Preconception Injuries",
+"depth": 3,
+"parentIndex": 17789
+},
+{
+"title": "Animal Diseases",
+"depth": 2,
+"parentIndex": 7933,
+"children": [17795,17797,17798,17799,17800,17801,17814,17815,17820,17840,17841,17842,17846,17847,17849,17852,17853,17854,17855,17856,17860,17865,17866,17867,17868,17869,17871,17872,17888,17889,17890,17891,17892,17898,17899,17900,17901,17905,17906,17917,17918,17931,17932,17933,17934]
+},
+{
+"title": "Abortion, Veterinary",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Actinobacillosis",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Aleutian Mink Disease",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Anal Gland Neoplasms",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Anaplasmosis",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Bird Diseases",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Borna Disease",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Cat Diseases",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Cattle Diseases",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Digital Dermatitis",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Disease Models, Animal",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Dog Diseases",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Enterotoxemia",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Erysipelothrix Infections",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Fish Diseases",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Foot-and-Mouth Disease",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Foot Rot",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Goat Diseases",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Heartwater Disease",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Hepatitis, Animal",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Horse Diseases",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Keratoconjunctivitis, Infectious",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Lameness, Animal",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Mammary Neoplasms, Animal",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Mink Viral Enteritis",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Muscular Dystrophy, Animal",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Myxomatosis, Infectious",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Parasitic Diseases, Animal",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Paratuberculosis",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Parturient Paresis",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Peste-des-Petits-Ruminants",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Pleuropneumonia, Contagious",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Primate Diseases",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Pseudorabies",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Pythiosis",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Rinderpest",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Rodent Diseases",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Salmonella Infections, Animal",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Sheep Diseases",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Steatitis",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Swine Diseases",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Venereal Tumors, Veterinary",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Vesicular Stomatitis",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Wasting Disease, Chronic",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Zoonoses",
+"depth": 3,
+"parentIndex": 17794
+},
+{
+"title": "Pathological Conditions, Signs and Symptoms",
+"depth": 2,
+"parentIndex": 7933,
+"children": [17936,17940,18053,18406]
+},
+{
+"title": "Morphological and Microscopic Findings",
+"depth": 3,
+"parentIndex": 17935
+},
+{
+"title": "Pathological Conditions, Anatomical",
+"depth": 3,
+"parentIndex": 17935
+},
+{
+"title": "Pathologic Processes",
+"depth": 3,
+"parentIndex": 17935
+},
+{
+"title": "Signs and Symptoms",
+"depth": 3,
+"parentIndex": 17935
+},
+{
+"title": "Occupational Diseases",
+"depth": 2,
+"parentIndex": 7933,
+"children": [18781,18784,18785,18786,18787,18788,18789,18790,18791,18792,18793,18802]
+},
+{
+"title": "Agricultural Workers' Diseases",
+"depth": 3,
+"parentIndex": 18780
+},
+{
+"title": "Asthma, Occupational",
+"depth": 3,
+"parentIndex": 18780
+},
+{
+"title": "Bird Fancier's Lung",
+"depth": 3,
+"parentIndex": 18780
+},
+{
+"title": "Burnout, Professional",
+"depth": 3,
+"parentIndex": 18780
+},
+{
+"title": "Dermatitis, Occupational",
+"depth": 3,
+"parentIndex": 18780
+},
+{
+"title": "Hand-Arm Vibration Syndrome",
+"depth": 3,
+"parentIndex": 18780
+},
+{
+"title": "High Pressure Neurological Syndrome",
+"depth": 3,
+"parentIndex": 18780
+},
+{
+"title": "Inert Gas Narcosis",
+"depth": 3,
+"parentIndex": 18780
+},
+{
+"title": "Laboratory Infection",
+"depth": 3,
+"parentIndex": 18780
+},
+{
+"title": "Persian Gulf Syndrome",
+"depth": 3,
+"parentIndex": 18780
+},
+{
+"title": "Pneumoconiosis",
+"depth": 3,
+"parentIndex": 18780
+},
+{
+"title": "Sleep Disorders, Circadian Rhythm",
+"depth": 3,
+"parentIndex": 18780
+},
+{
+"title": "Chemically-Induced Disorders",
+"depth": 2,
+"parentIndex": 7933,
+"children": [18804,18823,18880]
+},
+{
+"title": "Drug-Related Side Effects and Adverse Reactions",
+"depth": 3,
+"parentIndex": 18803
+},
+{
+"title": "Poisoning",
+"depth": 3,
+"parentIndex": 18803
+},
+{
+"title": "Substance-Related Disorders",
+"depth": 3,
+"parentIndex": 18803
+},
+{
+"title": "Wounds and Injuries",
+"depth": 2,
+"parentIndex": 7933,
+"children": [18918,18923,18924,18933,18934,18935,18938,18941,18942,18944,18951,18958,18961,18962,18968,18970,18974,18975,18976,18984,19019,19020,19022,19024,19028,19032,19033,19045,19047,19048,19050,19051,19061,19062,19069,19070,19072,19073,19076,19082,19084,19089,19093,19165,19166,19167,19168,19169,19175]
+},
+{
+"title": "Abdominal Injuries",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Amputation, Traumatic",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Arm Injuries",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Asphyxia",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Athletic Injuries",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Back Injuries",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Barotrauma",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Battered Child Syndrome",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Birth Injuries",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Bites and Stings",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Burns",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Cold Injury",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Contrecoup Injury",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Dislocations",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Drowning",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Electric Injuries",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Esophageal Perforation",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Extravasation of Diagnostic and Therapeutic Materials",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Foreign Bodies",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Fractures, Bone",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Fractures, Cartilage",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Frostbite",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Hand Injuries",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Heat Stress Disorders",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Hip Injuries",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Lacerations",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Leg Injuries",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Multiple Trauma",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Nasal Septal Perforation",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Neck Injuries",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Occupational Injuries",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Radiation Injuries",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Retropneumoperitoneum",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Rupture",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Self Mutilation",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Shock, Traumatic",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Soft Tissue Injuries",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Spinal Cord Injuries",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Sprains and Strains",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Tendon Injuries",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Thoracic Injuries",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Tooth Injuries",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Trauma, Nervous System",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Tympanic Membrane Perforation",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Vascular System Injuries",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "War-Related Injuries",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Wound Infection",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Wounds, Nonpenetrating",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Wounds, Penetrating",
+"depth": 3,
+"parentIndex": 18917
+},
+{
+"title": "Chemicals and Drugs",
+"depth": 1,
+"parentIndex": 0,
+"children": [19184,20130,23344,25164,25868,26128,26426,28489,28876,29260,36880,37388,37648,39184,39334,39437]
+},
+{
+"title": "Inorganic Chemicals",
+"depth": 2,
+"parentIndex": 19183,
+"children": [19185,19228,19247,19255,19258,19260,19268,19273,19275,19289,19301,19318,19323,19324,19390,19586,19595,19613,19643,19648,19656,19670,19756,19759,19768,19770,19772,19892,19921,19957,19959,20003,20026,20028,20036,20038,20039,20044,20066,20068,20084,20112,20116,20118,20121,20123,20125,20127]
+},
+{
+"title": "Acids",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Alkalies",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Aluminum Compounds",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Arsenicals",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Barium Compounds",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Boron Compounds",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Bromine Compounds",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Cadmium Compounds",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Calcium Compounds",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Carbon Compounds, Inorganic",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Chlorine Compounds",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Chromium Compounds",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Coordination Complexes",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Electrolytes",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Elements",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Fluorine Compounds",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Free Radicals",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Gases",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Gold Compounds",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Iodine Compounds",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Iron Compounds",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Isotopes",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Lithium Compounds",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Magnesium Compounds",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Manganese Compounds",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Mercury Compounds",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Metals",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Minerals",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Nitrogen Compounds",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Osmium Compounds",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Oxygen Compounds",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Phosphorus Compounds",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Platinum Compounds",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Potassium Compounds",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Ruthenium Compounds",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Salts",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Selenium Compounds",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Silicon Compounds",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Silver Compounds",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Sodium Compounds",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Sulfur Compounds",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Technetium Compounds",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Thorium Compounds",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Tin Compounds",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Tungsten Compounds",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Uranium Compounds",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Vanadium Compounds",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Zinc Compounds",
+"depth": 3,
+"parentIndex": 19184
+},
+{
+"title": "Organic Chemicals",
+"depth": 2,
+"parentIndex": 19183,
+"children": [20131,20346,20364,20560,20593,20949,20956,20977,20978,20997,21006,21489,21491,21493,21546,21561,21577,22391,22404,22421,22428,22471,22518,22519,22520,22523,22542,22544,22590,22611,22662,22727,22821,22824,22835,22858,22859,22865,23296,23299,23343]
+},
+{
+"title": "Alcohols",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Aldehydes",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Amides",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Amidines",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Amines",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Anhydrides",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Aza Compounds",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Azides",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Azo Compounds",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Boron Compounds",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Carboxylic Acids",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Catenanes",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Cyanates",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Ethers",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Free Radicals",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Hydrazines",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Hydrocarbons",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Imides",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Imines",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Isocyanates",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Ketones",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Lactones",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Lewis Acids",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Lewis Bases",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Nitrates",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Nitriles",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Nitrites",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Nitro Compounds",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Nitroso Compounds",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Onium Compounds",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Organometallic Compounds",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Organophosphorus Compounds",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Organoselenium Compounds",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Organosilicon Compounds",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Quinones",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Rotaxanes",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Semicarbazides",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Sulfur Compounds",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Triazenes",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Urea",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Volatile Organic Compounds",
+"depth": 3,
+"parentIndex": 20130
+},
+{
+"title": "Heterocyclic Compounds",
+"depth": 2,
+"parentIndex": 19183,
+"children": [23345,23386,23543,24339,24860,24973,25075,25154,25161,25162]
+},
+{
+"title": "Acids, Heterocyclic",
+"depth": 3,
+"parentIndex": 23344
+},
+{
+"title": "Alkaloids",
+"depth": 3,
+"parentIndex": 23344
+},
+{
+"title": "Heterocyclic Compounds, 1-Ring",
+"depth": 3,
+"parentIndex": 23344
+},
+{
+"title": "Heterocyclic Compounds, 2-Ring",
+"depth": 3,
+"parentIndex": 23344
+},
+{
+"title": "Heterocyclic Compounds, 3-Ring",
+"depth": 3,
+"parentIndex": 23344
+},
+{
+"title": "Heterocyclic Compounds with 4 or More Rings",
+"depth": 3,
+"parentIndex": 23344
+},
+{
+"title": "Heterocyclic Compounds, Bridged-Ring",
+"depth": 3,
+"parentIndex": 23344
+},
+{
+"title": "Heterocyclic Oxides",
+"depth": 3,
+"parentIndex": 23344
+},
+{
+"title": "Phytochemicals",
+"depth": 3,
+"parentIndex": 23344
+},
+{
+"title": "Spiro Compounds",
+"depth": 3,
+"parentIndex": 23344
+},
+{
+"title": "Polycyclic Compounds",
+"depth": 2,
+"parentIndex": 19183,
+"children": [25165,25252,25350,25491,25505]
+},
+{
+"title": "Bridged Compounds",
+"depth": 3,
+"parentIndex": 25164
+},
+{
+"title": "Macrocyclic Compounds",
+"depth": 3,
+"parentIndex": 25164
+},
+{
+"title": "Polycyclic Hydrocarbons, Aromatic",
+"depth": 3,
+"parentIndex": 25164
+},
+{
+"title": "Spiro Compounds",
+"depth": 3,
+"parentIndex": 25164
+},
+{
+"title": "Steroids",
+"depth": 3,
+"parentIndex": 25164
+},
+{
+"title": "Macromolecular Substances",
+"depth": 2,
+"parentIndex": 19183,
+"children": [25869,25870,25942,26127]
+},
+{
+"title": "Micelles",
+"depth": 3,
+"parentIndex": 25868
+},
+{
+"title": "Multiprotein Complexes",
+"depth": 3,
+"parentIndex": 25868
+},
+{
+"title": "Polymers",
+"depth": 3,
+"parentIndex": 25868
+},
+{
+"title": "Protein Aggregates",
+"depth": 3,
+"parentIndex": 25868
+},
+{
+"title": "Hormones, Hormone Substitutes, and Hormone Antagonists",
+"depth": 2,
+"parentIndex": 19183,
+"children": [26129,26143]
+},
+{
+"title": "Hormone Antagonists",
+"depth": 3,
+"parentIndex": 26128
+},
+{
+"title": "Hormones",
+"depth": 3,
+"parentIndex": 26128
+},
+{
+"title": "Enzymes and Coenzymes",
+"depth": 2,
+"parentIndex": 19183,
+"children": [26427,26454,26505,26516]
+},
+{
+"title": "Coenzymes",
+"depth": 3,
+"parentIndex": 26426
+},
+{
+"title": "Cytochromes",
+"depth": 3,
+"parentIndex": 26426
+},
+{
+"title": "Enzyme Precursors",
+"depth": 3,
+"parentIndex": 26426
+},
+{
+"title": "Enzymes",
+"depth": 3,
+"parentIndex": 26426
+},
+{
+"title": "Carbohydrates",
+"depth": 2,
+"parentIndex": 19183,
+"children": [28490,28507,28513,28516,28549,28669,28703,28800,28826,28850]
+},
+{
+"title": "Amino Sugars",
+"depth": 3,
+"parentIndex": 28489
+},
+{
+"title": "Deoxy Sugars",
+"depth": 3,
+"parentIndex": 28489
+},
+{
+"title": "Dietary Carbohydrates",
+"depth": 3,
+"parentIndex": 28489
+},
+{
+"title": "Glycoconjugates",
+"depth": 3,
+"parentIndex": 28489
+},
+{
+"title": "Glycosides",
+"depth": 3,
+"parentIndex": 28489
+},
+{
+"title": "Monosaccharides",
+"depth": 3,
+"parentIndex": 28489
+},
+{
+"title": "Polysaccharides",
+"depth": 3,
+"parentIndex": 28489
+},
+{
+"title": "Sugar Acids",
+"depth": 3,
+"parentIndex": 28489
+},
+{
+"title": "Sugar Alcohols",
+"depth": 3,
+"parentIndex": 28489
+},
+{
+"title": "Sugar Phosphates",
+"depth": 3,
+"parentIndex": 28489
+},
+{
+"title": "Lipids",
+"depth": 2,
+"parentIndex": 19183,
+"children": [28877,28878,28909,29059,29081,29087,29112,29113,29114,29119,29122,29154,29235,29257,29258]
+},
+{
+"title": "Ceroid",
+"depth": 3,
+"parentIndex": 28876
+},
+{
+"title": "Fats",
+"depth": 3,
+"parentIndex": 28876
+},
+{
+"title": "Fatty Acids",
+"depth": 3,
+"parentIndex": 28876
+},
+{
+"title": "Fatty Alcohols",
+"depth": 3,
+"parentIndex": 28876
+},
+{
+"title": "Glycerides",
+"depth": 3,
+"parentIndex": 28876
+},
+{
+"title": "Glycolipids",
+"depth": 3,
+"parentIndex": 28876
+},
+{
+"title": "Lipid Peroxides",
+"depth": 3,
+"parentIndex": 28876
+},
+{
+"title": "Lipofuscin",
+"depth": 3,
+"parentIndex": 28876
+},
+{
+"title": "Lipopeptides",
+"depth": 3,
+"parentIndex": 28876
+},
+{
+"title": "Lipopolysaccharides",
+"depth": 3,
+"parentIndex": 28876
+},
+{
+"title": "Lipoproteins",
+"depth": 3,
+"parentIndex": 28876
+},
+{
+"title": "Membrane Lipids",
+"depth": 3,
+"parentIndex": 28876
+},
+{
+"title": "Oils",
+"depth": 3,
+"parentIndex": 28876
+},
+{
+"title": "Polyhydroxyalkanoates",
+"depth": 3,
+"parentIndex": 28876
+},
+{
+"title": "Waxes",
+"depth": 3,
+"parentIndex": 28876
+},
+{
+"title": "Amino Acids, Peptides, and Proteins",
+"depth": 2,
+"parentIndex": 19183,
+"children": [29261,29492,30590]
+},
+{
+"title": "Amino Acids",
+"depth": 3,
+"parentIndex": 29260
+},
+{
+"title": "Peptides",
+"depth": 3,
+"parentIndex": 29260
+},
+{
+"title": "Proteins",
+"depth": 3,
+"parentIndex": 29260
+},
+{
+"title": "Nucleic Acids, Nucleotides, and Nucleosides",
+"depth": 2,
+"parentIndex": 19183,
+"children": [36881,36891,36893,37038,37167]
+},
+{
+"title": "Antisense Elements (Genetics)",
+"depth": 3,
+"parentIndex": 36880
+},
+{
+"title": "Nucleic Acid Precursors",
+"depth": 3,
+"parentIndex": 36880
+},
+{
+"title": "Nucleic Acids",
+"depth": 3,
+"parentIndex": 36880
+},
+{
+"title": "Nucleosides",
+"depth": 3,
+"parentIndex": 36880
+},
+{
+"title": "Nucleotides",
+"depth": 3,
+"parentIndex": 36880
+},
+{
+"title": "Complex Mixtures",
+"depth": 2,
+"parentIndex": 19183,
+"children": [37389,37390,37391,37392,37552,37562,37570,37571,37572,37573,37581,37582,37588,37590,37593,37602,37603,37638]
+},
+{
+"title": "Acid Rain",
+"depth": 3,
+"parentIndex": 37388
+},
+{
+"title": "Ambergris",
+"depth": 3,
+"parentIndex": 37388
+},
+{
+"title": "Biofuels",
+"depth": 3,
+"parentIndex": 37388
+},
+{
+"title": "Biological Products",
+"depth": 3,
+"parentIndex": 37388
+},
+{
+"title": "Colloids",
+"depth": 3,
+"parentIndex": 37388
+},
+{
+"title": "Fossil Fuels",
+"depth": 3,
+"parentIndex": 37388
+},
+{
+"title": "Freund's Adjuvant",
+"depth": 3,
+"parentIndex": 37388
+},
+{
+"title": "Lignin",
+"depth": 3,
+"parentIndex": 37388
+},
+{
+"title": "Manure",
+"depth": 3,
+"parentIndex": 37388
+},
+{
+"title": "Particulate Matter",
+"depth": 3,
+"parentIndex": 37388
+},
+{
+"title": "Phytochemicals",
+"depth": 3,
+"parentIndex": 37388
+},
+{
+"title": "Radioactive Pollutants",
+"depth": 3,
+"parentIndex": 37388
+},
+{
+"title": "Soil",
+"depth": 3,
+"parentIndex": 37388
+},
+{
+"title": "Tars",
+"depth": 3,
+"parentIndex": 37388
+},
+{
+"title": "Tissue Extracts",
+"depth": 3,
+"parentIndex": 37388
+},
+{
+"title": "Vehicle Emissions",
+"depth": 3,
+"parentIndex": 37388
+},
+{
+"title": "Venoms",
+"depth": 3,
+"parentIndex": 37388
+},
+{
+"title": "Waste Products",
+"depth": 3,
+"parentIndex": 37388
+},
+{
+"title": "Biological Factors",
+"depth": 2,
+"parentIndex": 19183,
+"children": [37649,38270,38514,38519,38558,38603,38605,38727,39006,39007,39010,39075]
+},
+{
+"title": "Antigens",
+"depth": 3,
+"parentIndex": 37648
+},
+{
+"title": "Biomarkers",
+"depth": 3,
+"parentIndex": 37648
+},
+{
+"title": "Blood Coagulation Factor Inhibitors",
+"depth": 3,
+"parentIndex": 37648
+},
+{
+"title": "Blood Coagulation Factors",
+"depth": 3,
+"parentIndex": 37648
+},
+{
+"title": "Chemotactic Factors",
+"depth": 3,
+"parentIndex": 37648
+},
+{
+"title": "Host-Derived Cellular Factors",
+"depth": 3,
+"parentIndex": 37648
+},
+{
+"title": "Inflammation Mediators",
+"depth": 3,
+"parentIndex": 37648
+},
+{
+"title": "Intercellular Signaling Peptides and Proteins",
+"depth": 3,
+"parentIndex": 37648
+},
+{
+"title": "Pathogen-Associated Molecular Pattern Molecules",
+"depth": 3,
+"parentIndex": 37648
+},
+{
+"title": "Pheromones",
+"depth": 3,
+"parentIndex": 37648
+},
+{
+"title": "Pigments, Biological",
+"depth": 3,
+"parentIndex": 37648
+},
+{
+"title": "Toxins, Biological",
+"depth": 3,
+"parentIndex": 37648
+},
+{
+"title": "Biomedical and Dental Materials",
+"depth": 2,
+"parentIndex": 19183,
+"children": [39185,39193,39197,39198,39203,39237,39240,39244,39246,39247,39329,39330]
+},
+{
+"title": "Alloys",
+"depth": 3,
+"parentIndex": 39184
+},
+{
+"title": "Biocompatible Materials",
+"depth": 3,
+"parentIndex": 39184
+},
+{
+"title": "Cariogenic Agents",
+"depth": 3,
+"parentIndex": 39184
+},
+{
+"title": "Cariostatic Agents",
+"depth": 3,
+"parentIndex": 39184
+},
+{
+"title": "Dental Materials",
+"depth": 3,
+"parentIndex": 39184
+},
+{
+"title": "Dentifrices",
+"depth": 3,
+"parentIndex": 39184
+},
+{
+"title": "Membranes, Artificial",
+"depth": 3,
+"parentIndex": 39184
+},
+{
+"title": "Mouthwashes",
+"depth": 3,
+"parentIndex": 39184
+},
+{
+"title": "Pharmaceutical Preparations, Dental",
+"depth": 3,
+"parentIndex": 39184
+},
+{
+"title": "Polymers",
+"depth": 3,
+"parentIndex": 39184
+},
+{
+"title": "Root Canal Irrigants",
+"depth": 3,
+"parentIndex": 39184
+},
+{
+"title": "Tissue Adhesives",
+"depth": 3,
+"parentIndex": 39184
+},
+{
+"title": "Pharmaceutical Preparations",
+"depth": 2,
+"parentIndex": 19183,
+"children": [39335,39336,39337,39338,39339,39370,39393,39394,39395,39396,39397,39398,39399,39401,39402,39408,39409,39410,39413,39414,39415,39433,39435,39436]
+},
+{
+"title": "Controlled Substances",
+"depth": 3,
+"parentIndex": 39334
+},
+{
+"title": "Cosmeceuticals",
+"depth": 3,
+"parentIndex": 39334
+},
+{
+"title": "Counterfeit Drugs",
+"depth": 3,
+"parentIndex": 39334
+},
+{
+"title": "Designer Drugs",
+"depth": 3,
+"parentIndex": 39334
+},
+{
+"title": "Dosage Forms",
+"depth": 3,
+"parentIndex": 39334
+},
+{
+"title": "Drug Combinations",
+"depth": 3,
+"parentIndex": 39334
+},
+{
+"title": "Drugs, Chinese Herbal",
+"depth": 3,
+"parentIndex": 39334
+},
+{
+"title": "Drugs, Essential",
+"depth": 3,
+"parentIndex": 39334
+},
+{
+"title": "Drugs, Generic",
+"depth": 3,
+"parentIndex": 39334
+},
+{
+"title": "Drugs, Investigational",
+"depth": 3,
+"parentIndex": 39334
+},
+{
+"title": "Materia Medica",
+"depth": 3,
+"parentIndex": 39334
+},
+{
+"title": "Medical Marijuana",
+"depth": 3,
+"parentIndex": 39334
+},
+{
+"title": "Nonprescription Drugs",
+"depth": 3,
+"parentIndex": 39334
+},
+{
+"title": "Nostrums",
+"depth": 3,
+"parentIndex": 39334
+},
+{
+"title": "Pharmaceutic Aids",
+"depth": 3,
+"parentIndex": 39334
+},
+{
+"title": "Pharmaceutical Preparations, Dental",
+"depth": 3,
+"parentIndex": 39334
+},
+{
+"title": "Placebos",
+"depth": 3,
+"parentIndex": 39334
+},
+{
+"title": "Plant Extracts",
+"depth": 3,
+"parentIndex": 39334
+},
+{
+"title": "Prescription Drugs",
+"depth": 3,
+"parentIndex": 39334
+},
+{
+"title": "Prodrugs",
+"depth": 3,
+"parentIndex": 39334
+},
+{
+"title": "Solutions",
+"depth": 3,
+"parentIndex": 39334
+},
+{
+"title": "Street Drugs",
+"depth": 3,
+"parentIndex": 39334
+},
+{
+"title": "Veterinary Drugs",
+"depth": 3,
+"parentIndex": 39334
+},
+{
+"title": "Xenobiotics",
+"depth": 3,
+"parentIndex": 39334
+},
+{
+"title": "Chemical Actions and Uses",
+"depth": 2,
+"parentIndex": 19183,
+"children": [39438,40213,40388]
+},
+{
+"title": "Pharmacologic Actions",
+"depth": 3,
+"parentIndex": 39437
+},
+{
+"title": "Specialty Uses of Chemicals",
+"depth": 3,
+"parentIndex": 39437
+},
+{
+"title": "Toxic Actions",
+"depth": 3,
+"parentIndex": 39437
+},
+{
+"title": "Analytical, Diagnostic and Therapeutic Techniques, and Equipment",
+"depth": 1,
+"parentIndex": 0,
+"children": [40446,41528,42278,42322,43101,44645,44883]
+},
+{
+"title": "Diagnosis",
+"depth": 2,
+"parentIndex": 40445,
+"children": [40447,40448,40449,40453,40454,40455,40459,41512,41514,41515,41516,41527]
+},
+{
+"title": "Clinical Decision-Making",
+"depth": 3,
+"parentIndex": 40446
+},
+{
+"title": "Delayed Diagnosis",
+"depth": 3,
+"parentIndex": 40446
+},
+{
+"title": "Diagnosis, Computer-Assisted",
+"depth": 3,
+"parentIndex": 40446
+},
+{
+"title": "Diagnosis, Differential",
+"depth": 3,
+"parentIndex": 40446
+},
+{
+"title": "Diagnosis, Dual (Psychiatry)",
+"depth": 3,
+"parentIndex": 40446
+},
+{
+"title": "Diagnostic Errors",
+"depth": 3,
+"parentIndex": 40446
+},
+{
+"title": "Diagnostic Techniques and Procedures",
+"depth": 3,
+"parentIndex": 40446
+},
+{
+"title": "Early Diagnosis",
+"depth": 3,
+"parentIndex": 40446
+},
+{
+"title": "Incidental Findings",
+"depth": 3,
+"parentIndex": 40446
+},
+{
+"title": "Prodromal Symptoms",
+"depth": 3,
+"parentIndex": 40446
+},
+{
+"title": "Prognosis",
+"depth": 3,
+"parentIndex": 40446
+},
+{
+"title": "Theranostic Nanomedicine",
+"depth": 3,
+"parentIndex": 40446
+},
+{
+"title": "Therapeutics",
+"depth": 2,
+"parentIndex": 40445,
+"children": [41529,41530,41547,41548,41553,41559,41560,41562,41607,41615,41635,41638,41640,41641,41644,41653,41736,41742,41759,41762,41764,41765,41766,41770,41884,41895,41906,41914,41917,41918,41930,41934,41942,41943,41944,41948,41949,41951,41961,41962,41964,41966,41967,41990,41991,41992,41999,42000,42001,42056,42057,42058,42068,42100,42101,42111,42113,42123,42153,42184,42185,42187,42194,42226,42243,42245,42246,42247,42248,42252,42254,42263,42264,42265,42271,42273,42277]
+},
+{
+"title": "Acoustic Stimulation",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Airway Management",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Apitherapy",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Balneology",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Bariatrics",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Bed Rest",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Behavior Control",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Biological Therapy",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Blood Component Removal",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Catheterization",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Cautery",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Chronotherapy",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Climatotherapy",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Clinical Protocols",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Combined Modality Therapy",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Complementary Therapies",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Continuity of Patient Care",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Cosmetic Techniques",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Cryotherapy",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Decompression",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Delayed Diagnosis",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Directly Observed Therapy",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Drainage",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Drug Therapy",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Electric Stimulation Therapy",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Emergency Treatment",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Feeding Methods",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Fetal Therapies",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Hemodilution",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Hemostatic Techniques",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Hygiene",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Hyperthermia, Induced",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Precision Medicine",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Insufflation",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Intubation",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Ischemic Postconditioning",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Ischemic Preconditioning",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Laser Therapy",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Leeching",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Lithotripsy",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Magnetic Field Therapy",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Mechanical Thrombolysis",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Nutrition Therapy",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Organ Sparing Treatments",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Orthokeratologic Procedures",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Orthopedic Procedures",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Orthoptics",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Pain Management",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Patient Care",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Patient Care Bundles",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Patient Isolation",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Phototherapy",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Physical Therapy Modalities",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Placebos",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Preservation, Biological",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Prosthesis Fitting",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Punctures",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Radiotherapy",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Rehabilitation",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Rejuvenation",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Remission Induction",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Renal Replacement Therapy",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Reproductive Techniques",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Respiratory Therapy",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Retreatment",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Rewarming",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Salvage Therapy",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Secondary Prevention",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Self Care",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Sex Reassignment Procedures",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Sorption Detoxification",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Tertiary Prevention",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Theranostic Nanomedicine",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Therapeutic Occlusion",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Therapies, Investigational",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Therapy, Computer-Assisted",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Therapy with Helminths",
+"depth": 3,
+"parentIndex": 41528
+},
+{
+"title": "Anesthesia and Analgesia",
+"depth": 2,
+"parentIndex": 40445,
+"children": [42279,42290,42315,42316,42317,42318,42319,42320,42321]
+},
+{
+"title": "Analgesia",
+"depth": 3,
+"parentIndex": 42278
+},
+{
+"title": "Anesthesia",
+"depth": 3,
+"parentIndex": 42278
+},
+{
+"title": "Anesthesia Recovery Period",
+"depth": 3,
+"parentIndex": 42278
+},
+{
+"title": "Conscious Sedation",
+"depth": 3,
+"parentIndex": 42278
+},
+{
+"title": "Deep Sedation",
+"depth": 3,
+"parentIndex": 42278
+},
+{
+"title": "Electronarcosis",
+"depth": 3,
+"parentIndex": 42278
+},
+{
+"title": "Hypotension, Controlled",
+"depth": 3,
+"parentIndex": 42278
+},
+{
+"title": "Neuromuscular Blockade",
+"depth": 3,
+"parentIndex": 42278
+},
+{
+"title": "Preanesthetic Medication",
+"depth": 3,
+"parentIndex": 42278
+},
+{
+"title": "Surgical Procedures, Operative",
+"depth": 2,
+"parentIndex": 40445,
+"children": [42323,42341,42342,42368,42372,42377,42390,42391,42396,42466,42469,42470,42471,42474,42475,42476,42528,42530,42534,42535,42536,42546,42556,42560,42561,42562,42565,42572,42573,42577,42637,42638,42640,42662,42707,42738,42766,42811,42829,42854,42855,42860,42866,42867,42892,42908,42943,42944,42945,42946,42948,42949,42994,43040,43045,43095]
+},
+{
+"title": "Ablation Techniques",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Ambulatory Surgical Procedures",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Anastomosis, Surgical",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Assisted Circulation",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Bariatric Surgery",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Biopsy",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Bloodless Medical and Surgical Procedures",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Body Modification, Non-Therapeutic",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Cardiovascular Surgical Procedures",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Curettage",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Cytoreduction Surgical Procedures",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Debridement",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Decompression, Surgical",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Deep Brain Stimulation",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Device Removal",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Digestive System Surgical Procedures",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Dissection",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Drainage",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Elective Surgical Procedures",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Electrosurgery",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Endocrine Surgical Procedures",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Extracorporeal Circulation",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Hemostasis, Surgical",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Laparotomy",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Ligation",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Lymph Node Excision",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Mastectomy",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Metastasectomy",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Microsurgery",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Minimally Invasive Surgical Procedures",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Minor Surgical Procedures",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Monitoring, Intraoperative",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Obstetric Surgical Procedures",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Neurosurgical Procedures",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Ophthalmologic Surgical Procedures",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Oral Surgical Procedures",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Orthopedic Procedures",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Ostomy",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Otorhinolaryngologic Surgical Procedures",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Pelvic Exenteration",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Perioperative Care",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Perioperative Period",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Prophylactic Surgical Procedures",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Prosthesis Implantation",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Punctures",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Reconstructive Surgical Procedures",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Reoperation",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Second-Look Surgery",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Splenectomy",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Surgery, Computer-Assisted",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Symphysiotomy",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Thoracic Surgical Procedures",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Transplantation",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Ultrasonic Surgical Procedures",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Urogenital Surgical Procedures",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Wound Closure Techniques",
+"depth": 3,
+"parentIndex": 42322
+},
+{
+"title": "Investigative Techniques",
+"depth": 2,
+"parentIndex": 40445,
+"children": [43102,43104,43105,43110,43111,43134,43135,43136,43137,43138,43140,43142,43143,43144,43145,43165,43166,43171,43352,43353,43669,43670,43671,43735,43737,43738,43739,43740,43741,43746,43747,43784,43786,43787,43999,44003,44009,44010,44011,44013,44014,44039,44040,44041,44042,44043,44045,44166,44167,44171,44172,44175,44289,44303,44307,44311,44315,44317,44318,44319,44322,44324,44325,44336,44343,44348,44377,44394,44423,44461,44464,44475,44476,44477,44482,44483,44484,44486,44489,44490,44493,44499,44500,44511,44512,44514,44520,44536,44568,44574,44575,44576,44579,44580,44596,44598,44601,44609,44611,44625,44630,44631,44632,44634,44643,44644]
+},
+{
+"title": "Accelerometry",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Airway Extubation",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Animal Experimentation",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Animal Identification Systems",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Anthropometry",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Artifacts",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Autoanalysis",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Automation, Laboratory",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Autopsy",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Biological Assay",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Biomedical Enhancement",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Bioprinting",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Bioprospecting",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Bone Demineralization Technique",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Catheterization",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Cementation",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Centrifugation",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Chemistry Techniques, Analytical",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Chromophore-Assisted Light Inactivation",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Clinical Laboratory Techniques",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Constriction",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Containment of Biohazards",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Cytological Techniques",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Decision Support Techniques",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Dermatoglyphics",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Diet, Atherogenic",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Diet, Cariogenic",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Dilatation",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Drug Discovery",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Ecological Parameter Monitoring",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Electrochemical Techniques",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Embryo Research",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Endpoint Determination",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Epidemiologic Methods",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Equipment Design",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Equipment Failure",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Equipment Reuse",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Equipment Safety",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Ergometry",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Euthanasia, Animal",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Evaluation Studies as Topic",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Fetal Research",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Finite Element Analysis",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Food Analysis",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Fourier Analysis",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Games, Experimental",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Genetic Techniques",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Hardness Tests",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Human Experimentation",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Immersion",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Immobilization",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Immunologic Techniques",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "In Vitro Techniques",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Indicator Dilution Techniques",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Interferometry",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Intubation",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Ischemic Preconditioning",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Isolated Heart Preparation",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Isotope Labeling",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Magnetometry",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Manometry",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Materials Testing",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Methods",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Microchip Analytical Procedures",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Micromanipulation",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Microscopy",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Models, Animal",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Models, Theoretical",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Molecular Probe Techniques",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Neoplasm Transplantation",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Neuroimaging",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Neuromuscular Blockade",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Olfactometry",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Optical Imaging",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Optical Tweezers",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Oscillometry",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Parabiosis",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Perfusion",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Photoacoustic Techniques",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Photography",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Physical Stimulation",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Physiognomy",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Preservation, Biological",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Protein Refolding",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Protein Unfolding",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Psychological Techniques",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Radiometry",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Reproductive Techniques",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Rheology",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Sonication",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Sound Spectrography",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Stereotaxic Techniques",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Substance Abuse Detection",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Technology, Pharmaceutical",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Technology, Radiologic",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Telemetry",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Therapeutic Irrigation",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Thermometry",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Toxicity Tests",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Trauma Severity Indices",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Wavelet Analysis",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Weightlessness Countermeasures",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Weightlessness Simulation",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Weights and Measures",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Whole Body Imaging",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Whole-Body Irradiation",
+"depth": 3,
+"parentIndex": 43101
+},
+{
+"title": "Dentistry",
+"depth": 2,
+"parentIndex": 40445,
+"children": [44646,44647,44649,44650,44654,44659,44660,44668,44674,44675,44676,44681,44682,44683,44684,44693,44703,44704,44717,44720,44721,44723,44724,44725,44727,44728,44761,44787,44788,44802,44811,44861,44863,44876,44882]
+},
+{
+"title": "Air Abrasion, Dental",
+"depth": 3,
+"parentIndex": 44645
+},
+{
+"title": "Anesthesia, Dental",
+"depth": 3,
+"parentIndex": 44645
+},
+{
+"title": "Dental Atraumatic Restorative Treatment",
+"depth": 3,
+"parentIndex": 44645
+},
+{
+"title": "Dental Bonding",
+"depth": 3,
+"parentIndex": 44645
+},
+{
+"title": "Dental Care",
+"depth": 3,
+"parentIndex": 44645
+},
+{
+"title": "Dental Debonding",
+"depth": 3,
+"parentIndex": 44645
+},
+{
+"title": "Dental Equipment",
+"depth": 3,
+"parentIndex": 44645
+},
+{
+"title": "Dental Health Surveys",
+"depth": 3,
+"parentIndex": 44645
+},
+{
+"title": "Dental High-Speed Technique",
+"depth": 3,
+"parentIndex": 44645
+},
+{
+"title": "Dental Models",
+"depth": 3,
+"parentIndex": 44645
+},
+{
+"title": "Dental Occlusion",
+"depth": 3,
+"parentIndex": 44645
+},
+{
+"title": "Dental Pins",
+"depth": 3,
+"parentIndex": 44645
+},
+{
+"title": "Dental Polishing",
+"depth": 3,
+"parentIndex": 44645
+},
+{
+"title": "Dental Stress Analysis",
+"depth": 3,
+"parentIndex": 44645
+},
+{
+"title": "Dentistry, Operative",
+"depth": 3,
+"parentIndex": 44645
+},
+{
+"title": "Diagnosis, Oral",
+"depth": 3,
+"parentIndex": 44645
+},
+{
+"title": "Electrogalvanism, Intraoral",
+"depth": 3,
+"parentIndex": 44645
+},
+{
+"title": "Endodontics",
+"depth": 3,
+"parentIndex": 44645
+},
+{
+"title": "Esthetics, Dental",
+"depth": 3,
+"parentIndex": 44645
+},
+{
+"title": "Infection Control, Dental",
+"depth": 3,
+"parentIndex": 44645
+},
+{
+"title": "Jaw Relation Record",
+"depth": 3,
+"parentIndex": 44645
+},
+{
+"title": "Mouth Rehabilitation",
+"depth": 3,
+"parentIndex": 44645
+},
+{
+"title": "Myofunctional Therapy",
+"depth": 3,
+"parentIndex": 44645
+},
+{
+"title": "Odontometry",
+"depth": 3,
+"parentIndex": 44645
+},
+{
+"title": "Oral Medicine",
+"depth": 3,
+"parentIndex": 44645
+},
+{
+"title": "Oral Surgical Procedures",
+"depth": 3,
+"parentIndex": 44645
+},
+{
+"title": "Orthodontics",
+"depth": 3,
+"parentIndex": 44645
+},
+{
+"title": "Pathology, Oral",
+"depth": 3,
+"parentIndex": 44645
+},
+{
+"title": "Periodontics",
+"depth": 3,
+"parentIndex": 44645
+},
+{
+"title": "Preventive Dentistry",
+"depth": 3,
+"parentIndex": 44645
+},
+{
+"title": "Prosthodontics",
+"depth": 3,
+"parentIndex": 44645
+},
+{
+"title": "Surgery, Oral",
+"depth": 3,
+"parentIndex": 44645
+},
+{
+"title": "Technology, Dental",
+"depth": 3,
+"parentIndex": 44645
+},
+{
+"title": "Tooth Preparation",
+"depth": 3,
+"parentIndex": 44645
+},
+{
+"title": "Tooth Remineralization",
+"depth": 3,
+"parentIndex": 44645
+},
+{
+"title": "Equipment and Supplies",
+"depth": 2,
+"parentIndex": 40445,
+"children": [44884,44885,44886,44893,44895,44896,44903,44904,44912,44916,44924,44958,44959,44960,44961,44990,44991,45007,45008,45011,45012,45013,45014,45015,45016,45018,45021,45024,45025,45026,45027,45028,45029,45030,45034,45035,45051,45053,45062,45063,45149,45166,45167,45181,45182,45184,45187,45191,45283,45291,45292,45293,45294,45295,45296,45298,45299]
+},
+{
+"title": "Air Filters",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Atmosphere Exposure Chambers",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Bandages",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Bioreactors",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Capillary Tubing",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Catheters",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Compressed Air",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Contraceptive Devices",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Culture Media",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Dental Equipment",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Diagnostic Equipment",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Diffusion Chambers, Culture",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Disposable Equipment",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Durable Medical Equipment",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Electrical Equipment and Supplies",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Emergency Medical Tags",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Equipment and Supplies, Hospital",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Exoskeleton Device",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Feminine Hygiene Products",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Gamma Cameras",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Gas Scavengers",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Gastric Balloon",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Gravity Suits",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Humidifiers",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Incubators",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Infant Equipment",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Infusion Pumps",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Intermittent Pneumatic Compression Devices",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Medicine Chests",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Microbubbles",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Micropore Filters",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Microspheres",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Nanospheres",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Nebulizers and Vaporizers",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Needles",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Optical Devices",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Oxygenators",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Personal Protective Equipment",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Phantoms, Imaging",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Prostheses and Implants",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Protective Devices",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Quantum Dots",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Radiation Equipment and Supplies",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Radio Frequency Identification Device",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Reagent Kits, Diagnostic",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Self-Help Devices",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Sensory Aids",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Surgical Equipment",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Surgically-Created Structures",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Syringes",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Thermometers",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Tomography Scanners, X-Ray Computed",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Tourniquets",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Transdermal Patch",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Ventilators, Mechanical",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "X-Ray Film",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "X-Ray Intensifying Screens",
+"depth": 3,
+"parentIndex": 44883
+},
+{
+"title": "Psychiatry and Psychology",
+"depth": 1,
+"parentIndex": 0,
+"children": [45301,45804,46120,46326]
+},
+{
+"title": "Behavior and Behavior Mechanisms",
+"depth": 2,
+"parentIndex": 45300,
+"children": [45302,45307,45316,45550,45552,45572,45606,45607,45613,45614,45630,45661,45707,45803]
+},
+{
+"title": "Adaptation, Psychological",
+"depth": 3,
+"parentIndex": 45301
+},
+{
+"title": "Attitude",
+"depth": 3,
+"parentIndex": 45301
+},
+{
+"title": "Behavior",
+"depth": 3,
+"parentIndex": 45301
+},
+{
+"title": "Child Rearing",
+"depth": 3,
+"parentIndex": 45301
+},
+{
+"title": "Defense Mechanisms",
+"depth": 3,
+"parentIndex": 45301
+},
+{
+"title": "Emotions",
+"depth": 3,
+"parentIndex": 45301
+},
+{
+"title": "Human Characteristics",
+"depth": 3,
+"parentIndex": 45301
+},
+{
+"title": "Human Development",
+"depth": 3,
+"parentIndex": 45301
+},
+{
+"title": "Mental Competency",
+"depth": 3,
+"parentIndex": 45301
+},
+{
+"title": "Motivation",
+"depth": 3,
+"parentIndex": 45301
+},
+{
+"title": "Neurobehavioral Manifestations",
+"depth": 3,
+"parentIndex": 45301
+},
+{
+"title": "Personality",
+"depth": 3,
+"parentIndex": 45301
+},
+{
+"title": "Psychology, Social",
+"depth": 3,
+"parentIndex": 45301
+},
+{
+"title": "Temperance",
+"depth": 3,
+"parentIndex": 45301
+},
+{
+"title": "Psychological Phenomena and Processes",
+"depth": 2,
+"parentIndex": 45300,
+"children": [45805,45806,45807,45974,45976,45977,45980,46008,46053,46056,46115,46118,46119]
+},
+{
+"title": "Mental Competency",
+"depth": 3,
+"parentIndex": 45804
+},
+{
+"title": "Mental Health",
+"depth": 3,
+"parentIndex": 45804
+},
+{
+"title": "Mental Processes",
+"depth": 3,
+"parentIndex": 45804
+},
+{
+"title": "Parapsychology",
+"depth": 3,
+"parentIndex": 45804
+},
+{
+"title": "Personal Autonomy",
+"depth": 3,
+"parentIndex": 45804
+},
+{
+"title": "Psycholinguistics",
+"depth": 3,
+"parentIndex": 45804
+},
+{
+"title": "Psychological Theory",
+"depth": 3,
+"parentIndex": 45804
+},
+{
+"title": "Psychology, Applied",
+"depth": 3,
+"parentIndex": 45804
+},
+{
+"title": "Psychomotor Performance",
+"depth": 3,
+"parentIndex": 45804
+},
+{
+"title": "Psychophysiology",
+"depth": 3,
+"parentIndex": 45804
+},
+{
+"title": "Religion and Psychology",
+"depth": 3,
+"parentIndex": 45804
+},
+{
+"title": "Resilience, Psychological",
+"depth": 3,
+"parentIndex": 45804
+},
+{
+"title": "Social Theory",
+"depth": 3,
+"parentIndex": 45804
+},
+{
+"title": "Mental Disorders",
+"depth": 2,
+"parentIndex": 45300,
+"children": [46121,46131,46133,46137,46139,46144,46151,46160,46161,46192,46220,46221,46229,46240,46254,46262,46286,46294,46318]
+},
+{
+"title": "Anxiety Disorders",
+"depth": 3,
+"parentIndex": 46120
+},
+{
+"title": "Bipolar and Related Disorders",
+"depth": 3,
+"parentIndex": 46120
+},
+{
+"title": "Disruptive, Impulse Control, and Conduct Disorders",
+"depth": 3,
+"parentIndex": 46120
+},
+{
+"title": "Dissociative Disorders",
+"depth": 3,
+"parentIndex": 46120
+},
+{
+"title": "Elimination Disorders",
+"depth": 3,
+"parentIndex": 46120
+},
+{
+"title": "Feeding and Eating Disorders",
+"depth": 3,
+"parentIndex": 46120
+},
+{
+"title": "Mood Disorders",
+"depth": 3,
+"parentIndex": 46120
+},
+{
+"title": "Motor Disorders",
+"depth": 3,
+"parentIndex": 46120
+},
+{
+"title": "Neurocognitive Disorders",
+"depth": 3,
+"parentIndex": 46120
+},
+{
+"title": "Neurodevelopmental Disorders",
+"depth": 3,
+"parentIndex": 46120
+},
+{
+"title": "Neurotic Disorders",
+"depth": 3,
+"parentIndex": 46120
+},
+{
+"title": "Paraphilic Disorders",
+"depth": 3,
+"parentIndex": 46120
+},
+{
+"title": "Personality Disorders",
+"depth": 3,
+"parentIndex": 46120
+},
+{
+"title": "Schizophrenia Spectrum and Other Psychotic Disorders",
+"depth": 3,
+"parentIndex": 46120
+},
+{
+"title": "Sexual Dysfunctions, Psychological",
+"depth": 3,
+"parentIndex": 46120
+},
+{
+"title": "Sleep Wake Disorders",
+"depth": 3,
+"parentIndex": 46120
+},
+{
+"title": "Somatoform Disorders",
+"depth": 3,
+"parentIndex": 46120
+},
+{
+"title": "Substance-Related Disorders",
+"depth": 3,
+"parentIndex": 46120
+},
+{
+"title": "Trauma and Stressor Related Disorders",
+"depth": 3,
+"parentIndex": 46120
+},
+{
+"title": "Behavioral Disciplines and Activities",
+"depth": 2,
+"parentIndex": 45300,
+"children": [46327,46328,46391,46401,46403,46411,46414,46415,46425,46453,46519]
+},
+{
+"title": "Behavior Control",
+"depth": 3,
+"parentIndex": 46326
+},
+{
+"title": "Behavioral Sciences",
+"depth": 3,
+"parentIndex": 46326
+},
+{
+"title": "Mental Health Services",
+"depth": 3,
+"parentIndex": 46326
+},
+{
+"title": "Personality Assessment",
+"depth": 3,
+"parentIndex": 46326
+},
+{
+"title": "Psychiatric Somatic Therapies",
+"depth": 3,
+"parentIndex": 46326
+},
+{
+"title": "Psychiatric Status Rating Scales",
+"depth": 3,
+"parentIndex": 46326
+},
+{
+"title": "Psychoanalytic Interpretation",
+"depth": 3,
+"parentIndex": 46326
+},
+{
+"title": "Psychological Techniques",
+"depth": 3,
+"parentIndex": 46326
+},
+{
+"title": "Psychological Tests",
+"depth": 3,
+"parentIndex": 46326
+},
+{
+"title": "Psychotherapy",
+"depth": 3,
+"parentIndex": 46326
+},
+{
+"title": "Schizophrenic Psychology",
+"depth": 3,
+"parentIndex": 46326
+},
+{
+"title": "Phenomena and Processes",
+"depth": 1,
+"parentIndex": 0,
+"children": [46521,46813,47422,47625,47814,48572,48672,49220,49403,49580,49627,49825,49954,49968,50005,50033,50213]
+},
+{
+"title": "Physical Phenomena",
+"depth": 2,
+"parentIndex": 46520,
+"children": [46522,46548,46566,46575,46601,46602,46627,46656,46673,46743,46797,46806]
+},
+{
+"title": "Astronomical Phenomena",
+"depth": 3,
+"parentIndex": 46521
+},
+{
+"title": "Biophysical Phenomena",
+"depth": 3,
+"parentIndex": 46521
+},
+{
+"title": "Elementary Particles",
+"depth": 3,
+"parentIndex": 46521
+},
+{
+"title": "Geological Phenomena",
+"depth": 3,
+"parentIndex": 46521
+},
+{
+"title": "Hydrodynamics",
+"depth": 3,
+"parentIndex": 46521
+},
+{
+"title": "Magnetic Phenomena",
+"depth": 3,
+"parentIndex": 46521
+},
+{
+"title": "Mechanical Phenomena",
+"depth": 3,
+"parentIndex": 46521
+},
+{
+"title": "Optical Phenomena",
+"depth": 3,
+"parentIndex": 46521
+},
+{
+"title": "Physical Processes",
+"depth": 3,
+"parentIndex": 46521
+},
+{
+"title": "Radiation",
+"depth": 3,
+"parentIndex": 46521
+},
+{
+"title": "Thermodynamics",
+"depth": 3,
+"parentIndex": 46521
+},
+{
+"title": "Time",
+"depth": 3,
+"parentIndex": 46521
+},
+{
+"title": "Chemical Phenomena",
+"depth": 2,
+"parentIndex": 46520,
+"children": [46814,47118,47324,47327,47357,47360]
+},
+{
+"title": "Biochemical Phenomena",
+"depth": 3,
+"parentIndex": 46813
+},
+{
+"title": "Chemical Processes",
+"depth": 3,
+"parentIndex": 46813
+},
+{
+"title": "Hydrogen-Ion Concentration",
+"depth": 3,
+"parentIndex": 46813
+},
+{
+"title": "Organic Chemistry Phenomena",
+"depth": 3,
+"parentIndex": 46813
+},
+{
+"title": "Osmolar Concentration",
+"depth": 3,
+"parentIndex": 46813
+},
+{
+"title": "Physicochemical Phenomena",
+"depth": 3,
+"parentIndex": 46813
+},
+{
+"title": "Metabolic Phenomena",
+"depth": 2,
+"parentIndex": 46520,
+"children": [47423,47424,47427,47428,47429,47580,47581,47585,47588,47624]
+},
+{
+"title": "Acid-Base Equilibrium",
+"depth": 3,
+"parentIndex": 47422
+},
+{
+"title": "Body Composition",
+"depth": 3,
+"parentIndex": 47422
+},
+{
+"title": "Brain Chemistry",
+"depth": 3,
+"parentIndex": 47422
+},
+{
+"title": "Metabolic Clearance Rate",
+"depth": 3,
+"parentIndex": 47422
+},
+{
+"title": "Metabolism",
+"depth": 3,
+"parentIndex": 47422
+},
+{
+"title": "Metabolome",
+"depth": 3,
+"parentIndex": 47422
+},
+{
+"title": "Osmoregulation",
+"depth": 3,
+"parentIndex": 47422
+},
+{
+"title": "Oxygen Consumption",
+"depth": 3,
+"parentIndex": 47422
+},
+{
+"title": "Pharmacokinetics",
+"depth": 3,
+"parentIndex": 47422
+},
+{
+"title": "Toxicokinetics",
+"depth": 3,
+"parentIndex": 47422
+},
+{
+"title": "Cell Physiological Phenomena",
+"depth": 2,
+"parentIndex": 46520,
+"children": [47626,47636,47637,47638,47791,47792,47793,47795,47798,47799,47800,47808,47809,47811]
+},
+{
+"title": "Cell Count",
+"depth": 3,
+"parentIndex": 47625
+},
+{
+"title": "Cell Lineage",
+"depth": 3,
+"parentIndex": 47625
+},
+{
+"title": "Cell Membrane Permeability",
+"depth": 3,
+"parentIndex": 47625
+},
+{
+"title": "Cell Physiological Processes",
+"depth": 3,
+"parentIndex": 47625
+},
+{
+"title": "Cell Polarity",
+"depth": 3,
+"parentIndex": 47625
+},
+{
+"title": "Cell Shape",
+"depth": 3,
+"parentIndex": 47625
+},
+{
+"title": "Cell Size",
+"depth": 3,
+"parentIndex": 47625
+},
+{
+"title": "Cellular Microenvironment",
+"depth": 3,
+"parentIndex": 47625
+},
+{
+"title": "Endoplasmic Reticulum Stress",
+"depth": 3,
+"parentIndex": 47625
+},
+{
+"title": "Membrane Fluidity",
+"depth": 3,
+"parentIndex": 47625
+},
+{
+"title": "Membrane Potentials",
+"depth": 3,
+"parentIndex": 47625
+},
+{
+"title": "Organelle Biogenesis",
+"depth": 3,
+"parentIndex": 47625
+},
+{
+"title": "Organelle Shape",
+"depth": 3,
+"parentIndex": 47625
+},
+{
+"title": "Organelle Size",
+"depth": 3,
+"parentIndex": 47625
+},
+{
+"title": "Genetic Phenomena",
+"depth": 2,
+"parentIndex": 46520,
+"children": [47815,47816,47817,47818,47821,47822,47823,47824,47825,47826,47997,48450,48516,48520,48528,48529,48542,48545,48553,48554,48565,48569,48570,48571]
+},
+{
+"title": "Consanguinity",
+"depth": 3,
+"parentIndex": 47814
+},
+{
+"title": "DNA Transformation Competence",
+"depth": 3,
+"parentIndex": 47814
+},
+{
+"title": "Founder Effect",
+"depth": 3,
+"parentIndex": 47814
+},
+{
+"title": "Gene Frequency",
+"depth": 3,
+"parentIndex": 47814
+},
+{
+"title": "Gene Order",
+"depth": 3,
+"parentIndex": 47814
+},
+{
+"title": "Gene Pool",
+"depth": 3,
+"parentIndex": 47814
+},
+{
+"title": "Genetic Background",
+"depth": 3,
+"parentIndex": 47814
+},
+{
+"title": "Genetic Fitness",
+"depth": 3,
+"parentIndex": 47814
+},
+{
+"title": "Genetic Load",
+"depth": 3,
+"parentIndex": 47814
+},
+{
+"title": "Genetic Processes",
+"depth": 3,
+"parentIndex": 47814
+},
+{
+"title": "Genetic Structures",
+"depth": 3,
+"parentIndex": 47814
+},
+{
+"title": "Genetic Variation",
+"depth": 3,
+"parentIndex": 47814
+},
+{
+"title": "Genomic Instability",
+"depth": 3,
+"parentIndex": 47814
+},
+{
+"title": "Genotype",
+"depth": 3,
+"parentIndex": 47814
+},
+{
+"title": "Hybrid Vigor",
+"depth": 3,
+"parentIndex": 47814
+},
+{
+"title": "Inheritance Patterns",
+"depth": 3,
+"parentIndex": 47814
+},
+{
+"title": "Genetic Linkage",
+"depth": 3,
+"parentIndex": 47814
+},
+{
+"title": "Phenotype",
+"depth": 3,
+"parentIndex": 47814
+},
+{
+"title": "Phylogeny",
+"depth": 3,
+"parentIndex": 47814
+},
+{
+"title": "Ploidies",
+"depth": 3,
+"parentIndex": 47814
+},
+{
+"title": "Sequence Homology",
+"depth": 3,
+"parentIndex": 47814
+},
+{
+"title": "Sex Ratio",
+"depth": 3,
+"parentIndex": 47814
+},
+{
+"title": "Structural Homology, Protein",
+"depth": 3,
+"parentIndex": 47814
+},
+{
+"title": "Sympatry",
+"depth": 3,
+"parentIndex": 47814
+},
+{
+"title": "Microbiological Phenomena",
+"depth": 2,
+"parentIndex": 46520,
+"children": [48573,48593,48594,48611,48613,48614,48645,48648,48671]
+},
+{
+"title": "Bacterial Physiological Phenomena",
+"depth": 3,
+"parentIndex": 48572
+},
+{
+"title": "Biofilms",
+"depth": 3,
+"parentIndex": 48572
+},
+{
+"title": "Drug Resistance, Microbial",
+"depth": 3,
+"parentIndex": 48572
+},
+{
+"title": "Germ-Free Life",
+"depth": 3,
+"parentIndex": 48572
+},
+{
+"title": "Microbial Viability",
+"depth": 3,
+"parentIndex": 48572
+},
+{
+"title": "Microbiological Processes",
+"depth": 3,
+"parentIndex": 48572
+},
+{
+"title": "Microbiota",
+"depth": 3,
+"parentIndex": 48572
+},
+{
+"title": "Virus Physiological Phenomena",
+"depth": 3,
+"parentIndex": 48572
+},
+{
+"title": "Virulence",
+"depth": 3,
+"parentIndex": 48572
+},
+{
+"title": "Physiological Phenomena",
+"depth": 2,
+"parentIndex": 46520,
+"children": [48673,48674,48705,48714,48720,48926,48928,48974,48975,48976,48977,49072]
+},
+{
+"title": "Anatomic Variation",
+"depth": 3,
+"parentIndex": 48672
+},
+{
+"title": "Body Constitution",
+"depth": 3,
+"parentIndex": 48672
+},
+{
+"title": "Body Temperature",
+"depth": 3,
+"parentIndex": 48672
+},
+{
+"title": "Chronobiology Phenomena",
+"depth": 3,
+"parentIndex": 48672
+},
+{
+"title": "Diet, Food, and Nutrition",
+"depth": 3,
+"parentIndex": 48672
+},
+{
+"title": "Dose-Response Relationship, Radiation",
+"depth": 3,
+"parentIndex": 48672
+},
+{
+"title": "Electrophysiological Phenomena",
+"depth": 3,
+"parentIndex": 48672
+},
+{
+"title": "Fetal Viability",
+"depth": 3,
+"parentIndex": 48672
+},
+{
+"title": "Longevity",
+"depth": 3,
+"parentIndex": 48672
+},
+{
+"title": "Organ Specificity",
+"depth": 3,
+"parentIndex": 48672
+},
+{
+"title": "Pharmacological and Toxicological Phenomena and Processes",
+"depth": 3,
+"parentIndex": 48672
+},
+{
+"title": "Physiological Processes",
+"depth": 3,
+"parentIndex": 48672
+},
+{
+"title": "Reproductive and Urinary Physiological Phenomena",
+"depth": 2,
+"parentIndex": 46520,
+"children": [49221,49389]
+},
+{
+"title": "Reproductive Physiological Phenomena",
+"depth": 3,
+"parentIndex": 49220
+},
+{
+"title": "Urinary Tract Physiological Phenomena",
+"depth": 3,
+"parentIndex": 49220
+},
+{
+"title": "Circulatory and Respiratory Physiological Phenomena",
+"depth": 2,
+"parentIndex": 46520,
+"children": [49404,49455,49531]
+},
+{
+"title": "Blood Physiological Phenomena",
+"depth": 3,
+"parentIndex": 49403
+},
+{
+"title": "Cardiovascular Physiological Phenomena",
+"depth": 3,
+"parentIndex": 49403
+},
+{
+"title": "Respiratory Physiological Phenomena",
+"depth": 3,
+"parentIndex": 49403
+},
+{
+"title": "Digestive System and Oral Physiological Phenomena",
+"depth": 2,
+"parentIndex": 46520,
+"children": [49581,49610]
+},
+{
+"title": "Digestive System Physiological Phenomena",
+"depth": 3,
+"parentIndex": 49580
+},
+{
+"title": "Dental Physiological Phenomena",
+"depth": 3,
+"parentIndex": 49580
+},
+{
+"title": "Musculoskeletal and Neural Physiological Phenomena",
+"depth": 2,
+"parentIndex": 46520,
+"children": [49628,49704]
+},
+{
+"title": "Musculoskeletal Physiological Phenomena",
+"depth": 3,
+"parentIndex": 49627
+},
+{
+"title": "Nervous System Physiological Phenomena",
+"depth": 3,
+"parentIndex": 49627
+},
+{
+"title": "Immune System Phenomena",
+"depth": 2,
+"parentIndex": 46520,
+"children": [49826,49827,49828,49829,49831,49832,49834,49835,49901,49926,49928,49930]
+},
+{
+"title": "Antibody Affinity",
+"depth": 3,
+"parentIndex": 49825
+},
+{
+"title": "Antibody Specificity",
+"depth": 3,
+"parentIndex": 49825
+},
+{
+"title": "Binding Sites, Antibody",
+"depth": 3,
+"parentIndex": 49825
+},
+{
+"title": "Blood Group Incompatibility",
+"depth": 3,
+"parentIndex": 49825
+},
+{
+"title": "CD4-CD8 Ratio",
+"depth": 3,
+"parentIndex": 49825
+},
+{
+"title": "Dose-Response Relationship, Immunologic",
+"depth": 3,
+"parentIndex": 49825
+},
+{
+"title": "HIV Seronegativity",
+"depth": 3,
+"parentIndex": 49825
+},
+{
+"title": "Immune System Processes",
+"depth": 3,
+"parentIndex": 49825
+},
+{
+"title": "Immunity",
+"depth": 3,
+"parentIndex": 49825
+},
+{
+"title": "Immunocompetence",
+"depth": 3,
+"parentIndex": 49825
+},
+{
+"title": "Immunocompromised Host",
+"depth": 3,
+"parentIndex": 49825
+},
+{
+"title": "Immunogenetic Phenomena",
+"depth": 3,
+"parentIndex": 49825
+},
+{
+"title": "Integumentary System Physiological Phenomena",
+"depth": 2,
+"parentIndex": 46520,
+"children": [49955,49956]
+},
+{
+"title": "Hair Color",
+"depth": 3,
+"parentIndex": 49954
+},
+{
+"title": "Skin Physiological Phenomena",
+"depth": 3,
+"parentIndex": 49954
+},
+{
+"title": "Ocular Physiological Phenomena",
+"depth": 2,
+"parentIndex": 46520,
+"children": [49969,49970,49971,49972,49973,49974,49975,49976,49977,49998,49999,50000,50001,50004]
+},
+{
+"title": "Afterimage",
+"depth": 3,
+"parentIndex": 49968
+},
+{
+"title": "Dominance, Ocular",
+"depth": 3,
+"parentIndex": 49968
+},
+{
+"title": "Evoked Potentials, Visual",
+"depth": 3,
+"parentIndex": 49968
+},
+{
+"title": "Eye Color",
+"depth": 3,
+"parentIndex": 49968
+},
+{
+"title": "Figural Aftereffect",
+"depth": 3,
+"parentIndex": 49968
+},
+{
+"title": "Flicker Fusion",
+"depth": 3,
+"parentIndex": 49968
+},
+{
+"title": "Glare",
+"depth": 3,
+"parentIndex": 49968
+},
+{
+"title": "Intraocular Pressure",
+"depth": 3,
+"parentIndex": 49968
+},
+{
+"title": "Ocular Physiological Processes",
+"depth": 3,
+"parentIndex": 49968
+},
+{
+"title": "Optic Flow",
+"depth": 3,
+"parentIndex": 49968
+},
+{
+"title": "Refraction, Ocular",
+"depth": 3,
+"parentIndex": 49968
+},
+{
+"title": "Vision Disparity",
+"depth": 3,
+"parentIndex": 49968
+},
+{
+"title": "Visual Acuity",
+"depth": 3,
+"parentIndex": 49968
+},
+{
+"title": "Visual Fields",
+"depth": 3,
+"parentIndex": 49968
+},
+{
+"title": "Plant Physiological Phenomena",
+"depth": 2,
+"parentIndex": 46520,
+"children": [50006,50007,50009,50011,50012,50032]
+},
+{
+"title": "Organogenesis, Plant",
+"depth": 3,
+"parentIndex": 50005
+},
+{
+"title": "Plant Diseases",
+"depth": 3,
+"parentIndex": 50005
+},
+{
+"title": "Plant Immunity",
+"depth": 3,
+"parentIndex": 50005
+},
+{
+"title": "Plant Infertility",
+"depth": 3,
+"parentIndex": 50005
+},
+{
+"title": "Plant Physiological Processes",
+"depth": 3,
+"parentIndex": 50005
+},
+{
+"title": "Seed Dispersal",
+"depth": 3,
+"parentIndex": 50005
+},
+{
+"title": "Biological Phenomena",
+"depth": 2,
+"parentIndex": 46520,
+"children": [50034,50035,50036,50079,50205,50206,50210,50211,50212]
+},
+{
+"title": "Allelopathy",
+"depth": 3,
+"parentIndex": 50033
+},
+{
+"title": "Animal Distribution",
+"depth": 3,
+"parentIndex": 50033
+},
+{
+"title": "Biological Processes",
+"depth": 3,
+"parentIndex": 50033
+},
+{
+"title": "Ecological and Environmental Phenomena",
+"depth": 3,
+"parentIndex": 50033
+},
+{
+"title": "Origin of Life",
+"depth": 3,
+"parentIndex": 50033
+},
+{
+"title": "Pigmentation",
+"depth": 3,
+"parentIndex": 50033
+},
+{
+"title": "Recovery of Function",
+"depth": 3,
+"parentIndex": 50033
+},
+{
+"title": "Species Specificity",
+"depth": 3,
+"parentIndex": 50033
+},
+{
+"title": "Tissue Survival",
+"depth": 3,
+"parentIndex": 50033
+},
+{
+"title": "Mathematical Concepts",
+"depth": 2,
+"parentIndex": 46520,
+"children": [50214,50220,50222,50223,50224,50225,50226,50227,50231,50233,50238,50240]
+},
+{
+"title": "Algorithms",
+"depth": 3,
+"parentIndex": 50213
+},
+{
+"title": "Decision Theory",
+"depth": 3,
+"parentIndex": 50213
+},
+{
+"title": "Fourier Analysis",
+"depth": 3,
+"parentIndex": 50213
+},
+{
+"title": "Fractals",
+"depth": 3,
+"parentIndex": 50213
+},
+{
+"title": "Game Theory",
+"depth": 3,
+"parentIndex": 50213
+},
+{
+"title": "Neural Networks (Computer)",
+"depth": 3,
+"parentIndex": 50213
+},
+{
+"title": "Nomograms",
+"depth": 3,
+"parentIndex": 50213
+},
+{
+"title": "Probability",
+"depth": 3,
+"parentIndex": 50213
+},
+{
+"title": "Sensitivity and Specificity",
+"depth": 3,
+"parentIndex": 50213
+},
+{
+"title": "Statistical Distributions",
+"depth": 3,
+"parentIndex": 50213
+},
+{
+"title": "Stochastic Processes",
+"depth": 3,
+"parentIndex": 50213
+},
+{
+"title": "Wavelet Analysis",
+"depth": 3,
+"parentIndex": 50213
+},
+{
+"title": "Disciplines and Occupations",
+"depth": 1,
+"parentIndex": 0,
+"children": [50242,50519]
+},
+{
+"title": "Natural Science Disciplines",
+"depth": 2,
+"parentIndex": 50241,
+"children": [50243,50396,50426,50444,50447,50448,50451,50473]
+},
+{
+"title": "Biological Science Disciplines",
+"depth": 3,
+"parentIndex": 50242
+},
+{
+"title": "Chemistry",
+"depth": 3,
+"parentIndex": 50242
+},
+{
+"title": "Earth Sciences",
+"depth": 3,
+"parentIndex": 50242
+},
+{
+"title": "Mathematics",
+"depth": 3,
+"parentIndex": 50242
+},
+{
+"title": "Microtechnology",
+"depth": 3,
+"parentIndex": 50242
+},
+{
+"title": "Nanotechnology",
+"depth": 3,
+"parentIndex": 50242
+},
+{
+"title": "Physics",
+"depth": 3,
+"parentIndex": 50242
+},
+{
+"title": "Science",
+"depth": 3,
+"parentIndex": 50242
+},
+{
+"title": "Health Occupations",
+"depth": 2,
+"parentIndex": 50241,
+"children": [50520,50521,50530,50531,50532,50555,50559,50564,50565,50566,50567,50687,50688,50732,50733,50739,50740,50741,50750,50752,50753,50754,50755,50756,50757,50761]
+},
+{
+"title": "Acupuncture",
+"depth": 3,
+"parentIndex": 50519
+},
+{
+"title": "Allied Health Occupations",
+"depth": 3,
+"parentIndex": 50519
+},
+{
+"title": "Biomedical Engineering",
+"depth": 3,
+"parentIndex": 50519
+},
+{
+"title": "Chiropractic",
+"depth": 3,
+"parentIndex": 50519
+},
+{
+"title": "Dentistry",
+"depth": 3,
+"parentIndex": 50519
+},
+{
+"title": "Environmental Health",
+"depth": 3,
+"parentIndex": 50519
+},
+{
+"title": "Evidence-Based Practice",
+"depth": 3,
+"parentIndex": 50519
+},
+{
+"title": "Health Services Administration",
+"depth": 3,
+"parentIndex": 50519
+},
+{
+"title": "Hospital Administration",
+"depth": 3,
+"parentIndex": 50519
+},
+{
+"title": "Medical Illustration",
+"depth": 3,
+"parentIndex": 50519
+},
+{
+"title": "Medicine",
+"depth": 3,
+"parentIndex": 50519
+},
+{
+"title": "Mortuary Practice",
+"depth": 3,
+"parentIndex": 50519
+},
+{
+"title": "Nursing",
+"depth": 3,
+"parentIndex": 50519
+},
+{
+"title": "Nursing, Practical",
+"depth": 3,
+"parentIndex": 50519
+},
+{
+"title": "Nutritional Sciences",
+"depth": 3,
+"parentIndex": 50519
+},
+{
+"title": "Optometry",
+"depth": 3,
+"parentIndex": 50519
+},
+{
+"title": "Orthoptics",
+"depth": 3,
+"parentIndex": 50519
+},
+{
+"title": "Pharmacology",
+"depth": 3,
+"parentIndex": 50519
+},
+{
+"title": "Pharmacy",
+"depth": 3,
+"parentIndex": 50519
+},
+{
+"title": "Podiatry",
+"depth": 3,
+"parentIndex": 50519
+},
+{
+"title": "Psychology, Medical",
+"depth": 3,
+"parentIndex": 50519
+},
+{
+"title": "Serology",
+"depth": 3,
+"parentIndex": 50519
+},
+{
+"title": "Sociology, Medical",
+"depth": 3,
+"parentIndex": 50519
+},
+{
+"title": "Specialization",
+"depth": 3,
+"parentIndex": 50519
+},
+{
+"title": "Toxicology",
+"depth": 3,
+"parentIndex": 50519
+},
+{
+"title": "Veterinary Medicine",
+"depth": 3,
+"parentIndex": 50519
+},
+{
+"title": "Anthropology, Education, Sociology, and Social Phenomena",
+"depth": 1,
+"parentIndex": 0,
+"children": [50767,51278,51375]
+},
+{
+"title": "Social Sciences",
+"depth": 2,
+"parentIndex": 50766,
+"children": [50768,50823,50881,50904,50912,50913,50915,50972,50975,50983,50994,51001,51004,51005,51006,51007]
+},
+{
+"title": "Anthropology",
+"depth": 3,
+"parentIndex": 50767
+},
+{
+"title": "Criminology",
+"depth": 3,
+"parentIndex": 50767
+},
+{
+"title": "Demography",
+"depth": 3,
+"parentIndex": 50767
+},
+{
+"title": "Economics",
+"depth": 3,
+"parentIndex": 50767
+},
+{
+"title": "Environment Design",
+"depth": 3,
+"parentIndex": 50767
+},
+{
+"title": "Forecasting",
+"depth": 3,
+"parentIndex": 50767
+},
+{
+"title": "Government",
+"depth": 3,
+"parentIndex": 50767
+},
+{
+"title": "Government Programs",
+"depth": 3,
+"parentIndex": 50767
+},
+{
+"title": "Internationality",
+"depth": 3,
+"parentIndex": 50767
+},
+{
+"title": "Policy",
+"depth": 3,
+"parentIndex": 50767
+},
+{
+"title": "Political Systems",
+"depth": 3,
+"parentIndex": 50767
+},
+{
+"title": "Politics",
+"depth": 3,
+"parentIndex": 50767
+},
+{
+"title": "Private Sector",
+"depth": 3,
+"parentIndex": 50767
+},
+{
+"title": "Public Sector",
+"depth": 3,
+"parentIndex": 50767
+},
+{
+"title": "Quality of Life",
+"depth": 3,
+"parentIndex": 50767
+},
+{
+"title": "Sociology",
+"depth": 3,
+"parentIndex": 50767
+},
+{
+"title": "Education",
+"depth": 2,
+"parentIndex": 50766,
+"children": [51279,51284,51285,51303,51304,51305,51343,51350,51352,51353,51354,51366]
+},
+{
+"title": "Curriculum",
+"depth": 3,
+"parentIndex": 51278
+},
+{
+"title": "Education, Distance",
+"depth": 3,
+"parentIndex": 51278
+},
+{
+"title": "Education, Nonprofessional",
+"depth": 3,
+"parentIndex": 51278
+},
+{
+"title": "Education, Predental",
+"depth": 3,
+"parentIndex": 51278
+},
+{
+"title": "Education, Premedical",
+"depth": 3,
+"parentIndex": 51278
+},
+{
+"title": "Education, Professional",
+"depth": 3,
+"parentIndex": 51278
+},
+{
+"title": "Educational Measurement",
+"depth": 3,
+"parentIndex": 51278
+},
+{
+"title": "Inservice Training",
+"depth": 3,
+"parentIndex": 51278
+},
+{
+"title": "International Educational Exchange",
+"depth": 3,
+"parentIndex": 51278
+},
+{
+"title": "Needs Assessment",
+"depth": 3,
+"parentIndex": 51278
+},
+{
+"title": "Schools",
+"depth": 3,
+"parentIndex": 51278
+},
+{
+"title": "Teaching",
+"depth": 3,
+"parentIndex": 51278
+},
+{
+"title": "Human Activities",
+"depth": 2,
+"parentIndex": 50766,
+"children": [51376,51379,51382,51383,51395,51441,51442,51443,51444,51445,51449]
+},
+{
+"title": "Activities of Daily Living",
+"depth": 3,
+"parentIndex": 51375
+},
+{
+"title": "Automobile Driving",
+"depth": 3,
+"parentIndex": 51375
+},
+{
+"title": "Diet Fads",
+"depth": 3,
+"parentIndex": 51375
+},
+{
+"title": "Exercise",
+"depth": 3,
+"parentIndex": 51375
+},
+{
+"title": "Leisure Activities",
+"depth": 3,
+"parentIndex": 51375
+},
+{
+"title": "Nudism",
+"depth": 3,
+"parentIndex": 51375
+},
+{
+"title": "Retirement",
+"depth": 3,
+"parentIndex": 51375
+},
+{
+"title": "Survival",
+"depth": 3,
+"parentIndex": 51375
+},
+{
+"title": "Temperance Movement",
+"depth": 3,
+"parentIndex": 51375
+},
+{
+"title": "Travel",
+"depth": 3,
+"parentIndex": 51375
+},
+{
+"title": "Work",
+"depth": 3,
+"parentIndex": 51375
+},
+{
+"title": "Technology, Industry, and Agriculture",
+"depth": 1,
+"parentIndex": 0,
+"children": [51454,51920]
+},
+{
+"title": "Technology, Industry, and Agriculture",
+"depth": 2,
+"parentIndex": 51453,
+"children": [51455,51470,51482,51492,51498,51515,51520,51526,51597,51835,51836,51838,51840,51906]
+},
+{
+"title": "Agriculture",
+"depth": 3,
+"parentIndex": 51454
+},
+{
+"title": "Architecture as Topic",
+"depth": 3,
+"parentIndex": 51454
+},
+{
+"title": "Commerce",
+"depth": 3,
+"parentIndex": 51454
+},
+{
+"title": "Conservation of Natural Resources",
+"depth": 3,
+"parentIndex": 51454
+},
+{
+"title": "Engineering",
+"depth": 3,
+"parentIndex": 51454
+},
+{
+"title": "Household Articles",
+"depth": 3,
+"parentIndex": 51454
+},
+{
+"title": "Household Products",
+"depth": 3,
+"parentIndex": 51454
+},
+{
+"title": "Industry",
+"depth": 3,
+"parentIndex": 51454
+},
+{
+"title": "Manufactured Materials",
+"depth": 3,
+"parentIndex": 51454
+},
+{
+"title": "Military Science",
+"depth": 3,
+"parentIndex": 51454
+},
+{
+"title": "Natural Resources",
+"depth": 3,
+"parentIndex": 51454
+},
+{
+"title": "Power Plants",
+"depth": 3,
+"parentIndex": 51454
+},
+{
+"title": "Technology",
+"depth": 3,
+"parentIndex": 51454
+},
+{
+"title": "Transportation",
+"depth": 3,
+"parentIndex": 51454
+},
+{
+"title": "Food and Beverages",
+"depth": 2,
+"parentIndex": 51453,
+"children": [51921,51945]
+},
+{
+"title": "Beverages",
+"depth": 3,
+"parentIndex": 51920
+},
+{
+"title": "Food",
+"depth": 3,
+"parentIndex": 51920
+},
+{
+"title": "Humanities",
+"depth": 1,
+"parentIndex": 0,
+"children": [52054]
+},
+{
+"title": "Humanities",
+"depth": 2,
+"parentIndex": 52053,
+"children": [52055,52068,52070,52117,52118,52138,52139,52140,52142,52227,52254,52255]
+},
+{
+"title": "Art",
+"depth": 3,
+"parentIndex": 52054
+},
+{
+"title": "Awards and Prizes",
+"depth": 3,
+"parentIndex": 52054
+},
+{
+"title": "History",
+"depth": 3,
+"parentIndex": 52054
+},
+{
+"title": "Knowledge",
+"depth": 3,
+"parentIndex": 52054
+},
+{
+"title": "Literature",
+"depth": 3,
+"parentIndex": 52054
+},
+{
+"title": "Music",
+"depth": 3,
+"parentIndex": 52054
+},
+{
+"title": "Nature",
+"depth": 3,
+"parentIndex": 52054
+},
+{
+"title": "Occultism",
+"depth": 3,
+"parentIndex": 52054
+},
+{
+"title": "Philosophy",
+"depth": 3,
+"parentIndex": 52054
+},
+{
+"title": "Religion",
+"depth": 3,
+"parentIndex": 52054
+},
+{
+"title": "Romanticism",
+"depth": 3,
+"parentIndex": 52054
+},
+{
+"title": "Secularism",
+"depth": 3,
+"parentIndex": 52054
+},
+{
+"title": "Information Science",
+"depth": 1,
+"parentIndex": 0,
+"children": [52257]
+},
+{
+"title": "Information Science",
+"depth": 2,
+"parentIndex": 52256,
+"children": [52258,52259,52260,52262,52327,52459,52461,52537,52549,52627,52631,52714,52724,52727,52770,52792,52793,52794,52804,52808,52826]
+},
+{
+"title": "Book Collecting",
+"depth": 3,
+"parentIndex": 52257
+},
+{
+"title": "Chronology as Topic",
+"depth": 3,
+"parentIndex": 52257
+},
+{
+"title": "Classification",
+"depth": 3,
+"parentIndex": 52257
+},
+{
+"title": "Communication",
+"depth": 3,
+"parentIndex": 52257
+},
+{
+"title": "Communications Media",
+"depth": 3,
+"parentIndex": 52257
+},
+{
+"title": "Computer Security",
+"depth": 3,
+"parentIndex": 52257
+},
+{
+"title": "Computing Methodologies",
+"depth": 3,
+"parentIndex": 52257
+},
+{
+"title": "Copying Processes",
+"depth": 3,
+"parentIndex": 52257
+},
+{
+"title": "Data Collection",
+"depth": 3,
+"parentIndex": 52257
+},
+{
+"title": "Data Display",
+"depth": 3,
+"parentIndex": 52257
+},
+{
+"title": "Informatics",
+"depth": 3,
+"parentIndex": 52257
+},
+{
+"title": "Information Centers",
+"depth": 3,
+"parentIndex": 52257
+},
+{
+"title": "Information Management",
+"depth": 3,
+"parentIndex": 52257
+},
+{
+"title": "Information Services",
+"depth": 3,
+"parentIndex": 52257
+},
+{
+"title": "Information Storage and Retrieval",
+"depth": 3,
+"parentIndex": 52257
+},
+{
+"title": "Information Theory",
+"depth": 3,
+"parentIndex": 52257
+},
+{
+"title": "Knowledge",
+"depth": 3,
+"parentIndex": 52257
+},
+{
+"title": "Library Science",
+"depth": 3,
+"parentIndex": 52257
+},
+{
+"title": "Pattern Recognition, Automated",
+"depth": 3,
+"parentIndex": 52257
+},
+{
+"title": "Publishing",
+"depth": 3,
+"parentIndex": 52257
+},
+{
+"title": "Systems Analysis",
+"depth": 3,
+"parentIndex": 52257
+},
+{
+"title": "Named Groups",
+"depth": 1,
+"parentIndex": 0,
+"children": [52834]
+},
+{
+"title": "Persons",
+"depth": 2,
+"parentIndex": 52833,
+"children": [52835,52836,52837,52856,52857,52858,52859,52860,52862,52863,52864,52865,52866,52868,52869,52876,52877,52878,52880,52881,52882,52883,52884,52886,52887,52889,52890,52892,52893,52894,52895,52902,53023,53028,53035,53036,53059,53061,53062,53064,53065,53066,53067,53068,53069,53070,53079,53083,53084,53088,53089,53090,53091,53093,53094,53095,53098,53099,53105]
+},
+{
+"title": "Abortion Applicants",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Adult Children",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Age Groups",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Alcoholics",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Athletes",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Caregivers",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Child, Abandoned",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Child, Exceptional",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Child of Impaired Parents",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Child, Orphaned",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Child, Unwanted",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Consultants",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Crime Victims",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Criminals",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Disabled Persons",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Disaster Victims",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Drug Users",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Emigrants and Immigrants",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Famous Persons",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Friends",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Grandparents",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Homebound Persons",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Homeless Persons",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Jehovah's Witnesses",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Legal Guardians",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Medically Uninsured",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Men",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Mentors",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Minors",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Missionaries",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Multiple Birth Offspring",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Occupational Groups",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Parents",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Patients",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Pedestrians",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Population Groups",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Prisoners",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Refugees",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Research Subjects",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Sex Workers",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Sexual Partners",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Siblings",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Single Person",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Slaves",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Spouses",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Students",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Survivors",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Terminally Ill",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Tissue Donors",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Transgender Persons",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Transients and Migrants",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Transplant Recipients",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Vegetarians",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Veterans",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Visitors to Patients",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Volunteers",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Vulnerable Populations",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Women",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Working Poor",
+"depth": 3,
+"parentIndex": 52834
+},
+{
+"title": "Health Care",
+"depth": 1,
+"parentIndex": 0,
+"children": [53107,53226,53765,54221,54585,54954]
+},
+{
+"title": "Population Characteristics",
+"depth": 2,
+"parentIndex": 53106,
+"children": [53108,53164,53186,53190]
+},
+{
+"title": "Demography",
+"depth": 3,
+"parentIndex": 53107
+},
+{
+"title": "Health",
+"depth": 3,
+"parentIndex": 53107
+},
+{
+"title": "Population",
+"depth": 3,
+"parentIndex": 53107
+},
+{
+"title": "Socioeconomic Factors",
+"depth": 3,
+"parentIndex": 53107
+},
+{
+"title": "Health Care Facilities, Manpower, and Services",
+"depth": 2,
+"parentIndex": 53106,
+"children": [53227,53228,53229,53406,53407,53490,53493,53759,53761,53763,53764]
+},
+{
+"title": "Capacity Building",
+"depth": 3,
+"parentIndex": 53226
+},
+{
+"title": "Health Communication",
+"depth": 3,
+"parentIndex": 53226
+},
+{
+"title": "Health Facilities",
+"depth": 3,
+"parentIndex": 53226
+},
+{
+"title": "Health Manpower",
+"depth": 3,
+"parentIndex": 53226
+},
+{
+"title": "Health Personnel",
+"depth": 3,
+"parentIndex": 53226
+},
+{
+"title": "Health Promotion",
+"depth": 3,
+"parentIndex": 53226
+},
+{
+"title": "Health Services",
+"depth": 3,
+"parentIndex": 53226
+},
+{
+"title": "Housekeeping",
+"depth": 3,
+"parentIndex": 53226
+},
+{
+"title": "Maintenance",
+"depth": 3,
+"parentIndex": 53226
+},
+{
+"title": "Religious Missions",
+"depth": 3,
+"parentIndex": 53226
+},
+{
+"title": "Senior Centers",
+"depth": 3,
+"parentIndex": 53226
+},
+{
+"title": "Health Care Economics and Organizations",
+"depth": 2,
+"parentIndex": 53106,
+"children": [53766,53767,53939,53969,54104,54114,54217,54218,54219]
+},
+{
+"title": "Dual MEDICAID MEDICARE Eligibility",
+"depth": 3,
+"parentIndex": 53765
+},
+{
+"title": "Economics",
+"depth": 3,
+"parentIndex": 53765
+},
+{
+"title": "Health Planning",
+"depth": 3,
+"parentIndex": 53765
+},
+{
+"title": "Organizations",
+"depth": 3,
+"parentIndex": 53765
+},
+{
+"title": "Policy",
+"depth": 3,
+"parentIndex": 53765
+},
+{
+"title": "Social Control, Formal",
+"depth": 3,
+"parentIndex": 53765
+},
+{
+"title": "State Dentistry",
+"depth": 3,
+"parentIndex": 53765
+},
+{
+"title": "State Medicine",
+"depth": 3,
+"parentIndex": 53765
+},
+{
+"title": "Technology Assessment, Biomedical",
+"depth": 3,
+"parentIndex": 53765
+},
+{
+"title": "Health Services Administration",
+"depth": 2,
+"parentIndex": 53106,
+"children": [54222,54471,54541]
+},
+{
+"title": "Organization and Administration",
+"depth": 3,
+"parentIndex": 54221
+},
+{
+"title": "Patient Care Management",
+"depth": 3,
+"parentIndex": 54221
+},
+{
+"title": "Quality of Health Care",
+"depth": 3,
+"parentIndex": 54221
+},
+{
+"title": "Health Care Quality, Access, and Evaluation",
+"depth": 2,
+"parentIndex": 53106,
+"children": [54586,54646,54696,54700,54736]
+},
+{
+"title": "Delivery of Health Care",
+"depth": 3,
+"parentIndex": 54585
+},
+{
+"title": "Ethics",
+"depth": 3,
+"parentIndex": 54585
+},
+{
+"title": "Health Services Research",
+"depth": 3,
+"parentIndex": 54585
+},
+{
+"title": "Quality Assurance, Health Care",
+"depth": 3,
+"parentIndex": 54585
+},
+{
+"title": "Quality of Health Care",
+"depth": 3,
+"parentIndex": 54585
+},
+{
+"title": "Environment and Public Health",
+"depth": 2,
+"parentIndex": 53106,
+"children": [54955,55097,55593]
+},
+{
+"title": "Environment",
+"depth": 3,
+"parentIndex": 54954
+},
+{
+"title": "Public Health",
+"depth": 3,
+"parentIndex": 54954
+},
+{
+"title": "Public Health Dentistry",
+"depth": 3,
+"parentIndex": 54954
+},
+{
+"title": "Publication Characteristics",
+"depth": 1,
+"parentIndex": 0,
+"children": [55603,55635,55773,55795]
+},
+{
+"title": "Publication Components",
+"depth": 2,
+"parentIndex": 55602,
+"children": [55604,55605,55606,55607,55608,55610,55615,55620,55621,55622,55623,55624,55629,55630,55631,55632,55633,55634]
+},
+{
+"title": "Abstracts",
+"depth": 3,
+"parentIndex": 55603
+},
+{
+"title": "Advertisements",
+"depth": 3,
+"parentIndex": 55603
+},
+{
+"title": "Animation",
+"depth": 3,
+"parentIndex": 55603
+},
+{
+"title": "Architectural Drawings",
+"depth": 3,
+"parentIndex": 55603
+},
+{
+"title": "Bibliography",
+"depth": 3,
+"parentIndex": 55603
+},
+{
+"title": "Biography",
+"depth": 3,
+"parentIndex": 55603
+},
+{
+"title": "Book Illustrations",
+"depth": 3,
+"parentIndex": 55603
+},
+{
+"title": "Bookplates",
+"depth": 3,
+"parentIndex": 55603
+},
+{
+"title": "Charts",
+"depth": 3,
+"parentIndex": 55603
+},
+{
+"title": "Comment",
+"depth": 3,
+"parentIndex": 55603
+},
+{
+"title": "Editorial",
+"depth": 3,
+"parentIndex": 55603
+},
+{
+"title": "Electronic Supplementary Materials",
+"depth": 3,
+"parentIndex": 55603
+},
+{
+"title": "English Abstract",
+"depth": 3,
+"parentIndex": 55603
+},
+{
+"title": "Letter",
+"depth": 3,
+"parentIndex": 55603
+},
+{
+"title": "News",
+"depth": 3,
+"parentIndex": 55603
+},
+{
+"title": "Patient Education Handout",
+"depth": 3,
+"parentIndex": 55603
+},
+{
+"title": "Published Erratum",
+"depth": 3,
+"parentIndex": 55603
+},
+{
+"title": "Retraction of Publication",
+"depth": 3,
+"parentIndex": 55603
+},
+{
+"title": "Publication Formats",
+"depth": 2,
+"parentIndex": 55602,
+"children": [55636,55637,55638,55639,55640,55643,55644,55645,55646,55647,55648,55649,55650,55652,55657,55658,55659,55661,55662,55663,55664,55667,55668,55669,55671,55672,55673,55674,55675,55676,55679,55680,55681,55682,55683,55684,55690,55691,55693,55694,55695,55696,55697,55698,55699,55700,55701,55703,55704,55712,55714,55715,55716,55717,55722,55723,55724,55725,55726,55727,55728,55729,55731,55732,55733,55734,55735,55737,55738,55739,55740,55742,55743,55750,55751,55754,55755,55756,55757,55758,55759,55760,55761,55762,55765,55766,55767,55768,55769,55770,55771,55772]
+},
+{
+"title": "Abbreviations",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Abstracts",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Academic Dissertations",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Account Books",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Addresses",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Almanacs",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Anecdotes",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Animation",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Annual Reports",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Aphorisms and Proverbs",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Architectural Drawings",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Atlases",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Bibliography",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Biography",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Book Reviews",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Broadsides",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Catalogs",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Charts",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Chronology",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Classical Article",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Collected Works",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Collections",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Comment",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Congresses",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Cookbooks",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Corrected and Republished Article",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Database",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Dataset",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Diaries",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Dictionary",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Directory",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Documentaries and Factual Films",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Duplicate Publication",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Editorial",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Encyclopedias",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Ephemera",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Essays",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Eulogies",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Examination Questions",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Exhibitions",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Fictional Works",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Forms",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Formularies",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Government Publications",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Graphic Novels",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Guidebooks",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Guideline",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Handbooks",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Historical Article",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Humor",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Incunabula",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Indexes",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Instructional Films and Videos",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Journal Article",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Laboratory Manuals",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Lecture Notes",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Legal Cases",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Legislation",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Letter",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Manuscripts",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Meeting Abstracts",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Monograph",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "News",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Newspaper Article",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Nurses' Instruction",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Outlines",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Overall",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Patents",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Periodical Index",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Periodicals",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Pharmacopoeias",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Photographs",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Pictorial Works",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Poetry",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Popular Works",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Postcards",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Problems and Exercises",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Programmed Instruction",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Public Service Announcements",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Published Erratum",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Resource Guides",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Retracted Publication",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Retraction of Publication",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Review",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Statistics",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Tables",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Technical Report",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Unedited Footage",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Union Lists",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Unpublished Works",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Video-Audio Media",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Webcasts",
+"depth": 3,
+"parentIndex": 55635
+},
+{
+"title": "Study Characteristics",
+"depth": 2,
+"parentIndex": 55602,
+"children": [55774,55775,55776,55786,55787,55789,55790,55791,55792,55793,55794]
+},
+{
+"title": "Case Reports",
+"depth": 3,
+"parentIndex": 55773
+},
+{
+"title": "Clinical Conference",
+"depth": 3,
+"parentIndex": 55773
+},
+{
+"title": "Clinical Study",
+"depth": 3,
+"parentIndex": 55773
+},
+{
+"title": "Comparative Study",
+"depth": 3,
+"parentIndex": 55773
+},
+{
+"title": "Consensus Development Conference",
+"depth": 3,
+"parentIndex": 55773
+},
+{
+"title": "Evaluation Studies",
+"depth": 3,
+"parentIndex": 55773
+},
+{
+"title": "Meta-Analysis",
+"depth": 3,
+"parentIndex": 55773
+},
+{
+"title": "Multicenter Study",
+"depth": 3,
+"parentIndex": 55773
+},
+{
+"title": "Scientific Integrity Review",
+"depth": 3,
+"parentIndex": 55773
+},
+{
+"title": "Twin Study",
+"depth": 3,
+"parentIndex": 55773
+},
+{
+"title": "Validation Studies",
+"depth": 3,
+"parentIndex": 55773
+},
+{
+"title": "Support of Research",
+"depth": 2,
+"parentIndex": 55602,
+"children": [55796,55797]
+},
+{
+"title": "Research Support, Non-U.S. Gov't",
+"depth": 3,
+"parentIndex": 55795
+},
+{
+"title": "Research Support, U.S. Government",
+"depth": 3,
+"parentIndex": 55795
+},
+{
+"title": "Geographicals",
+"depth": 1,
+"parentIndex": 0,
+"children": [55804]
+},
+{
+"title": "Geographic Locations",
+"depth": 2,
+"parentIndex": 55803,
+"children": [55805,55861,56020,56021,56022,56084,56102,56181,56243,56323,56336]
+},
+{
+"title": "Africa",
+"depth": 3,
+"parentIndex": 55804
+},
+{
+"title": "Americas",
+"depth": 3,
+"parentIndex": 55804
+},
+{
+"title": "Antarctic Regions",
+"depth": 3,
+"parentIndex": 55804
+},
+{
+"title": "Arctic Regions",
+"depth": 3,
+"parentIndex": 55804
+},
+{
+"title": "Asia",
+"depth": 3,
+"parentIndex": 55804
+},
+{
+"title": "Cities",
+"depth": 3,
+"parentIndex": 55804
+},
+{
+"title": "Europe",
+"depth": 3,
+"parentIndex": 55804
+},
+{
+"title": "Historical Geographic Locations",
+"depth": 3,
+"parentIndex": 55804
+},
+{
+"title": "Islands",
+"depth": 3,
+"parentIndex": 55804
+},
+{
+"title": "Oceania",
+"depth": 3,
+"parentIndex": 55804
+},
+{
+"title": "Oceans and Seas",
+"depth": 3,
+"parentIndex": 55804
+}]

@@ -5479,6 +5479,12 @@ markdown-it@^8.3.1:
     mdurl "^1.0.1"
     uc.micro "^1.0.3"
 
+material-ui-chip-input@^0.18.1:
+  version "0.18.1"
+  resolved "https://registry.yarnpkg.com/material-ui-chip-input/-/material-ui-chip-input-0.18.1.tgz#4b5d1b08ac4ab4baca99ffc8b771309c4b4175bd"
+  dependencies:
+    prop-types "^15.5.7"
+
 material-ui@^0.19.4:
   version "0.19.4"
   resolved "https://registry.yarnpkg.com/material-ui/-/material-ui-0.19.4.tgz#ca9cdca8aa8bb594dfac5db38ec9ff045a323587"
