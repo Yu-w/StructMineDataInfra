@@ -5,7 +5,7 @@ import NavigationExpandMoreIcon from 'material-ui/svg-icons/navigation/expand-mo
 
 import Popover, {PopoverAnimationVertical} from 'material-ui/Popover';
 
-import listItems from './output.json'
+import listItems from './entityCategoryData.json'
 
 class TreeView extends Component {
   constructor(props) {
