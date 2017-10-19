@@ -13,8 +13,8 @@ export default class SearchBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      leftEntityLabel: null,
-      rightEntityLabel: null,
+      leftEntity: null,
+      rightEntity: null,
     };
   }
 
@@ -23,25 +23,32 @@ export default class SearchBar extends React.Component {
   }
 
   render() {
+    const leftLabel = this.state.leftLabel ? null : <ToolbarTitle style={{fontSize: 17}} text={'Left Entity:'} />;
+    const rightLabel = this.state.rightLabel ? null : <ToolbarTitle style={{fontSize: 17}} text={'Right Entity:'} />;
     return (
-      <Toolbar style={{borderRadius: 30}}>
+      <Toolbar style={{height:72, borderRadius: 36}}>
         <ToolbarGroup>
-          {/* <ToolbarTitle style={{fontSize: 17}} text={'Left Entity:'} /> */}
+          {leftLabel}
           <TreeView
-            label={this.state.leftEntityLabel || 'Make a Selection'}
-            onSelection={(label) => this.setState({leftEntityLabel: label})} />
+            label={this.state.leftEntity || 'Make a Selection'}
+            onSelection={(label) => this.setState({leftEntity: label})} />
           <ChipInput
-            defaultValue={['foo', 'bar']}
             dataSource={['Yo', 'Yoo', 'This is awesome']}
             onChange={(chips) => this.handleChipChange(chips)}
-            chipContainerStyle={{margin: 8}}
+            hintText={'Specific Entities'}
+            fullWidthInput={true}
+            disabled={!this.state.leftEntity}
+            style={{height: 60, marginLeft: 8}}
+            chipContainerStyle={{ overflow: 'auto', maxHeight: 60 }}
+            openOnFocus={true}
+            underlineShow={false}
           />
         </ToolbarGroup>
         <ToolbarGroup>
-          <ToolbarTitle style={{fontSize: 17, marginLeft: 16}} text={'Right Entity:'} />
+          {rightLabel}
           <TreeView
-            label={this.state.rightEntityLabel || 'Make a Selection'}
-            onSelection={(label) => this.setState({rightEntityLabel: label})} />
+            label={this.state.rightEntity || 'Make a Selection'}
+            onSelection={(label) => this.setState({rightEntity: label})} />
         </ToolbarGroup>
         <ToolbarGroup>
           <ToolbarSeparator />
