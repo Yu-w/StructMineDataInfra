@@ -6,6 +6,7 @@ import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 import TreeView from './TreeView'
+import ChipInput from 'material-ui-chip-input'
 
 export default class SearchBar extends React.Component {
 
@@ -17,35 +18,38 @@ export default class SearchBar extends React.Component {
     };
   }
 
+  handleChipChange(chips) {
+
+  }
+
   render() {
     return (
       <Toolbar style={{borderRadius: 30}}>
         <ToolbarGroup>
-          <ToolbarTitle style={{fontSize: 17}} text={'Left Entity:'} />
+          {/* <ToolbarTitle style={{fontSize: 17}} text={'Left Entity:'} /> */}
           <TreeView
             label={this.state.leftEntityLabel || 'Make a Selection'}
-            onSelection={
-              (label) => this.setState({leftEntityLabel: label})
-            } />
+            onSelection={(label) => this.setState({leftEntityLabel: label})} />
+          <ChipInput
+            defaultValue={['foo', 'bar']}
+            dataSource={['Yo', 'Yoo', 'This is awesome']}
+            onChange={(chips) => this.handleChipChange(chips)}
+            chipContainerStyle={{margin: 8}}
+          />
         </ToolbarGroup>
         <ToolbarGroup>
           <ToolbarTitle style={{fontSize: 17, marginLeft: 16}} text={'Right Entity:'} />
           <TreeView
             label={this.state.rightEntityLabel || 'Make a Selection'}
-            onSelection={
-              (label) => this.setState({rightEntityLabel: label})
-            } />
+            onSelection={(label) => this.setState({rightEntityLabel: label})} />
         </ToolbarGroup>
         <ToolbarGroup>
           <ToolbarSeparator />
-          <RaisedButton label="Entity Relationship" primary={true} />
-          <IconMenu
-            iconButtonElement={
-              <IconButton touch={true}>
-                <NavigationMoreHorizIcon />
-              </IconButton>
-            }
-          >
+          <RaisedButton label="Entity Relationship" primary={true} disabled={true} />
+          <IconMenu iconButtonElement={
+            <IconButton touch={true}>
+              <NavigationMoreHorizIcon />
+            </IconButton> }>
             <MenuItem primaryText="Download" />
             <MenuItem primaryText="More Info" />
           </IconMenu>
