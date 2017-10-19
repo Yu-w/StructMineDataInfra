@@ -19,7 +19,7 @@ class TreeView extends Component {
       open: false,
     }
     this.handleSearch = this.handleSearch.bind(this)
-    this.handleTouchTap = this.handleTouchTap.bind(this)
+    this.handleTreeViewTap = this.handleTreeViewTap.bind(this)
     this.handleTouchTapInSearchMode = this.handleTouchTapInSearchMode.bind(this)
     this.handleButtonClick = this.handleButtonClick.bind(this)
     this.handleRequestClose = this.handleRequestClose.bind(this)
@@ -29,7 +29,7 @@ class TreeView extends Component {
     this.setState({searchTerm})
   }
 
-  handleTouchTap(listItem, index) {
+  handleTreeViewTap(listItem, index) {
     if (listItem.children) {
       const indexOfListItemInArray = this.state.expandedListItems.indexOf(index)
       if  (indexOfListItemInArray === -1) {
@@ -56,7 +56,7 @@ class TreeView extends Component {
 
   handleTouchTapInSearchMode(listItem, index) {
     if (!listItem.children) {
-      this.handleTouchTap(listItem, index);
+      this.handleTreeViewTap(listItem, index);
     }
   }
 
@@ -95,42 +95,33 @@ class TreeView extends Component {
       leftIconExpanded: <i style={{height: 16, width: 16, color: '#CCCCCC'}} className="fa fa-caret-down" />
     }
 
-    const treeList = this.state.open
-      ? (
-        <TreeList
-          listItems={listItems}
-          contentKey={'title'}
-          useFolderIcons={true}
-          haveSearchbar={true}
-          expandedListItems={expandedListItems}
-          activeListItem={activeListItem}
-          handleTouchTap={this.handleTouchTap}
-          handleTouchTapInSearchMode={this.handleTouchTapInSearchMode}
-          handleSearch={this.handleSearch}
-          searchTerm={searchTerm}
-          icons={icons}>
-        </TreeList>
-      )
-      : null;
-
     return (
       <div>
         <RaisedButton
-          style={{minWidth: 210}}
           onClick={this.handleButtonClick}
           label={this.props.label}
           labelPosition="before"
-          icon={<NavigationExpandMoreIcon />}
-        />
+          icon={<NavigationExpandMoreIcon />} />
         <Popover
           open={this.state.open}
           anchorEl={this.state.anchorEl}
           anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
           targetOrigin={{horizontal: 'left', vertical: 'top'}}
           onRequestClose={this.handleRequestClose}
-          animation={PopoverAnimationVertical}
-        >
-          {treeList}
+          animation={PopoverAnimationVertical}>
+          <TreeList
+            listItems={listItems}
+            contentKey={'title'}
+            useFolderIcons={true}
+            haveSearchbar={true}
+            expandedListItems={expandedListItems}
+            activeListItem={activeListItem}
+            handleTouchTap={this.handleTreeViewTap}
+            handleTouchTapInSearchMode={this.handleTouchTapInSearchMode}
+            handleSearch={this.handleSearch}
+            searchTerm={searchTerm}
+            icons={icons}>
+          </TreeList>
         </Popover>
       </div>
     );

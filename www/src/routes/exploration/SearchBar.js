@@ -19,7 +19,7 @@ export default class SearchBar extends React.Component {
 
   render() {
     return (
-      <Toolbar>
+      <Toolbar style={{borderRadius: 30}}>
         <ToolbarGroup>
           <ToolbarTitle style={{fontSize: 17}} text={'Left Entity:'} />
           <TreeView

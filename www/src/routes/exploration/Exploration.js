@@ -11,10 +11,9 @@ class Exploration extends React.Component {
   render() {
     return (
       <MuiThemeProvider>
-        <div className={s.root}>
+        <div className={s.root} style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
           <div className={s.container}>
-            <div style={{height: 44}}/>
-            <Subheader>Network Exploration: Explanation comes here</Subheader>
+            {/* <Subheader>Network Exploration: Explanation comes here</Subheader> */}
             <SearchBar />
           </div>
         </div>
