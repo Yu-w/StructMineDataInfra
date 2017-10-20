@@ -7,6 +7,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 import TreeView from './TreeView'
 import ChipInput from 'material-ui-chip-input'
+import Chip from 'material-ui/Chip'
 
 export default class SearchBar extends React.Component {
 
@@ -23,32 +24,45 @@ export default class SearchBar extends React.Component {
   }
 
   render() {
-    const leftLabel = this.state.leftLabel ? null : <ToolbarTitle style={{fontSize: 17}} text={'Left Entity:'} />;
-    const rightLabel = this.state.rightLabel ? null : <ToolbarTitle style={{fontSize: 17}} text={'Right Entity:'} />;
+    // const leftLabel = !this.state.leftLabel ? (<ToolbarTitle style={{fontSize: 17}} text={'Left Entities:'} />) : null;
+    // const rightLabel = !this.state.rightLabel ? <ToolbarTitle style={{fontSize: 17}} text={'Right Entities:'} /> : null;
+    const chipInput = (
+      <ChipInput
+        dataSource={['Yo', 'Yoo', 'This is awesome']}
+        onChange={(chips) => this.handleChipChange(chips)}
+        hintText={'Specific Entities'}
+        fullWidthInput={true}
+        disabled={!this.state.leftEntity}
+        style={{height: 64, marginLeft: 8, color: 'black'}}
+        chipContainerStyle={{ overflow: 'auto', maxHeight: 64 }}
+        openOnFocus={true}
+        underlineShow={false}
+        chipRenderer={({ value, isFocused, isDisabled, handleClick, handleRequestDelete, defaultStyle }, key) => (
+          <Chip
+            key={key}
+            style={{ ...defaultStyle, pointerEvents: isDisabled ? 'none' : undefined }}
+            backgroundColor={isFocused ? 'gray': 'white'}
+          >
+            {value}
+          </Chip>
+        )}
+      />
+    )
     return (
-      <Toolbar style={{height:72, borderRadius: 36}}>
-        <ToolbarGroup>
-          {leftLabel}
+      <Toolbar style={{height:64, borderRadius: 64 / 2}}>
+        <ToolbarGroup style={{paddingLeft: 8}}>
           <TreeView
-            label={this.state.leftEntity || 'Make a Selection'}
-            onSelection={(label) => this.setState({leftEntity: label})} />
-          <ChipInput
-            dataSource={['Yo', 'Yoo', 'This is awesome']}
-            onChange={(chips) => this.handleChipChange(chips)}
-            hintText={'Specific Entities'}
-            fullWidthInput={true}
-            disabled={!this.state.leftEntity}
-            style={{height: 60, marginLeft: 8}}
-            chipContainerStyle={{ overflow: 'auto', maxHeight: 60 }}
-            openOnFocus={true}
-            underlineShow={false}
+            label={this.state.leftEntity || 'Left Entity Categories'}
+            onSelection={(label) => this.setState({leftEntity: label})}
           />
+          {chipInput}
         </ToolbarGroup>
         <ToolbarGroup>
-          {rightLabel}
           <TreeView
-            label={this.state.rightEntity || 'Make a Selection'}
-            onSelection={(label) => this.setState({rightEntity: label})} />
+            label={this.state.rightEntity || 'Left Entity Categories'}
+            onSelection={(label) => this.setState({rightEntity: label})}
+          />
+          {chipInput}
         </ToolbarGroup>
         <ToolbarGroup>
           <ToolbarSeparator />

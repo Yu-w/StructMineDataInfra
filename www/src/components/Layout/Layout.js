@@ -26,11 +26,7 @@ class Layout extends React.Component {
 
   render() {
     if (this.props.title === 'Network Exploration')
-      return (
-        // <div style={{display: 'flex', justifyContent: 'center'}}>
-          this.props.children
-        // </div>
-      )
+      return this.props.children
     return (
       <div>
         <Header title={this.props.title}/>
