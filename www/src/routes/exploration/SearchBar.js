@@ -73,7 +73,7 @@ export default class SearchBar extends React.Component {
         </ToolbarGroup>
         <ToolbarGroup>
           <TreeView
-            label={this.state.rightEntity || 'Left Entity Category'}
+            label={this.state.rightEntity || 'Right Entity Category'}
             onSelection={(label) => this.setState({rightEntity: label})}
           />
           <ChipInput
@@ -107,12 +107,12 @@ export default class SearchBar extends React.Component {
           <RaisedButton
             label="Relationship"
             labelPosition="before"
-            icon={<NavigationExpandMoreIcon />}
+            icon={<NavigationExpandMoreIcon style={{width:16, height: 16}}/>}
             onClick={this.handleRelationshipMenuTapped}
           />
           <FloatingActionButton
             mini={true}
-            disabled={true}
+            disabled={!this.state.leftEntity || !this.state.rightEntity}
           >
             <ActionSearchIcon />
           </FloatingActionButton>

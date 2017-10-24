@@ -1,9 +1,11 @@
-import React, { Component } from 'react'
-import {TreeList} from 'react-treeview-mui'
+import React, { Component } from 'react';
+import {TreeList} from 'react-treeview-mui';
+import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 import NavigationExpandMoreIcon from 'material-ui/svg-icons/navigation/expand-more';
 
 import Popover, {PopoverAnimationVertical} from 'material-ui/Popover';
+import Dialog from 'material-ui/Dialog';
 
 import listItems from './entityCategoryData.json'
 
@@ -98,13 +100,17 @@ class TreeView extends Component {
         <RaisedButton
           onClick={this.handleButtonClick}
           label={this.props.label}
-          labelPosition="before"
-          icon={<NavigationExpandMoreIcon />} />
-        <Popover
+          labelPosition='before'
+          icon={<NavigationExpandMoreIcon style={{width:18, height: 18}} />}
+        />
+        <Dialog
           open={this.state.open}
           anchorEl={this.state.anchorEl}
           onRequestClose={this.handleRequestClose}
-          animation={PopoverAnimationVertical}>
+          animation={PopoverAnimationVertical}
+          autoScrollBodyContent={true}
+          open={this.state.open}
+        >
           <TreeList
             listItems={listItems}
             contentKey={'title'}
@@ -118,7 +124,7 @@ class TreeView extends Component {
             searchTerm={searchTerm}
             icons={icons}>
           </TreeList>
-        </Popover>
+        </Dialog>
       </div>
     );
   }
