@@ -21,7 +21,8 @@ export default class SearchBar extends React.Component {
     this.state = {
       leftEntity: null,
       rightEntity: null,
-      openRelationshipMenu: false
+      openRelationshipMenu: false,
+      barHeight: 64,
     };
   }
 
@@ -35,7 +36,15 @@ export default class SearchBar extends React.Component {
       openRelationshipMenu: true,
       relationshipMenuAnchorEl: event.currentTarget,
     });
-  };
+  }
+
+  handleChipInputClicked = () => {
+    this.setState({onChipInput: true})
+  }
+
+  handleChipInputBlurred = () => {
+    this.setState({onChipInput: false})
+  }
 
   render() {
     // const leftLabel = !this.state.leftLabel ? (<ToolbarTitle style={{fontSize: 17}} text={'Left Entities:'} />) : null;
@@ -49,10 +58,12 @@ export default class SearchBar extends React.Component {
         {value}
       </Chip>
     );
-    const chipInputStyle = {height: 64, marginLeft: 8, color: 'black'};
+    const barHeight = !this.state.onChipInput ? 64 : 100;
+    const chipInputHintText = !this.state.onChipInput ? 'Specific Entities' : null;
+    const chipInputStyle = {height: barHeight, marginLeft: 8, color: 'black'};
     const chipInputContainerStyle = { overflow: 'auto', maxHeight: 64 };
     return (
-      <Toolbar style={{height:64, borderRadius: 64 / 2}}>
+      <Toolbar style={{height: barHeight, borderRadius: barHeight / 2}}>
         <ToolbarGroup style={{paddingLeft: 8}}>
           <TreeView
             label={this.state.leftEntity || 'Left Entity Category'}
@@ -60,9 +71,11 @@ export default class SearchBar extends React.Component {
           />
           <ChipInput
             dataSource={['Yo', 'Yoo', 'This is awesome']}
+            onClick={this.handleChipInputClicked}
+            onBlur={this.handleChipInputBlurred}
             onChange={(chips) => this.handleChipChange(chips)}
-            hintText={'Specific Entities'}
-            fullWidthInput={true}
+            openOnFocus={true}
+            hintText={chipInputHintText}
             disabled={!this.state.leftEntity}
             style={chipInputStyle}
             chipContainerStyle={chipInputContainerStyle}
@@ -78,9 +91,11 @@ export default class SearchBar extends React.Component {
           />
           <ChipInput
             dataSource={['Yo', 'Yoo', 'This is awesome']}
+            onClick={this.handleChipInputClicked}
+            onBlur={this.handleChipInputBlurred}
             onChange={(chips) => this.handleChipChange(chips)}
-            hintText={'Specific Entities'}
-            fullWidthInput={true}
+            openOnFocus={true}
+            hintText={chipInputHintText}
             disabled={!this.state.rightEntity}
             style={chipInputStyle}
             chipContainerStyle={chipInputContainerStyle}
