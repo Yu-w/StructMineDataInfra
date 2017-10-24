@@ -2,12 +2,17 @@ import React from 'react';
 import IconMenu from 'material-ui/IconMenu';
 import IconButton from 'material-ui/IconButton';
 import NavigationMoreHorizIcon from 'material-ui/svg-icons/navigation/more-horiz';
+import ActionSearchIcon from 'material-ui/svg-icons/action/search';
+import NavigationExpandMoreIcon from 'material-ui/svg-icons/navigation/expand-more';
+import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import Popover, {PopoverAnimationVertical} from 'material-ui/Popover';
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
-import TreeView from './TreeView'
-import ChipInput from 'material-ui-chip-input'
-import Chip from 'material-ui/Chip'
+import TreeView from './TreeView';
+import ChipInput from 'material-ui-chip-input';
+import Chip from 'material-ui/Chip';
 
 export default class SearchBar extends React.Component {
 
@@ -16,6 +21,7 @@ export default class SearchBar extends React.Component {
     this.state = {
       leftEntity: null,
       rightEntity: null,
+      openRelationshipMenu: false
     };
   }
 
@@ -23,57 +29,93 @@ export default class SearchBar extends React.Component {
 
   }
 
+  handleRelationshipMenuTapped = (event) => {
+    event.preventDefault();
+    this.setState({
+      openRelationshipMenu: true,
+      relationshipMenuAnchorEl: event.currentTarget,
+    });
+  };
+
   render() {
     // const leftLabel = !this.state.leftLabel ? (<ToolbarTitle style={{fontSize: 17}} text={'Left Entities:'} />) : null;
     // const rightLabel = !this.state.rightLabel ? <ToolbarTitle style={{fontSize: 17}} text={'Right Entities:'} /> : null;
-    const chipInput = (
-      <ChipInput
-        dataSource={['Yo', 'Yoo', 'This is awesome']}
-        onChange={(chips) => this.handleChipChange(chips)}
-        hintText={'Specific Entities'}
-        fullWidthInput={true}
-        disabled={!this.state.leftEntity}
-        style={{height: 64, marginLeft: 8, color: 'black'}}
-        chipContainerStyle={{ overflow: 'auto', maxHeight: 64 }}
-        openOnFocus={true}
-        underlineShow={false}
-        chipRenderer={({ value, isFocused, isDisabled, handleClick, handleRequestDelete, defaultStyle }, key) => (
-          <Chip
-            key={key}
-            style={{ ...defaultStyle, pointerEvents: isDisabled ? 'none' : undefined }}
-            backgroundColor={isFocused ? 'gray': 'white'}
-          >
-            {value}
-          </Chip>
-        )}
-      />
-    )
+    let chipRenderer = ({ value, isFocused, isDisabled, handleClick, handleRequestDelete, defaultStyle }, key) => (
+      <Chip
+        key={key}
+        style={{ ...defaultStyle, pointerEvents: isDisabled ? 'none' : undefined }}
+        backgroundColor={isFocused ? 'gray': 'white'}
+      >
+        {value}
+      </Chip>
+    );
+    const chipInputStyle = {height: 64, marginLeft: 8, color: 'black'};
+    const chipInputContainerStyle = { overflow: 'auto', maxHeight: 64 };
     return (
       <Toolbar style={{height:64, borderRadius: 64 / 2}}>
         <ToolbarGroup style={{paddingLeft: 8}}>
           <TreeView
-            label={this.state.leftEntity || 'Left Entity Categories'}
+            label={this.state.leftEntity || 'Left Entity Category'}
             onSelection={(label) => this.setState({leftEntity: label})}
           />
-          {chipInput}
+          <ChipInput
+            dataSource={['Yo', 'Yoo', 'This is awesome']}
+            onChange={(chips) => this.handleChipChange(chips)}
+            hintText={'Specific Entities'}
+            fullWidthInput={true}
+            disabled={!this.state.leftEntity}
+            style={chipInputStyle}
+            chipContainerStyle={chipInputContainerStyle}
+            openOnFocus={true}
+            underlineShow={false}
+            chipRenderer={chipRenderer}
+          />
         </ToolbarGroup>
         <ToolbarGroup>
           <TreeView
-            label={this.state.rightEntity || 'Left Entity Categories'}
+            label={this.state.rightEntity || 'Left Entity Category'}
             onSelection={(label) => this.setState({rightEntity: label})}
           />
-          {chipInput}
+          <ChipInput
+            dataSource={['Yo', 'Yoo', 'This is awesome']}
+            onChange={(chips) => this.handleChipChange(chips)}
+            hintText={'Specific Entities'}
+            fullWidthInput={true}
+            disabled={!this.state.rightEntity}
+            style={chipInputStyle}
+            chipContainerStyle={chipInputContainerStyle}
+            openOnFocus={true}
+            underlineShow={false}
+            chipRenderer={chipRenderer}
+          />
         </ToolbarGroup>
         <ToolbarGroup>
           <ToolbarSeparator />
-          <RaisedButton label="Entity Relationship" primary={true} disabled={true} />
-          <IconMenu iconButtonElement={
-            <IconButton touch={true}>
-              <NavigationMoreHorizIcon />
-            </IconButton> }>
-            <MenuItem primaryText="Download" />
-            <MenuItem primaryText="More Info" />
-          </IconMenu>
+          <Popover
+            open={this.state.openRelationshipMenu}
+            anchorEl={this.state.relationshipMenuAnchorEl}
+            onRequestClose={() => this.setState({openRelationshipMenu: false})}
+            animation={PopoverAnimationVertical}
+          >
+            <Menu>
+              <MenuItem primaryText="Refresh" />
+              <MenuItem primaryText="Help &amp; feedback" />
+              <MenuItem primaryText="Settings" />
+              <MenuItem primaryText="Sign out" />
+            </Menu>
+          </Popover>
+          <RaisedButton
+            label="Relationship"
+            labelPosition="before"
+            icon={<NavigationExpandMoreIcon />}
+            onClick={this.handleRelationshipMenuTapped}
+          />
+          <FloatingActionButton
+            mini={true}
+            disabled={true}
+          >
+            <ActionSearchIcon />
+          </FloatingActionButton>
         </ToolbarGroup>
       </Toolbar>
     );

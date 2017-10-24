@@ -71,9 +71,7 @@ class TreeView extends Component {
   }
 
   handleButtonClick = (event) => {
-    // This prevents ghost click.
     event.preventDefault();
-
     this.setState({
       open: true,
       anchorEl: event.currentTarget,
@@ -105,8 +103,6 @@ class TreeView extends Component {
         <Popover
           open={this.state.open}
           anchorEl={this.state.anchorEl}
-          anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
-          targetOrigin={{horizontal: 'left', vertical: 'top'}}
           onRequestClose={this.handleRequestClose}
           animation={PopoverAnimationVertical}>
           <TreeList
