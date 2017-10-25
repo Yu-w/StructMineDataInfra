@@ -11,5 +11,13 @@
 .container {
   margin: 0 auto;
   padding: 0 0 40px;
+  text-align: center;
   /*max-width: var(--max-content-width);*/
+}
+
+.title {
+  font-weight: bold;
+  font-size: 4em;
+  line-height: 1em;
+  font-family: fantasy;
 }

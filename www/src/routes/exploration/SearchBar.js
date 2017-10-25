@@ -105,7 +105,7 @@ export default class SearchBar extends React.PureComponent {
       </Chip>
     );
     return (
-      <Toolbar style={{height: barHeight, borderRadius: barHeight / 2}}>
+      <Toolbar style={{...this.props.style, height: barHeight, borderRadius: barHeight / 2}}>
         <ToolbarGroup style={{paddingLeft: 8}}>
           <TreeView
             label={this.state.leftEntity || 'Left Entity Category'}

@@ -28,7 +28,9 @@ class Exploration extends React.Component {
           style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}
         >
           <div className={s.container}>
+            <span className={s.title} >LifeNet</span>
             <SearchBar
+              style={{marginTop: 8}}
               onActiveStepChange={(activeStep) => this.setState({activeStep: activeStep})}
             />
             <Stepper activeStep={this.state.activeStep}>
