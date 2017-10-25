@@ -1,13 +1,25 @@
 import React, { Component } from 'react'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import Subheader from 'material-ui/Subheader';
 import {TreeList} from 'react-treeview-mui'
 
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Exploration.css';
-import SearchBar from './SearchBar'
+import SearchBar from './SearchBar';
+import {
+  Step,
+  Stepper,
+  StepLabel,
+} from 'material-ui/Stepper';
 
 class Exploration extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      activeStep: 0,
+    };
+  }
+
   render() {
     return (
       <MuiThemeProvider>
@@ -16,8 +28,26 @@ class Exploration extends React.Component {
           style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}
         >
           <div className={s.container}>
-            {/* <Subheader>Network Exploration: Explanation comes here</Subheader> */}
-            <SearchBar />
+            <SearchBar
+              onActiveStepChange={(activeStep) => this.setState({activeStep: activeStep})}
+            />
+            <Stepper activeStep={this.state.activeStep}>
+              <Step>
+                <StepLabel>Select Left Entity Category</StepLabel>
+              </Step>
+              <Step>
+                <StepLabel>Input Specific Entities</StepLabel>
+              </Step>
+              <Step>
+                <StepLabel>Select Right Entity Category</StepLabel>
+              </Step>
+              <Step>
+                <StepLabel>Input Specific Entities</StepLabel>
+              </Step>
+              <Step>
+                <StepLabel>Choose Relationship between Categories</StepLabel>
+              </Step>
+            </Stepper>
           </div>
         </div>
       </MuiThemeProvider>
