@@ -157,7 +157,7 @@ export default class SearchBar extends React.PureComponent {
               openOnFocus={true}
               hintText={!onLeftChipInput ? 'Specific Entities (Optional)' : null}
               disabled={!this.state.leftEntity}
-              style={{...chipInputStyle, backgroundColor: (onLeftChipInput || leftChips.length) ? 'rgba(0, 0, 0, 0.1)' : null}}
+              style={{...chipInputStyle, backgroundColor: (onLeftChipInput || leftChips.length) ? 'rgba(0, 0, 0, 0.07)' : null}}
               chipContainerStyle={chipInputContainerStyle}
               openOnFocus={true}
               underlineShow={onLeftChipInput === true}
@@ -179,7 +179,7 @@ export default class SearchBar extends React.PureComponent {
               openOnFocus={true}
               hintText={!onRightChipInput ? 'Specific Entities (Optional)' : null}
               disabled={!this.state.rightEntity}
-              style={{...chipInputStyle, backgroundColor: (onRightChipInput || rightChips.length) ? 'rgba(0, 0, 0, 0.1)' : null}}
+              style={{...chipInputStyle, backgroundColor: (onRightChipInput || rightChips.length) ? 'rgba(0, 0, 0, 0.07)' : null}}
               chipContainerStyle={chipInputContainerStyle}
               openOnFocus={true}
               underlineShow={onRightChipInput === true}

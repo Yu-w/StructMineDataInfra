@@ -37,23 +37,31 @@ class Exploration extends React.Component {
             />
             <Stepper activeStep={this.state.activeStep}>
               <Step>
-                <StepLabel>Select Left Entity Category </StepLabel>
+                <StepLabel>
+                  Select Left Entities &nbsp;
+                  <a
+                    href="#"
+                    onClick={(event) => {
+                      event.preventDefault();
+                    }}
+                  >(click here for sample)</a>
+                </StepLabel>
               </Step>
               <Step>
-                <StepLabel>Select Right Entity Category</StepLabel>
+                <StepLabel>
+                  Select Right Entities
+                  <a
+                    href="#"
+                    onClick={(event) => {
+                      event.preventDefault();
+                    }}
+                  >(click here for sample)</a>
+                </StepLabel>
               </Step>
               <Step>
                 <StepLabel>Choose Relationship between Entities</StepLabel>
               </Step>
             </Stepper>
-            {/* <div>
-              <div style={{marginTop: 12}}>
-                <FlatButton
-              label="Sample Entities"
-              disabled={this.state.activeStep !== 0}
-                />
-              </div>
-            </div> */}
           </div>
         </div>
       </MuiThemeProvider>
