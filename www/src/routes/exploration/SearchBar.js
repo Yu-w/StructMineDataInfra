@@ -195,10 +195,7 @@ export default class SearchBar extends React.PureComponent {
               animation={PopoverAnimationVertical}
             >
               <Menu>
-                <MenuItem primaryText="Refresh" />
-                <MenuItem primaryText="Help &amp; feedback" />
-                <MenuItem primaryText="Settings" />
-                <MenuItem primaryText="Sign out" />
+                {this._dataSource.map(x => (<MenuItem primaryText={x}/>))}
               </Menu>
             </Popover>
             <RaisedButton
