@@ -55,16 +55,22 @@ export default class SearchBar extends React.PureComponent {
   }
 
   handleRightChipAddRequest = (chip) => {
-    this.setState({leftChips: [chip]});
+    if (this._dataSource.indexOf(chip) >= 0) {
+      this.setState({leftChips: this.state.leftChips.concat([chip])});
+    } else {
+      this.setState({openSnackbar: true})
+    }
   }
 
   handleLeftChipDeleteRequest = (chip, index) => {
-    // this.setState({leftChips: chips});
+    const chips = this.state.leftChips.filter(x => x !== chip);
+    this.setState({leftChips: chips});
   }
 
   handleRightChipDeleteRequest = (chip, index) => {
-    // this.setState({leftChips: chips});
-  }
+    const chips = this.state.rightChips.filter(x => x !== chip);
+    this.setState({rightChips: chips});
+    }
 
   handleRelationshipMenuTapped = (event) => {
     event.preventDefault();
@@ -115,6 +121,8 @@ export default class SearchBar extends React.PureComponent {
 
   render() {
     const {
+      leftChips,
+      rightChips,
       onLeftChipInput,
       onRightChipInput,
     } = this.state;
@@ -139,11 +147,12 @@ export default class SearchBar extends React.PureComponent {
               onSelection={this.handleLeftTreeViewSelect}
             />
             <ChipInput
+              value={leftChips}
               dataSource={this._dataSource}
               onFocus={this.handleLeftChipInputFocus}
               onClose={this.handleAutocompleteOnClose}
               onBlur={this.handleChipInputBlur}
-              onRequestAdd={(chip) => {console.log(chip)}}
+              onRequestAdd={this.handleLeftChipAddRequest}
               onRequestDelete={this.handleLeftChipDeleteRequest}
               openOnFocus={true}
               hintText={!onLeftChipInput ? 'Specific Entities (Optional)' : null}
