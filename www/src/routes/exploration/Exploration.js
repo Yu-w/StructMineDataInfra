@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import {TreeList} from 'react-treeview-mui'
+import FlatButton from 'material-ui/FlatButton';
 
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Exploration.css';
@@ -16,7 +17,7 @@ class Exploration extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeStep: 0,
+      stepIndex: 0,
     };
   }
 
@@ -28,28 +29,30 @@ class Exploration extends React.Component {
           style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}
         >
           <div className={s.container}>
-            <span className={s.title} >LifeNet</span>
+            <span className={s.title} >Life-iNet</span>
             <SearchBar
               style={{marginTop: 8}}
-              onActiveStepChange={(activeStep) => this.setState({activeStep: activeStep})}
+              onActiveStepChange={(stepIndex) => this.setState({stepIndex: stepIndex})}
             />
-            <Stepper activeStep={this.state.activeStep}>
+            <Stepper stepIndex={this.state.stepIndex}>
               <Step>
-                <StepLabel>Select Left Entity Category</StepLabel>
-              </Step>
-              <Step>
-                <StepLabel>Input Specific Entities</StepLabel>
+                <StepLabel>Select Left Entity Category </StepLabel>
               </Step>
               <Step>
                 <StepLabel>Select Right Entity Category</StepLabel>
               </Step>
               <Step>
-                <StepLabel>Input Specific Entities</StepLabel>
-              </Step>
-              <Step>
                 <StepLabel>Choose Relationship between Categories</StepLabel>
               </Step>
             </Stepper>
+            <div>
+              <div style={{marginTop: 12}}>
+                <FlatButton
+                  label="Sample Entities"
+                  disabled={this.state.stepIndex !== 0}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </MuiThemeProvider>
