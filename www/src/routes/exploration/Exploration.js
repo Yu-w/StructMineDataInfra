@@ -17,11 +17,12 @@ class Exploration extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      stepIndex: 0,
+      activeStep: 0,
     };
   }
 
   render() {
+    console.log(this.state.activeStep)
     return (
       <MuiThemeProvider>
         <div
@@ -32,9 +33,9 @@ class Exploration extends React.Component {
             <span className={s.title} >Life-iNet</span>
             <SearchBar
               style={{marginTop: 8}}
-              onActiveStepChange={(stepIndex) => this.setState({stepIndex: stepIndex})}
+              onActiveStepChange={(activeStep) => this.setState({activeStep: activeStep})}
             />
-            <Stepper stepIndex={this.state.stepIndex}>
+            <Stepper activeStep={this.state.activeStep}>
               <Step>
                 <StepLabel>Select Left Entity Category </StepLabel>
               </Step>
@@ -42,17 +43,17 @@ class Exploration extends React.Component {
                 <StepLabel>Select Right Entity Category</StepLabel>
               </Step>
               <Step>
-                <StepLabel>Choose Relationship between Categories</StepLabel>
+                <StepLabel>Choose Relationship between Entities</StepLabel>
               </Step>
             </Stepper>
-            <div>
+            {/* <div>
               <div style={{marginTop: 12}}>
                 <FlatButton
-                  label="Sample Entities"
-                  disabled={this.state.stepIndex !== 0}
+              label="Sample Entities"
+              disabled={this.state.activeStep !== 0}
                 />
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </MuiThemeProvider>

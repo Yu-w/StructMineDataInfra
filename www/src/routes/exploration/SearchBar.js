@@ -34,6 +34,10 @@ export default class SearchBar extends React.PureComponent {
     };
   }
 
+  componentDidMount() {
+    this.updateActiveStep();
+  }
+
   handleLeftTreeViewSelect = (label) => {
     this.setState({leftEntity: label}, this.updateActiveStep)
   }
