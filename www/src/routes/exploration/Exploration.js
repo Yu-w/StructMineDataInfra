@@ -22,7 +22,22 @@ class Exploration extends React.Component {
   }
 
   render() {
-    console.log(this.state.activeStep)
+    const leftLinkComponent = (
+      <a
+        href="#"
+        onClick={(event) => {
+          event.preventDefault();
+        }}
+      >(example)</a>
+    );
+    const rightLinkComponent = this.state.activeStep >= 1 ? (
+      <a
+        href="#"
+        onClick={(event) => {
+          event.preventDefault();
+        }}
+      >(example)</a>
+    ) : null;
     return (
       <MuiThemeProvider>
         <div
@@ -39,23 +54,13 @@ class Exploration extends React.Component {
               <Step>
                 <StepLabel>
                   Select Left Entities &nbsp;
-                  <a
-                    href="#"
-                    onClick={(event) => {
-                      event.preventDefault();
-                    }}
-                  >(click here for sample)</a>
+                  {leftLinkComponent}
                 </StepLabel>
               </Step>
               <Step>
                 <StepLabel>
-                  Select Right Entities
-                  <a
-                    href="#"
-                    onClick={(event) => {
-                      event.preventDefault();
-                    }}
-                  >(click here for sample)</a>
+                  Select Right Entities &nbsp;
+                  {rightLinkComponent}
                 </StepLabel>
               </Step>
               <Step>
