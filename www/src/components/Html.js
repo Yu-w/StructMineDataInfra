@@ -58,6 +58,7 @@ class Html extends React.Component {
             />,
           )}
           <link rel="stylesheet" href="/tree-view.css" />
+          <link rel="stylesheet" href="/visualization-graph.css" />
           <script src="https://use.fontawesome.com/723300f2ba.js"></script>
         </head>
         <body>
