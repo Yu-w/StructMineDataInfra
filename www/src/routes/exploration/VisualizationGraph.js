@@ -10,6 +10,12 @@ function action(str) {
   console.log(str);
 }
 
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+}
+
 function attachEvents(child) {
   return cloneElement(child, {
     onMouseDown: action(`clicked <${child.type.name} />`),
@@ -48,7 +54,7 @@ class VisualizationGraph extends React.Component {
           <ForceGraphNode
             key={node.id}
             fill={scale(node.group)}
-            node={{ ...node, radius: 5 }}
+            node={{ ...node, radius: getRandomInt(4, 9) }}
           />
         )).map(attachEvents)}
         {lesMisJSON.links.map(link => (
