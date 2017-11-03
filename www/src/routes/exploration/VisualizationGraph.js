@@ -29,7 +29,6 @@ class VisualizationGraph extends React.Component {
 
   render() {
     const { width } = this.props.size;
-    console.log(this.props.size);
     const scale = d3.scaleOrdinal(d3.schemeCategory20);
 
     return (
@@ -44,28 +43,28 @@ class VisualizationGraph extends React.Component {
         highlightDependencies
         simulationOptions={{
           animate: true,
-          height: 400,
+          height: 720,
           width: width,
         }}
         onSelectNode={action('node selected')}
         onDeselectNode={action('node deselected')}
-      >
-        {lesMisJSON.nodes.map(node => (
-          <ForceGraphNode
-            key={node.id}
-            fill={scale(node.group)}
-            node={{ ...node, radius: getRandomInt(4, 9) }}
-          />
-        )).map(attachEvents)}
-        {lesMisJSON.links.map(link => (
-          <ForceGraphLink
-            key={`${link.source}=>${link.target}`}
-            link={{ ...link, value: 2 }}
-          />
-        )).map(attachEvents)}
-      </InteractiveForceGraph>
-    );
-  }
+        >
+          {lesMisJSON.nodes.map(node => (
+            <ForceGraphNode
+              key={node.id}
+              fill={scale(node.group)}
+              node={{ ...node, radius: getRandomInt(4, 9) }}
+            />
+          )).map(attachEvents)}
+          {lesMisJSON.links.map(link => (
+            <ForceGraphLink
+              key={`${link.source}=>${link.target}`}
+              link={{ ...link, value: 2 }}
+            />
+          )).map(attachEvents)}
+        </InteractiveForceGraph>
+      );
+    }
 
 }
 

@@ -10,6 +10,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 // external-global styles must be imported in your JS.
 import normalizeCss from 'normalize.css';
@@ -25,14 +26,14 @@ class Layout extends React.Component {
   };
 
   render() {
-    if (this.props.title === 'Network Exploration')
-      return this.props.children
     return (
-      <div>
-        <Header title={this.props.title}/>
-        {this.props.children}
-        <Footer />
-      </div>
+      <MuiThemeProvider>
+        <div>
+          {/* <Header title={this.props.title}/> */}
+          {this.props.children}
+          {/* <Footer /> */}
+        </div>
+      </MuiThemeProvider>
     );
   }
 }
