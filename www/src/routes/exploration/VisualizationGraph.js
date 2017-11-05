@@ -37,8 +37,8 @@ class VisualizationGraph extends React.Component {
         zoomOptions={{
           minScale: 0.75,
           maxScale: 5,
-          onZoom: action('zoomed'),
-          onPan: action('panned'),
+          onZoom: () => {},
+          onPan: () => {},
         }}
         highlightDependencies
         simulationOptions={{
@@ -48,21 +48,23 @@ class VisualizationGraph extends React.Component {
         }}
         onSelectNode={action('node selected')}
         onDeselectNode={action('node deselected')}
-        >
-          {lesMisJSON.nodes.map(node => (
-            <ForceGraphNode
-              key={node.id}
-              fill={scale(node.group)}
-              node={{ ...node, radius: getRandomInt(4, 9) }}
-            />
-          )).map(attachEvents)}
-          {lesMisJSON.links.map(link => (
-            <ForceGraphLink
-              key={`${link.source}=>${link.target}`}
-              link={{ ...link, value: 2 }}
-            />
-          )).map(attachEvents)}
-        </InteractiveForceGraph>
+      >
+        {lesMisJSON.nodes.map(node => (
+          <ForceGraphNode
+            key={node.id}
+            fill={scale(node.group)}
+            node={{ ...node, radius: getRandomInt(4, 9) }}
+            onClick={_ => console.log(node)}
+          />
+        ))}
+        {lesMisJSON.links.map(link => (
+          <ForceGraphLink
+            key={`${link.source}=>${link.target}`}
+            link={{ ...link, value: 2 }}
+            onClick={_ => console.log(link)}
+          />
+        ))}
+      </InteractiveForceGraph>
       );
     }
 
