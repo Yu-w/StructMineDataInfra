@@ -136,14 +136,14 @@ export default class SearchBar extends React.PureComponent {
       <Chip
         key={key}
         onRequestDelete={() => {}}
-        style={{ ...defaultStyle, pointerEvents: isDisabled ? 'none' : undefined }}
+        style={{ ...defaultStyle, pointerEvents: isDisabled ? 'none' : undefined, borderRadius: 2 }}
         backgroundColor={isFocused ? '#666666': '#fff'}>
         {value}
       </Chip>
     );
     return (
       <div>
-        <Toolbar style={{...this.props.style, height: barHeight, borderRadius: barHeight / 2}}>
+        <Toolbar style={{...this.props.style, height: barHeight, borderRadius: 16}}>
           <ToolbarGroup style={{paddingLeft: 8}}>
             <TreeView
               label={this.state.leftEntity || StringUtils.trimLength('Left Entity Category')}
