@@ -2,6 +2,7 @@ import React from 'react';
 import IconMenu from 'material-ui/IconMenu';
 import IconButton from 'material-ui/IconButton';
 import NavigationMoreHorizIcon from 'material-ui/svg-icons/navigation/more-horiz';
+import ActionExploreIcon from 'material-ui/svg-icons/action/explore';
 import ActionSearchIcon from 'material-ui/svg-icons/action/search';
 import NavigationExpandMoreIcon from 'material-ui/svg-icons/navigation/expand-more';
 import Menu from 'material-ui/Menu';
@@ -55,8 +56,9 @@ export default class SearchBar extends React.PureComponent {
   }
 
   handleRightChipAddRequest = (chip) => {
+    console.log(chip)
     if (this._dataSource.indexOf(chip) >= 0) {
-      this.setState({leftChips: this.state.leftChips.concat([chip])});
+      this.setState({rightChips: this.state.rightChips.concat([chip])});
     } else {
       this.setState({openSnackbar: true})
     }
@@ -70,7 +72,7 @@ export default class SearchBar extends React.PureComponent {
   handleRightChipDeleteRequest = (chip, index) => {
     const chips = this.state.rightChips.filter(x => x !== chip);
     this.setState({rightChips: chips});
-    }
+  }
 
   handleRelationshipMenuTapped = (event) => {
     event.preventDefault();
@@ -127,7 +129,7 @@ export default class SearchBar extends React.PureComponent {
       onRightChipInput,
     } = this.state;
     const barHeight = (!onLeftChipInput && !onRightChipInput) ? 64 : 108;
-    const chipInputStyle = { height: barHeight, marginLeft: 4, paddingLeft: 4, marginRight: 4, paddingRight: 4 };
+    const chipInputStyle = { height: barHeight, marginLeft: 4, paddingLeft: 4 };
     const chipInputContainerStyle = { overflow: 'auto', maxHeight: 64 };
     let chipRenderer = ({ value, isFocused, isDisabled, handleClick, handleRequestDelete, defaultStyle }, key) => (
       <Chip
@@ -160,9 +162,10 @@ export default class SearchBar extends React.PureComponent {
               style={{...chipInputStyle, backgroundColor: (onLeftChipInput || leftChips.length) ? 'rgba(0, 0, 0, 0.07)' : null}}
               chipContainerStyle={chipInputContainerStyle}
               openOnFocus={true}
-              underlineShow={onLeftChipInput === true}
+              underlineShow={leftChips.length === 0}
               chipRenderer={chipRenderer}
             />
+            <ActionExploreIcon style={{color: '#9E9E9E', marginRight: 8}} onClick={() => console.log('action explore')}/>
           </ToolbarGroup>
           <ToolbarGroup>
             <TreeView
@@ -170,6 +173,7 @@ export default class SearchBar extends React.PureComponent {
               onSelection={this.handleRightTreeViewSelect}
             />
             <ChipInput
+              value={rightChips}
               dataSource={this._dataSource}
               onFocus={this.handleRightChipInputFocus}
               onClose={this.handleAutocompleteOnClose}
@@ -182,12 +186,13 @@ export default class SearchBar extends React.PureComponent {
               style={{...chipInputStyle, backgroundColor: (onRightChipInput || rightChips.length) ? 'rgba(0, 0, 0, 0.07)' : null}}
               chipContainerStyle={chipInputContainerStyle}
               openOnFocus={true}
-              underlineShow={onRightChipInput === true}
+              underlineShow={rightChips.length === 0}
               chipRenderer={chipRenderer}
             />
+            <ActionExploreIcon style={{color: '#9E9E9E'}} onClick={() => console.log('action explore')}/>
           </ToolbarGroup>
           <ToolbarGroup>
-            <ToolbarSeparator />
+            <ToolbarSeparator style={{marginLeft: 16}} />
             <Popover
               open={this.state.openRelationshipMenu}
               anchorEl={this.state.relationshipMenuAnchorEl}
@@ -203,6 +208,7 @@ export default class SearchBar extends React.PureComponent {
               labelPosition="before"
               icon={<NavigationExpandMoreIcon style={{width:16, height: 16}}/>}
               onClick={this.handleRelationshipMenuTapped}
+              style={{marginLeft: 16, marginRight: 16}}
             />
             <FloatingActionButton
               mini={true}
