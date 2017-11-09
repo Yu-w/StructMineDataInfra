@@ -41,29 +41,29 @@ class Exploration extends React.Component {
           <div
             className={s.root}
             style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}
-            >
-              <div className={s.container}>
-                <span className={s.title} >Life-iNet</span>
-                <SearchBar
-                  style={{marginTop: 8}}
-                  onActiveStepChange={(activeStep) => this.setState({activeStep: activeStep})}
-                />
-                <Stepper activeStep={this.state.activeStep}>
-                  <Step>
-                    <StepLabel>
-                      Select Left Entities &nbsp;
-                      {leftLinkComponent}
-                    </StepLabel>
-                  </Step>
-                  <Step>
-                    <StepLabel>
-                      Select Right Entities &nbsp;
-                      {rightLinkComponent}
-                    </StepLabel>
-                  </Step>
-                  <Step>
-                    <StepLabel>Choose Relationship between Entities</StepLabel>
-                  </Step>
+          >
+            <div className={s.container}>
+              <span className={s.title} >Life-iNet</span>
+              <SearchBar
+                style={{marginTop: 8}}
+                onActiveStepChange={(activeStep) => this.setState({activeStep: activeStep})}
+              />
+              <Stepper activeStep={this.state.activeStep}>
+                <Step>
+                  <StepLabel>
+                    Select Left Entities &nbsp;
+                    {leftLinkComponent}
+                  </StepLabel>
+                </Step>
+                <Step>
+                  <StepLabel>
+                    Select Right Entities &nbsp;
+                    {rightLinkComponent}
+                  </StepLabel>
+                </Step>
+                <Step>
+                  <StepLabel>Choose Relationship between Entities</StepLabel>
+                </Step>
                 </Stepper>
               </div>
             </div>

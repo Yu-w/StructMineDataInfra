@@ -15,6 +15,7 @@ import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui
 import TreeView from './TreeView';
 import ChipInput from 'material-ui-chip-input';
 import Chip from 'material-ui/Chip';
+import {StringUtils} from './../utils';
 
 export default class SearchBar extends React.PureComponent {
 
@@ -40,11 +41,11 @@ export default class SearchBar extends React.PureComponent {
   }
 
   handleLeftTreeViewSelect = (label) => {
-    this.setState({leftEntity: label}, this.updateActiveStep)
+    this.setState({leftEntity: StringUtils.trimLength(label)}, this.updateActiveStep)
   }
 
   handleRightTreeViewSelect = (label) => {
-    this.setState({rightEntity: label}, this.updateActiveStep)
+    this.setState({rightEntity: StringUtils.trimLength(label)}, this.updateActiveStep)
   }
 
   handleLeftChipAddRequest = (chip) => {
@@ -145,7 +146,7 @@ export default class SearchBar extends React.PureComponent {
         <Toolbar style={{...this.props.style, height: barHeight, borderRadius: barHeight / 2}}>
           <ToolbarGroup style={{paddingLeft: 8}}>
             <TreeView
-              label={this.state.leftEntity || 'Left Entity Category'}
+              label={this.state.leftEntity || StringUtils.trimLength('Left Entity Category')}
               onSelection={this.handleLeftTreeViewSelect}
             />
             <ChipInput
@@ -169,7 +170,7 @@ export default class SearchBar extends React.PureComponent {
           </ToolbarGroup>
           <ToolbarGroup>
             <TreeView
-              label={this.state.rightEntity || 'Right Entity Category'}
+              label={this.state.rightEntity || StringUtils.trimLength('Right Entity Category')}
               onSelection={this.handleRightTreeViewSelect}
             />
             <ChipInput
