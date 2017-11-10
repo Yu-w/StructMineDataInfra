@@ -26,7 +26,6 @@ function attachEvents(child) {
 
 class VisualizationGraph extends React.Component {
 
-
   render() {
     const { width } = this.props.size;
     const scale = d3.scaleOrdinal(d3.schemeCategory20);

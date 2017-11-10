@@ -102,7 +102,7 @@ export default class SearchBar extends React.PureComponent {
           />
         </ToolbarGroup>
         <ToolbarGroup>
-          <ToolbarSeparator style={{marginLeft: 16}} />
+          <ToolbarSeparator style={{marginLeft: 0}} />
           <Popover
             open={this.state.openRelationshipMenu}
             anchorEl={this.state.relationshipMenuAnchorEl}

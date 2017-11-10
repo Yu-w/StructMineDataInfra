@@ -2,6 +2,7 @@ import React from 'react';
 import ChipInput from 'material-ui-chip-input';
 import Chip from 'material-ui/Chip';
 import ActionExploreIcon from 'material-ui/svg-icons/action/explore';
+import Tooltip from 'rc-tooltip';
 import Snackbar from 'material-ui/Snackbar';
 
 export default class SearchBar extends React.PureComponent {
@@ -94,7 +95,20 @@ export default class SearchBar extends React.PureComponent {
           underlineShow={entityChips.length === 0}
           chipRenderer={chipRenderer}
         />
-        <ActionExploreIcon style={{color: '#9E9E9E', marginRight: 4}} onClick={() => console.log('action explore')}/>
+        <Tooltip
+          placement={'top'}
+          trigger={['hover']}
+          overlay={
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: 32, width: 180 }}>
+              Choose Random Sample Entities
+            </div>
+          }
+          align={{
+            offset: [0, -2],
+          }}
+        >
+          <ActionExploreIcon style={{color: '#9E9E9E', marginRight: 4}} onClick={() => console.log('action explore')}/>
+        </Tooltip>
         <Snackbar
           open={this.state.openSnackbar}
           message="Invalid entity cannot be added."
