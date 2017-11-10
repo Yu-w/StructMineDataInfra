@@ -18,7 +18,7 @@ export default class SearchBar extends React.PureComponent {
   }
 
   handleChipChange = () => {
-    this.props.onChange(this.entityChips);
+    this.props.onChange(this.state.entityChips);
   }
 
   handleChipAddRequest = (chip) => {
@@ -62,7 +62,7 @@ export default class SearchBar extends React.PureComponent {
     let chipRenderer = ({ value, isFocused, isDisabled, handleClick, handleRequestDelete, defaultStyle }, key) => (
       <Chip
         key={key}
-        onRequestDelete={() => {}}
+        onRequestDelete={() => this.handleChipDeleteRequest(value, null)}
         style={{ ...defaultStyle, pointerEvents: isDisabled ? 'none' : undefined, borderRadius: 2 }}
         backgroundColor={isFocused ? '#666666': '#fff'}>
         {value}
@@ -103,9 +103,7 @@ export default class SearchBar extends React.PureComponent {
               Choose Random Sample Entities
             </div>
           }
-          align={{
-            offset: [0, -2],
-          }}
+          align={{offset: [0, -2]}}
         >
           <ActionExploreIcon style={{color: '#9E9E9E', marginRight: 4}} onClick={() => console.log('action explore')}/>
         </Tooltip>
