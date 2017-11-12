@@ -16,17 +16,19 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
 }
 
-function attachEvents(child) {
-  return cloneElement(child, {
-    onMouseDown: action(`clicked <${child.type.name} />`),
-    onMouseOver: action(`hovered <${child.type.name} />`),
-    onMouseOut: action(`blurred <${child.type.name} />`),
-  });
-}
-
 class VisualizationGraph extends React.Component {
 
+  constructor(props) {
+    super(props)
+    this.state = {
+      hoveredLink: null,
+    }
+  }
+
   render() {
+    const {
+      hoveredLink
+    } = this.state;
     const { width } = this.props.size;
     const scale = d3.scaleOrdinal(d3.schemeCategory20);
 
@@ -34,7 +36,7 @@ class VisualizationGraph extends React.Component {
       <InteractiveForceGraph
         zoom
         zoomOptions={{
-          minScale: 0.75,
+          minScale: 1,
           maxScale: 5,
           onZoom: () => {},
           onPan: () => {},
@@ -45,21 +47,22 @@ class VisualizationGraph extends React.Component {
           height: 720,
           width: width,
         }}
-        onSelectNode={action('node selected')}
-        onDeselectNode={action('node deselected')}
       >
         {lesMisJSON.nodes.map(node => (
           <ForceGraphNode
             key={node.id}
             fill={scale(node.group)}
-            node={{ ...node, radius: getRandomInt(4, 9) }}
+            node={{ ...node, radius: 8 }}
             onClick={_ => console.log(node)}
           />
         ))}
         {lesMisJSON.links.map(link => (
           <ForceGraphLink
             key={`${link.source}=>${link.target}`}
-            link={{ ...link, value: 2 }}
+            onMouseEnter={() => this.setState({hoveredLink: link})}
+            onMouseLeave={() => this.setState({hoveredLink: null})}
+            link={{ ...link, value: hoveredLink === link ? 12 : 1 }}
+            strokeWidth={!hoveredLink ? 2 : null}
             onClick={_ => console.log(link)}
           />
         ))}
