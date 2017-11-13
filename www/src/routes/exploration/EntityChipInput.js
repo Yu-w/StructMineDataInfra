@@ -19,7 +19,13 @@ export default class SearchBar extends React.PureComponent {
     };
   }
 
-  dataSource = (category) => {
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.category !== this.props.category) {
+      this.setState({ entityChips: [] })
+    }
+  }
+
+  dataSource = () => {
     return entityMap[this.props.category] || [];
   }
 
@@ -28,7 +34,7 @@ export default class SearchBar extends React.PureComponent {
   }
 
   handleChipAddRequest = (chip) => {
-    if (this.dataSource(this.props.category).indexOf(chip) >= 0) {
+    if (this.dataSource().indexOf(chip) >= 0) {
       this.setState({entityChips: this.state.entityChips.concat([chip])}, this.handleChipChange);
     } else {
       this.setState({openSnackbar: true})
@@ -59,6 +65,11 @@ export default class SearchBar extends React.PureComponent {
     }, this.props.onChipEditing(false));
   }
 
+  handleSampleButton = () => {
+    const shuffled = this.dataSource().sort(() => .5 - Math.random()).slice(0, 8);
+    this.setState({ entityChips: shuffled })
+  }
+
   render() {
     const {
       entityChips,
@@ -86,7 +97,7 @@ export default class SearchBar extends React.PureComponent {
       }}>
         <ChipInput
           value={entityChips}
-          dataSource={this.dataSource(this.props.category)}
+          dataSource={this.dataSource()}
           onFocus={this.handleChipInputFocus}
           onClose={this.handleAutocompleteOnClose}
           onBlur={this.handleChipInputBlur}
@@ -111,7 +122,7 @@ export default class SearchBar extends React.PureComponent {
           }
           align={{offset: [0, -2]}}
         >
-          <ActionExploreIcon style={{color: '#9E9E9E', marginRight: 4}} onClick={() => console.log('action explore')}/>
+          <ActionExploreIcon style={{color: '#9E9E9E', marginRight: 4}} onClick={this.handleSampleButton}/>
         </Tooltip>
         <Snackbar
           open={this.state.openSnackbar}
