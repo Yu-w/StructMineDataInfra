@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {TreeList} from 'react-treeview-mui';
+import { MuiTreeList } from 'react-treeview-mui';
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 import NavigationExpandMoreIcon from 'material-ui/svg-icons/navigation/expand-more';
@@ -90,11 +90,6 @@ class TreeView extends Component {
   render() {
     const {listItems, expandedListItems, activeListItem, searchTerm} = this.state
 
-    const icons = {
-      leftIconCollapsed: <i style={{height: 16, width: 16, color: '#CCCCCC'}} className="fa fa-caret-right" />,
-      leftIconExpanded: <i style={{height: 16, width: 16, color: '#CCCCCC'}} className="fa fa-caret-down" />
-    }
-
     return (
       <div>
         <RaisedButton
@@ -111,19 +106,18 @@ class TreeView extends Component {
           autoScrollBodyContent={true}
           open={this.state.open}
         >
-          <TreeList
+          <MuiTreeList
             listItems={listItems}
             contentKey={'title'}
-            useFolderIcons={true}
+            useFolderIcons={false}
             haveSearchbar={true}
             expandedListItems={expandedListItems}
             activeListItem={activeListItem}
             handleTouchTap={this.handleTreeViewTap}
             handleTouchTapInSearchMode={this.handleTouchTapInSearchMode}
             handleSearch={this.handleSearch}
-            searchTerm={searchTerm}
-            icons={icons}>
-          </TreeList>
+            searchTerm={searchTerm}>
+          </MuiTreeList>
         </Dialog>
       </div>
     );

@@ -6,16 +6,6 @@ const d3 = require('d3');
 
 import lesMisJSON from './les-miserables.json';
 
-function action(str) {
-  console.log(str);
-}
-
-function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
-}
-
 class VisualizationGraph extends React.Component {
 
   constructor(props) {
@@ -38,6 +28,7 @@ class VisualizationGraph extends React.Component {
         zoomOptions={{
           minScale: 1,
           maxScale: 5,
+          panLimit: 1,
           onZoom: () => {},
           onPan: () => {},
         }}
@@ -47,13 +38,14 @@ class VisualizationGraph extends React.Component {
           height: 720,
           width: width,
         }}
+        onSelectNode={(event, node) => console.log(node)}
+        onDeselectNode={(event, node) => console.log(node)}
       >
         {lesMisJSON.nodes.map(node => (
           <ForceGraphNode
             key={node.id}
             fill={scale(node.group)}
             node={{ ...node, radius: 8 }}
-            onClick={_ => console.log(node)}
           />
         ))}
         {lesMisJSON.links.map(link => (
