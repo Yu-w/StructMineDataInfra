@@ -7,9 +7,9 @@ import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import Popover, {PopoverAnimationVertical} from 'material-ui/Popover';
-import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
+import { Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle } from 'material-ui/Toolbar';
 import TreeView from './TreeView';
-import {StringUtils} from './../utils';
+import { StringUtils } from './../utils';
 import EntityChipInput from './EntityChipInput';
 
 export default class SearchBar extends React.PureComponent {
@@ -67,6 +67,8 @@ export default class SearchBar extends React.PureComponent {
 
   render() {
     const {
+      leftCategory,
+      rightCategory,
       leftChips,
       rightChips,
       onChipEditing,
@@ -83,8 +85,9 @@ export default class SearchBar extends React.PureComponent {
           <EntityChipInput
             onChange={(leftEntities) => this.setState(leftEntities)}
             height={barHeight}
+            category={leftCategory}
             dataSource={this._dataSource}
-            disabled={!this.state.leftCategory}
+            disabled={!leftCategory}
             onChipEditing={(onChipEditing) => this.setState({onChipEditing})}
           />
         </ToolbarGroup>
@@ -97,7 +100,7 @@ export default class SearchBar extends React.PureComponent {
             onChange={(rightEntities) => this.setState(rightEntities)}
             height={barHeight}
             dataSource={this._dataSource}
-            disabled={!this.state.rightCategory}
+            disabled={!rightCategory}
             onChipEditing={(onChipEditing) => this.setState({onChipEditing})}
           />
         </ToolbarGroup>

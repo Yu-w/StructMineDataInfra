@@ -5,6 +5,8 @@ import ActionExploreIcon from 'material-ui/svg-icons/action/explore';
 import Tooltip from 'rc-tooltip';
 import Snackbar from 'material-ui/Snackbar';
 
+import entityMap from './EntityData.json';
+
 export default class SearchBar extends React.PureComponent {
 
   constructor(props) {
@@ -17,12 +19,16 @@ export default class SearchBar extends React.PureComponent {
     };
   }
 
+  dataSource = (category) => {
+    return entityMap[this.props.category] || [];
+  }
+
   handleChipChange = () => {
     this.props.onChange(this.state.entityChips);
   }
 
   handleChipAddRequest = (chip) => {
-    if (this.props.dataSource.indexOf(chip) >= 0) {
+    if (this.dataSource(this.props.category).indexOf(chip) >= 0) {
       this.setState({entityChips: this.state.entityChips.concat([chip])}, this.handleChipChange);
     } else {
       this.setState({openSnackbar: true})
@@ -80,7 +86,7 @@ export default class SearchBar extends React.PureComponent {
       }}>
         <ChipInput
           value={entityChips}
-          dataSource={this.props.dataSource}
+          dataSource={this.dataSource(this.props.category)}
           onFocus={this.handleChipInputFocus}
           onClose={this.handleAutocompleteOnClose}
           onBlur={this.handleChipInputBlur}
