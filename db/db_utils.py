@@ -428,14 +428,7 @@ class data_utils(object):
                 return {'node_a':red_node, 'node_b':blue_node, 'edge':query_edges} 
  	
 	def query_links_by_categories(self, type_a, type_b, relation_type, num_edges, num_pps):
-		# print "type_a = ", type_a
-		# print "type_b = ", type_b
-		# print "relation_type = ", relation_type
-		# print "num_edges = ", num_edges
-		# print "num_pps = ", num_pps
 		self.db.query("set statement_timeout TO 0")
-		#query_string = "SELECT * INTO " +self.identity+ " FROM (SELECT DISTINCT ON(entity_a,entity_b) entity_a,entity_b,sent_id  "+"FROM "+self.arg['relation_table']+" WHERE type_a_"+type_a['name']+"@>'"\
-		#+type_a['type']+"' AND type_b_"+type_b['name']+"@>'"+ type_b['type']+"' AND relation_type='"+relation_type + "') x ORDER BY RANDOM() LIMIT " +str(num_edges)
 		query_string_v2 = "SELECT * FROM (SELECT entity_a,entity_b,(array_agg('[' || article_id || ',' || sent_id || ']'))[1:" + str(num_pps+2) + "] as sents  "+"FROM "+self.arg['relation_table']+" WHERE type_a_"+type_a['name']+"@>'"\
 		+type_a['type']+"' AND type_b_"+type_b['name']+"@>'"+ type_b['type']+"' AND relation_type='"+relation_type + "' GROUP BY entity_a,entity_b) x ORDER BY RANDOM() LIMIT " +str(num_edges)
 		print query_string_v2
@@ -503,7 +496,7 @@ class data_utils(object):
 		#self.db.query("drop table "+self.identity)
                 json.dump({'node_a':red_node, 'node_b':blue_node, 'edge':query_edges}, open('result.json', 'w'))
 		return {'node_a':red_node,'node_b':blue_node,'edge':query_edges}
-
+		# return json.dumps({'node_a':red_node, 'node_b':blue_node, 'edge':query_edges})
 				
 							
 	def query_links_v2(self, type_a, type_b, relation_type, entities_left = [], entities_right = [], num_edges=5, num_pps=1):
@@ -515,15 +508,43 @@ class data_utils(object):
 		except:
 			pass
 		if len(entities_left) > 0 and len(entities_right) > 0:
-			return self.query_links_by_two_sides_entities(entities_left, entities_right, relation_type, num_edges, num_pps)
+			result = self.query_links_by_two_sides_entities(entities_left, entities_right, relation_type, num_edges, num_pps)
 		elif len(entities_left) == 0 and len(entities_right) == 0:	 
-			return self.query_links_by_categories(type_a, type_b, relation_type, num_edges, num_pps)
+			result = self.query_links_by_categories(type_a, type_b, relation_type, num_edges, num_pps)
 		elif len(entities_left) == 0:
-			return self.query_links_by_right_entities(type_a, entities_right, relation_type, num_edges, num_pps)
+			result = self.query_links_by_right_entities(type_a, entities_right, relation_type, num_edges, num_pps)
 		elif len(entities_right) == 0:
-			print "here"
-			return self.query_links_by_left_entities(entities_left, type_b, relation_type, num_edges, num_pps)
+			result = self.query_links_by_left_entities(entities_left, type_b, relation_type, num_edges, num_pps)
+		nodes = [] 
+		if 'node_a' in result:
+			for node_name in result['node_a']:
+				node = dict()
+				node['name'] = node_name
+				node['articles'] = [] 
+				for article in result['node_a'][node_name]:
+					temp = dict()
+					temp['title'] = article[0]
+					temp['sent'] = article[1]
+					temp['pmid'] = article[2]
+					node['articles'].append(temp)
+				node['group'] = 1
+				nodes.append(node)
+		if 'node_b' in result:
+			for node_name in result['node_b']:
+				node = dict()
+				node['name'] = node_name
+				node['articles'] = [] 
+				for article in result['node_b'][node_name]:
+					temp = dict()
+					temp['title'] = article[0]
+					temp['sent'] = article[1]
+					temp['pmid'] = article[2]
+					node['articles'].append(temp)
+				node['group'] = 2 
+				nodes.append(node)
 
+		return json.dumps({'edges': result['edge'], 'nodes': nodes})
+ 
 	def query_links(self, type_a, type_b, relation_type, num_edges=5, num_pps=1):
 		#type_a={'mesh':0, 'name':"Chemicals_and_Drugs"}
 		try:
@@ -630,7 +651,7 @@ if __name__ == '__main__':
 			tmp_utils = data_utils({'entity_table': sys.argv[3], 'relation_table': sys.argv[4]})
 			result = tmp_utils.query_links_v2(type_a=sys.argv[5], type_b=sys.argv[6], relation_type=sys.argv[7], entities_left=sys.argv[8], entities_right=sys.argv[9], num_edges=sys.argv[10], num_pps=int(sys.argv[11]))
 			tock = time.time()
-			# print result
+			print result
 			print "time cost = ", (tock - tick)
 		elif sys.argv[2] == 'connected_network':
 			tmp_utils = data_utils({'entity_table': sys.argv[3], 'relation_table': sys.argv[4]})
