@@ -291,6 +291,23 @@ class data_utils(object):
 		category_json = json.dumps(category_entity)
 		outputfile.write(str(category_json))
 		outputfile.close()
+
+	def get_relations(self, type_a, type_b, entities_left = [], entities_right = []):
+		try:
+			entities_left = ast.literal_eval(entities_left)
+			entities_right = ast.literal_eval(entities_right)
+		except:
+			pass
+
+		query_string = "SELECT distinct relation_type, entity_a, entity_b FROM relation_table_slim WHERE type_a_mesh @> '{" + type_a.replace("'", "''") + "}' AND type_b_mesh @> '{\
+		" + type_b.replace("'", "''") + "}'"
+		q = self.db.query(query_string)
+		relations = q.dictresult()
+		result = set()
+		for relation in relations:
+			if (not entities_left or (relation['entity_a'] in entities_left)) and ((not entities_right) or (relation['entity_b'] in entities_right)):
+				result.add(relation['relation_type'])	 
+		return json.dumps(list(result))
 	
 	def query_links_by_two_sides_entities(self, entities_left, entities_right, relation_type, num_edges=5, num_pps=1):
 		query_a = []
@@ -508,12 +525,16 @@ class data_utils(object):
 		except:
 			pass
 		if len(entities_left) > 0 and len(entities_right) > 0:
+			print "two sides"
 			result = self.query_links_by_two_sides_entities(entities_left, entities_right, relation_type, num_edges, num_pps)
 		elif len(entities_left) == 0 and len(entities_right) == 0:	 
+			print "categories"
 			result = self.query_links_by_categories(type_a, type_b, relation_type, num_edges, num_pps)
 		elif len(entities_left) == 0:
+			print "right"
 			result = self.query_links_by_right_entities(type_a, entities_right, relation_type, num_edges, num_pps)
 		elif len(entities_right) == 0:
+			print "left"
 			result = self.query_links_by_left_entities(entities_left, type_b, relation_type, num_edges, num_pps)
 		nodes = [] 
 		if 'node_a' in result:
@@ -643,15 +664,18 @@ if __name__ == '__main__':
 				result = tmp_utils.query_links(type_a={'name':'mesh', 'type':"{" + left_entities[i] + "}"}, type_b={'name':'mesh', 'type':"{" + right_entities[i] + "}"}, relation_type=relations[i], num_edges=20, num_pps=10)
 				# print result
 				print "time cost = ", (time.time() - tick) 
-		elif sys.argv[2] == 'category_entity':
+		elif sys.argv[2] == 'get_category_entites':
 			tmp_utils = data_utils({'entity_table': 'entity_table', 'relation_table': 'relation_table'})
 			tmp_utils.get_category_entities()
+		elif sys.argv[2] == 'relations':
+			tmp_utils = data_utils({'entity_table': 'entity_table', 'relation_table': 'relation_table'})
+			result = tmp_utils.get_relations(type_a=sys.argv[3], type_b=sys.argv[4], entities_left=sys.argv[5], entities_right=sys.argv[6])
 		elif sys.argv[2] == 'network':
 			tick = time.time()
 			tmp_utils = data_utils({'entity_table': sys.argv[3], 'relation_table': sys.argv[4]})
 			result = tmp_utils.query_links_v2(type_a=sys.argv[5], type_b=sys.argv[6], relation_type=sys.argv[7], entities_left=sys.argv[8], entities_right=sys.argv[9], num_edges=sys.argv[10], num_pps=int(sys.argv[11]))
 			tock = time.time()
-			print result
+			# print result
 			print "time cost = ", (tock - tick)
 		elif sys.argv[2] == 'connected_network':
 			tmp_utils = data_utils({'entity_table': sys.argv[3], 'relation_table': sys.argv[4]})
