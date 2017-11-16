@@ -541,29 +541,29 @@ class data_utils(object):
 			for node_name in result['node_a']:
 				node = dict()
 				node['name'] = node_name
-				node['articles'] = [] 
+				node['sents'] = [] 
 				for article in result['node_a'][node_name]:
 					temp = dict()
-					temp['title'] = article[0]
+					temp['artitle_title'] = article[0]
 					temp['sent'] = article[1]
 					temp['pmid'] = article[2]
-					node['articles'].append(temp)
+					node['sents'].append(temp)
 				node['group'] = 1
 				nodes.append(node)
 		if 'node_b' in result:
 			for node_name in result['node_b']:
 				node = dict()
 				node['name'] = node_name
-				node['articles'] = [] 
+				node['sents'] = [] 
 				for article in result['node_b'][node_name]:
 					temp = dict()
-					temp['title'] = article[0]
+					temp['artitle_title'] = article[0]
 					temp['sent'] = article[1]
 					temp['pmid'] = article[2]
-					node['articles'].append(temp)
+					node['sents'].append(temp)
 				node['group'] = 2 
 				nodes.append(node)
-
+		print json.dumps({'edges': result['edge'], 'nodes': nodes})
 		return json.dumps({'edges': result['edge'], 'nodes': nodes})
  
 	def query_links(self, type_a, type_b, relation_type, num_edges=5, num_pps=1):
