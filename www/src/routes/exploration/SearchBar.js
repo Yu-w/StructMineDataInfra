@@ -11,10 +11,9 @@ import { Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle } from 'material-
 import TreeView from './TreeView';
 import { StringUtils } from './../utils';
 import EntityChipInput from './EntityChipInput';
+import { NetworkExplorationAPI } from './../apiService';
 
 export default class SearchBar extends React.PureComponent {
-
-  _dataSource = ['Yo', 'Yoo', 'This is Awesome', 'Example', 'Wow', 'More', 'And More'];
 
   constructor(props) {
     super(props);
@@ -58,6 +57,15 @@ export default class SearchBar extends React.PureComponent {
       activeStep = 3;
     } else if (leftCategory && rightCategory) {
       activeStep = 2;
+
+      const {
+        leftCategory,
+        rightCategory,
+        leftEntities,
+        rightEntities,
+      } = this.state;
+      NetworkExplorationAPI.getRelationships(leftCategory, rightCategory, leftEntities, rightEntities);
+
     } else if (leftCategory) {
       activeStep = 1;
     }
@@ -86,7 +94,6 @@ export default class SearchBar extends React.PureComponent {
             onChange={(leftEntities) => this.setState(leftEntities)}
             height={barHeight}
             category={leftCategory}
-            dataSource={this._dataSource}
             disabled={!leftCategory}
             onChipEditing={(onChipEditing) => this.setState({onChipEditing})}
           />
@@ -99,7 +106,6 @@ export default class SearchBar extends React.PureComponent {
           <EntityChipInput
             onChange={(rightEntities) => this.setState(rightEntities)}
             height={barHeight}
-            dataSource={this._dataSource}
             disabled={!rightCategory}
             onChipEditing={(onChipEditing) => this.setState({onChipEditing})}
           />
@@ -113,7 +119,7 @@ export default class SearchBar extends React.PureComponent {
             animation={PopoverAnimationVertical}
           >
             <Menu>
-              {this._dataSource.map(x => (<MenuItem primaryText={x}/>))}
+              {['ha', 'yo'].map(x => (<MenuItem primaryText={x} key={x}/>))}
             </Menu>
           </Popover>
           <RaisedButton

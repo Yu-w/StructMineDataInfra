@@ -5,6 +5,7 @@ import sizeMe from 'react-sizeme'
 const d3 = require('d3');
 
 import lesMisJSON from './les-miserables.json';
+import graphData from './graphSampleData.json';
 
 class VisualizationGraph extends React.Component {
 
@@ -21,6 +22,13 @@ class VisualizationGraph extends React.Component {
     } = this.state;
     const { width } = this.props.size;
     const scale = d3.scaleOrdinal(d3.schemeCategory20);
+
+    let nodes = []
+    nodes = nodes.concat(Object.keys(graphData['node_a']).map(x => { return { id: x, group: 0 } }));
+    nodes = nodes.concat(Object.keys(graphData['node_b']).map(x => { return { id: x, group: 1 } }));
+
+    const edges = graphData['edge'].map(x => { return { source: x.source, target: x.target, value: x.sents.length } })
+    console.log(edges)
 
     return (
       <InteractiveForceGraph
@@ -41,14 +49,14 @@ class VisualizationGraph extends React.Component {
         onSelectNode={(event, node) => console.log(node)}
         onDeselectNode={(event, node) => console.log(node)}
       >
-        {lesMisJSON.nodes.map(node => (
+        {nodes.map(node => (
           <ForceGraphNode
             key={node.id}
             fill={scale(node.group)}
             node={{ ...node, radius: 8 }}
           />
         ))}
-        {lesMisJSON.links.map(link => (
+        {edges.map(link => (
           <ForceGraphLink
             key={`${link.source}=>${link.target}`}
             onMouseEnter={() => this.setState({hoveredLink: link})}
