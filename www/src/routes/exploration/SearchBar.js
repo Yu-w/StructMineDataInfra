@@ -13,6 +13,8 @@ import { StringUtils } from './../utils';
 import EntityChipInput from './EntityChipInput';
 import { NetworkExplorationAPI } from './../apiService';
 
+import entityMap from './entityData.json';
+
 export default class SearchBar extends React.PureComponent {
 
   constructor(props) {
@@ -90,25 +92,32 @@ export default class SearchBar extends React.PureComponent {
             label={this.state.leftCategory || StringUtils.trimLength('Left Entity Category')}
             onSelection={this.handleLeftTreeViewSelect}
           />
-          <EntityChipInput
-            onChange={(leftEntities) => this.setState(leftEntities)}
-            height={barHeight}
-            category={leftCategory}
-            disabled={!leftCategory}
-            onChipEditing={(onChipEditing) => this.setState({onChipEditing})}
-          />
+          {entityMap[leftCategory]
+            ? <EntityChipInput
+              onChange={(leftEntities) => this.setState(leftEntities)}
+              height={barHeight}
+              category={leftCategory}
+              dataSource={entityMap[leftCategory]}
+              disabled={!leftCategory}
+              onChipEditing={(onChipEditing) => this.setState({onChipEditing})}
+              />
+            : null}
         </ToolbarGroup>
         <ToolbarGroup>
           <TreeView
             label={this.state.rightCategory || StringUtils.trimLength('Right Entity Category')}
             onSelection={this.handleRightTreeViewSelect}
           />
-          <EntityChipInput
-            onChange={(rightEntities) => this.setState(rightEntities)}
-            height={barHeight}
-            disabled={!rightCategory}
-            onChipEditing={(onChipEditing) => this.setState({onChipEditing})}
-          />
+          {entityMap[rightCategory]
+            ? <EntityChipInput
+              onChange={(rightEntities) => this.setState(rightEntities)}
+              height={barHeight}
+              category={rightCategory}
+              dataSource={entityMap[rightCategory]}
+              disabled={!rightCategory}
+              onChipEditing={(onChipEditing) => this.setState({onChipEditing})}
+              />
+            : null}
         </ToolbarGroup>
         <ToolbarGroup>
           <ToolbarSeparator style={{marginLeft: 0}} />

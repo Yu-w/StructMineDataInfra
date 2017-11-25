@@ -25,16 +25,12 @@ export default class SearchBar extends React.PureComponent {
     }
   }
 
-  dataSource = () => {
-    return entityMap[this.props.category] || [];
-  }
-
   handleChipChange = () => {
     this.props.onChange(this.state.entityChips);
   }
 
   handleChipAddRequest = (chip) => {
-    if (this.dataSource().indexOf(chip) >= 0) {
+    if (this.props.dataSource.indexOf(chip) >= 0) {
       this.setState({entityChips: this.state.entityChips.concat([chip])}, this.handleChipChange);
     } else {
       this.setState({openSnackbar: true})
@@ -66,7 +62,7 @@ export default class SearchBar extends React.PureComponent {
   }
 
   handleSampleButton = () => {
-    const shuffled = this.dataSource().sort(() => .5 - Math.random()).slice(0, 8);
+    const shuffled = this.props.dataSource.sort(() => .5 - Math.random()).slice(0, 8);
     this.setState({ entityChips: shuffled })
   }
 
@@ -97,7 +93,7 @@ export default class SearchBar extends React.PureComponent {
       }}>
         <ChipInput
           value={entityChips}
-          dataSource={this.dataSource()}
+          dataSource={this.props.dataSource}
           onFocus={this.handleChipInputFocus}
           onClose={this.handleAutocompleteOnClose}
           onBlur={this.handleChipInputBlur}
