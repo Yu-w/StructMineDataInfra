@@ -5,31 +5,42 @@ import sizeMe from 'react-sizeme'
 const d3 = require('d3');
 
 import lesMisJSON from './les-miserables.json';
-import graphData from './graphSampleData.json';
+
+import { NetworkExplorationAPI } from './../apiService';
+
 
 class VisualizationGraph extends React.Component {
 
   constructor(props) {
     super(props)
     this.state = {
-      hoveredLink: null,
+      hoveredEdge: null,
+      nodes: [],
+      edges: [],
     }
   }
 
+  componentDidMount() {
+    NetworkExplorationAPI.getGraphSearch('Chromosomes', 'Diseases', null, null, 'cytogenetic_abnormality_involves_chromosome')
+    .then (data => {
+      this.setState({
+        nodes: data.nodes,
+        edges: data.edges,
+      });
+    })
+  }
+
   render() {
-    const {
-      hoveredLink
+    let {
+      hoveredEdge,
+      nodes,
+      edges,
     } = this.state;
     const { width } = this.props.size;
     const scale = d3.scaleOrdinal(d3.schemeCategory20);
 
-    let nodes = []
-    nodes = nodes.concat(Object.keys(graphData['node_a']).map(x => { return { id: x, group: 0 } }));
-    nodes = nodes.concat(Object.keys(graphData['node_b']).map(x => { return { id: x, group: 1 } }));
-
-    const edges = graphData['edge'].map(x => { return { source: x.source, target: x.target, value: x.sents.length } })
-    console.log(edges)
-
+    nodes = nodes.map( x => Object.assign({}, x, {id: x.name}))
+    console.log(nodes);
     return (
       <InteractiveForceGraph
         zoom
@@ -56,14 +67,14 @@ class VisualizationGraph extends React.Component {
             node={{ ...node, radius: 8 }}
           />
         ))}
-        {edges.map(link => (
+        {edges.map(edge => (
           <ForceGraphLink
-            key={`${link.source}=>${link.target}`}
-            onMouseEnter={() => this.setState({hoveredLink: link})}
-            onMouseLeave={() => this.setState({hoveredLink: null})}
-            link={{ ...link, value: hoveredLink === link ? 12 : 1 }}
-            strokeWidth={!hoveredLink ? 2 : null}
-            onClick={_ => console.log(link)}
+            key={`${edge.source}=>${edge.target}`}
+            onMouseEnter={() => this.setState({ hoveredEdge: edge })}
+            onMouseLeave={() => this.setState({ hoveredEdge: null })}
+            link={{ ...edge, value: hoveredEdge === edge ? 12 : 1 }}
+            strokeWidth={!hoveredEdge ? 2 : null}
+            onClick={_ => console.log(edge)}
           />
         ))}
       </InteractiveForceGraph>

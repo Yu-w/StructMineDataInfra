@@ -39,28 +39,28 @@ const urlWithParams = (url, params) => {
 }
 
 NetworkExplorationAPI.getRelationships = (categoryLeft, categoryRight, entitiesLeft, entitiesRight) => {
-  fetch(
+  return fetch(
     urlWithParams('/network_exploration/get_relations', {
       type_a: categoryLeft,
       type_b: categoryRight,
       entities_left: entitiesLeft,
       entities_right: entitiesRight,
     })
-  ).then(x => console.log(x));
+  ).then(response => response.json())
 }
 
 NetworkExplorationAPI.getGraphSearch = (categoryLeft, categoryRight, entitiesLeft, entitiesRight, relationship) => {
-  fetch(
+  return fetch(
     urlWithParams('/network_exploration', {
       type_a: categoryLeft,
       type_b: categoryRight,
-      entities_left: entitiesLeft,
-      entities_right: entitiesRight,
+      entities_left: entitiesLeft || [],
+      entities_right: entitiesRight || [],
       relation_type: relationship,
       number_of_edges: 20,
       number_of_papers: 5,
     })
-  ).then(x => console.log(x));
+  ).then(response => response.json())
 }
 
 export {

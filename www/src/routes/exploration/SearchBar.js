@@ -27,7 +27,7 @@ export default class SearchBar extends React.PureComponent {
       openRelationshipMenu: false,
       barHeight: 64,
       activeStep: 0,
-      relationship: null,
+      relations: [],
     };
   }
 
@@ -66,7 +66,8 @@ export default class SearchBar extends React.PureComponent {
         leftEntities,
         rightEntities,
       } = this.state;
-      NetworkExplorationAPI.getRelationships(leftCategory, rightCategory, leftEntities, rightEntities);
+      NetworkExplorationAPI.getRelationships(leftCategory, rightCategory, leftEntities, rightEntities)
+      .then(data => console.log(data))
 
     } else if (leftCategory) {
       activeStep = 1;
@@ -134,6 +135,7 @@ export default class SearchBar extends React.PureComponent {
           <RaisedButton
             label="Relationship"
             labelPosition="before"
+            disabled={!relations || relations === []}
             icon={<NavigationExpandMoreIcon style={{width:16, height: 16}}/>}
             onClick={this.handleRelationshipMenuTapped}
             style={{marginLeft: 16, marginRight: 16}}
