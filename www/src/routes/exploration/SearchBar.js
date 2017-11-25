@@ -48,7 +48,6 @@ export default class SearchBar extends React.PureComponent {
     this.setState({
       openRelationshipMenu: true,
       relationshipMenuAnchorEl: event.currentTarget,
-      relationship: 'yo',
     }, this.updateActiveStep);
   }
 
@@ -67,7 +66,7 @@ export default class SearchBar extends React.PureComponent {
         rightEntities,
       } = this.state;
       NetworkExplorationAPI.getRelationships(leftCategory, rightCategory, leftEntities, rightEntities)
-      .then(data => console.log(data))
+      .then(data => this.setState({ relations: data.relations || [] }))
 
     } else if (leftCategory) {
       activeStep = 1;
@@ -84,7 +83,9 @@ export default class SearchBar extends React.PureComponent {
       rightChips,
       onChipEditing,
       onRightChipInput,
+      relations
     } = this.state;
+    console.log(relations)
     const barHeight = !onChipEditing ? 64 : 108;
     return (
       <Toolbar style={{...this.props.style, height: barHeight, borderRadius: 16}}>
@@ -129,20 +130,20 @@ export default class SearchBar extends React.PureComponent {
             animation={PopoverAnimationVertical}
           >
             <Menu>
-              {['ha', 'yo'].map(x => (<MenuItem primaryText={x} key={x}/>))}
+              {relations.map(x => (<MenuItem primaryText={x} key={x}/>))}
             </Menu>
           </Popover>
           <RaisedButton
             label="Relationship"
             labelPosition="before"
-            disabled={!relations || relations === []}
+            disabled={relations && relations.length <= 0}
             icon={<NavigationExpandMoreIcon style={{width:16, height: 16}}/>}
             onClick={this.handleRelationshipMenuTapped}
             style={{marginLeft: 16, marginRight: 16}}
           />
           <FloatingActionButton
             mini={true}
-            disabled={!this.state.leftCategory || !this.state.rightCategory}
+            disabled={!leftCategory || !rightCategory || !relations.length}
               >
                 <ActionSearchIcon />
               </FloatingActionButton>
