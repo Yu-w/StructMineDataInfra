@@ -134,10 +134,10 @@ sample_data_2 = [
 sample_query_id = -1
 
 
-all_types = marshal.load(open("./data/all_types.m","rb"))
-for k in all_types.keys():
-    # convert list to set for faster check
-    all_types[k] = set(all_types[k])
+# all_types = marshal.load(open("./data/all_types.m","rb"))
+# for k in all_types.keys():
+#     # convert list to set for faster check
+#     all_types[k] = set(all_types[k])
 if FLAGS_DEBUG:
     print("[INFO] Complete loading marshal !!!")
 
@@ -146,17 +146,17 @@ def check_types(element):
     :param element: a string
     :return: one of "umls", "mesh", "relation", "none"
     """
-    global all_types
-    element_type = "none"
-    for k in all_types.keys():
-        if element in all_types[k]:
-            element_type = k
-            break
-    return element_type
+    # global all_types
+    # element_type = "none"
+    # for k in all_types.keys():
+    #     if element in all_types[k]:
+    #         element_type = k
+    #         break
+    # return element_type
+    return "mesh" 
 
 def seg_long_sent(sent, entity):
     '''
-
     :param sent: a string
     :param entity: a string
     :return:
@@ -184,6 +184,29 @@ cached_json_and_relation = []
 
 app = Flask(__name__)
 
+@app.route('/network_exploration/get_relations', methods=['GET', 'POST'])
+def get_relations():
+    type_a = request.args.get('type_a')
+    type_b = request.args.get('type_b')
+    if 'entities_left' in request.args:
+        entities_left = request.args.get('entities_left')
+    else:
+        entities_left = []
+    if 'entities_right' in request.args:
+        entities_right = request.args.get('entities_right')
+    else:
+        entities_right = []	
+   
+    tmp_utils = data_utils({'entity_table': 'entity_table', 'relation_table': 'relation_table'})
+    res = tmp_utils.get_relations(type_a=type_a, type_b=type_b, entities_left=entities_left, entities_right=entities_right)
+    response = app.response_class(
+        response=json.dumps(res, ensure_ascii = False),
+        status=200,
+        mimetype='application/json'
+    )
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response 
+
 @app.route('/network_exploration', methods=['GET','POST'])
 def network_exploration():
     '''
@@ -195,17 +218,27 @@ def network_exploration():
     # global cached_previous_json_network, cached_relation
     global cached_json_and_relation, sample_query_id
 
-    arg1 = request.args.get('argument1')
-    arg2 = request.args.get('argument2')
-    relation = request.args.get('relation')
-    number_of_edges = request.args.get('number_of_edges')
-    number_of_papers = request.args.get('number_of_papers')
-    if not number_of_edges:
-        number_of_edges = 5
-    if not number_of_papers:
-        number_of_papers = 5
-
-    print("Parameters in http requestion: ", arg1, arg2, relation, number_of_edges, number_of_papers)
+    type_a = request.args.get('type_a')
+    type_b = request.args.get('type_b')
+    relation_type = request.args.get('relation_type')
+    if 'entities_left' in request.args:
+	entities_left = request.args.get('entities_left')
+    else:
+	entities_left = []
+    if 'entities_right' in request.args:
+	entities_right = request.args.get('entities_right')
+    else:
+	entities_right = []
+    if 'num_edges' in request.args:
+    	num_edges = request.args.get('num_edges')
+    else:
+	num_edges = 5
+    if 'num_pps' in request.args:
+	num_pps = request.args.get('num_pps')
+    else:
+	num_pps = 1
+    
+    print("Parameters in http request: ", type_a, type_a, relation_type, entities_left, entities_right, num_edges, num_pps)
 
     '''
     Following the query format from @bran
@@ -218,7 +251,7 @@ def network_exploration():
     if FLAGS_DEBUG:
         print("[INFO] Start querying DB")
     tmp_utils = data_utils({'entity_table': 'entity_table', 'relation_table': 'relation_table'})
-
+    '''
     arg1_type = check_types(arg1)
     arg2_type = check_types(arg2)
     relation_type = check_types(relation)
@@ -233,15 +266,13 @@ def network_exploration():
         )
         response.headers.add('Access-Control-Allow-Origin', '*')
         return response
-
-    type_a = str({'name':arg1_type, 'type':("{"+arg1+"}") })
-    type_b = str({'name':arg2_type, 'type':("{"+arg2+"}") })
-
-    relation_type = relation
+    '''
+    type_a = str({'name':'mesh', 'type':("{"+type_a+"}") })
+    type_b = str({'name':'mesh', 'type':("{"+type_b+"}") })
 
     if sample_query_id == -1:
-        res = tmp_utils.query_links(type_a=type_a, type_b=type_b, relation_type=relation_type,
-                                num_edges=number_of_edges, num_pps=int(number_of_papers))
+        res = tmp_utils.query_links_v2(type_a=type_a, type_b=type_b, relation_type=relation_type, entities_left=entities_left, entities_right=entities_right,
+                                num_edges=int(num_edges), num_pps=int(num_pps))
     else:
         print("[INFO] load from dump query: ", sample_query_id)
         res = marshal.load(open("./data/dumped-query/"+str(sample_query_id)+".m","rb"))
@@ -252,17 +283,15 @@ def network_exploration():
     #                             num_edges=number_of_edges, num_pps=number_of_papers)
     if FLAGS_DEBUG:
         print("[INFO] Complete querying DB")
-
-    if (len(res['node_a']) == 0 and len(res['node_b']) == 0 and len(res['edge']) == 0):
+    if (len(res['nodes']) == 0 and len(res['edges']) == 0):
         ## SQL returns empty, return the corresponding placeholder
         response = app.response_class(
-            response=json.dumps(empty_result_query_data, ensure_ascii = False),
+            response=json.dumps({}, ensure_ascii = False),
             status=200,
             mimetype='application/json'
         )
         response.headers.add('Access-Control-Allow-Origin', '*')
         return response
-
 
     if FLAGS_SAVE_DATA:
         with open("./db_res.txt", "w") as fout:
@@ -271,7 +300,16 @@ def network_exploration():
         with open("./db_res.txt", "r") as fin:
             raw_data = fin.read().strip()
             res = eval(raw_data)
-
+    
+    response = app.response_class(
+        response=json.dumps(res, ensure_ascii = False),
+        # response=json.dumps(sample_data_2, ensure_ascii = False),
+        status=200,
+        mimetype='application/json'
+    )
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response 
+    '''
     if FLAGS_DEBUG:
         print("[INFO] Start formatting DB output results into JSON")
     json_data = []
@@ -410,7 +448,7 @@ def network_exploration():
     )
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
-
+    '''
 @app.route('/distinctive_summarization', methods=['GET','POST'])
 def distinctive_summarization():
     if FLAGS_DEBUG:
