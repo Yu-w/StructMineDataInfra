@@ -13,67 +13,20 @@ export default class SideBar extends React.Component {
       <div>
         <List>
           <Subheader>Entities</Subheader>
-          <ListItem
-            primaryText="Brunch this weekend?"
-            secondaryText={
-              <p>
-                <span style={{color: darkBlack}}>Brendan Lim</span> --
-                I&apos;ll be in your neighborhood doing errands this weekend. Do you want to grab brunch?
-              </p>
-            }
-            insetChildren={true}
-            secondaryTextLines={2}
-          />
-          <Divider inset={true} />
-          <ListItem
-            primaryText={
-              <p>Summer BBQ&nbsp;&nbsp;<span style={{color: lightBlack}}>4</span></p>
-            }
-            secondaryText={
-              <p>
-                <span style={{color: darkBlack}}>to me, Scott, Jennifer</span> --
-                Wish I could come, but I&apos;m out of town this weekend.
-              </p>
-            }
-            insetChildren={true}
-            secondaryTextLines={2}
-          />
-          <Divider inset={true} />
-          <ListItem
-            primaryText="Oui oui"
-            secondaryText={
-              <p>
-                <span style={{color: darkBlack}}>Grace Ng</span> --
-                Do you have Paris recommendations? Have you ever been?
-              </p>
-            }
-            insetChildren={true}
-            secondaryTextLines={2}
-          />
-          <Divider inset={true} />
-          <ListItem
-            primaryText="Birdthday gift"
-            secondaryText={
-              <p>
-                <span style={{color: darkBlack}}>Kerem Suer</span> --
-                Do you have any ideas what we can get Heidi for her birthday? How about a pony?
-              </p>
-            }
-            insetChildren={true}
-            secondaryTextLines={2}
-          />
-          <Divider inset={true} />
-          <ListItem
-            primaryText="Recipe to try"
-            secondaryText={
-              <p>
-                <span style={{color: darkBlack}}>Raquel Parrado</span> --
-                We should eat this: grated squash. Corn and tomatillo tacos.
-              </p>
-            }
-            insetChildren={true}
-            secondaryTextLines={2}
-          />
+          {this.props.articles.map(article =>
+            <ListItem
+              key={article.pmid}
+              primaryText={article.title}
+              secondaryText={
+                <p>
+                  <span style={{color: darkBlack}}>{article.pmid}</span> --
+                  {article.subtitle}
+                </p>
+              }
+              insetChildren={true}
+              secondaryTextLines={2}
+            />
+          )}
         </List>
       </div>
     );

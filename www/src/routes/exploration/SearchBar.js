@@ -34,6 +34,7 @@ export default class SearchBar extends React.PureComponent {
       activeStep: 0,
       relations: [],
       snackbarOpen: false,
+      snackbarMessage: '',
       showFullscreenLoader: false,
     };
   }
@@ -103,11 +104,17 @@ export default class SearchBar extends React.PureComponent {
       NetworkExplorationAPI.getRelationships(categoryLeft, categoryRight, entitiesLeft, entitiesRight)
       .then(data => {
         if (!data.relations || !data.relations.length) {
-          this.setState({ snackbarOpen: true });
+          this.setState({
+            snackbarOpen: true,
+            snackbarMessage: `No relation found between '${StringUtils.trimLength(categoryLeft)}' and '${StringUtils.trimLength(categoryRight)}'`
+          });
         } else {
           this.setState({ relations: data.relations || [] })
         }
-      }).catch(error => this.setState({ snackbarOpen: true }));
+      }).catch(error => this.setState({
+        snackbarOpen: true,
+        snackbarMessage: `[Server Error] ${error}`
+      }));
 
     } else if (categoryLeft) {
       activeStep = 1;
@@ -126,6 +133,8 @@ export default class SearchBar extends React.PureComponent {
       onRightChipInput,
       relations,
       selectedRelation,
+      snackbarOpen,
+      snackbarMessage,
       showFullscreenLoader,
     } = this.state;
 
@@ -191,8 +200,8 @@ export default class SearchBar extends React.PureComponent {
               style={{marginLeft: 16, marginRight: 16}}
             />
             <Snackbar
-              open={this.state.snackbarOpen}
-              message={`No relation found between '${StringUtils.trimLength(categoryLeft)}' and '${StringUtils.trimLength(categoryRight)}'`}
+              open={snackbarOpen}
+              message={snackbarMessage}
               autoHideDuration={3000}
               onRequestClose={() => this.setState({snackbarOpen: false})}
             />
