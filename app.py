@@ -186,8 +186,8 @@ app = Flask(__name__)
 
 @app.route('/network_exploration/get_relations', methods=['GET', 'POST'])
 def get_relations():
-    type_a = request.args.get('type_a')
-    type_b = request.args.get('type_b')
+    type_a = request.args.get('type_a').replace(' ', '_')
+    type_b = request.args.get('type_b').replace(' ', '_')
     if 'entities_left' in request.args:
         entities_left = request.args.get('entities_left')
     else:
@@ -218,8 +218,8 @@ def network_exploration():
     # global cached_previous_json_network, cached_relation
     global cached_json_and_relation, sample_query_id
 
-    type_a = request.args.get('type_a')
-    type_b = request.args.get('type_b')
+    type_a = request.args.get('type_a').replace(' ', '_')
+    type_b = request.args.get('type_b').replace(' ', '_')
     relation_type = request.args.get('relation_type')
     if 'entities_left' in request.args:
 	entities_left = request.args.get('entities_left')
