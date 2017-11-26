@@ -4,8 +4,6 @@ import { InteractiveForceGraph, ForceGraph, ForceGraphNode, ForceGraphLink } fro
 import sizeMe from 'react-sizeme'
 const d3 = require('d3');
 
-import lesMisJSON from './les-miserables.json';
-
 import { NetworkExplorationAPI } from './../apiService';
 
 
