@@ -17,7 +17,6 @@ class Graph extends React.Component {
       edges,
     } = this.props.data;
 
-
     const articles = nodes
       .filter(x => x.sents && x.sents.length)
       .map(x => x.sents[0])

@@ -6,7 +6,7 @@ import Subheader from 'material-ui/Subheader';
 import Avatar from 'material-ui/Avatar';
 import {grey400, darkBlack, lightBlack} from 'material-ui/styles/colors';
 
-export default class SideBar extends React.Component {
+class SideBar extends React.Component {
 
   render() {
     return (
@@ -32,3 +32,5 @@ export default class SideBar extends React.Component {
     );
   }
 }
+
+export default SideBar;
