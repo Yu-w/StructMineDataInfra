@@ -7,6 +7,7 @@ import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 
 import SearchBar from './../SearchBar';
+import SideBar from './SideBar';
 
 class Graph extends React.Component {
 
@@ -21,7 +22,7 @@ class Graph extends React.Component {
       <div className={s.root}>
         <div className={s.container} style={{marginRight: SIDE_BAR_WIDTH}}>
           <SearchBar
-            style={{marginTop: 8}}
+            style={{marginTop: 12}}
             {...this.props.query}
           />
           <VisualizationGraph
@@ -29,7 +30,8 @@ class Graph extends React.Component {
             edges={edges}
           />
           <Drawer width={SIDE_BAR_WIDTH} openSecondary={true} open={true} >
-            <AppBar title="Entities" />
+            <AppBar title="Graph Exploration"/>
+            <SideBar />
           </Drawer>
         </div>
       </div>

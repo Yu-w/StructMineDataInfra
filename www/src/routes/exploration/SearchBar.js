@@ -42,12 +42,19 @@ export default class SearchBar extends React.PureComponent {
     this.updateActiveStep();
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.categoryLeft !== this.state.categoryLeft
+      || prevState.categoryRight !== this.state.categoryRight) {
+      this.setState({relations: [], selectedRelation: null}, this.updateActiveStep)
+    }
+  }
+
   handleLeftTreeViewSelect = (label) => {
-    this.setState({categoryLeft: label, relations: [], selectedRelation: null}, this.updateActiveStep)
+    this.setState({categoryLeft: label})
   }
 
   handleRightTreeViewSelect = (label) => {
-    this.setState({categoryRight: label, relations: [], selectedRelation: null}, this.updateActiveStep)
+    this.setState({categoryRight: label})
   }
 
   handleRelationshipMenuTapped = (event) => {
