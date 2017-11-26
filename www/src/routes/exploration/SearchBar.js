@@ -21,10 +21,10 @@ export default class SearchBar extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      leftCategory: null,
-      rightCategory: null,
-      leftEntities: [],
-      rightEntities: [],
+      categoryLeft: null,
+      categoryRight: null,
+      entitiesLeft: [],
+      entitiesRight: [],
       openRelationshipMenu: false,
       barHeight: 64,
       activeStep: 0,
@@ -38,11 +38,11 @@ export default class SearchBar extends React.PureComponent {
   }
 
   handleLeftTreeViewSelect = (label) => {
-    this.setState({leftCategory: label, selectedRelation: null}, this.updateActiveStep)
+    this.setState({categoryLeft: label, selectedRelation: null}, this.updateActiveStep)
   }
 
   handleRightTreeViewSelect = (label) => {
-    this.setState({rightCategory: label, selectedRelation: null}, this.updateActiveStep)
+    this.setState({categoryRight: label, selectedRelation: null}, this.updateActiveStep)
   }
 
   handleRelationshipMenuTapped = (event) => {
@@ -56,19 +56,19 @@ export default class SearchBar extends React.PureComponent {
   handleSearchButtonTapped = (event) => {
     event.preventDefault();
     const {
-      leftCategory,
-      rightCategory,
-      leftEntities,
-      rightEntities,
+      categoryLeft,
+      categoryRight,
+      entitiesLeft,
+      entitiesRight,
       selectedRelation,
     } = this.state;
     history.push({
       pathname: '/exploration/graph',
       search: '?' + StringUtils.getQueryString({
-        leftCategory: leftCategory,
-        rightCategory: rightCategory,
-        leftEntities: leftEntities,
-        rightEntities: rightEntities,
+        categoryLeft: categoryLeft,
+        categoryRight: categoryRight,
+        entitiesLeft: entitiesLeft,
+        entitiesRight: entitiesRight,
         relation: selectedRelation,
       }),
     });
@@ -76,22 +76,22 @@ export default class SearchBar extends React.PureComponent {
 
   updateActiveStep = () => {
     let activeStep = 0;
-    const {leftCategory, rightCategory, selectedRelation} = this.state;
-    if (leftCategory && rightCategory && selectedRelation) {
+    const {categoryLeft, categoryRight, selectedRelation} = this.state;
+    if (categoryLeft && categoryRight && selectedRelation) {
       activeStep = 3;
-    } else if (leftCategory && rightCategory) {
+    } else if (categoryLeft && categoryRight) {
       activeStep = 2;
 
       const {
-        leftCategory,
-        rightCategory,
-        leftEntities,
-        rightEntities,
+        categoryLeft,
+        categoryRight,
+        entitiesLeft,
+        entitiesRight,
       } = this.state;
-      NetworkExplorationAPI.getRelationships(leftCategory, rightCategory, leftEntities, rightEntities)
+      NetworkExplorationAPI.getRelationships(categoryLeft, categoryRight, entitiesLeft, entitiesRight)
       .then(data => this.setState({ relations: data.relations || [] }))
 
-    } else if (leftCategory) {
+    } else if (categoryLeft) {
       activeStep = 1;
     }
     this.setState({activeStep: activeStep});
@@ -100,8 +100,8 @@ export default class SearchBar extends React.PureComponent {
 
   render() {
     const {
-      leftCategory,
-      rightCategory,
+      categoryLeft,
+      categoryRight,
       leftChips,
       rightChips,
       onChipEditing,
@@ -115,32 +115,32 @@ export default class SearchBar extends React.PureComponent {
       <Toolbar style={{...this.props.style, height: barHeight, borderRadius: 16}}>
         <ToolbarGroup style={{paddingLeft: 8}}>
           <TreeView
-            label={StringUtils.trimLength(this.state.leftCategory) || 'Left Entity Category'}
+            label={StringUtils.trimLength(this.state.categoryLeft) || 'Left Entity Category'}
             onSelection={this.handleLeftTreeViewSelect}
           />
-          {entityMap[leftCategory]
+          {entityMap[categoryLeft]
             ? <EntityChipInput
-              onChange={(leftEntities) => this.setState(leftEntities)}
+              onChange={(entitiesLeft) => this.setState(entitiesLeft)}
               height={barHeight}
-              category={leftCategory}
-              dataSource={entityMap[leftCategory]}
-              disabled={!leftCategory}
+              category={categoryLeft}
+              dataSource={entityMap[categoryLeft]}
+              disabled={!categoryLeft}
               onChipEditing={(onChipEditing) => this.setState({onChipEditing})}
               />
             : null}
         </ToolbarGroup>
         <ToolbarGroup>
           <TreeView
-            label={StringUtils.trimLength(this.state.rightCategory) || 'Right Entity Category'}
+            label={StringUtils.trimLength(this.state.categoryRight) || 'Right Entity Category'}
             onSelection={this.handleRightTreeViewSelect}
           />
-          {entityMap[rightCategory]
+          {entityMap[categoryRight]
             ? <EntityChipInput
-              onChange={(rightEntities) => this.setState(rightEntities)}
+              onChange={(entitiesRight) => this.setState(entitiesRight)}
               height={barHeight}
-              category={rightCategory}
-              dataSource={entityMap[rightCategory]}
-              disabled={!rightCategory}
+              category={categoryRight}
+              dataSource={entityMap[categoryRight]}
+              disabled={!categoryRight}
               onChipEditing={(onChipEditing) => this.setState({onChipEditing})}
               />
             : null}
@@ -172,7 +172,7 @@ export default class SearchBar extends React.PureComponent {
           />
           <FloatingActionButton
             mini={true}
-            disabled={!leftCategory || !rightCategory || !selectedRelation}
+            disabled={!categoryLeft || !categoryRight || !selectedRelation}
             onClick={this.handleSearchButtonTapped}
           >
             <ActionSearchIcon />

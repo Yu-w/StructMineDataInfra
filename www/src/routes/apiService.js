@@ -22,14 +22,14 @@ NetworkExplorationAPI.getRelationships = (categoryLeft, categoryRight, entitiesL
   ).then(response => response.json())
 }
 
-NetworkExplorationAPI.getGraphSearch = (categoryLeft, categoryRight, entitiesLeft, entitiesRight, relationship) => {
+NetworkExplorationAPI.getGraphSearch = (categoryLeft, categoryRight, entitiesLeft, entitiesRight, relation) => {
   return fetch(
     urlWithParams('/network_exploration', {
       type_a: categoryLeft,
       type_b: categoryRight,
       entities_left: entitiesLeft || [],
       entities_right: entitiesRight || [],
-      relation_type: relationship,
+      relation_type: relation,
       number_of_edges: 20,
       number_of_papers: 5,
     })
