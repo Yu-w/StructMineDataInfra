@@ -1,4 +1,4 @@
-[
+module.exports.listItems = [
 {
 "title": "",
 "depth": 0,
@@ -9392,4 +9392,4 @@
 "title": "Oceans and Seas",
 "depth": 3,
 "parentIndex": 1840
-}]
+}];

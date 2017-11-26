@@ -5,8 +5,6 @@ import ActionExploreIcon from 'material-ui/svg-icons/action/explore';
 import Tooltip from 'rc-tooltip';
 import Snackbar from 'material-ui/Snackbar';
 
-import entityMap from './entityData.json';
-
 export default class SearchBar extends React.PureComponent {
 
   constructor(props) {

@@ -7,7 +7,7 @@ import NavigationExpandMoreIcon from 'material-ui/svg-icons/navigation/expand-mo
 import Popover, {PopoverAnimationVertical} from 'material-ui/Popover';
 import Dialog from 'material-ui/Dialog';
 
-import listItems from './categoryData.json'
+const listItems = require('./CategoryData').listItems;
 
 class TreeView extends Component {
   constructor(props) {

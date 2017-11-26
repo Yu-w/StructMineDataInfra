@@ -17,7 +17,7 @@ import EntityChipInput from './EntityChipInput';
 import { NetworkExplorationAPI } from './../apiService';
 import history from './../../history';
 
-import entityMap from './entityData.json';
+const entityMap = require('./EntityData').entityMap;
 
 export default class SearchBar extends React.PureComponent {
 
