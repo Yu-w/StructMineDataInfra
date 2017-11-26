@@ -25,7 +25,6 @@ class VisualizationGraph extends React.Component {
     const scale = d3.scaleOrdinal(d3.schemeCategory20);
 
     nodes = nodes.map( x => Object.assign({}, x, {id: x.name}))
-    console.log(nodes);
     return (
       <InteractiveForceGraph
         zoom

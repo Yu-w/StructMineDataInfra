@@ -55,7 +55,23 @@ export default class SearchBar extends React.PureComponent {
 
   handleSearchButtonTapped = (event) => {
     event.preventDefault();
-    history.push('/exploration/graph');
+    const {
+      leftCategory,
+      rightCategory,
+      leftEntities,
+      rightEntities,
+      selectedRelation,
+    } = this.state;
+    history.push({
+      pathname: '/exploration/graph',
+      search: '?' + StringUtils.getQueryString({
+        leftCategory: leftCategory,
+        rightCategory: rightCategory,
+        leftEntities: leftEntities,
+        rightEntities: rightEntities,
+        relation: selectedRelation,
+      }),
+    });
   }
 
   updateActiveStep = () => {

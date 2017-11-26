@@ -1,11 +1,6 @@
 const baseAddress = 'http://192.17.58.208:8010';
 
-function getQueryString(params) {
-  var esc = encodeURIComponent;
-  return Object.keys(params)
-    .map(k => esc(k) + '=' + esc(params[k]))
-    .join('&');
-}
+import { StringUtils } from './utils';
 
 function NetworkExplorationAPI() {}
 
@@ -13,7 +8,7 @@ const urlWithParams = (url, params) => {
   // const resUrl = new URL(baseAddress + url)
   // Object.keys(params).forEach(key => resUrl.searchParams.append(key, params[key]))
   // return resUrl;
-  return baseAddress + url + '?' + getQueryString(params);
+  return baseAddress + url + '?' + StringUtils.getQueryString(params);
 }
 
 NetworkExplorationAPI.getRelationships = (categoryLeft, categoryRight, entitiesLeft, entitiesRight) => {

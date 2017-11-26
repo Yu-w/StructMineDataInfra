@@ -11,6 +11,13 @@ StringUtils.trimLength = (string) => {
   }
 }
 
+StringUtils.getQueryString = (params) => {
+  var esc = encodeURIComponent;
+  return Object.keys(params)
+    .map(k => esc(k) + '=' + esc(params[k]))
+    .join('&');
+}
+
 
 export {
   StringUtils
