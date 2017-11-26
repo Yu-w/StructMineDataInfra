@@ -307,7 +307,7 @@ class data_utils(object):
 		for relation in relations:
 			if (not entities_left or (relation['entity_a'] in entities_left)) and ((not entities_right) or (relation['entity_b'] in entities_right)):
 				result.add(relation['relation_type'])	 
-		return json.dumps(list(result))
+		return {'relations' : list(result)}
 	
 	def query_links_by_two_sides_entities(self, entities_left, entities_right, relation_type, num_edges=5, num_pps=1):
 		query_a = []
