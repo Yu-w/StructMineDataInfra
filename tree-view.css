@@ -1,0 +1,31 @@
+.tree-list-enter {
+	animation-name: tree-list-enter;
+	animation-duration: 0.3s;
+	animation-fill-mode: forwards;
+  transform: translateZ(0);
+}
+.tree-list-leave {
+	animation-name: tree-list-leave;
+	animation-duration: 0.2s;
+	animation-fill-mode: forwards;
+}
+@keyframes tree-list-enter {
+	0% {
+		height: 0px;
+		opacity: 0.01;
+	}
+	100% {
+		height: 32px;
+		opacity: 1;
+	}
+}
+@keyframes tree-list-leave {
+	0% {
+		height: 32px;
+		opacity: 1;
+	}
+	100% {
+		height: 0px;
+		opacity: 0.01;
+	}
+}
