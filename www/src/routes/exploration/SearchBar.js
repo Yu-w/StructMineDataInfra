@@ -12,6 +12,7 @@ import TreeView from './TreeView';
 import { StringUtils } from './../utils';
 import EntityChipInput from './EntityChipInput';
 import { NetworkExplorationAPI } from './../apiService';
+import history from './../../history';
 
 import entityMap from './entityData.json';
 
@@ -50,6 +51,11 @@ export default class SearchBar extends React.PureComponent {
       openRelationshipMenu: true,
       relationshipMenuAnchorEl: event.currentTarget,
     });
+  }
+
+  handleSearchButtonTapped = (event) => {
+    event.preventDefault();
+    history.push('/exploration/graph');
   }
 
   updateActiveStep = () => {
@@ -151,6 +157,7 @@ export default class SearchBar extends React.PureComponent {
           <FloatingActionButton
             mini={true}
             disabled={!leftCategory || !rightCategory || !selectedRelation}
+            onClick={this.handleSearchButtonTapped}
           >
             <ActionSearchIcon />
           </FloatingActionButton>
