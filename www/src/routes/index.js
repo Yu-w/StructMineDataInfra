@@ -15,6 +15,10 @@ const routes = {
       load: () => import(/* webpackChunkName: 'exploration' */ './exploration'),
     },
     {
+      path: '/exploration/graph',
+      load: () => import(/* webpackChunkName: 'exploration/graph' */ './exploration/graph'),
+    },
+    {
       path: '/summarization',
       load: () => import(/* webpackChunkName: 'summarization' */ './summarization'),
     },
