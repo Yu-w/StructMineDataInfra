@@ -4,36 +4,23 @@ import { InteractiveForceGraph, ForceGraph, ForceGraphNode, ForceGraphLink } fro
 import sizeMe from 'react-sizeme'
 const d3 = require('d3');
 
-import { NetworkExplorationAPI } from './../apiService';
-
-
 class VisualizationGraph extends React.Component {
 
   constructor(props) {
     super(props)
     this.state = {
       hoveredEdge: null,
-      nodes: [],
-      edges: [],
     }
   }
 
-  componentDidMount() {
-    NetworkExplorationAPI.getGraphSearch('Chromosomes', 'Diseases', null, null, 'cytogenetic_abnormality_involves_chromosome')
-    .then (data => {
-      this.setState({
-        nodes: data.nodes,
-        edges: data.edges,
-      });
-    })
-  }
-
   render() {
-    let {
+    const {
       hoveredEdge,
+    } = this.state;
+    let {
       nodes,
       edges,
-    } = this.state;
+    } = this.props;
     const { width } = this.props.size;
     const scale = d3.scaleOrdinal(d3.schemeCategory20);
 
