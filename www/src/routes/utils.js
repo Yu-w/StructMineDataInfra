@@ -1,8 +1,9 @@
 function StringUtils() {}
 
-const stringLengthLimit = 22;
+const stringLengthLimit = 32;
 
 StringUtils.trimLength = (string) => {
+  if (!string) return null;
   if (string.length > stringLengthLimit) {
     return string.substring(0, stringLengthLimit - 2) + '...';
   } else {

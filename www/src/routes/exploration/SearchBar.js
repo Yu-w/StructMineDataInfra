@@ -37,11 +37,11 @@ export default class SearchBar extends React.PureComponent {
   }
 
   handleLeftTreeViewSelect = (label) => {
-    this.setState({leftCategory: StringUtils.trimLength(label)}, this.updateActiveStep)
+    this.setState({leftCategory: label, selectedRelation: null}, this.updateActiveStep)
   }
 
   handleRightTreeViewSelect = (label) => {
-    this.setState({rightCategory: StringUtils.trimLength(label)}, this.updateActiveStep)
+    this.setState({rightCategory: label, selectedRelation: null}, this.updateActiveStep)
   }
 
   handleRelationshipMenuTapped = (event) => {
@@ -49,13 +49,13 @@ export default class SearchBar extends React.PureComponent {
     this.setState({
       openRelationshipMenu: true,
       relationshipMenuAnchorEl: event.currentTarget,
-    }, this.updateActiveStep);
+    });
   }
 
   updateActiveStep = () => {
     let activeStep = 0;
-    const {leftCategory, rightCategory, relationship} = this.state;
-    if (leftCategory && rightCategory && relationship) {
+    const {leftCategory, rightCategory, selectedRelation} = this.state;
+    if (leftCategory && rightCategory && selectedRelation) {
       activeStep = 3;
     } else if (leftCategory && rightCategory) {
       activeStep = 2;
@@ -93,7 +93,7 @@ export default class SearchBar extends React.PureComponent {
       <Toolbar style={{...this.props.style, height: barHeight, borderRadius: 16}}>
         <ToolbarGroup style={{paddingLeft: 8}}>
           <TreeView
-            label={this.state.leftCategory || StringUtils.trimLength('Left Entity Category')}
+            label={StringUtils.trimLength(this.state.leftCategory) || 'Left Entity Category'}
             onSelection={this.handleLeftTreeViewSelect}
           />
           {entityMap[leftCategory]
@@ -109,7 +109,7 @@ export default class SearchBar extends React.PureComponent {
         </ToolbarGroup>
         <ToolbarGroup>
           <TreeView
-            label={this.state.rightCategory || StringUtils.trimLength('Right Entity Category')}
+            label={StringUtils.trimLength(this.state.rightCategory) || 'Right Entity Category'}
             onSelection={this.handleRightTreeViewSelect}
           />
           {entityMap[rightCategory]
@@ -136,12 +136,12 @@ export default class SearchBar extends React.PureComponent {
                 <MenuItem
                   primaryText={x}
                   key={x}
-                  onClick={() => this.setState({selectedRelation: x, openRelationshipMenu: false})}
+                  onClick={() => this.setState({selectedRelation: x, openRelationshipMenu: false}, this.updateActiveStep)}
                 />)}
             </Menu>
           </Popover>
           <RaisedButton
-            label={selectedRelation || 'Relationship'}
+            label={StringUtils.trimLength(selectedRelation) || 'Relationship'}
             labelPosition="before"
             disabled={relations && relations.length <= 0}
             icon={<NavigationExpandMoreIcon style={{width:16, height: 16}}/>}
@@ -151,10 +151,10 @@ export default class SearchBar extends React.PureComponent {
           <FloatingActionButton
             mini={true}
             disabled={!leftCategory || !rightCategory || !selectedRelation}
-              >
-                <ActionSearchIcon />
-              </FloatingActionButton>
-            </ToolbarGroup>
+          >
+            <ActionSearchIcon />
+          </FloatingActionButton>
+        </ToolbarGroup>
           </Toolbar>
         );
       }
