@@ -564,7 +564,7 @@ class data_utils(object):
 				node['group'] = 2 
 				nodes.append(node)
 		print json.dumps({'edges': result['edge'], 'nodes': nodes})
-		return json.dumps({'edges': result['edge'], 'nodes': nodes})
+		return {'edges': result['edge'], 'nodes': nodes}
  
 	def query_links(self, type_a, type_b, relation_type, num_edges=5, num_pps=1):
 		#type_a={'mesh':0, 'name':"Chemicals_and_Drugs"}
