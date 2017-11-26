@@ -6,6 +6,7 @@ import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
+import Snackbar from 'material-ui/Snackbar';
 import Popover, {PopoverAnimationVertical} from 'material-ui/Popover';
 import { Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle } from 'material-ui/Toolbar';
 import TreeView from './TreeView';
@@ -30,6 +31,7 @@ export default class SearchBar extends React.PureComponent {
       activeStep: 0,
       relations: [],
       selectedRelation: null,
+      snackbarOpen: false,
     };
   }
 
@@ -81,7 +83,6 @@ export default class SearchBar extends React.PureComponent {
       activeStep = 3;
     } else if (categoryLeft && categoryRight) {
       activeStep = 2;
-
       const {
         categoryLeft,
         categoryRight,
@@ -89,7 +90,13 @@ export default class SearchBar extends React.PureComponent {
         entitiesRight,
       } = this.state;
       NetworkExplorationAPI.getRelationships(categoryLeft, categoryRight, entitiesLeft, entitiesRight)
-      .then(data => this.setState({ relations: data.relations || [] }))
+      .then(data => {
+        if (!data.relations || !data.relations.length) {
+          this.setState({ snackbarOpen: true });
+        } else {
+          this.setState({ relations: data.relations || [] })
+        }
+      }).catch(error => this.setState({ snackbarOpen: true }));
 
     } else if (categoryLeft) {
       activeStep = 1;
@@ -170,6 +177,12 @@ export default class SearchBar extends React.PureComponent {
             onClick={this.handleRelationshipMenuTapped}
             style={{marginLeft: 16, marginRight: 16}}
           />
+          <Snackbar
+            open={this.state.snackbarOpen}
+            message={`No relation found between '${StringUtils.trimLength(categoryLeft)}' and '${StringUtils.trimLength(categoryRight)}'`}
+            autoHideDuration={3000}
+            onRequestClose={() => this.setState({snackbarOpen: false})}
+          />
           <FloatingActionButton
             mini={true}
             disabled={!categoryLeft || !categoryRight || !selectedRelation}
@@ -178,7 +191,7 @@ export default class SearchBar extends React.PureComponent {
             <ActionSearchIcon />
           </FloatingActionButton>
         </ToolbarGroup>
-          </Toolbar>
+      </Toolbar>
         );
       }
     }
