@@ -5,6 +5,7 @@ import NavigationExpandMoreIcon from 'material-ui/svg-icons/navigation/expand-mo
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
+import CircularProgress from 'material-ui/CircularProgress';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import Snackbar from 'material-ui/Snackbar';
 import Popover, {PopoverAnimationVertical} from 'material-ui/Popover';
@@ -12,6 +13,7 @@ import { Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle } from 'material-
 import TreeView from './TreeView';
 import { StringUtils } from './../utils';
 import EntityChipInput from './EntityChipInput';
+
 import { NetworkExplorationAPI } from './../apiService';
 import history from './../../history';
 
@@ -32,6 +34,7 @@ export default class SearchBar extends React.PureComponent {
       relations: [],
       selectedRelation: null,
       snackbarOpen: false,
+      showFullscreenLoader: false,
     };
   }
 
@@ -40,11 +43,11 @@ export default class SearchBar extends React.PureComponent {
   }
 
   handleLeftTreeViewSelect = (label) => {
-    this.setState({categoryLeft: label, selectedRelation: null}, this.updateActiveStep)
+    this.setState({categoryLeft: label, relations: [], selectedRelation: null}, this.updateActiveStep)
   }
 
   handleRightTreeViewSelect = (label) => {
-    this.setState({categoryRight: label, selectedRelation: null}, this.updateActiveStep)
+    this.setState({categoryRight: label, relations: [], selectedRelation: null}, this.updateActiveStep)
   }
 
   handleRelationshipMenuTapped = (event) => {
@@ -64,6 +67,7 @@ export default class SearchBar extends React.PureComponent {
       entitiesRight,
       selectedRelation,
     } = this.state;
+    this.setState({showFullscreenLoader: true});
     history.push({
       pathname: '/exploration/graph',
       search: '?' + StringUtils.getQueryString({
@@ -102,7 +106,7 @@ export default class SearchBar extends React.PureComponent {
       activeStep = 1;
     }
     this.setState({activeStep: activeStep});
-    this.props.onActiveStepChange(activeStep);
+    this.props.onActiveStepChange && this.props.onActiveStepChange(activeStep);
   }
 
   render() {
@@ -115,83 +119,106 @@ export default class SearchBar extends React.PureComponent {
       onRightChipInput,
       relations,
       selectedRelation,
+      showFullscreenLoader,
     } = this.state;
 
     const barHeight = !onChipEditing ? 64 : 108;
     return (
-      <Toolbar style={{...this.props.style, height: barHeight, borderRadius: 16}}>
-        <ToolbarGroup style={{paddingLeft: 8}}>
-          <TreeView
-            label={StringUtils.trimLength(this.state.categoryLeft) || 'Left Entity Category'}
-            onSelection={this.handleLeftTreeViewSelect}
-          />
-          {entityMap[categoryLeft]
-            ? <EntityChipInput
-              onChange={(entitiesLeft) => this.setState(entitiesLeft)}
-              height={barHeight}
-              category={categoryLeft}
-              dataSource={entityMap[categoryLeft]}
-              disabled={!categoryLeft}
-              onChipEditing={(onChipEditing) => this.setState({onChipEditing})}
-              />
-            : null}
-        </ToolbarGroup>
-        <ToolbarGroup>
-          <TreeView
-            label={StringUtils.trimLength(this.state.categoryRight) || 'Right Entity Category'}
-            onSelection={this.handleRightTreeViewSelect}
-          />
-          {entityMap[categoryRight]
-            ? <EntityChipInput
-              onChange={(entitiesRight) => this.setState(entitiesRight)}
-              height={barHeight}
-              category={categoryRight}
-              dataSource={entityMap[categoryRight]}
-              disabled={!categoryRight}
-              onChipEditing={(onChipEditing) => this.setState({onChipEditing})}
-              />
-            : null}
-        </ToolbarGroup>
-        <ToolbarGroup>
-          <ToolbarSeparator style={{marginLeft: 0}} />
-          <Popover
-            open={this.state.openRelationshipMenu}
-            anchorEl={this.state.relationshipMenuAnchorEl}
-            onRequestClose={() => this.setState({openRelationshipMenu: false})}
-            animation={PopoverAnimationVertical}
-          >
-            <Menu>
-              {relations.map(x =>
-                <MenuItem
-                  primaryText={x}
-                  key={x}
-                  onClick={() => this.setState({selectedRelation: x, openRelationshipMenu: false}, this.updateActiveStep)}
-                />)}
-            </Menu>
-          </Popover>
-          <RaisedButton
-            label={StringUtils.trimLength(selectedRelation) || 'Relationship'}
-            labelPosition="before"
-            disabled={relations && relations.length <= 0}
-            icon={<NavigationExpandMoreIcon style={{width:16, height: 16}}/>}
-            onClick={this.handleRelationshipMenuTapped}
-            style={{marginLeft: 16, marginRight: 16}}
-          />
-          <Snackbar
-            open={this.state.snackbarOpen}
-            message={`No relation found between '${StringUtils.trimLength(categoryLeft)}' and '${StringUtils.trimLength(categoryRight)}'`}
-            autoHideDuration={3000}
-            onRequestClose={() => this.setState({snackbarOpen: false})}
-          />
-          <FloatingActionButton
-            mini={true}
-            disabled={!categoryLeft || !categoryRight || !selectedRelation}
-            onClick={this.handleSearchButtonTapped}
-          >
-            <ActionSearchIcon />
-          </FloatingActionButton>
-        </ToolbarGroup>
-      </Toolbar>
-        );
-      }
+      <div>
+        <Toolbar style={{...this.props.style, height: barHeight, borderRadius: 16}}>
+          <ToolbarGroup style={{paddingLeft: 8}}>
+            <TreeView
+              label={StringUtils.trimLength(this.state.categoryLeft) || 'Left Entity Category'}
+              onSelection={this.handleLeftTreeViewSelect}
+            />
+            {entityMap[categoryLeft]
+              ? <EntityChipInput
+                onChange={(entitiesLeft) => this.setState(entitiesLeft)}
+                height={barHeight}
+                category={categoryLeft}
+                dataSource={entityMap[categoryLeft]}
+                disabled={!categoryLeft}
+                onChipEditing={(onChipEditing) => this.setState({onChipEditing})}
+                />
+              : null}
+          </ToolbarGroup>
+          <ToolbarGroup>
+            <TreeView
+              label={StringUtils.trimLength(this.state.categoryRight) || 'Right Entity Category'}
+              onSelection={this.handleRightTreeViewSelect}
+            />
+            {entityMap[categoryRight]
+              ? <EntityChipInput
+                onChange={(entitiesRight) => this.setState(entitiesRight)}
+                height={barHeight}
+                category={categoryRight}
+                dataSource={entityMap[categoryRight]}
+                disabled={!categoryRight}
+                onChipEditing={(onChipEditing) => this.setState({onChipEditing})}
+                />
+              : null}
+          </ToolbarGroup>
+          <ToolbarGroup>
+            <ToolbarSeparator style={{marginLeft: 0}} />
+            <Popover
+              open={this.state.openRelationshipMenu}
+              anchorEl={this.state.relationshipMenuAnchorEl}
+              onRequestClose={() => this.setState({openRelationshipMenu: false})}
+              animation={PopoverAnimationVertical}
+            >
+              <Menu>
+                {relations.map(x =>
+                  <MenuItem
+                    primaryText={x}
+                    key={x}
+                    onClick={() => this.setState({selectedRelation: x, openRelationshipMenu: false}, this.updateActiveStep)}
+                  />)}
+              </Menu>
+            </Popover>
+            <RaisedButton
+              label={StringUtils.trimLength(selectedRelation) || 'Relationship'}
+              labelPosition="before"
+              disabled={relations && relations.length <= 0}
+              icon={<NavigationExpandMoreIcon style={{width:16, height: 16}}/>}
+              onClick={this.handleRelationshipMenuTapped}
+              style={{marginLeft: 16, marginRight: 16}}
+            />
+            <Snackbar
+              open={this.state.snackbarOpen}
+              message={`No relation found between '${StringUtils.trimLength(categoryLeft)}' and '${StringUtils.trimLength(categoryRight)}'`}
+              autoHideDuration={3000}
+              onRequestClose={() => this.setState({snackbarOpen: false})}
+            />
+            <FloatingActionButton
+              mini={true}
+              disabled={!categoryLeft || !categoryRight || !selectedRelation}
+              onClick={this.handleSearchButtonTapped}
+            >
+              <ActionSearchIcon />
+            </FloatingActionButton>
+          </ToolbarGroup>
+        </Toolbar>
+        {showFullscreenLoader ? <CircularProgress size={80} thickness={5} style={styles.mainLoader}/> : null}
+      </div>
+    );
     }
+
+  }
+
+  const styles = {
+    mainLoader: {
+      flex: 0,
+      position: 'absolute',
+      paddingTop: '15%',
+      width: '100%',
+      height: '100%',
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0,
+      zIndex: 1000,
+      backgroundColor: '#000000',
+      opacity: 0.5,
+      textAlign: 'center',
+    }
+  }

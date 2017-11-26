@@ -13,6 +13,7 @@ class Graph extends React.Component {
       nodes,
       edges,
     } = this.props.data;
+
     const SIDE_BAR_WIDTH = 400;
     return (
       <div className={s.root}>
