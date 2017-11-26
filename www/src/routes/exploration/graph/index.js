@@ -19,7 +19,7 @@ async function action({ path, params, query }) {
     title: title,
     component: (
       <Layout title={title}>
-        <Graph data={data}/>
+        <Graph data={data} query={query}/>
       </Layout>
     ),
   };

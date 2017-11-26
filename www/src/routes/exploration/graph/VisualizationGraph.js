@@ -38,7 +38,7 @@ class VisualizationGraph extends React.Component {
         highlightDependencies
         simulationOptions={{
           animate: true,
-          height: 720,
+          height: 600,
           width: width,
         }}
         onSelectNode={(event, node) => console.log(node)}

@@ -24,15 +24,15 @@ export default class SearchBar extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      categoryLeft: null,
-      categoryRight: null,
-      entitiesLeft: [],
-      entitiesRight: [],
+      categoryLeft: props.categoryLeft,
+      categoryRight: props.categoryRight,
+      entitiesLeft: props.entitiesLeft || [],
+      entitiesRight: props.entitiesRight || [],
+      selectedRelation: props.relation,
       openRelationshipMenu: false,
       barHeight: 64,
       activeStep: 0,
       relations: [],
-      selectedRelation: null,
       snackbarOpen: false,
       showFullscreenLoader: false,
     };
@@ -178,7 +178,7 @@ export default class SearchBar extends React.PureComponent {
             <RaisedButton
               label={StringUtils.trimLength(selectedRelation) || 'Relationship'}
               labelPosition="before"
-              disabled={relations && relations.length <= 0}
+              disabled={(relations && !relations.length) && !selectedRelation}
               icon={<NavigationExpandMoreIcon style={{width:16, height: 16}}/>}
               onClick={this.handleRelationshipMenuTapped}
               style={{marginLeft: 16, marginRight: 16}}

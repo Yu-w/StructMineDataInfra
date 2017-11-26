@@ -22,6 +22,7 @@ class Graph extends React.Component {
         <div className={s.container} style={{marginRight: SIDE_BAR_WIDTH}}>
           <SearchBar
             style={{marginTop: 8}}
+            {...this.props.query}
           />
           <VisualizationGraph
             nodes={nodes}
