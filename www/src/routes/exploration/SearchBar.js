@@ -28,6 +28,7 @@ export default class SearchBar extends React.PureComponent {
       barHeight: 64,
       activeStep: 0,
       relations: [],
+      selectedRelation: null,
     };
   }
 
@@ -83,9 +84,10 @@ export default class SearchBar extends React.PureComponent {
       rightChips,
       onChipEditing,
       onRightChipInput,
-      relations
+      relations,
+      selectedRelation,
     } = this.state;
-    console.log(relations)
+
     const barHeight = !onChipEditing ? 64 : 108;
     return (
       <Toolbar style={{...this.props.style, height: barHeight, borderRadius: 16}}>
@@ -130,11 +132,16 @@ export default class SearchBar extends React.PureComponent {
             animation={PopoverAnimationVertical}
           >
             <Menu>
-              {relations.map(x => (<MenuItem primaryText={x} key={x}/>))}
+              {relations.map(x =>
+                <MenuItem
+                  primaryText={x}
+                  key={x}
+                  onClick={() => this.setState({selectedRelation: x, openRelationshipMenu: false})}
+                />)}
             </Menu>
           </Popover>
           <RaisedButton
-            label="Relationship"
+            label={selectedRelation || 'Relationship'}
             labelPosition="before"
             disabled={relations && relations.length <= 0}
             icon={<NavigationExpandMoreIcon style={{width:16, height: 16}}/>}
@@ -143,7 +150,7 @@ export default class SearchBar extends React.PureComponent {
           />
           <FloatingActionButton
             mini={true}
-            disabled={!leftCategory || !rightCategory || !relations.length}
+            disabled={!leftCategory || !rightCategory || !selectedRelation}
               >
                 <ActionSearchIcon />
               </FloatingActionButton>

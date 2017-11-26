@@ -32,20 +32,20 @@ class TreeView extends Component {
   }
 
   handleTreeViewTap(listItem, index) {
-    if (listItem.children) {
-      const indexOfListItemInArray = this.state.expandedListItems.indexOf(index)
-      if  (indexOfListItemInArray === -1) {
-        this.setState({
-          expandedListItems: this.state.expandedListItems.concat([index])
-        })
-      } else {
-        let newArray = [].concat(this.state.expandedListItems)
-        newArray.splice(indexOfListItemInArray, 1)
-        this.setState({
-          expandedListItems: newArray
-        })
-      }
-    } else {
+    // if (listItem.children) {
+    //   const indexOfListItemInArray = this.state.expandedListItems.indexOf(index)
+    //   if  (indexOfListItemInArray === -1) {
+    //     this.setState({
+    //       expandedListItems: this.state.expandedListItems.concat([index])
+    //     })
+    //   } else {
+    //     let newArray = [].concat(this.state.expandedListItems)
+    //     newArray.splice(indexOfListItemInArray, 1)
+    //     this.setState({
+    //       expandedListItems: newArray
+    //     })
+    //   }
+    // } else {
       this.setState({
         activeListItem: index
       }, () => {
@@ -53,7 +53,7 @@ class TreeView extends Component {
           this.props.onSelection(listItems[index].title)
         this.handleRequestClose();
       })
-    }
+    // }
   }
 
   handleTouchTapInSearchMode(listItem, index) {
