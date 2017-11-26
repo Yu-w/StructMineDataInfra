@@ -6,6 +6,8 @@ import VisualizationGraph from './VisualizationGraph';
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 
+import SearchBar from './../SearchBar';
+
 class Graph extends React.Component {
 
   render() {
@@ -18,6 +20,9 @@ class Graph extends React.Component {
     return (
       <div className={s.root}>
         <div className={s.container} style={{marginRight: SIDE_BAR_WIDTH}}>
+          <SearchBar
+            style={{marginTop: 8}}
+          />
           <VisualizationGraph
             nodes={nodes}
             edges={edges}
