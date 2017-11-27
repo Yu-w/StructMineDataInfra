@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'React'
+import React, {Component, PropTypes} from 'react'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import ListItem from 'material-ui/List/ListItem'
 import TextField from 'material-ui/TextField'

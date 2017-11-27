@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { MuiTreeList } from './../../UIComponents/MuiTreeList';
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -9,7 +9,7 @@ import Dialog from 'material-ui/Dialog';
 
 const listItems = require('./CategoryData').listItems;
 
-class TreeView extends Component {
+class TreeView extends React.Component {
   constructor(props) {
     super(props)
 
