@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import {TreeList} from 'react-treeview-mui'
 import FlatButton from 'material-ui/FlatButton';
 
 import withStyles from 'isomorphic-style-loader/lib/withStyles';

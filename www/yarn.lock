@@ -7473,10 +7473,6 @@ react-transition-group@^1.2.0, react-transition-group@^1.2.1:
     prop-types "^15.5.6"
     warning "^3.0.0"
 
-react-treeview-mui@^0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/react-treeview-mui/-/react-treeview-mui-0.1.2.tgz#0e60ff26a284265a74d5757d4d831f243b129b43"
-
 react-vis-force@^0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/react-vis-force/-/react-vis-force-0.3.1.tgz#c7bc96a4e872409f5d4c0fa93fe89c94554d47b7"

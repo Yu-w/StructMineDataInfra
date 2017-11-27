@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { MuiTreeList } from 'react-treeview-mui';
+import { MuiTreeList } from './../../UIComponents/MuiTreeList';
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 import NavigationExpandMoreIcon from 'material-ui/svg-icons/navigation/expand-more';
@@ -21,7 +21,7 @@ class TreeView extends Component {
       open: false,
     }
     this.handleSearch = this.handleSearch.bind(this)
-    this.handleTreeViewTap = this.handleTreeViewTap.bind(this)
+    this.handleTouchTap = this.handleTouchTap.bind(this)
     this.handleTouchTapInSearchMode = this.handleTouchTapInSearchMode.bind(this)
     this.handleButtonClick = this.handleButtonClick.bind(this)
     this.handleRequestClose = this.handleRequestClose.bind(this)
@@ -31,21 +31,8 @@ class TreeView extends Component {
     this.setState({searchTerm})
   }
 
-  handleTreeViewTap(listItem, index) {
-    // if (listItem.children) {
-    //   const indexOfListItemInArray = this.state.expandedListItems.indexOf(index)
-    //   if  (indexOfListItemInArray === -1) {
-    //     this.setState({
-    //       expandedListItems: this.state.expandedListItems.concat([index])
-    //     })
-    //   } else {
-    //     let newArray = [].concat(this.state.expandedListItems)
-    //     newArray.splice(indexOfListItemInArray, 1)
-    //     this.setState({
-    //       expandedListItems: newArray
-    //     })
-    //   }
-    // } else {
+  handleTouchTap(listItem, index, isRightIcon) {
+    if (isRightIcon) {
       this.setState({
         activeListItem: index
       }, () => {
@@ -53,12 +40,27 @@ class TreeView extends Component {
           this.props.onSelection(listItems[index].title)
         this.handleRequestClose();
       })
-    // }
+    }
+
+    if (listItem.children) {
+      const indexOfListItemInArray = this.state.expandedListItems.indexOf(index)
+      if  (indexOfListItemInArray === -1) {
+        this.setState({
+          expandedListItems: this.state.expandedListItems.concat([index])
+        })
+      } else {
+        let newArray = [].concat(this.state.expandedListItems)
+        newArray.splice(indexOfListItemInArray, 1)
+        this.setState({
+          expandedListItems: newArray
+        })
+      }
+    }
   }
 
   handleTouchTapInSearchMode(listItem, index) {
     if (!listItem.children) {
-      this.handleTreeViewTap(listItem, index);
+      this.handleTouchTap(listItem, index);
     }
   }
 
@@ -113,8 +115,7 @@ class TreeView extends Component {
             haveSearchbar={true}
             expandedListItems={expandedListItems}
             activeListItem={activeListItem}
-            handleTouchTap={this.handleTreeViewTap}
-            handleTouchTapInSearchMode={this.handleTouchTapInSearchMode}
+            handleTouchTap={this.handleTouchTap}
             handleSearch={this.handleSearch}
             searchTerm={searchTerm}>
           </MuiTreeList>
