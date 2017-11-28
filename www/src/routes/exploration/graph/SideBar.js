@@ -5,6 +5,7 @@ import Divider from 'material-ui/Divider';
 import Subheader from 'material-ui/Subheader';
 import Avatar from 'material-ui/Avatar';
 import {grey400, darkBlack, lightBlack} from 'material-ui/styles/colors';
+import history from './../../../history';
 
 class SideBar extends React.Component {
 
@@ -17,18 +18,20 @@ class SideBar extends React.Component {
             : <Subheader>Please select a node or edge to view corresponding articles</Subheader>
           }
           {this.props.articles.map(article =>
-            <ListItem
-              key={article.pmid}
-              primaryText={article.title}
-              secondaryText={
-                <p>
-                  <span style={{color: darkBlack}}>{article.pmid}</span> --
-                  {article.subtitle}
-                </p>
-              }
-              insetChildren={true}
-              secondaryTextLines={2}
-            />
+            <a href={'https://www.ncbi.nlm.nih.gov/pubmed/' + article.pmid}>
+              <ListItem
+                key={article.pmid}
+                primaryText={article.title}
+                secondaryText={
+                  <p>
+                    <span style={{color: darkBlack}}>{article.pmid}</span> --
+                    {article.subtitle}
+                  </p>
+                }
+                insetChildren={true}
+                secondaryTextLines={2}
+              />
+            </a>
           )}
         </List>
       </div>
