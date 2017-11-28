@@ -33,8 +33,8 @@ NetworkExplorationAPI.getGraphSearch = (categoryLeft, categoryRight, entitiesLef
     entities_left: entitiesLeft || [],
     entities_right: entitiesRight || [],
     relation_type: relation,
-    num_edges: 5,
-    num_pps: 1,
+    num_edges: 20,
+    num_pps: 5,
   });
   console.log(url);
   return fetch(url).then(response => response.json())
