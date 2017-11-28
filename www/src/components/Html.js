@@ -64,6 +64,9 @@ class Html extends React.Component {
         </head>
         <body>
           <div id="app" dangerouslySetInnerHTML={{ __html: children }} />
+          <div id="spinner" style={{ position: 'fixed', top: 0, right: 0, background: 'gold', display: 'none' }}>
+            Loading...
+          </div>
           <script
             dangerouslySetInnerHTML={{ __html: `window.App=${serialize(app)}` }}
           />

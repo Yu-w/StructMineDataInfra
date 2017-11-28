@@ -11,16 +11,44 @@ import SideBar from './SideBar';
 
 class Graph extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      articles: [],
+    }
+  }
+
+  onSelectNode = (event, node) => {
+    event.preventDefault();
+    const articles = node.sents.map(x => { return {title: x.artitle_title, subtitle: x.sent, pmid: x.pmid} })
+    this.setState({
+      articles: articles
+    })
+  }
+
+  onDeselectNode = (event, node) => {
+    event.preventDefault();
+    this.setState({
+      articles: []
+    })
+  }
+
+  onSelectEdge = (event, edge) => {
+    event.preventDefault();
+    const articles = edge.sents.map(x => { return {title: x.article_title, subtitle: x.sent, pmid: x.pmid} })
+    this.setState({
+      articles: articles
+    })
+  }
+
   render() {
     const{
       nodes,
       edges,
     } = this.props.data;
-
-    const articles = nodes
-      .filter(x => x.sents && x.sents.length)
-      .map(x => x.sents[0])
-      .map(x => { return {title: x.artitle_title, subtitle: x.sent, pmid: x.pmid} });
+    const {
+      articles
+    } = this.state;
 
     const SIDE_BAR_WIDTH = 400;
     return (
@@ -33,6 +61,9 @@ class Graph extends React.Component {
           <VisualizationGraph
             nodes={nodes}
             edges={edges}
+            onSelectNode={this.onSelectNode}
+            onDeselectNode={this.onDeselectNode}
+            onSelectEdge={this.onSelectEdge}
           />
           <Drawer width={SIDE_BAR_WIDTH} openSecondary={true} open={true} >
             <AppBar title="Graph Exploration" />

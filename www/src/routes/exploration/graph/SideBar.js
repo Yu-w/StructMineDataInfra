@@ -12,7 +12,10 @@ class SideBar extends React.Component {
     return (
       <div>
         <List>
-          <Subheader>Entities</Subheader>
+          {this.props.articles.length
+            ? <Subheader>Artities</Subheader>
+            : <Subheader>Please select a node or edge to view corresponding articles</Subheader>
+          }
           {this.props.articles.map(article =>
             <ListItem
               key={article.pmid}

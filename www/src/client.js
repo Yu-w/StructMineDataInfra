@@ -107,6 +107,7 @@ async function onLocationChange(location, action) {
   currentLocation = location;
 
   try {
+    document.getElementById('spinner').style.display = '';
     // Traverses the list of routes in the order they are defined until
     // it finds the first route that matches provided URL path string
     // and whose action method returns anything other than `undefined`.
@@ -133,6 +134,8 @@ async function onLocationChange(location, action) {
       container,
       () => onRenderComplete(route, location),
     );
+    
+    document.getElementById('spinner').style.display = 'none';
   } catch (error) {
     if (__DEV__) {
       throw error;

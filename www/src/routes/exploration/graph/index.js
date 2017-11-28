@@ -13,7 +13,7 @@ async function action({ path, params, query }) {
     query.entitiesRight,
     query.relation
   );
-
+  
   return {
     chunks: ['exploration/graph'],
     title: title,

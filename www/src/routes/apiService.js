@@ -11,6 +11,10 @@ const urlWithParams = (url, params) => {
   return baseAddress + url + '?' + StringUtils.getQueryString(params);
 }
 
+const header = new Headers({
+        'Access-Control-Allow-Origin':'*',
+});
+
 NetworkExplorationAPI.getRelationships = (categoryLeft, categoryRight, entitiesLeft, entitiesRight) => {
   const url = urlWithParams('/network_exploration/get_relations', {
     type_a: categoryLeft,
@@ -29,8 +33,8 @@ NetworkExplorationAPI.getGraphSearch = (categoryLeft, categoryRight, entitiesLef
     entities_left: entitiesLeft || [],
     entities_right: entitiesRight || [],
     relation_type: relation,
-    number_of_edges: 20,
-    number_of_papers: 5,
+    num_edges: 5,
+    num_pps: 1,
   });
   console.log(url);
   return fetch(url).then(response => response.json())
