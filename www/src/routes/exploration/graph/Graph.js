@@ -19,22 +19,22 @@ class Graph extends React.Component {
   }
 
   onSelectNode = (event, node) => {
-    event.preventDefault();
+    event.preventDefault()
     const articles = node.sents.map(x => { return {title: x.artitle_title, subtitle: x.sent, pmid: x.pmid} })
     this.setState({
       articles: articles
     })
   }
 
-  onDeselectNode = (event, node) => {
-    event.preventDefault();
+  onDeselect = (event) => {
+    event.preventDefault()
     this.setState({
       articles: []
     })
   }
 
   onSelectEdge = (event, edge) => {
-    event.preventDefault();
+    event.preventDefault()
     const articles = edge.sents.map(x => { return {title: x.article_title, subtitle: x.sent, pmid: x.pmid} })
     this.setState({
       articles: articles
@@ -42,10 +42,12 @@ class Graph extends React.Component {
   }
 
   render() {
-    const{
+    let {
       nodes,
       edges,
     } = this.props.data;
+    nodes = nodes.map(x => Object.assign({}, x, {id: x.name}));
+    edges = edges.map(x => Object.assign({}, x, {id: `${x.source}@${x.target}`}));
     const {
       articles
     } = this.state;
@@ -62,7 +64,7 @@ class Graph extends React.Component {
             nodes={nodes}
             edges={edges}
             onSelectNode={this.onSelectNode}
-            onDeselectNode={this.onDeselectNode}
+            onDeselect={this.onDeselect}
             onSelectEdge={this.onSelectEdge}
           />
           <Drawer width={SIDE_BAR_WIDTH} openSecondary={true} open={true} >
