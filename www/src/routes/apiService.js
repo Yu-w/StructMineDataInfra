@@ -1,6 +1,6 @@
 const baseAddress = 'http://192.17.58.208:8009';
 
-import { StringUtils } from './utils';
+import { StringUtils } from './Utils';
 
 function NetworkExplorationAPI() {}
 

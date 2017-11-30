@@ -5,17 +5,17 @@ import NavigationExpandMoreIcon from 'material-ui/svg-icons/navigation/expand-mo
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
-import CircularProgress from 'material-ui/CircularProgress';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import Snackbar from 'material-ui/Snackbar';
 import Popover, {PopoverAnimationVertical} from 'material-ui/Popover';
 import { Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle } from 'material-ui/Toolbar';
 import TreeView from './TreeView';
-import { StringUtils } from './../utils';
+import { StringUtils } from './../Utils';
 import EntityChipInput from './EntityChipInput';
 
-import { NetworkExplorationAPI } from './../apiService';
+import { NetworkExplorationAPI } from './../APIService';
 import history from './../../history';
+import UniversalLoaderManager from './../../components/Layout/UniversalLoaderManager';
 
 const entityMap = require('./EntityData').entityMap;
 
@@ -35,7 +35,6 @@ export default class SearchBar extends React.PureComponent {
       relations: [],
       snackbarOpen: false,
       snackbarMessage: '',
-      showFullscreenLoader: false,
     };
   }
 
@@ -75,7 +74,7 @@ export default class SearchBar extends React.PureComponent {
       entitiesRight,
       selectedRelation,
     } = this.state;
-    this.setState({showFullscreenLoader: true});
+    UniversalLoaderManager.startLoading();
     history.push({
       pathname: '/exploration/graph',
       search: '?' + StringUtils.getQueryString({
@@ -135,7 +134,6 @@ export default class SearchBar extends React.PureComponent {
       selectedRelation,
       snackbarOpen,
       snackbarMessage,
-      showFullscreenLoader,
     } = this.state;
 
     const barHeight = !onChipEditing ? 64 : 108;
@@ -214,27 +212,8 @@ export default class SearchBar extends React.PureComponent {
             </FloatingActionButton>
           </ToolbarGroup>
         </Toolbar>
-        {showFullscreenLoader ? <CircularProgress size={80} thickness={5} style={styles.mainLoader}/> : null}
       </div>
     );
     }
 
-  }
-
-  const styles = {
-    mainLoader: {
-      flex: 0,
-      position: 'absolute',
-      paddingTop: '15%',
-      width: '100%',
-      height: '100%',
-      top: 0,
-      right: 0,
-      bottom: 0,
-      left: 0,
-      zIndex: 1000,
-      backgroundColor: '#000000',
-      opacity: 0.5,
-      textAlign: 'center',
-    }
   }

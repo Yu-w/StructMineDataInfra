@@ -10,7 +10,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import UniversalLoaderManager from './UniversalLoaderManager';
 
 // external-global styles must be imported in your JS.
 import normalizeCss from 'normalize.css';
@@ -25,6 +26,10 @@ class Layout extends React.Component {
     title: PropTypes.string,
   };
 
+  componentDidMount() {
+    UniversalLoaderManager.connectComponent(this);
+  }
+
   render() {
     return (
       <MuiThemeProvider>
@@ -32,6 +37,7 @@ class Layout extends React.Component {
           {/* <Header title={this.props.title}/> */}
           {this.props.children}
           {/* <Footer /> */}
+          {UniversalLoaderManager.loaderComponent()}
         </div>
       </MuiThemeProvider>
     );

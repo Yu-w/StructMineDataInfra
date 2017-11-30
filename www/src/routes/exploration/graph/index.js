@@ -1,8 +1,9 @@
 import React from 'react';
 import Graph from './Graph';
 import Layout from '../../../components/Layout';
+import UniversalLoaderManager from '../../../components/Layout/UniversalLoaderManager';
 
-import { NetworkExplorationAPI } from './../../apiService';
+import { NetworkExplorationAPI } from './../../APIService';
 
 async function action({ path, params, query }) {
   const title = 'Nework Visualization Graph';
@@ -13,7 +14,7 @@ async function action({ path, params, query }) {
     query.entitiesRight,
     query.relation
   );
-  
+  UniversalLoaderManager.stopLoading();
   return {
     chunks: ['exploration/graph'],
     title: title,
