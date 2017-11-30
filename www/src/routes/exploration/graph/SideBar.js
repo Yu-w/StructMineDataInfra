@@ -18,7 +18,7 @@ class SideBar extends React.Component {
             : <Subheader>Please select a node or edge to view corresponding articles</Subheader>
           }
           {this.props.articles.map(article =>
-            <a href={'https://www.ncbi.nlm.nih.gov/pubmed/' + article.pmid}>
+            <a href={'https://www.ncbi.nlm.nih.gov/pubmed/' + article.pmid} target="_blank">
               <ListItem
                 key={article.pmid}
                 primaryText={article.title}
