@@ -186,16 +186,16 @@ app = Flask(__name__)
 
 @app.route('/network_exploration/get_relations', methods=['GET', 'POST'])
 def get_relations():
-    type_a = request.args.get('type_a').replace(' ', '_')
-    type_b = request.args.get('type_b').replace(' ', '_')
+    type_b = request.args.get('type_a').replace(' ', '_')
+    type_a = request.args.get('type_b').replace(' ', '_')
     if 'entities_left' in request.args:
-        entities_left = request.args.get('entities_left')
+        entities_right = request.args.get('entities_left')
     else:
-        entities_left = []
+        entities_right = []
     if 'entities_right' in request.args:
-        entities_right = request.args.get('entities_right')
+        entities_left = request.args.get('entities_right')
     else:
-        entities_right = []	
+        entities_left = []	
    
     tmp_utils = data_utils({'entity_table': 'entity_table', 'relation_table': 'relation_table'})
     res = tmp_utils.get_relations(type_a=type_a, type_b=type_b, entities_left=entities_left, entities_right=entities_right)
@@ -218,17 +218,18 @@ def network_exploration():
     # global cached_previous_json_network, cached_relation
     global cached_json_and_relation, sample_query_id
 
-    type_a = request.args.get('type_a').replace(' ', '_')
-    type_b = request.args.get('type_b').replace(' ', '_')
+    type_b = request.args.get('type_a').replace(' ', '_')
+    type_a = request.args.get('type_b').replace(' ', '_')
     relation_type = request.args.get('relation_type')
     if 'entities_left' in request.args:
-	entities_left = request.args.get('entities_left')
-    else:
-	entities_left = []
-    if 'entities_right' in request.args:
-	entities_right = request.args.get('entities_right')
+	entities_right = request.args.get('entities_left')
     else:
 	entities_right = []
+    if 'entities_right' in request.args:
+	entities_left = request.args.get('entities_right')
+    else:
+	entities_left = []
+    '''
     if 'num_edges' in request.args:
     	num_edges = request.args.get('num_edges')
     else:
@@ -237,7 +238,9 @@ def network_exploration():
 	num_pps = request.args.get('num_pps')
     else:
 	num_pps = 1
-    
+    '''
+    num_edges = 35
+    num_pps = 5 
     print("Parameters in http request: ", type_a, type_a, relation_type, entities_left, entities_right, num_edges, num_pps)
 
     '''
