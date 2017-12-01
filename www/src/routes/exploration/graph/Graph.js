@@ -20,7 +20,7 @@ class Graph extends React.Component {
 
   onSelectNode = (event, node) => {
     event.preventDefault()
-    const articles = node.sents.map(x => { return {title: x.artitle_title, subtitle: x.sent, pmid: x.pmid} })
+    const articles = node.sents.map(x => { return {title: x.artitle_title, subtitle: x.sent, pmid: x.pmid, highlights:[node.name]} })
     this.setState({
       articles: articles
     })

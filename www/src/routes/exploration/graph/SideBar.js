@@ -5,6 +5,7 @@ import Divider from 'material-ui/Divider';
 import Subheader from 'material-ui/Subheader';
 import Avatar from 'material-ui/Avatar';
 import {grey400, darkBlack, lightBlack} from 'material-ui/styles/colors';
+import Highlighter from 'react-highlight-words';
 import history from './../../../history';
 
 class SideBar extends React.Component {
@@ -24,8 +25,11 @@ class SideBar extends React.Component {
                 primaryText={article.title}
                 secondaryText={
                   <p>
-                    <span style={{color: darkBlack}}>{article.pmid}</span> --
-                    {article.subtitle}
+                    <Highlighter
+                      searchWords={article.highlights}
+                      autoEscape={true}
+                      textToHighlight={article.subtitle}
+                    />
                   </p>
                 }
                 insetChildren={true}
