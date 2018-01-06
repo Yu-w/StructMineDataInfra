@@ -15,9 +15,13 @@ if (process.env.BROWSER) {
   );
 }
 
+var port = process.env.PORT || 3000;
+var hostname = process.env.HOSTNAME || 'localhost';
+
 module.exports = {
   // Node.js app
-  port: process.env.PORT || 3000,
+  port,
+  hostname,
 
   // API Gateway
   api: {
@@ -26,7 +30,7 @@ module.exports = {
     // API URL to be used in the server-side code
     serverUrl:
       process.env.API_SERVER_URL ||
-      `http://localhost:${process.env.PORT || 3000}`,
+      `http://${hostname}:${port}`,
   },
 
   // Database
