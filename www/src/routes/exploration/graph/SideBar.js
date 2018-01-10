@@ -14,12 +14,9 @@ class SideBar extends React.Component {
     return (
       <div>
         <List>
-          {this.props.articles.length
-            ? <Subheader>Artities</Subheader>
-            : <Subheader>Please select a node or edge to view corresponding articles</Subheader>
-          }
+          <Subheader>{this.props.title}</Subheader>
           {this.props.articles.map(article =>
-            <a href={'https://www.ncbi.nlm.nih.gov/pubmed/' + article.pmid} target="_blank">
+            <a key={article.pmid + 'href'} href={'https://www.ncbi.nlm.nih.gov/pubmed/' + article.pmid} target="_blank">
               <ListItem
                 key={article.pmid}
                 primaryText={article.title}

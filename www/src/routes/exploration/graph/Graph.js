@@ -15,6 +15,7 @@ class Graph extends React.Component {
     super(props);
     this.state = {
       articles: [],
+      sideBarTitle: null,
     }
   }
 
@@ -22,23 +23,26 @@ class Graph extends React.Component {
     event.preventDefault()
     const articles = node.sents.map(x => { return {title: x.artitle_title, subtitle: x.sent, pmid: x.pmid, highlights:[node.name]} })
     this.setState({
-      articles: articles
-    })
+      articles: articles,
+      sideBarTitle: node.name,
+    });
   }
 
   onDeselect = (event) => {
     event.preventDefault()
     this.setState({
-      articles: []
-    })
+      articles: [],
+      sideBarTitle: null,
+    });
   }
 
   onSelectEdge = (event, edge) => {
     event.preventDefault()
-    const articles = edge.sents.map(x => { return {title: x.article_title, subtitle: x.sent, pmid: x.pmid} })
+    const articles = edge.sents.map(x => { return {title: x.article_title, subtitle: x.sent, pmid: x.pmid, highlights:[edge.name]} })
     this.setState({
-      articles: articles
-    })
+      articles: articles,
+      sideBarTitle: edge.name,
+    });
   }
 
   render() {
@@ -49,7 +53,8 @@ class Graph extends React.Component {
     nodes = nodes.map(x => Object.assign({}, x, {id: x.name}));
     edges = edges.map(x => Object.assign({}, x, {id: `${x.source}@${x.target}`}));
     const {
-      articles
+      articles,
+      sideBarTitle,
     } = this.state;
 
     const SIDE_BAR_WIDTH = 400;
@@ -69,7 +74,13 @@ class Graph extends React.Component {
           />
           <Drawer width={SIDE_BAR_WIDTH} openSecondary={true} open={true} >
             <AppBar title="Graph Exploration" />
-            <SideBar articles={articles} />
+            <SideBar
+              title={sideBarTitle
+                ? 'Articles about ' + sideBarTitle
+                : 'Please select a node or edge to view corresponding articles'
+              }
+              articles={articles}
+            />
           </Drawer>
         </div>
       </div>
