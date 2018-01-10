@@ -38,10 +38,10 @@ class Graph extends React.Component {
 
   onSelectEdge = (event, edge) => {
     event.preventDefault()
-    const articles = edge.sents.map(x => { return {title: x.article_title, subtitle: x.sent, pmid: x.pmid, highlights:[edge.name]} })
+    const articles = edge.sents.map(x => { return {title: x.article_title, subtitle: x.sent, pmid: x.pmid, highlights:[edge.source, edge.target]} })
     this.setState({
       articles: articles,
-      sideBarTitle: edge.name,
+      sideBarTitle: edge.source + ' and ' + edge.target,
     });
   }
 
