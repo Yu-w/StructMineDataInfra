@@ -1,12 +1,13 @@
 import React from 'react';
 
-import {List, ListItem} from 'material-ui/List';
+import { List, ListItem } from 'material-ui/List';
 import Divider from 'material-ui/Divider';
 import Subheader from 'material-ui/Subheader';
 import Avatar from 'material-ui/Avatar';
-import {grey400, darkBlack, lightBlack} from 'material-ui/styles/colors';
+import { grey400, darkBlack, lightBlack } from 'material-ui/styles/colors';
 import Highlighter from 'react-highlight-words';
 import history from './../../../history';
+import { StringUtils } from '../../Utils';
 
 class SideBar extends React.Component {
 
@@ -25,7 +26,7 @@ class SideBar extends React.Component {
                     <Highlighter
                       searchWords={article.highlights}
                       autoEscape={true}
-                      textToHighlight={article.subtitle}
+                      textToHighlight={StringUtils.trimStringWithHighlight(article.subtitle, article.highlights[0])}
                     />
                   </p>
                 }
